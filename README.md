@@ -18,7 +18,7 @@
 **⚠️ 重要提示**：当前软件仅支持 Android 操作系统，不支持 iOS。
 **🚫 年龄限制**：本应用包含大量成人内容，仅限 18 岁及以上用户使用。
 
-* 🔗 [点击前往发布页下载]
+* 🔗 [点击前往发布页下载](https://github.com/Silong-ResPool/gay/releases/tag/gay)
 
 ---
 
