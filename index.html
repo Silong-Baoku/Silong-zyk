@@ -1,6 +1,5 @@
 <html>
-<head></head>
-<body>
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="description" content="巳泷资源库 - 提供各类优质网络资源导航">
@@ -17,1970 +16,786 @@
 <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&amp;family=DM+Sans:wght@300;400;500;600&amp;display=swap" as="style" fetchpriority="high">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&amp;family=DM+Sans:wght@300;400;500;600&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" as="style" fetchpriority="high">
 <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" fetchpriority="high">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="all">
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&amp;family=DM+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&amp;family=DM+Sans:wght@300;400;500;600&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
 <style>
-/* ======================================== */
-/* CSS变量定义【如果打开网页，遇见这个页面就关闭观影模式】 */
-/* ======================================== */
+/* ═══════════════════════════════════════════════════════════════════
+   巳泷资源库 · 紫罗兰高级视觉体系 Premium Violet Design System v2.0
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── CSS架构变量 ── */
 :root {
---primary-deep: #231937;
---primary-color: #4c1d95;
---primary-bright: #9333ea;
---primary-glow: #c084fc;
---primary-light: #a78bfa;
---primary-wash: rgba(147, 51, 234, 0.08);
---secondary-color: #7c3aed;
---secondary-deep: #311b5e;
---accent-color: #22d3ee;
---accent-deep: #0891b2;
---accent-warm: #f472b6;
---accent-gold: #fbbf24;
---success-color: #34d399;
---warning-color: #fbbf24;
---error-color: #f87171;
---bg-deepest: #06041a;
---bg-deep: #0a0726;
---bg-mid: #100c30;
---bg-surface: #140e35;
---bg-card-purple: #231937;
---violet-900: #1a0d2e;
---violet-800: #231540;
---violet-700: #2d1b52;
---violet-600: #3b1f68;
---violet-500: #4c2090;
---violet-400: #6d28d9;
---violet-300: #8b5cf6;
---violet-200: #a78bfa;
---violet-100: #c4b5fd;
---violet-50: #ede9fe;
---bg-gradient: linear-gradient(160deg, #06041a 0%, #0d0828 25%, #140e35 50%, #1a1038 75%, #0f0a2a 100%);
---text-color: #f5f0ff;
---text-bright: #ffffff;
---text-muted: rgba(210, 195, 255, 0.55);
---text-dim: rgba(180, 165, 230, 0.4);
---text-font: 'DM Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
---display-font: 'Rajdhani', 'Segoe UI', system-ui, sans-serif;
---header-height: 68px;
---sidebar-width: 135px;
---transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
---transition-speed: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
---transition-bounce: 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
---transition-smooth: 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
---transition-out: 0.3s cubic-bezier(0.55, 0, 1, 0.45);
---radius-2xl: 28px;
---radius-xl: 24px;
---radius-lg: 18px;
---radius-md: 14px;
---radius-sm: 10px;
---radius-xs: 6px;
---bg-video-portrait: 'bj/bjsp1.mp4';
---bg-video-landscape: 'bj/bjsp2.mp4';
---hue-rotate: 0deg;
---global-opacity: 1;
---card-shine: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 35%, rgba(147,51,234,0.08) 70%, transparent 100%);
---card-shine-hover: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 35%, rgba(147,51,234,0.15) 65%, transparent 100%);
---glass-bg: rgba(30, 20, 50, 0.55);
---glass-bg-hover: rgba(40, 28, 65, 0.68);
---glass-border: rgba(147, 51, 234, 0.45);
---glass-border-hover: rgba(147, 51, 234, 0.70);
---glass-shadow: 0 8px 40px rgba(0,0,0,0.25);
---blur-amount: 0px;
---violet-glow: 0 0 20px rgba(147,51,234,0.4), 0 0 50px rgba(139,92,246,0.15);
---violet-glow-strong: 0 0 28px rgba(147,51,234,0.55), 0 0 64px rgba(139,92,246,0.22);
---neon-glow: 0 0 16px rgba(147,51,234,0.5), 0 0 36px rgba(147,51,234,0.2);
---neon-glow-accent: 0 0 14px rgba(34,211,238,0.4), 0 0 32px rgba(34,211,238,0.15);
---text-glow: 0 0 10px rgba(147,51,234,0.4);
---depth-shadow-sm: 0 2px 8px rgba(0,0,0,0.2), 0 0 0 1px rgba(147,51,234,0.08);
---depth-shadow-md: 0 8px 32px rgba(0,0,0,0.35), 0 0 0 1px rgba(147,51,234,0.12);
---depth-shadow-lg: 0 16px 56px rgba(0,0,0,0.45), 0 0 0 1px rgba(147,51,234,0.15);
-}
-
-/* ======================================== */
-/* 基础样式重置 */
-/* ======================================== */
-*,
-*::before,
-*::after {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-outline: none;
-}
-
-html {
-height: 100%;
-margin: 0;
-padding: 0;
-overflow: hidden;
-}
-
-body {
-font-family: var(--text-font);
-background: var(--bg-deepest);
-color: var(--text-color);
-width: 100vw;
-font-size: 15px;
-filter: hue-rotate(var(--hue-rotate));
-opacity: var(--global-opacity);
-touch-action: pan-y;
-height: 100%;
-overflow: hidden;
-margin: 0;
-padding: 0;
-position: relative;
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-text-rendering: optimizeLegibility;
-}
-
-body::before {
-content: '';
-position: fixed;
-inset: 0;
-background: radial-gradient(ellipse at 50% 0%, rgba(147,51,234,0.08) 0%, transparent 60%),
-radial-gradient(ellipse at 80% 20%, rgba(34,211,238,0.04) 0%, transparent 50%),
-radial-gradient(ellipse at 20% 80%, rgba(244,114,182,0.03) 0%, transparent 50%);
-pointer-events: none;
-z-index: 0;
-}
-
-/* ======================================== */
-/* 应用容器样式 */
-/* ======================================== */
-.app-container {
-position: relative;
-z-index: 1;
-}
-
-/* ======================================== */
-/* 视频背景样式 */
-/* ======================================== */
-.bg-video.active {
-opacity: 1 !important;
-display: block !important;
-}
-
-.bg-video {
-position: fixed;
-top: 0;
-left: 0;
-width: 100vw;
-height: 100vh;
-object-fit: cover;
-z-index: -1;
-opacity: 0;
-display: block;
-transition: opacity 1.5s ease-in-out;
-pointer-events: none;
-user-select: none;
--webkit-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-overflow: hidden;
--webkit-touch-callout: none;
--webkit-tap-highlight-color: transparent;
-}
-
-.bg-video.show-video {
-opacity: 1 !important;
-}
-
-.bg-video::-webkit-media-controls,
-.bg-video::-webkit-media-controls-panel,
-.bg-video::-webkit-media-controls-overlay-play-button,
-.bg-video::-webkit-media-controls-enclosure,
-.bg-video::-webkit-media-controls-panel-container,
-.bg-video::-webkit-media-controls-play-button,
-.bg-video::-webkit-media-controls-current-time-display,
-.bg-video::-webkit-media-controls-time-remaining-display,
-.bg-video::-webkit-media-controls-timeline,
-.bg-video::-webkit-media-controls-volume-slider,
-.bg-video::-webkit-media-controls-mute-button,
-.bg-video::-webkit-media-controls-toggle-closed-captions-button,
-.bg-video::-webkit-media-controls-fullscreen-button,
-.bg-video::-webkit-media-controls-seek-back-button,
-.bg-video::-webkit-media-controls-seek-forward-button,
-.bg-video::-webkit-media-controls-rewind-button,
-.bg-video::-webkit-media-controls-return-to-realtime-button,
-.bg-video::-webkit-media-controls-scrubber,
-.bg-video::-webkit-media-controls-timeline-container,
-.bg-video::-webkit-media-controls-start-playback-button,
-.bg-video::-webkit-media-controls-overlay-play-button {
-display: none !important;
-opacity: 0 !important;
-visibility: hidden !important;
-z-index: -9999 !important;
-pointer-events: none !important;
--webkit-appearance: none !important;
-appearance: none !important;
-}
-
-.bg-video::-webkit-media-text-track-display,
-.bg-video::-webkit-media-text-track-container,
-.bg-video::cue,
-.bg-video::shadow,
-.bg-video::part(media-controls),
-.bg-video::part(media-controls-panel),
-.bg-video::part(overlay-play-button) {
-display: none !important;
-opacity: 0 !important;
-visibility: hidden !important;
-z-index: -99999 !important;
-}
-
-.bg-video:-moz-full-screen,
-.bg-video::slotted(video) {
-pointer-events: none;
-}
-
-.bg-video::-moz-media-controls {
-display: none !important;
-}
-
-video[disablepictureinpicture]::-webkit-media-controls-picture-in-picture-button,
-video[disablepictureinpicture]::-internal-media-controls-picture-in-picture-button {
-display: none !important;
-opacity: 0 !important;
-visibility: hidden !important;
-pointer-events: none !important;
-}
-
-/* ======================================== */
-/* 背景图片层 - 始终显示在最底层兜底 */
-/* ======================================== */
-.bg-image-portrait,
-.bg-image-landscape {
-position: fixed;
-top: 0;
-left: 0;
-width: 100vw;
-height: 100vh;
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-z-index: -2;
-}
-
-.bg-image-portrait {
-background-image: url('bjt/bjt1.jpg');
-}
-
-.bg-image-landscape {
-background-image: url('bjt/zybjt2.jpg');
-}
-
-.bg-overlay {
-display: none !important;
-opacity: 0 !important;
-visibility: hidden !important;
-pointer-events: none !important;
-}
-
-.bg-video.active {
-opacity: 1 !important;
-display: block !important;
-}
-
-/* ======================================== */
-/* 竖屏和横屏样式 */
-/* ======================================== */
-@media (orientation: portrait) {
-#bgVideoPortrait { z-index: -1; }
-#bgVideoLandscape { z-index: -2; }
-.bg-image-portrait { z-index: -2; display: block; }
-.bg-image-landscape { z-index: -3; display: none; }
-}
-
-@media (orientation: landscape) {
-#bgVideoPortrait { z-index: -2; }
-#bgVideoLandscape { z-index: -1; }
-.bg-image-portrait { z-index: -3; display: none; }
-.bg-image-landscape { z-index: -2; display: block; }
-}
-
-/* ======================================== */
-/* 滚动条样式 */
-/* ======================================== */
-::-webkit-scrollbar {
-width: 6px;
-height: 6px;
-}
-
-::-webkit-scrollbar-track {
-background: rgba(26, 20, 46, 0.8);
-border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-background: rgba(124, 58, 237, 0.6);
-border-radius: 10px;
-transition: background 0.3s ease;
-}
-
-::-webkit-scrollbar-thumb:hover {
-background: rgba(160, 113, 255, 0.8);
-}
-
-/* ======================================== */
-/* CSS动画定义 */
-/* ======================================== */
-@keyframes spin {
-to {
-transform: rotate(360deg);
-}
-}
-
-@keyframes pulse-text {
-0%, 100% { opacity: 0.75; }
-50% { opacity: 1; }
-}
-
-@keyframes fadeInUp {
-from {
-opacity: 0;
-transform: translateY(30px);
-}
-to {
-opacity: 1;
-transform: translateY(0);
-}
-}
-
-@keyframes fadeIn {
-from {
-opacity: 0;
-}
-to {
-opacity: 1;
-}
-}
-
-@keyframes slideDown {
-from {
-opacity: 0;
-transform: translateY(-16px);
-}
-to {
-opacity: 1;
-transform: translateY(0);
-}
-}
-
-@keyframes pulse-glow {
-0%, 100% {
-box-shadow: 0 0 12px rgba(147,51,234,0.35), 0 0 24px rgba(139,92,246,0.1);
-}
-50% {
-box-shadow: 0 0 28px rgba(147,51,234,0.7), 0 0 56px rgba(139,92,246,0.25);
-}
-}
-
-@keyframes shimmer {
-0% {
-background-position: -200% center;
-}
-100% {
-background-position: 200% center;
-}
-}
-
-@keyframes ripple-out {
-0% {
-transform: scale(0);
-opacity: 0.4;
-}
-100% {
-transform: scale(4);
-opacity: 0;
-}
-}
-
-@keyframes subtle-float {
-0%, 100% {
-transform: translateY(0);
-}
-50% {
-transform: translateY(-4px);
-}
-}
-
-@keyframes float {
-0%, 100% {
-transform: translateY(0);
-}
-50% {
-transform: translateY(-8px);
-}
-}
-
-@keyframes toast-in {
-from {
-opacity: 0;
-transform: translateX(50px) scale(0.9);
-}
-to {
-opacity: 1;
-transform: translateX(0) scale(1);
-}
-}
-
-@keyframes toast-out {
-from {
-opacity: 1;
-transform: translateX(0) scale(1);
-}
-to {
-opacity: 0;
-transform: translateX(50px) scale(0.9);
-}
-}
-
-@keyframes card-in {
-0% {
-opacity: 0;
-transform: translateY(28px) scale(0.92);
-}
-60% {
-opacity: 0.9;
-transform: translateY(-2px) scale(1.01);
-}
-100% {
-opacity: 1;
-transform: translateY(0) scale(1);
-}
-}
-
-@keyframes dot-pulse {
-0%, 100% {
-transform: scale(1);
-opacity: 0.5;
-}
-50% {
-transform: scale(1.5);
-opacity: 1;
-}
-}
-
-@keyframes border-glow {
-0%, 100% {
-border-color: rgba(147,51,234,0.3);
-}
-50% {
-border-color: rgba(147,51,234,0.7);
-}
-}
-
-@keyframes gradient-shift {
-0% {
-background-position: 0% 50%;
-}
-50% {
-background-position: 100% 50%;
-}
-100% {
-background-position: 0% 50%;
-}
-}
-
-@keyframes breathe {
-0%, 100% {
-opacity: 0.6;
-}
-50% {
-opacity: 1;
-}
-}
-
-/* ======================================== */
-/* 主容器样式 */
-/* ======================================== */
-.app-container {
-display: flex;
-flex-direction: column;
-height: 100vh;
-overflow-x: hidden;
-position: relative;
-}
-
-.top-nav {
-position: fixed !important;
-top: 0 !important;
-left: 0 !important;
-width: 100% !important;
-z-index: 99 !important;
-height: var(--header-height) !important;
-display: flex !important;
-align-items: center !important;
-justify-content: space-between !important;
-padding: 0 20px !important;
-margin: 0 !important;
-background: rgba(10, 8, 30, 0.35) !important;
-border-bottom: 1px solid rgba(147, 51, 234, 0.15) !important;
-box-shadow: 0 1px 0 rgba(147, 51, 234, 0.08), 0 8px 40px rgba(0, 0, 0, 0.5) !important;
-box-sizing: border-box !important;
-transform: none !important;
-visibility: visible !important;
-opacity: 1 !important;
-pointer-events: auto !important;
-transition: background 0.5s ease, box-shadow 0.5s ease !important;
-}
-
-.top-nav::after {
-content: '';
-position: absolute;
-bottom: 0;
-left: 0;
-right: 0;
-height: 1px;
-background: linear-gradient(90deg, transparent, rgba(147, 51, 234, 0.5), rgba(34, 211, 238, 0.3), transparent);
-}
-
-.logo {
-font-family: var(--display-font);
-font-size: 1.6rem;
-font-weight: 700;
-background: linear-gradient(120deg, #ffffff 0%, #d8b4fe 35%, #c084fc 50%, #22d3ee 100%);
--webkit-background-clip: text;
-background-clip: text;
-color: transparent;
-cursor: pointer;
-letter-spacing: 2px;
-filter: drop-shadow(0 0 14px rgba(147, 51, 234, 0.5));
-transition: filter 0.4s ease, transform 0.3s ease;
-}
-
-.logo:hover {
-filter: drop-shadow(0 0 24px rgba(147, 51, 234, 0.8));
-transform: scale(1.03);
-}
-
-.menu-btn {
-cursor: pointer;
-padding: 10px;
-position: relative;
-z-index: 100;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-gap: 5px;
-}
-
-.menu-btn span {
-display: block;
-width: 22px;
-height: 2px;
-background: rgba(255, 255, 255, 0.85);
-border-radius: 2px;
-transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.menu-btn span:nth-child(1) {
-width: 22px;
-}
-
-.menu-btn span:nth-child(2) {
-width: 16px;
-}
-
-.menu-btn span:nth-child(3) {
-width: 20px;
-}
-
-.menu-btn:hover span {
-background: var(--primary-bright);
-width: 22px !important;
-}
-
-.menu-btn.active span:nth-child(1) {
-transform: translateY(7px) rotate(45deg);
-width: 22px;
-}
-
-.menu-btn.active span:nth-child(2) {
-opacity: 0;
-transform: scaleX(0);
-}
-
-.menu-btn.active span:nth-child(3) {
-transform: translateY(-7px) rotate(-45deg);
-width: 22px;
-}
-
-.layout-body {
-display: flex;
-flex: 1;
-overflow: hidden;
-width: 100%;
-margin-top: var(--header-height);
-height: calc(100vh - var(--header-height));
-position: relative;
-min-height: 0;
-}
-
-/* 侧边栏 - 紫灰色半透明背景卡片 */
-/* 自定义滚动条 - 深紫罗兰梦幻色 */
-::-webkit-scrollbar {
-width: 8px;
-height: 8px;
-}
-::-webkit-scrollbar-track {
-background: rgba(30, 22, 50, 0.9);
-border-radius: 4px;
-}
-::-webkit-scrollbar-thumb {
-background: linear-gradient(180deg, #7c3aed, #a855f7, #c084fc);
-border-radius: 4px;
-transition: all 0.3s ease;
-}
-::-webkit-scrollbar-thumb:hover {
-background: linear-gradient(180deg, #8b5cf6, #b794f4, #d6bcfa);
-}
-
-.sidebar {
-width: var(--sidebar-width) !important;
-background: rgba(26, 13, 51, 0.35);
-border-right: 0.1px solid rgba(147, 51, 234, 0.25);
-padding: 6px 0;
-overflow-y: auto;
-overflow-x: hidden;
-transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
-display: flex;
-flex-direction: column;
-flex-shrink: 0;
-z-index: 900;
-touch-action: pan-y;
-height: 100%;
-position: relative;
-}
-
-.sidebar::after {
-content: '';
-position: absolute;
-top: 0;
-right: 0;
-width: 1px;
-height: 100%;
-background: linear-gradient(to bottom, transparent, rgba(147, 51, 234, 0.35), rgba(34, 211, 238, 0.15), transparent);
-pointer-events: none;
-}
-.sidebar-title {
-font-family: var(--display-font);
-font-size: 0.65rem;
-text-transform: uppercase;
-letter-spacing: 2px;
-color: var(--accent-color);
-margin: 8px 0 4px;
-padding: 6px 8px;
-opacity: 0.65;
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 6px;
-border-bottom: 1px solid rgba(255, 255, 255, 0.8);
-white-space: nowrap;
-}
-.menu-main {
-display: flex;
-align-items: center;
-justify-content: center;
-padding: 9px 10px;
-color: rgba(210, 195, 255, 0.55);
-text-decoration: none;
-transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1);
-font-weight: 500;
-font-size: 0.78rem;
-white-space: nowrap;
-overflow: hidden;
-cursor: pointer;
-position: relative;
-border-left: 2px solid transparent;
-width: 100%;
-box-sizing: border-box;
-gap: 8px;
-}
-.menu-main::before {
-content: '';
-position: absolute;
-inset: 0;
-background: linear-gradient(to right, rgba(147, 51, 234, 0.15), transparent);
-opacity: 0;
-transition: opacity 0.35s ease;
-pointer-events: none;
-}
-.menu-main:hover {
-color: rgba(255, 255, 255, 0.95);
-border-left-color: rgba(147, 51, 234, 0.7);
-background: rgba(147, 51, 234, 0.08);
-transform: translateX(3px);
-}
-.menu-main:hover::before {
-opacity: 1;
-}
-.menu-main.active {
-color: #fff;
-border-left-color: var(--primary-color);
-background: rgba(147, 51, 234, 0.15);
-text-shadow: 0 0 12px rgba(147, 51, 234, 0.6);
-box-shadow: 0 2px 12px rgba(147,51,234,0.12);
-}
-.menu-main.active::before {
-opacity: 1;
-}
-.menu-main.active i {
-color: var(--primary-bright);
-}
-.menu-main > i, .menu-main .menu-text > i {
-font-size: 0.85rem;
-width: 18px;
-text-align: center;
-flex-shrink: 0;
-opacity: 0.7;
-transition: all 0.35s ease;
-color: inherit;
-}
-.menu-main:hover > i, .menu-main:hover .menu-text > i {
-opacity: 1;
-color: var(--primary-bright);
-transform: scale(1.1);
-}
-.menu-text {
-display: flex;
-align-items: center;
-gap: 8px;
-}
-.menu-group {
-position: relative;
-margin-bottom: 2px;
-}
-.open-btn {
-padding: 4px 8px;
-border: 1px solid rgba(147, 51, 234, 0.45);
-border-radius: 6px;
-background: transparent;
-color: rgba(147, 51, 234, 0.8);
-cursor: pointer;
-font-size: 0.7rem;
-transition: all 0.3s ease;
-}
-.open-btn:hover {
-background: rgba(147, 51, 234, 0.2);
-color: #fff;
-border-color: var(--primary-color);
-box-shadow: 0 0 12px rgba(147,51,234,0.3);
-}
-.main-content {
-flex: 1;
-overflow-y: auto;
-overflow-x: hidden;
-position: relative;
-height: 100%;
-padding: 24px 22px;
-padding-bottom: 100px;
-z-index: 1;
-box-sizing: border-box;
-scroll-behavior: smooth;
-content-visibility: auto;
-contain-intrinsic-size: auto 2000px;
-}
-/* 快捷栏 - 紫灰色半透明背景卡片 */
-.quick-links-glass {
-background: rgba(26, 13, 51, 0.35);
-border: 1px solid rgba(147, 60, 234, 0.9);
-border-radius: var(--radius-lg);
-padding: 16px 18px;
-margin-bottom: 28px;
-transition: border-color 0.4s ease, box-shadow 0.4s ease;
-box-shadow: var(--depth-shadow-sm);
-}
-
-.quick-links-glass:hover {
-border-color: rgba(147, 51, 234, 0.3);
-box-shadow: var(--depth-shadow-md);
-}
-.comment-section-container {
-background: rgba(26, 13, 51, 0.35);
-border: 1px solid rgba(147, 51, 234, 0.25);
-border-radius: var(--radius-lg);
-padding: 16px 18px;
-margin-bottom: 24px;
-transition: border-color 0.4s ease, box-shadow 0.4s ease;
-box-shadow: var(--depth-shadow-sm);
-position: relative;
-overflow: hidden;
-}
-.comment-section-container::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 3px;
-background: linear-gradient(90deg, rgba(147,51,234,0.1), rgba(147,51,234,0.4), rgba(147,51,234,0.1));
-pointer-events: none;
-z-index: 1;
-}
-.comment-section-container:hover {
-border-color: rgba(147, 51, 234, 0.4);
-box-shadow: var(--depth-shadow-md);
-}
-.comment-section-title {
-font-size: 0.85rem;
-color: rgba(200, 180, 255, 0.8);
-margin-bottom: 12px;
-text-align: center;
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 8px;
-}
-.comment-section-title i {
-opacity: 0.7;
-}
-
-/* 评论区展开/收起系统 */
-.giscus-details {
-margin-top: 8px;
-}
-.giscus-details > .giscus-summary {
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 8px;
-padding: 10px 20px;
-background: var(--glass-bg);
-border: 1px solid var(--glass-border);
-border-radius: 12px;
-color: rgba(220, 200, 255, 0.9);
-font-size: 0.82rem;
-font-family: var(--text-font);
-cursor: pointer;
-transition: all 0.35s ease;
-list-style: none;
-user-select: none;
-box-shadow: 0 2px 12px rgba(147, 51, 234, 0.12);
-}
-.giscus-details[open] > .giscus-summary {
-border-radius: 12px 12px 0 0;
-border-bottom: none;
-}
-.giscus-details > .giscus-summary::-webkit-details-marker {
-display: none;
-}
-.giscus-details > .giscus-summary::marker {
-display: none;
-content: '';
-}
-.giscus-details > .giscus-summary:hover {
-background: var(--glass-bg-hover);
-border-color: var(--glass-border-hover);
-color: #fff;
-box-shadow: var(--violet-glow);
-}
-.giscus-details > .giscus-summary i {
-font-size: 0.7rem;
-transition: transform 0.35s ease;
-}
-.giscus-details[open] > .giscus-summary i {
-transform: rotate(180deg);
-}
-.giscus-summary .expand-text {
-display: inline;
-}
-.giscus-summary .collapse-text {
-display: none;
-}
-.giscus-details[open] .giscus-summary .expand-text {
-display: none;
-}
-.giscus-details[open] .giscus-summary .collapse-text {
-display: inline;
-}
-.giscus-details .giscus {
-margin-top: 0;
-border-radius: 0 0 12px 12px;
-min-height: 400px;
-overflow: hidden;
-background: rgba(25, 15, 50, 0.35);
-border: 1px solid rgba(147, 51, 234, 0.25);
-border-top: none;
-border-left: 1px solid rgba(147, 51, 234, 0.25);
-border-right: 1px solid rgba(147, 51, 234, 0.25);
-box-shadow: inset 0 0 30px rgba(147, 51, 234, 0.04), 0 4px 20px rgba(147, 51, 234, 0.1);
-}
-.giscus {
-margin-top: 8px;
-min-height: 100px;
-border-radius: 12px;
-overflow: hidden;
-position: relative;
-background: rgba(25, 15, 50, 0.3);
-border: 1px solid rgba(147, 51, 234, 0.2);
-box-shadow: inset 0 0 20px rgba(147, 51, 234, 0.03);
-}
-@keyframes giscusSpin {
-0% { transform: rotate(0deg); }
-100% { transform: rotate(360deg); }
-}
-.giscus-loading {
-display: flex;
-align-items: center;
-justify-content: center;
-min-height: 200px;
-}
-.giscus-error {
-text-align: center;
-padding: 40px 20px;
-background: rgba(255,65,108,0.08);
-border-radius: 12px;
-border: 1px solid rgba(255,65,108,0.2);
-margin: 8px;
-}
-.giscus-spinner {
-display: inline-block;
-width: 40px;
-height: 40px;
-border: 3px solid rgba(147, 51, 234, 0.12);
-border-top-color: var(--primary-bright);
-border-radius: 50%;
-animation: giscusSpin 0.8s linear infinite;
-margin-bottom: 15px;
-box-shadow: 0 0 12px rgba(147, 51, 234, 0.25);
-}
-.button-container {
-display: flex;
-gap: 10px;
-flex-wrap: nowrap;
-overflow-x: auto;
-padding-bottom: 4px;
-scrollbar-width: thin;
-scrollbar-color: var(--primary-color) rgba(0,0,0,0.1);
-}
-.button-container::-webkit-scrollbar {
-height: 3px;
-}
-.button-container::-webkit-scrollbar-track {
-background: rgba(0,0,0,0.1);
-border-radius: 2px;
-}
-.button-container::-webkit-scrollbar-thumb {
-background: var(--primary-color);
-border-radius: 2px;
-}
-.grid-btn {
-font-size: 0.82rem;
-padding: 8px 18px;
-background: rgba(147, 51, 234, 0.08);
-border: 1px solid rgba(147, 51, 234, 0.18);
-border-radius: 50px;
-color: rgba(255, 255, 255, 0.85);
-text-decoration: none;
-transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
-white-space: nowrap;
-flex-shrink: 0;
-position: relative;
-overflow: hidden;
-cursor: pointer;
-}
-.grid-btn::after {
-content: '';
-position: absolute;
-inset: 0;
-background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
-transform: translateX(-100%);
-transition: transform 0.6s ease;
-}
-.grid-btn:hover {
-border-color: var(--accent-color);
-background: rgba(34, 211, 238, 0.12);
-color: var(--accent-color);
-transform: translateY(-3px);
-box-shadow: 0 6px 20px rgba(34,211,238,0.25), 0 0 0 1px rgba(34,211,238,0.15);
-}
-.grid-btn:hover::after {
-transform: translateX(100%);
-}
-.grid-btn:active {
-transform: translateY(-1px) scale(0.97);
-}
-.section-header {
-display: flex;
-align-items: center;
-margin: 48px 0 24px;
-border-bottom: 1px solid rgba(147, 51, 234, 0.12);
-padding-bottom: 16px;
-}
-.section-title {
-font-family: var(--display-font);
-font-size: 1.55rem;
-font-weight: 700;
-color: #fff;
-position: relative;
-padding-left: 20px;
-letter-spacing: 1.8px;
-text-shadow: 0 0 24px rgba(147,51,234,0.2);
-}
-.section-title::before {
-content: '';
-position: absolute;
-left: 0;
-top: 50%;
-transform: translateY(-50%);
-width: 5px;
-height: 28px;
-background: linear-gradient(180deg, var(--violet-300), var(--violet-400), var(--violet-600));
-box-shadow: 0 0 20px rgba(147,51,234,0.8), 0 0 40px rgba(139,92,246,0.3);
-border-radius: 3px;
-}
-.resource-grid {
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-gap: 24px;
-}
-.category-card {
-background: var(--glass-bg);
-border: 1px solid var(--glass-border);
-border-top: 1px solid rgba(147, 51, 234, 0.35);
-border-radius: var(--radius-lg);
-padding: 24px 22px 22px 22px;
-transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1), border-color 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
-position: relative;
-overflow: hidden;
-animation: card-in 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
-opacity: 0;
-transform-origin: center top;
-box-shadow: var(--depth-shadow-sm);
-}
-.category-card::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background: var(--card-shine);
-pointer-events: none;
-z-index: 0;
-transition: opacity 0.5s ease;
-}
-.category-card::after {
-content: '';
-position: absolute;
-top: 0;
-left: 20px;
-right: 20px;
-height: 2px;
-background: linear-gradient(90deg, transparent, rgba(147,51,234,0.6), rgba(168,85,247,0.3), transparent);
-opacity: 0;
-transition: opacity 0.5s ease;
-z-index: 3;
-border-radius: 2px;
-}
-.category-card:hover {
-transform: translateY(-6px) scale(1.015);
-border-color: var(--glass-border-hover);
-border-top-color: rgba(147, 51, 234, 0.6);
-box-shadow: 0 20px 56px rgba(0,0,0,0.55), 0 0 0 1px rgba(147,51,234,0.25), 0 0 60px rgba(147,51,234,0.08), inset 0 0 40px rgba(147,51,234,0.07);
-background: var(--glass-bg-hover);
-}
-.category-card:hover::before {
-opacity: 0.8;
-}
-.category-card:hover::after {
-opacity: 1;
-}
-.category-card:nth-child(1) { animation-delay: 0.06s; }
-.category-card:nth-child(2) { animation-delay: 0.12s; }
-.category-card:nth-child(3) { animation-delay: 0.18s; }
-.category-card:nth-child(4) { animation-delay: 0.24s; }
-.category-card:nth-child(5) { animation-delay: 0.3s; }
-.category-card:nth-child(6) { animation-delay: 0.36s; }
-.category-card:nth-child(7) { animation-delay: 0.42s; }
-.category-card:nth-child(8) { animation-delay: 0.48s; }
-.category-card:nth-child(n+9) { animation-delay: 0.52s; }
-.category-header {
-display: flex;
-align-items: center;
-margin-bottom: 18px;
-position: relative;
-z-index: 2;
-}
-.category-icon {
-width: 44px;
-height: 44px;
-border-radius: var(--radius-sm);
-background: linear-gradient(135deg, rgba(147,51,234,0.4), rgba(139,92,246,0.2));
-border: 1px solid rgba(147,51,234,0.4);
-display: flex;
-align-items: center;
-justify-content: center;
-margin-right: 14px;
-font-size: 1.1rem;
-color: var(--primary-glow);
-box-shadow: 0 4px 20px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08);
-flex-shrink: 0;
-transition: all 0.45s cubic-bezier(0.34,1.56,0.64,1);
-position: relative;
-z-index: 2;
-}
-.category-icon::after {
-content: '';
-position: absolute;
-inset: -2px;
-border-radius: 12px;
-background: transparent;
-border: 1px solid transparent;
-transition: all 0.45s ease;
-z-index: -1;
-}
-.category-card:hover .category-icon {
-background: linear-gradient(135deg, rgba(147,51,234,0.55), rgba(139,92,246,0.35));
-box-shadow: 0 8px 28px rgba(147,51,234,0.5), 0 0 0 3px rgba(147,51,234,0.3), inset 0 1px 0 rgba(255,255,255,0.12);
-transform: scale(1.08);
-}
-.category-card:hover .category-icon::after {
-border-color: rgba(147,51,234,0.45);
-box-shadow: 0 0 18px rgba(147,51,234,0.3);
-}
-.category-title {
-font-family: var(--display-font);
-font-size: 1.15rem;
-color: rgba(240,232,255,0.95);
-font-weight: 600;
-letter-spacing: 0.6px;
-text-shadow: 0 0 20px rgba(147,51,234,0.15);
-}
-.favorite-btn {
-position: absolute;
-bottom: 12px;
-right: 12px;
-background: rgba(30, 20, 55, 0.50);
-border: 1px solid rgba(147, 51, 234, 0.28);
-border-radius: 10px;
-color: rgba(147, 51, 234, 0.55);
-cursor: pointer;
-transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1);
-width: 32px;
-height: 32px;
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 0.9rem;
-z-index: 2;
-}
-.favorite-btn:hover {
-color: var(--primary-glow);
-background: rgba(147, 51, 234, 0.28);
-border-color: rgba(147, 51, 234, 0.6);
-transform: scale(1.18) rotate(6deg);
-box-shadow: 0 0 20px rgba(147, 51, 234, 0.45), 0 0 0 2px rgba(147, 51, 234, 0.15);
-}
-.favorite-btn.favorited {
-color: var(--primary-glow);
-background: rgba(147, 51, 234, 0.32);
-border-color: rgba(147, 51, 234, 0.7);
-text-shadow: 0 0 14px rgba(147, 51, 234, 0.9);
-box-shadow: 0 0 18px rgba(147, 51, 234, 0.5);
-animation: pulse-glow 2.2s ease infinite;
-}
-.website-info {
-padding-bottom: 38px;
-position: relative;
-z-index: 2;
-}
-.website-list {
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-gap: 8px;
-}
-.website-item {
-display: block;
-text-decoration: none;
-color: var(--text-color);
-background: rgba(30, 20, 50, 0.50);
-border-radius: var(--radius-xs);
-padding: 10px 9px;
-border: 1px solid rgba(147,51,234,0.18);
-transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
-position: relative;
-overflow: hidden;
-cursor: pointer;
-}
-.website-item::before {
-content: '';
-position: absolute;
-inset: 0;
-background: linear-gradient(135deg, rgba(147,51,234,0.08) 0%, transparent 50%, rgba(139,92,246,0.04) 100%);
-opacity: 0;
-transition: opacity 0.4s ease;
-pointer-events: none;
-z-index: 0;
-}
-.website-item:hover {
-background: rgba(147,51,234,0.16);
-border-color: rgba(147,51,234,0.5);
-transform: translateY(-3px) scale(1.02);
-box-shadow: 0 8px 24px rgba(0,0,0,0.4), 0 0 0 1px rgba(147,51,234,0.22), 0 0 12px rgba(147,51,234,0.08);
-}
-.website-item:hover::before {
-opacity: 1;
-}
-.website-item:active {
-transform: translateY(-2px) scale(0.98);
-}
-.website-item.highlight {
-border-color: var(--accent-color) !important;
-box-shadow: 0 0 0 3px rgba(34,211,238,0.5), 0 0 28px rgba(34,211,238,0.3) !important;
-animation: pulse-glow 1.5s ease infinite, border-glow 1.5s ease infinite;
-}
-
-/* ======================================== */
-/* 紫罗兰风格自定义通知弹窗 */
-/* ======================================== */
-.silong-toast-overlay {
-position: fixed;
-top: 0;
-left: 0;
-width: 100vw;
-height: 100vh;
-background: rgba(6, 4, 26, 0.75);
-backdrop-filter: blur(8px);
--webkit-backdrop-filter: blur(8px);
-z-index: 99999;
-display: flex;
-align-items: center;
-justify-content: center;
-animation: toastFadeIn 0.25s ease;
-}
-@keyframes toastFadeIn {
-from { opacity: 0; }
-to { opacity: 1; }
-}
-@keyframes toastScaleIn {
-from { opacity: 0; transform: scale(0.85) translateY(20px); }
-to { opacity: 1; transform: scale(1) translateY(0); }
-}
-.silong-toast-box {
-background: linear-gradient(160deg, rgba(35, 25, 55, 0.98) 0%, rgba(20, 14, 53, 0.98) 100%);
-border: 1px solid rgba(147, 51, 234, 0.5);
-border-radius: 20px;
-padding: 28px 24px 22px;
-width: 90%;
-max-width: 380px;
-text-align: center;
-color: #fff;
-box-shadow: 0 20px 60px rgba(0,0,0,0.55), 0 0 40px rgba(147,51,234,0.2), inset 0 1px 0 rgba(255,255,255,0.05);
-animation: toastScaleIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-position: relative;
-}
-.silong-toast-box::before {
-content: '';
-position: absolute;
-top: 0;
-left: 20px;
-right: 20px;
-height: 3px;
-background: linear-gradient(90deg, #c084fc, #a855f7, #7c3aed, #a855f7, #c084fc);
-border-radius: 0 0 3px 3px;
-}
-.silong-toast-icon {
-width: 56px;
-height: 56px;
-border-radius: 50%;
-background: linear-gradient(135deg, rgba(147,51,234,0.3), rgba(124,58,237,0.2));
-border: 2px solid rgba(147,51,234,0.5);
-display: flex;
-align-items: center;
-justify-content: center;
-margin: 0 auto 16px;
-font-size: 24px;
-color: #c084fc;
-box-shadow: 0 0 20px rgba(147,51,234,0.3);
-}
-.silong-toast-title {
-font-family: var(--display-font);
-font-size: 18px;
-font-weight: 700;
-color: #e9d5ff;
-margin-bottom: 8px;
-letter-spacing: 0.5px;
-}
-.silong-toast-message {
-font-size: 14px;
-color: rgba(210, 195, 255, 0.8);
-line-height: 1.6;
-margin-bottom: 20px;
-}
-.silong-toast-btn {
-display: inline-block;
-padding: 10px 32px;
-background: linear-gradient(105deg, #7c3aed 0%, #a855f7 100%);
-color: #fff;
-border: none;
-border-radius: 25px;
-font-size: 14px;
-font-weight: 600;
-cursor: pointer;
-box-shadow: 0 4px 16px rgba(124, 58, 237, 0.45);
-transition: all 0.3s ease;
-letter-spacing: 0.3px;
-}
-.silong-toast-btn:hover {
-transform: translateY(-2px);
-box-shadow: 0 6px 24px rgba(124, 58, 237, 0.6);
-background: linear-gradient(105deg, #8b5cf6 0%, #c084fc 100%);
-}
-.silong-toast-btn:active {
-transform: scale(0.96);
-}
-.website-img {
-width: 100%;
-height: 58px;
-border-radius: 8px;
-background: rgba(30,22,55,0.85);
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 0.75rem;
-color: rgba(255,255,255,0.88);
-margin-bottom: 9px;
-position: relative;
-overflow: hidden;
-font-weight: 700;
-letter-spacing: 0.5px;
-font-family: var(--display-font);
-transition: all 0.35s ease;
-}
-.website-img::after {
-content: '';
-position: absolute;
-inset: 0;
-background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 60%);
-pointer-events: none;
-}
-.website-item:hover .website-img {
-box-shadow: 0 6px 16px rgba(0,0,0,0.4);
-transform: scale(1.02);
-}
-.vpn-label {
-position: absolute;
-top: 0;
-right: 0;
-background: linear-gradient(135deg, #7c3aed, #a855f7);
-font-size: 0.58rem;
-padding: 2px 7px;
-border-bottom-left-radius: 7px;
-color: white;
-letter-spacing: 0.5px;
-font-weight: 700;
-z-index: 1;
-}
-.website-name {
-font-size: 0.84rem;
-font-weight: 600;
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis;
-margin-bottom: 4px;
-color: rgba(240,230,255,0.93);
-transition: color 0.3s ease, text-shadow 0.3s ease;
-position: relative;
-z-index: 1;
-}
-.website-item:hover .website-name {
-color: #fff;
-text-shadow: 0 0 12px rgba(200,180,255,0.4);
-}
-.website-desc {
-font-size: 0.68rem;
-color: rgba(190,175,225,0.5);
-line-height: 1.35;
-height: 2.7em;
-overflow: hidden;
-display: -webkit-box;
--webkit-line-clamp: 2;
--webkit-box-orient: vertical;
-position: relative;
-z-index: 1;
-}
-.ripple-effect {
-position: absolute;
-border-radius: 50%;
-background: rgba(147,51,234,0.3);
-width: 100px;
-height: 100px;
-margin-left: -50px;
-margin-top: -50px;
-animation: ripple-out 0.7s ease forwards;
-pointer-events: none;
-z-index: 0;
-}
-.toast-container {
-position: fixed;
-top: 90px;
-right: 20px;
-z-index: 9998;
-display: flex;
-flex-direction: column;
-gap: 10px;
-pointer-events: none;
-}
-.toast {
-background: rgba(14,12,38,0.8);
-border: 1px solid rgba(147,51,234,0.32);
-border-radius: 12px;
-padding: 14px 22px;
-color: #fff;
-font-size: 0.88rem;
-min-width: 200px;
-display: flex;
-align-items: center;
-gap: 12px;
-box-shadow: 0 14px 48px rgba(0,0,0,0.65), 0 0 0 1px rgba(147,51,234,0.08);
-animation: toast-in 0.45s cubic-bezier(0.34,1.56,0.64,1) forwards;
-}
-.toast.hiding {
-animation: toast-out 0.3s ease forwards;
-}
-.toast.success .toast-icon { color: #4ade80; }
-.toast.error .toast-icon { color: #f87171; }
-.toast.info .toast-icon { color: var(--accent-color); }
-.modal {
-display: none;
-position: fixed;
-inset: 0;
-background: rgba(0,0,0,0.6);
-z-index: 2000;
-animation: fadeIn 0.35s ease;
-align-items: center;
-justify-content: center;
-}
-.modal.flex {
-display: flex;
-}
-.modal-content {
-background: rgba(16,14,40,0.85);
-border: 1px solid rgba(147,51,234,0.28);
-box-shadow: 0 32px 96px rgba(0,0,0,0.75), 0 0 0 1px rgba(255,255,255,0.03) inset;
-width: 90%;
-max-width: 520px;
-margin: 10vh auto;
-padding: 34px;
-border-radius: var(--radius-xl);
-animation: slideDown 0.4s cubic-bezier(0.34,1.56,0.64,1);
-color: #fff;
-max-height: 80vh;
-overflow-y: auto;
-}
-.modal-title {
-display: flex;
-align-items: center;
-gap: 12px;
-color: var(--accent-color);
-margin-bottom: 28px;
-border-bottom: 1px solid rgba(147,51,234,0.15);
-padding-bottom: 14px;
-font-family: var(--display-font);
-font-size: 1.15rem;
-letter-spacing: 1px;
-}
-.close {
-float: right;
-font-size: 1.5rem;
-cursor: pointer;
-color: rgba(200,190,255,0.5);
-transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1);
-line-height: 1;
-}
-.close:hover {
-color: #fff;
-transform: rotate(90deg) scale(1.2);
-}
-.form-control, select.form-control {
-width: 100%;
-padding: 13px 16px;
-margin-bottom: 16px;
-background: rgba(0,0,0,0.2);
-border: 1px solid rgba(147,51,234,0.2);
-border-radius: 10px;
-color: #fff;
-font-family: var(--text-font);
-transition: all 0.3s ease;
-}
-.form-control:focus {
-border-color: var(--accent-color);
-box-shadow: 0 0 0 4px rgba(34,211,238,0.12);
-background: rgba(0,0,0,0.45);
-}
-.btn {
-width: 100%;
-margin-top: 12px;
-padding: 14px;
-border: none;
-border-radius: 12px;
-background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-color: #fff;
-font-weight: 600;
-cursor: pointer;
-transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
-font-family: var(--display-font);
-font-size: 1rem;
-letter-spacing: 0.5px;
-position: relative;
-overflow: hidden;
-}
-.btn::after {
-content: '';
-position: absolute;
-inset: 0;
-background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent);
-opacity: 0;
-transition: opacity 0.35s ease;
-}
-.btn:hover {
-filter: brightness(1.2);
-transform: translateY(-3px);
-box-shadow: 0 10px 28px rgba(147,51,234,0.5), 0 0 0 2px rgba(147,51,234,0.2);
-}
-.btn:hover::after {
-opacity: 1;
-}
-.btn:active {
-transform: translateY(-1px) scale(0.98);
-}
-.btn-secondary {
-background: rgba(255,255,255,0.06);
-border: 1px solid rgba(255,255,255,0.12);
-}
-.btn-secondary:hover {
-background: rgba(255,255,255,0.12);
-box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-}
-.back-to-top {
-position: fixed;
-bottom: 80px;
-right: 28px;
-width: 50px;
-height: 50px;
-border-radius: 50%;
-background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-color: white;
-display: flex;
-align-items: center;
-justify-content: center;
-cursor: pointer;
-opacity: 0;
-transform: translateY(20px) scale(0.8);
-transition: all 0.45s cubic-bezier(0.34,1.56,0.64,1);
-z-index: 100;
-box-shadow: 0 8px 28px rgba(147,51,234,0.55), 0 0 0 1px rgba(255,255,255,0.1);
-border: 1px solid rgba(255,255,255,0.1);
-font-size: 1.1rem;
-}
-.back-to-top.visible {
-opacity: 1;
-transform: translateY(0) scale(1);
-}
-.back-to-top:hover {
-transform: translateY(-8px) scale(1.15);
-box-shadow: 0 0 0 8px rgba(147,51,234,0.18), 0 14px 36px rgba(147,51,234,0.65);
-background: linear-gradient(135deg, var(--primary-bright), var(--primary-color));
-}
-.loader-container {
-position: fixed;
-inset: 0;
-background: rgba(6,4,26,0.9);
-z-index: 9999;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-transition: opacity 0.6s ease;
-pointer-events: none;
-opacity: 0;
-}
-.loader-container.active {
-opacity: 1;
-pointer-events: auto;
-}
-.loader {
-width: 56px;
-height: 56px;
-border: 2px solid rgba(147,51,234,0.1);
-border-top-color: var(--primary-color);
-border-right-color: var(--accent-color);
-border-radius: 50%;
-animation: spin 0.75s linear infinite;
-box-shadow: 0 0 28px rgba(147,51,234,0.45), 0 0 56px rgba(34,211,238,0.18);
-position: relative;
-}
-.loader::after {
-content: '';
-position: absolute;
-inset: -6px;
-border-radius: 50%;
-border: 1px solid rgba(147,51,234,0.08);
-animation: spin 1.5s linear infinite reverse;
-}
-.loader-text {
-margin-top: 20px;
-font-weight: 500;
-letter-spacing: 4px;
-color: rgba(200,185,255,0.75);
-font-family: var(--display-font);
-font-size: 0.82rem;
-text-transform: uppercase;
-animation: pulse-text 2s ease infinite;
-}
-#success-message {
-display: none;
-position: fixed;
-top: 85px;
-right: 20px;
-background: rgba(16,14,40,0.8);
-border: 1px solid rgba(147,51,234,0.35);
-color: #fff;
-padding: 14px 20px;
-border-radius: 12px;
-z-index: 9999;
-font-size: 0.88rem;
-animation: fadeInUp 0.35s cubic-bezier(0.34,1.56,0.64,1);
-box-shadow: 0 12px 40px rgba(0,0,0,0.6);
-}
-@media (max-width: 768px) {
-.layout-body { flex-direction: column; }
-.sidebar { position: fixed; top: var(--header-height); left: 0; bottom: 0; transform: translateX(-100%); width: var(--sidebar-width) !important; box-shadow: 12px 0 48px rgba(0,0,0,0.7); z-index: 900; height: calc(100vh - var(--header-height)); }
-.sidebar.active { transform: translateX(0); }
-.resource-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-.section-header { margin: 36px 0 18px; padding-bottom: 12px; }
-.section-title { font-size: 1.3rem; letter-spacing: 1.2px; }
-.website-list { grid-template-columns: repeat(auto-fill, minmax(88px, 1fr)); gap: 7px; }
-.website-item { padding: 9px 8px; font-size: 0.82rem; }
-.logo { font-size: 1.3rem; }
-.main-content { padding: 14px; padding-bottom: 90px; }
-.footer-content { flex-direction: column; gap: 8px; }
-.modal-content { margin: 5vh auto; max-height: 90vh; }
-.layout-body { height: calc(100vh - var(--header-height) - env(safe-area-inset-bottom)); }
-.main-content { padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
-.category-card { padding: 16px 14px 14px 14px; border-radius: var(--radius-md); }
-.category-icon { width: 36px; height: 36px; font-size: 0.95rem; }
-.category-title { font-size: 1rem; }
-.category-header { margin-bottom: 14px; }
-.favorite-btn { width: 28px; height: 28px; font-size: 0.8rem; bottom: 10px; right: 10px; }
-.back-to-top { bottom: 70px; right: 16px; width: 44px; height: 44px; font-size: 1rem; }
-}
-@media (max-width: 480px) {
-.resource-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-.section-header { margin: 28px 0 14px; padding-bottom: 10px; }
-.section-title { font-size: 1.15rem; }
-.category-card { padding: 14px 11px 11px 11px; border-radius: 14px; }
-.category-icon { width: 32px; height: 32px; font-size: 0.85rem; margin-right: 10px; }
-.category-title { font-size: 0.9rem; letter-spacing: 0.3px; }
-.category-header { margin-bottom: 10px; }
-.website-list { gap: 6px; }
-.website-item { padding: 8px 7px; font-size: 0.78rem; }
-.favorite-btn { width: 26px; height: 26px; font-size: 0.75rem; bottom: 8px; right: 8px; }
-}
-@media (min-width: 769px) {
-.sidebar { position: sticky; top: 0; height: 100%; overflow-y: auto; }
-}
-.sidebar-swipe-area {
-position: fixed;
-top: var(--header-height);
-left: 0;
-width: 20px;
-height: calc(100vh - var(--header-height));
-z-index: 850;
-background: transparent;
-display: none;
-}
-@media print {
-.top-nav, .sidebar, .loader-container { display: none !important; }
-.layout-body { margin-top: 0; height: auto; }
-.main-content { background: white !important; color: black !important; }
-}
-.category-section { opacity: 1; }
-.animate-on-scroll {
-opacity: 0;
-transform: translateY(20px);
-transition: opacity 0.5s ease, transform 0.5s ease;
-}
-.animate-on-scroll.visible {
-opacity: 1;
-transform: translateY(0);
-}
-.website-item .item-tooltip {
-position: absolute;
-bottom: calc(100% + 10px);
-left: 50%;
-transform: translateX(-50%) translateY(8px);
-background: rgba(14,12,38,0.8);
-border: 1px solid rgba(147,51,234,0.35);
-border-radius: 10px;
-padding: 7px 14px;
-font-size: 0.72rem;
-color: rgba(220,210,255,0.92);
-white-space: nowrap;
-opacity: 0;
-pointer-events: none;
-transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1);
-z-index: 50;
-box-shadow: 0 6px 20px rgba(0,0,0,0.5);
-}
-.website-item:hover .item-tooltip {
-opacity: 1;
-transform: translateX(-50%) translateY(0);
-}
-.new-badge {
-position: absolute;
-top: 4px;
-right: 4px;
-background: linear-gradient(135deg, #f472b6, #fb7185);
-color: white;
-font-size: 9px;
-font-weight: 700;
-padding: 2px 8px;
-border-radius: 10px;
-letter-spacing: 0.5px;
-line-height: 1.4;
-box-shadow: 0 2px 10px rgba(244,114,182,0.5);
-animation: dot-pulse 2s ease infinite;
-z-index: 1;
-}
-#searchToggle {
-width: 44px;
-height: 44px;
-background: rgba(147,51,234,0.08);
-border: 1px solid rgba(147,51,234,0.2);
-border-radius: 12px;
-color: rgba(220,200,255,0.9);
-font-size: 18px;
-cursor: pointer;
-display: flex;
-align-items: center;
-justify-content: center;
-margin-right: 6px;
-outline: none;
-transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
-}
-#searchToggle:hover {
-background: rgba(147,51,234,0.2);
-border-color: rgba(147,51,234,0.55);
-color: #fff;
-box-shadow: 0 0 20px rgba(147,51,234,0.4);
-transform: scale(1.08);
-}
-#searchToggle:active {
-transform: scale(0.95);
-}
-.sidebar-overlay {
-position: fixed;
-inset: 0;
-background: rgba(0,0,0,0.35);
-z-index: 899;
-opacity: 0;
-pointer-events: none;
-transition: opacity 0.4s ease;
-}
-.sidebar-overlay.active {
-opacity: 1;
-pointer-events: auto;
-}
-.about-module {
-background: var(--glass-bg);
-border: 1px solid var(--glass-border);
-border-radius: var(--radius-lg);
-padding: 22px 24px;
-margin-top: 30px;
-font-size: 0.85rem;
-color: var(--text-muted);
-line-height: 1.85;
-box-shadow: var(--depth-shadow-sm);
-transition: box-shadow 0.3s ease;
-}
-.about-module:hover {
-box-shadow: var(--depth-shadow-md);
-}
-.about-module h3 {
-font-family: var(--display-font);
-font-size: 1.1rem;
-color: var(--text-color);
-margin-bottom: 12px;
-letter-spacing: 0.5px;
-}
-.sidebar-scrollable {
-display: flex;
-flex-direction: column;
-min-height: 100%;
-}
-.sidebar-menu {
-display: flex;
-flex-direction: column;
-}
-.menu-main i {
-font-size: 0.9rem;
-width: 18px;
-text-align: center;
-opacity: 0.7;
-transition: all 0.25s ease;
-}
-.menu-main:hover i {
-opacity: 1;
-color: var(--primary-bright);
-}
-#greetingBannerText {
-flex: 1;
-overflow: hidden;
-position: relative;
--webkit-mask-image: linear-gradient(to left, transparent 0%, #000 18%, #000 85%, transparent 100%);
-mask-image: linear-gradient(to left, transparent 0%, #000 18%, #000 85%, transparent 100%);
-}
-#greetingBannerTextInner {
-white-space: nowrap;
-display: inline-block;
-color: #fff;
-}
-@keyframes textScrollOnce {
-0% { transform: translateX(100%); }
-100% { transform: translateX(-100%); }
-}
-
-
-</style> <!-- 背景视频 -->
-<video id="bgVideoPortrait" class="bg-video" autoplay muted loop playsinline disablepictureinpicture disableremoteplayback preload="auto" crossorigin="anonymous" controlslist="nodownload nofullscreen noremoteplayback noplaybackrate" oncontextmenu="return false">
-</video>
-<video id="bgVideoLandscape" class="bg-video" autoplay muted loop playsinline disablepictureinpicture disableremoteplayback preload="auto" crossorigin="anonymous" controlslist="nodownload nofullscreen noremoteplayback noplaybackrate" oncontextmenu="return false">
-</video> <!-- 背景图片 - 视频未加载成功时先显示 -->
-<div class="bg-image-portrait"></div>
-<div class="bg-image-landscape"></div>
-<div class="bg-base-layer" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#0a0620;z-index:-3;"></div>
-<div class="bg-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.3);z-index:-2;"></div> <!-- 视频延迟显示脚本 -->
+  --vl-950:#1a0a2e; --vl-900:#1e0d35; --vl-800:#261345; --vl-700:#301a55;
+  --vl-600:#3d2268; --vl-500:#4c2a7e; --vl-400:#6d32b8; --vl-350:#8338d4;
+  --vl-300:#9b4de8; --vl-250:#b06cf0; --vl-200:#c490f8; --vl-150:#d4b4fc;
+  --vl-100:#e0ccfe; --vl-50:#f0e6ff;
+  --accent-cyan:#22d3ee; --accent-rose:#f472b6; --accent-amber:#fbbf24;
+  --accent-mint:#34d399; --accent-coral:#fb7185;
+  --bg-root:#0a0418; --bg-layer1:#0e0720; --bg-layer2:#120b28;
+  --bg-layer3:#160e30; --bg-card:#1c1135; --bg-card-hover:#231542;
+  --text-primary:#f2edff; --text-secondary:#d4c8f5; --text-tertiary:#a898d8; --text-dim:#7b6aaa;
+  --glass-bg:rgba(22,12,45,0.58); --glass-bg-hover:rgba(30,18,55,0.72);
+  --glass-border:rgba(139,72,235,0.28); --glass-border-hover:rgba(155,95,245,0.55); --glass-blur:blur(16px);
+  --glow-soft:0 0 20px rgba(139,72,235,0.25),0 0 40px rgba(139,72,235,0.08);
+  --glow-medium:0 0 28px rgba(139,72,235,0.45),0 0 60px rgba(139,72,235,0.15);
+  --glow-strong:0 0 36px rgba(139,72,235,0.6),0 0 80px rgba(100,50,220,0.22);
+  --glow-cyan:0 0 18px rgba(34,211,238,0.35),0 0 40px rgba(34,211,238,0.12);
+  --r-xs:8px; --r-sm:12px; --r-md:16px; --r-lg:22px; --r-xl:28px; --r-2xl:36px; --r-pill:9999px;
+  --ease-out-expo:cubic-bezier(.16,1,.3,1); --ease-out-back:cubic-bezier(.34,1.56,.64,1);
+  --ease-in-out:cubic-bezier(.65,0,.35,1); --ease-spring:cubic-bezier(.22,1.2,.36,1);
+  --dur-fast:0.18s; --dur-normal:0.35s; --dur-slow:0.55s; --dur-glacial:0.8s;
+  --header-h:64px; --sidebar-w:140px; --content-pad:28px;
+  --shadow-1:0 1px 3px rgba(0,0,0,.3),0 1px 2px rgba(0,0,0,.2);
+  --shadow-2:0 4px 16px rgba(0,0,0,.35),0 1px 3px rgba(139,72,235,.08);
+  --shadow-3:0 8px 32px rgba(0,0,0,.45),0 0 0 1px rgba(139,72,235,.1);
+  --shadow-4:0 16px 48px rgba(0,0,0,.55),0 0 0 1px rgba(139,72,235,.16);
+  --primary-deep:var(--vl-900); --primary-color:var(--vl-400); --primary-bright:var(--vl-300);
+  --primary-glow:var(--vl-200); --primary-light:var(--vl-150);
+  --primary-wash:rgba(139,72,235,.08); --secondary-color:var(--vl-350); --secondary-deep:var(--vl-700);
+  --accent-color:var(--accent-cyan); --accent-deep:#0891b2;
+  --accent-warm:var(--accent-rose); --accent-gold:var(--accent-amber);
+  --success-color:var(--accent-mint); --warning-color:var(--accent-amber); --error-color:var(--accent-coral);
+  --bg-deepest:var(--bg-root); --bg-deep:var(--bg-layer1); --bg-mid:var(--bg-layer2); --bg-surface:var(--bg-layer3);
+  --bg-card-purple:var(--bg-card);
+  --violet-900:var(--vl-900); --violet-800:var(--vl-800); --violet-700:var(--vl-700);
+  --violet-600:var(--vl-600); --violet-500:var(--vl-500); --violet-400:var(--vl-400);
+  --violet-300:var(--vl-300); --violet-200:var(--vl-200); --violet-100:var(--vl-100); --violet-50:var(--vl-50);
+  --text-color:var(--text-primary); --text-bright:#fff;
+  --text-muted:rgba(212,200,245,.55); --text-dim:rgba(168,152,216,.4);
+  --text-font:'DM Sans','Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+  --display-font:'Rajdhani','Inter','Segoe UI',system-ui,sans-serif;
+  --header-height:var(--header-h); --sidebar-width:var(--sidebar-w);
+  --transition-fast:var(--dur-fast) var(--ease-out-expo);
+  --transition-speed:var(--dur-normal) var(--ease-out-expo);
+  --transition-bounce:.45s var(--ease-out-back);
+  --transition-smooth:var(--dur-slow) var(--ease-in-out);
+  --transition-out:.3s cubic-bezier(.55,0,1,.45);
+  --radius-2xl:var(--r-2xl); --radius-xl:var(--r-xl); --radius-lg:var(--r-lg);
+  --radius-md:var(--r-md); --radius-sm:var(--r-sm); --radius-xs:var(--r-xs);
+  --hue-rotate:0deg; --global-opacity:1;
+  --card-shine:linear-gradient(135deg,rgba(255,255,255,.04) 0%,transparent 40%,rgba(139,72,235,.06) 70%,transparent 100%);
+  --card-shine-hover:linear-gradient(135deg,rgba(255,255,255,.07) 0%,transparent 35%,rgba(155,95,245,.13) 65%,transparent 100%);
+  --glass-bg:var(--glass-bg); --glass-bg-hover:var(--glass-bg-hover);
+  --glass-border:var(--glass-border); --glass-border-hover:var(--glass-border-hover);
+  --glass-shadow:0 8px 40px rgba(0,0,0,.25); --blur-amount:0px;
+  --violet-glow:var(--glow-soft); --violet-glow-strong:var(--glow-medium);
+  --neon-glow:0 0 16px rgba(139,72,235,.5),0 0 36px rgba(139,72,235,.2);
+  --neon-glow-accent:var(--glow-cyan); --text-glow:0 0 10px rgba(139,72,235,.4);
+  --depth-shadow-sm:var(--shadow-2); --depth-shadow-md:var(--shadow-3); --depth-shadow-lg:var(--shadow-4);
+}
+
+/* ── 全局重置 ── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;outline:none;}
+html{height:100%;overflow:hidden;scroll-behavior:smooth;}
+body{
+  font-family:var(--text-font);background:var(--bg-root);color:var(--text-primary);
+  width:100vw;font-size:15px;filter:hue-rotate(var(--hue-rotate));opacity:var(--global-opacity);
+  touch-action:pan-y;height:100%;overflow:hidden;position:relative;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;
+}
+
+/* ── 纯CSS高级背景系统 ── */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    linear-gradient(170deg,#0a0418 0%,#0d0622 15%,#110b2a 30%,#130d2e 45%,#100928 60%,#0c0620 80%,#0a0418 100%),
+    radial-gradient(ellipse 80% 50% at 50% -15%,rgba(139,72,235,.13) 0%,transparent 60%),
+    radial-gradient(ellipse 45% 35% at 82% 18%,rgba(34,211,238,.06) 0%,transparent 55%),
+    radial-gradient(ellipse 40% 30% at 18% 78%,rgba(244,114,182,.05) 0%,transparent 55%),
+    radial-gradient(ellipse 35% 40% at 55% 45%,rgba(120,50,220,.04) 0%,transparent 70%);
+  animation:bgBreathe 12s ease-in-out infinite;
+}
+@keyframes bgBreathe{0%,100%{opacity:.92}50%{opacity:1}}
+
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.03;
+  background-image:
+    linear-gradient(rgba(139,72,235,.25) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(139,72,235,.25) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(ellipse 60% 50% at 50% 40%,#000 30%,transparent 70%);
+  -webkit-mask-image:radial-gradient(ellipse 60% 50% at 50% 40%,#000 30%,transparent 70%);
+}
+
+.bg-particle-layer{
+  position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(2px 2px at 15% 25%,rgba(139,72,235,.25) 0%,transparent 100%),
+    radial-gradient(1px 1px at 72% 18%,rgba(34,211,238,.2) 0%,transparent 100%),
+    radial-gradient(2px 2px at 35% 70%,rgba(139,72,235,.18) 0%,transparent 100%),
+    radial-gradient(1px 1px at 85% 65%,rgba(244,114,182,.15) 0%,transparent 100%),
+    radial-gradient(1.5px 1.5px at 55% 35%,rgba(139,72,235,.2) 0%,transparent 100%),
+    radial-gradient(1px 1px at 25% 55%,rgba(34,211,238,.12) 0%,transparent 100%);
+  animation:particleFloat 16s ease-in-out infinite;
+}
+@keyframes particleFloat{0%,100%{opacity:.5;transform:translateY(0)}33%{opacity:.8;transform:translateY(-4px)}66%{opacity:.4;transform:translateY(2px)}}
+
+/* ── 滚动条 ── */
+::-webkit-scrollbar{width:6px;height:6px;}
+::-webkit-scrollbar-track{background:rgba(18,11,40,.7);border-radius:10px;}
+::-webkit-scrollbar-thumb{
+  background:linear-gradient(180deg,var(--vl-500),var(--vl-350),var(--vl-300));
+  border-radius:10px;transition:background .3s ease;
+}
+::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,var(--vl-400),var(--vl-300),var(--vl-250));}
+
+::selection{background:rgba(139,72,235,.45);color:#fff;}
+
+/* ═══════════════════════════════════════════ 动画关键帧 ═══════ */
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse-text{0%,100%{opacity:.7}50%{opacity:1}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 12px rgba(139,72,235,.35),0 0 24px rgba(139,72,235,.1)}50%{box-shadow:0 0 28px rgba(139,72,235,.7),0 0 56px rgba(139,72,235,.25)}}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes ripple-out{0%{transform:scale(0);opacity:.4}100%{transform:scale(4);opacity:0}}
+@keyframes subtle-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes toast-in{from{opacity:0;transform:translateX(50px) scale(.9)}to{opacity:1;transform:translateX(0) scale(1)}}
+@keyframes toast-out{from{opacity:1;transform:translateX(0) scale(1)}to{opacity:0;transform:translateX(50px) scale(.9)}}
+@keyframes card-in{0%{opacity:0;transform:translateY(32px) scale(.9)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes card-in-spring{0%{opacity:0;transform:translateY(28px) scale(.88)}60%{opacity:.9;transform:translateY(-3px) scale(1.02)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes dot-pulse{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.5);opacity:1}}
+@keyframes border-glow{0%,100%{border-color:rgba(139,72,235,.3)}50%{border-color:rgba(139,72,235,.7)}}
+@keyframes gradient-shift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes section-reveal{from{opacity:0;transform:translateY(40px);filter:blur(4px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+@keyframes glow-pulse{0%,100%{box-shadow:0 0 8px rgba(139,72,235,.25),0 0 24px rgba(139,72,235,.08)}50%{box-shadow:0 0 18px rgba(139,72,235,.55),0 0 44px rgba(139,72,235,.2)}}
+@keyframes breathe{0%,100%{opacity:.5}50%{opacity:.9}}
+@keyframes textScrollOnce{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+@keyframes toastFadeIn{from{opacity:0}to{opacity:1}}
+@keyframes toastScaleIn{from{opacity:0;transform:scale(.85) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+@keyframes giscusSpin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+
+/* ═══════════════════════════════════════════ 布局 ═══════════════ */
+.app-container{display:flex;flex-direction:column;height:100vh;overflow:hidden;position:relative;z-index:1;}
+
+/* ── 顶部导航 ── */
+.top-nav{
+  position:fixed!important;top:0!important;left:0!important;width:100%!important;
+  z-index:99!important;height:var(--header-height)!important;
+  display:flex!important;align-items:center!important;justify-content:space-between!important;
+  padding:0 24px!important;margin:0!important;
+  background:rgba(10,5,25,.62)!important;
+  backdrop-filter:blur(20px)!important;-webkit-backdrop-filter:blur(20px)!important;
+  border-bottom:1px solid rgba(139,72,235,.12)!important;
+  box-shadow:0 1px 0 rgba(139,72,235,.06),0 8px 32px rgba(0,0,0,.4)!important;
+  box-sizing:border-box!important;
+  transition:background .5s ease,box-shadow .5s ease!important;
+}
+.top-nav::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(139,72,235,.45),rgba(34,211,238,.3),transparent);
+}
+
+.logo{
+  font-family:var(--display-font);font-size:1.6rem;font-weight:700;
+  background:linear-gradient(135deg,#fff 0%,#e0ccfe 30%,#c490f8 50%,#22d3ee 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  cursor:pointer;letter-spacing:2px;
+  filter:drop-shadow(0 0 14px rgba(139,72,235,.5));
+  transition:filter var(--dur-normal) var(--ease-out-expo),transform var(--dur-normal) var(--ease-out-expo);
+}
+.logo:hover{filter:drop-shadow(0 0 24px rgba(139,72,235,.8));transform:scale(1.04);}
+
+.menu-btn{
+  cursor:pointer;padding:10px;position:relative;z-index:100;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+}
+.menu-btn span{
+  display:block;width:22px;height:2px;background:rgba(255,255,255,.85);
+  border-radius:2px;transition:all .4s var(--ease-out-back);
+}
+.menu-btn span:nth-child(2){width:16px}
+.menu-btn span:nth-child(3){width:20px}
+.menu-btn:hover span{background:var(--vl-300);width:22px!important}
+.menu-btn.active span:nth-child(1){transform:translateY(7px) rotate(45deg);width:22px}
+.menu-btn.active span:nth-child(2){opacity:0;transform:scaleX(0)}
+.menu-btn.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);width:22px}
+
+.layout-body{display:flex;flex:1;overflow:hidden;width:100%;margin-top:var(--header-height);height:calc(100vh - var(--header-height));position:relative;min-height:0;}
+
+/* ── 侧边栏 ── */
+.sidebar{
+  width:var(--sidebar-w)!important;
+  background:rgba(16,9,35,.45);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border-right:1px solid rgba(139,72,235,.15);
+  padding:8px 0;overflow-y:auto;overflow-x:hidden;
+  transition:transform .4s var(--ease-out-expo),box-shadow .4s ease;
+  display:flex;flex-direction:column;flex-shrink:0;z-index:900;
+  touch-action:pan-y;height:100%;position:relative;
+}
+.sidebar::after{
+  content:'';position:absolute;top:0;right:0;width:1px;height:100%;
+  background:linear-gradient(to bottom,transparent,rgba(139,72,235,.35),rgba(34,211,238,.15),transparent);
+  pointer-events:none;
+}
+.sidebar-title{
+  font-family:var(--display-font);font-size:.62rem;text-transform:uppercase;
+  letter-spacing:2.5px;color:var(--accent-cyan);margin:10px 0 6px;
+  padding:6px 8px;opacity:.7;display:flex;align-items:center;justify-content:center;
+  gap:6px;white-space:nowrap;
+}
+.sidebar-menu{display:flex;flex-direction:column}
+.menu-group{position:relative;margin-bottom:2px}
+.menu-main{
+  display:flex;align-items:center;justify-content:center;
+  padding:10px 10px;color:var(--text-tertiary);text-decoration:none;
+  transition:all .35s var(--ease-out-back);font-weight:500;font-size:.78rem;
+  white-space:nowrap;overflow:hidden;cursor:pointer;position:relative;
+  border-left:3px solid transparent;width:100%;box-sizing:border-box;gap:8px;
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+}
+.menu-main::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(139,72,235,.12),transparent);
+  opacity:0;transition:opacity .35s ease;pointer-events:none;
+}
+.menu-main:hover{color:#fff;border-left-color:rgba(139,72,235,.7);background:rgba(139,72,235,.06);transform:translateX(4px)}
+.menu-main:hover::before{opacity:1}
+.menu-main.active{color:#fff;border-left-color:var(--vl-400);background:rgba(139,72,235,.15);text-shadow:0 0 12px rgba(139,72,235,.6);box-shadow:0 2px 12px rgba(139,72,235,.12)}
+.menu-main.active i{color:var(--vl-300)}
+.menu-main>i,.menu-main .menu-text>i{font-size:.85rem;width:18px;text-align:center;flex-shrink:0;opacity:.7;transition:all .35s ease;color:inherit}
+.menu-main:hover>i,.menu-main:hover .menu-text>i{opacity:1;color:var(--vl-300);transform:scale(1.15)}
+.menu-text{display:flex;align-items:center;gap:8px}
+.open-btn{
+  padding:4px 8px;border:1px solid rgba(139,72,235,.45);border-radius:6px;
+  background:transparent;color:rgba(139,72,235,.8);cursor:pointer;font-size:.7rem;
+  transition:all var(--dur-normal) var(--ease-out-expo);
+}
+.open-btn:hover{background:rgba(139,72,235,.2);color:#fff;border-color:var(--vl-400);box-shadow:var(--glow-soft)}
+
+/* ── 主内容区 ── */
+.main-content{
+  flex:1;overflow-y:auto;overflow-x:hidden;position:relative;height:100%;
+  padding:24px 22px 100px;z-index:1;box-sizing:border-box;scroll-behavior:smooth;
+}
+
+/* ── 快捷按钮区 ── */
+.quick-links-glass{
+  background:var(--glass-bg);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);
+  border:1px solid var(--glass-border);border-radius:var(--r-lg);
+  padding:18px 20px;margin-bottom:28px;
+  transition:border-color var(--dur-normal) var(--ease-out-expo),box-shadow var(--dur-normal) var(--ease-out-expo),transform var(--dur-normal) var(--ease-out-expo);
+  box-shadow:var(--shadow-2);position:relative;overflow:hidden;
+}
+.quick-links-glass::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(139,72,235,.5),rgba(34,211,238,.3),transparent);
+  opacity:.6;
+}
+.quick-links-glass:hover{border-color:var(--glass-border-hover);box-shadow:var(--shadow-3);transform:translateY(-1px)}
+
+/* ── 评论区容器 ── */
+.comment-section-container{
+  background:var(--glass-bg);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);
+  border:1px solid var(--glass-border);border-radius:var(--r-lg);
+  padding:18px 20px;margin-bottom:24px;
+  transition:border-color var(--dur-normal) var(--ease-out-expo),box-shadow var(--dur-normal) var(--ease-out-expo);
+  box-shadow:var(--shadow-2);position:relative;overflow:hidden;
+}
+.comment-section-container::before{
+  content:'';position:absolute;top:0;left:0;width:100%;height:3px;
+  background:linear-gradient(90deg,rgba(139,72,235,.1),rgba(139,72,235,.4),rgba(139,72,235,.1));
+  pointer-events:none;z-index:1;
+}
+.comment-section-container:hover{border-color:var(--glass-border-hover);box-shadow:var(--shadow-3)}
+.comment-section-title{font-size:.85rem;color:var(--text-tertiary);margin-bottom:12px;text-align:center;display:flex;align-items:center;justify-content:center;gap:8px}
+.comment-section-title i{opacity:.7}
+
+/* ── 评论区展开 ── */
+.giscus-details{margin-top:8px}
+.giscus-details>.giscus-summary{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px 22px;background:var(--glass-bg);border:1px solid var(--glass-border);
+  border-radius:var(--r-sm);color:var(--text-secondary);font-size:.82rem;
+  font-family:var(--text-font);cursor:pointer;transition:all var(--dur-normal) var(--ease-out-expo);
+  list-style:none;user-select:none;box-shadow:0 2px 12px rgba(139,72,235,.1);
+}
+.giscus-details[open]>.giscus-summary{border-radius:var(--r-sm) var(--r-sm) 0 0;border-bottom:none}
+.giscus-details>.giscus-summary::-webkit-details-marker{display:none}
+.giscus-details>.giscus-summary::marker{display:none;content:''}
+.giscus-details>.giscus-summary:hover{background:var(--glass-bg-hover);border-color:var(--glass-border-hover);color:#fff;box-shadow:var(--glow-soft)}
+.giscus-details>.giscus-summary i{font-size:.7rem;transition:transform var(--dur-normal) var(--ease-out-expo)}
+.giscus-details[open]>.giscus-summary i{transform:rotate(180deg)}
+.giscus-summary .expand-text{display:inline}
+.giscus-summary .collapse-text{display:none}
+.giscus-details[open] .giscus-summary .expand-text{display:none}
+.giscus-details[open] .giscus-summary .collapse-text{display:inline}
+.giscus-details .giscus{
+  margin-top:0;border-radius:0 0 var(--r-sm) var(--r-sm);min-height:400px;
+  overflow:hidden;background:rgba(18,11,40,.4);
+  border:1px solid rgba(139,72,235,.2);border-top:none;
+  box-shadow:inset 0 0 30px rgba(139,72,235,.04),0 4px 20px rgba(139,72,235,.08);
+}
+.giscus{
+  margin-top:8px;min-height:100px;border-radius:var(--r-sm);overflow:hidden;
+  position:relative;background:rgba(18,11,40,.35);
+  border:1px solid rgba(139,72,235,.18);
+  box-shadow:inset 0 0 20px rgba(139,72,235,.03);
+}
+.giscus-loading{display:flex;align-items:center;justify-content:center;min-height:200px}
+.giscus-error{text-align:center;padding:40px 20px;background:rgba(255,65,108,.08);border-radius:var(--r-sm);border:1px solid rgba(255,65,108,.2);margin:8px}
+.giscus-spinner{
+  display:inline-block;width:40px;height:40px;
+  border:3px solid rgba(139,72,235,.12);border-top-color:var(--vl-300);
+  border-radius:50%;animation:giscusSpin .8s linear infinite;
+  margin-bottom:15px;box-shadow:0 0 12px rgba(139,72,235,.25);
+}
+
+/* ── 按钮网格 ── */
+.button-container{display:flex;gap:10px;flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin;scrollbar-color:var(--vl-500) rgba(0,0,0,.1)}
+.button-container::-webkit-scrollbar{height:3px}
+.button-container::-webkit-scrollbar-track{background:rgba(0,0,0,.1);border-radius:2px}
+.button-container::-webkit-scrollbar-thumb{background:var(--vl-500);border-radius:2px}
+.grid-btn{
+  font-size:.82rem;padding:9px 20px;
+  background:rgba(139,72,235,.08);border:1px solid rgba(139,72,235,.16);
+  border-radius:var(--r-pill);color:var(--text-secondary);text-decoration:none;
+  transition:all var(--dur-normal) var(--ease-spring);white-space:nowrap;
+  flex-shrink:0;position:relative;overflow:hidden;cursor:pointer;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.grid-btn::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);
+  transform:translateX(-100%);transition:transform .6s ease;
+}
+.grid-btn:hover{
+  border-color:var(--accent-cyan);background:rgba(34,211,238,.1);
+  color:var(--accent-cyan);transform:translateY(-3px);
+  box-shadow:0 6px 24px rgba(34,211,238,.25),0 0 0 1px rgba(34,211,238,.12);
+}
+.grid-btn:hover::after{transform:translateX(100%)}
+.grid-btn:active{transform:translateY(-1px) scale(.97)}
+
+/* ── 分类区块标题 ── */
+.section-header{
+  display:flex;align-items:center;margin:52px 0 28px;
+  border-bottom:1px solid rgba(139,72,235,.1);padding-bottom:18px;
+  animation:section-reveal .7s var(--ease-out-expo) forwards;
+}
+.section-title{
+  font-family:var(--display-font);font-size:1.6rem;font-weight:700;
+  color:#fff;position:relative;padding-left:22px;letter-spacing:2px;
+  background:linear-gradient(135deg,#fff 0%,#e0ccfe 60%,#c490f8 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.section-title::before{
+  content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:4px;height:30px;border-radius:3px;
+  background:linear-gradient(180deg,var(--vl-250),var(--vl-350),var(--vl-500));
+  box-shadow:0 0 18px rgba(139,72,235,.7),0 0 36px rgba(139,72,235,.25);
+}
+
+/* ── 资源卡片网格 ── */
+.resource-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+
+/* 分类卡片 */
+.category-card{
+  background:var(--glass-bg);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);
+  border:1px solid var(--glass-border);
+  border-radius:var(--r-lg);padding:24px 22px 22px;
+  transition:transform var(--dur-normal) var(--ease-spring),border-color var(--dur-normal) var(--ease-out-expo),box-shadow var(--dur-normal) var(--ease-out-expo),background var(--dur-normal) var(--ease-out-expo);
+  position:relative;overflow:hidden;
+  animation:card-in-spring .65s var(--ease-spring) forwards;
+  opacity:0;transform-origin:center top;
+  box-shadow:var(--shadow-2);
+}
+.category-card::before{
+  content:'';position:absolute;top:0;left:0;width:100%;height:100%;
+  background:var(--card-shine);pointer-events:none;z-index:0;
+  transition:opacity var(--dur-normal) var(--ease-out-expo);
+}
+.category-card::after{
+  content:'';position:absolute;top:0;left:20px;right:20px;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(139,72,235,.55),rgba(155,95,245,.25),transparent);
+  opacity:0;transition:opacity var(--dur-normal) var(--ease-out-expo);z-index:3;border-radius:2px;
+}
+.category-card:hover{
+  transform:translateY(-6px) scale(1.012);
+  border-color:var(--glass-border-hover);
+  box-shadow:0 20px 56px rgba(0,0,0,.5),0 0 0 1px rgba(139,72,235,.22),0 0 50px rgba(139,72,235,.06);
+  background:var(--glass-bg-hover);
+}
+.category-card:hover::before{opacity:.8}
+.category-card:hover::after{opacity:1}
+
+/* 卡片入场延迟 */
+.category-card:nth-child(1){animation-delay:.04s}
+.category-card:nth-child(2){animation-delay:.08s}
+.category-card:nth-child(3){animation-delay:.12s}
+.category-card:nth-child(4){animation-delay:.16s}
+.category-card:nth-child(5){animation-delay:.2s}
+.category-card:nth-child(6){animation-delay:.24s}
+.category-card:nth-child(7){animation-delay:.28s}
+.category-card:nth-child(8){animation-delay:.32s}
+.category-card:nth-child(n+9){animation-delay:.36s}
+
+/* 卡片头部 */
+.category-header{display:flex;align-items:center;margin-bottom:18px;position:relative;z-index:2;}
+.category-icon{
+  width:46px;height:46px;border-radius:var(--r-sm);
+  background:linear-gradient(135deg,rgba(139,72,235,.35),rgba(100,50,220,.18));
+  border:1px solid rgba(139,72,235,.35);
+  display:flex;align-items:center;justify-content:center;
+  margin-right:14px;font-size:1.15rem;color:var(--vl-250);
+  box-shadow:0 4px 20px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.06);
+  flex-shrink:0;transition:all var(--dur-normal) var(--ease-spring);
+  position:relative;z-index:2;
+}
+.category-icon::after{
+  content:'';position:absolute;inset:-3px;border-radius:calc(var(--r-sm) + 2px);
+  background:transparent;border:1px solid transparent;transition:all var(--dur-normal) ease;z-index:-1;
+}
+.category-card:hover .category-icon{
+  background:linear-gradient(135deg,rgba(139,72,235,.55),rgba(120,60,235,.3));
+  box-shadow:0 8px 28px rgba(139,72,235,.5),0 0 0 3px rgba(139,72,235,.22),inset 0 1px 0 rgba(255,255,255,.1);
+  transform:scale(1.08);
+}
+.category-card:hover .category-icon::after{border-color:rgba(139,72,235,.4);box-shadow:0 0 18px rgba(139,72,235,.25)}
+.category-title{
+  font-family:var(--display-font);font-size:1.2rem;color:var(--text-primary);
+  font-weight:600;letter-spacing:.8px;text-shadow:0 0 20px rgba(139,72,235,.12);
+}
+
+/* 收藏按钮 */
+.favorite-btn{
+  position:absolute;bottom:12px;right:12px;
+  background:rgba(22,14,45,.55);border:1px solid rgba(139,72,235,.22);
+  border-radius:var(--r-sm);color:rgba(139,72,235,.5);
+  cursor:pointer;transition:all var(--dur-normal) var(--ease-spring);
+  width:34px;height:34px;display:flex;align-items:center;justify-content:center;
+  font-size:.95rem;z-index:2;
+}
+.favorite-btn:hover{
+  color:var(--vl-200);background:rgba(139,72,235,.25);
+  border-color:rgba(139,72,235,.55);
+  transform:scale(1.18) rotate(6deg);
+  box-shadow:0 0 20px rgba(139,72,235,.45),0 0 0 2px rgba(139,72,235,.12);
+}
+.favorite-btn.favorited{
+  color:var(--vl-200);background:rgba(139,72,235,.3);
+  border-color:rgba(139,72,235,.65);
+  text-shadow:0 0 14px rgba(139,72,235,.9);
+  box-shadow:0 0 18px rgba(139,72,235,.5);
+  animation:glow-pulse 2.2s ease infinite;
+}
+
+/* 网站列表 */
+.website-info{padding-bottom:40px;position:relative;z-index:2;}
+.website-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:9px}
+.website-item{
+  display:block;text-decoration:none;color:var(--text-primary);
+  background:rgba(22,14,45,.5);border-radius:var(--r-xs);
+  padding:11px 10px;border:1px solid rgba(139,72,235,.15);
+  transition:transform var(--dur-normal) var(--ease-spring),border-color var(--dur-normal) var(--ease-out-expo),box-shadow var(--dur-normal) var(--ease-out-expo),background var(--dur-normal) var(--ease-out-expo);
+  position:relative;overflow:hidden;cursor:pointer;
+}
+.website-item::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(139,72,235,.06) 0%,transparent 50%,rgba(100,50,220,.03) 100%);
+  opacity:0;transition:opacity .4s ease;pointer-events:none;z-index:0;
+}
+.website-item:hover{
+  background:rgba(139,72,235,.14);border-color:rgba(139,72,235,.45);
+  transform:translateY(-3px) scale(1.02);
+  box-shadow:0 8px 24px rgba(0,0,0,.4),0 0 0 1px rgba(139,72,235,.2),0 0 12px rgba(139,72,235,.06);
+}
+.website-item:hover::before{opacity:1}
+.website-item:active{transform:translateY(-2px) scale(.98)}
+.website-item.highlight{border-color:var(--accent-cyan)!important;box-shadow:0 0 0 3px rgba(34,211,238,.45),0 0 28px rgba(34,211,238,.25)!important;animation:pulse-glow 1.5s ease infinite,border-glow 1.5s ease infinite}
+
+.website-img{
+  width:100%;height:60px;border-radius:var(--r-xs);
+  background:rgba(22,15,42,.8);display:flex;align-items:center;justify-content:center;
+  font-size:.75rem;color:rgba(255,255,255,.88);margin-bottom:9px;
+  position:relative;overflow:hidden;font-weight:700;
+  letter-spacing:.5px;font-family:var(--display-font);
+  transition:all var(--dur-normal) var(--ease-out-expo);
+}
+.website-img::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.08) 0%,transparent 60%);
+  pointer-events:none;
+}
+.website-item:hover .website-img{box-shadow:0 6px 18px rgba(0,0,0,.4);transform:scale(1.02)}
+.vpn-label{
+  position:absolute;top:0;right:0;
+  background:linear-gradient(135deg,var(--vl-400),var(--vl-300));
+  font-size:.58rem;padding:3px 8px;border-bottom-left-radius:8px;
+  color:#fff;letter-spacing:.5px;font-weight:700;z-index:1;
+}
+.website-name{
+  font-size:.84rem;font-weight:600;white-space:nowrap;overflow:hidden;
+  text-overflow:ellipsis;margin-bottom:4px;
+  color:var(--text-secondary);transition:color .3s ease,text-shadow .3s ease;
+  position:relative;z-index:1;
+}
+.website-item:hover .website-name{color:#fff;text-shadow:0 0 12px rgba(210,195,255,.4)}
+.website-desc{
+  font-size:.68rem;color:var(--text-dim);line-height:1.35;
+  height:2.7em;overflow:hidden;display:-webkit-box;
+  -webkit-line-clamp:2;-webkit-box-orient:vertical;
+  position:relative;z-index:1;
+}
+
+/* 波纹效果 */
+.ripple-effect{
+  position:absolute;border-radius:50%;background:rgba(139,72,235,.25);
+  width:100px;height:100px;margin-left:-50px;margin-top:-50px;
+  animation:ripple-out .7s ease forwards;pointer-events:none;z-index:0;
+}
+
+/* 提示 */
+.website-item .item-tooltip{
+  position:absolute;bottom:calc(100% + 10px);left:50%;
+  transform:translateX(-50%) translateY(8px);
+  background:rgba(14,11,35,.92);border:1px solid rgba(139,72,235,.35);
+  border-radius:var(--r-sm);padding:8px 14px;font-size:.72rem;
+  color:var(--text-secondary);white-space:nowrap;
+  opacity:0;pointer-events:none;
+  transition:all .25s var(--ease-spring);z-index:50;
+  box-shadow:0 6px 20px rgba(0,0,0,.5);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+}
+.website-item:hover .item-tooltip{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* NEW徽章 */
+.new-badge{
+  position:absolute;top:5px;right:5px;
+  background:linear-gradient(135deg,var(--accent-rose),var(--accent-coral));
+  color:#fff;font-size:9px;font-weight:700;padding:3px 8px;
+  border-radius:var(--r-pill);letter-spacing:.5px;line-height:1.4;
+  box-shadow:0 2px 10px rgba(244,114,182,.45);
+  animation:dot-pulse 2s ease infinite;z-index:1;
+}
+
+/* ═══════════════════════════════════════════ Toast系统 ═══════ */
+.toast-container{position:fixed;top:90px;right:24px;z-index:9998;display:flex;flex-direction:column;gap:10px;pointer-events:none}
+.toast{
+  background:rgba(16,10,35,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(139,72,235,.3);border-radius:var(--r-sm);
+  padding:14px 22px;color:#fff;font-size:.88rem;min-width:200px;
+  display:flex;align-items:center;gap:12px;
+  box-shadow:0 14px 48px rgba(0,0,0,.6),0 0 0 1px rgba(139,72,235,.06);
+  animation:toast-in .45s var(--ease-spring) forwards;
+}
+.toast.hiding{animation:toast-out .3s ease forwards}
+.toast.success .toast-icon{color:var(--accent-mint)}
+.toast.error .toast-icon{color:var(--accent-coral)}
+.toast.info .toast-icon{color:var(--accent-cyan)}
+
+/* ═══════════════════════════════════════════ 自定义弹窗 ═══════ */
+.silong-toast-overlay{
+  position:fixed;top:0;left:0;width:100vw;height:100vh;
+  background:rgba(6,3,20,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  z-index:99999;display:flex;align-items:center;justify-content:center;
+  animation:fadeIn .25s ease;
+}
+.silong-toast-box{
+  background:linear-gradient(160deg,rgba(25,12,48,.98) 0%,rgba(16,10,38,.98) 100%);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(139,72,235,.45);border-radius:var(--r-xl);
+  padding:30px 26px 24px;width:90%;max-width:380px;
+  text-align:center;color:#fff;
+  box-shadow:0 24px 64px rgba(0,0,0,.55),0 0 40px rgba(139,72,235,.18),inset 0 1px 0 rgba(255,255,255,.04);
+  animation:toastScaleIn .35s var(--ease-spring);
+  position:relative;
+}
+.silong-toast-box::before{
+  content:'';position:absolute;top:0;left:20px;right:20px;height:3px;
+  background:linear-gradient(90deg,var(--vl-200),var(--vl-300),var(--vl-400),var(--vl-300),var(--vl-200));
+  border-radius:0 0 3px 3px;
+}
+.silong-toast-icon{
+  width:56px;height:56px;border-radius:50%;
+  background:linear-gradient(135deg,rgba(139,72,235,.3),rgba(100,50,220,.2));
+  border:2px solid rgba(139,72,235,.45);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 18px;font-size:24px;color:var(--vl-200);
+  box-shadow:0 0 20px rgba(139,72,235,.3);
+}
+.silong-toast-title{font-family:var(--display-font);font-size:18px;font-weight:700;color:var(--vl-100);margin-bottom:8px;letter-spacing:.5px}
+.silong-toast-message{font-size:14px;color:var(--text-tertiary);line-height:1.6;margin-bottom:20px}
+.silong-toast-btn{
+  display:inline-block;padding:11px 34px;
+  background:linear-gradient(105deg,var(--vl-400) 0%,var(--vl-300) 100%);
+  color:#fff;border:none;border-radius:var(--r-pill);
+  font-size:14px;font-weight:600;cursor:pointer;
+  box-shadow:0 4px 16px rgba(120,50,220,.45);
+  transition:all var(--dur-normal) var(--ease-out-expo);
+  letter-spacing:.3px;
+}
+.silong-toast-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(130,60,230,.6);background:linear-gradient(105deg,var(--vl-350) 0%,var(--vl-200) 100%)}
+.silong-toast-btn:active{transform:scale(.96)}
+
+/* ═══════════════════════════════════════════ Modal弹窗 ═══════ */
+.modal{display:none;position:fixed;inset:0;background:rgba(6,3,16,.7);z-index:2000;animation:fadeIn .35s ease;align-items:center;justify-content:center;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.modal.flex{display:flex}
+.modal-content{
+  background:rgba(16,10,38,.9);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(139,72,235,.25);
+  box-shadow:0 32px 96px rgba(0,0,0,.72),0 0 0 1px rgba(255,255,255,.02) inset;
+  width:90%;max-width:520px;margin:10vh auto;padding:34px;
+  border-radius:var(--r-xl);animation:slideDown .4s var(--ease-spring);
+  color:#fff;max-height:80vh;overflow-y:auto;
+}
+.modal-title{
+  display:flex;align-items:center;gap:12px;color:var(--accent-cyan);
+  margin-bottom:28px;border-bottom:1px solid rgba(139,72,235,.12);
+  padding-bottom:14px;font-family:var(--display-font);
+  font-size:1.15rem;letter-spacing:1px;
+}
+.close{float:right;font-size:1.5rem;cursor:pointer;color:var(--text-dim);transition:all var(--dur-normal) var(--ease-spring);line-height:1}
+.close:hover{color:#fff;transform:rotate(90deg) scale(1.2)}
+.form-control,select.form-control{
+  width:100%;padding:13px 16px;margin-bottom:16px;
+  background:rgba(0,0,0,.25);border:1px solid rgba(139,72,235,.18);
+  border-radius:var(--r-sm);color:#fff;font-family:var(--text-font);
+  transition:all var(--dur-normal) var(--ease-out-expo);
+}
+.form-control:focus{border-color:var(--accent-cyan);box-shadow:0 0 0 4px rgba(34,211,238,.1);background:rgba(0,0,0,.45)}
+.btn{
+  width:100%;margin-top:12px;padding:14px;border:none;border-radius:var(--r-sm);
+  background:linear-gradient(135deg,var(--vl-400),var(--vl-350));
+  color:#fff;font-weight:600;cursor:pointer;
+  transition:all var(--dur-normal) var(--ease-out-expo);
+  font-family:var(--display-font);font-size:1rem;letter-spacing:.5px;
+  position:relative;overflow:hidden;
+}
+.btn::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.12),transparent);opacity:0;transition:opacity .35s ease}
+.btn:hover{filter:brightness(1.15);transform:translateY(-3px);box-shadow:0 10px 28px rgba(139,72,235,.5),0 0 0 2px rgba(139,72,235,.18)}
+.btn:hover::after{opacity:1}
+.btn:active{transform:translateY(-1px) scale(.98)}
+.btn-secondary{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
+.btn-secondary:hover{background:rgba(255,255,255,.1);box-shadow:0 4px 16px rgba(0,0,0,.35)}
+
+/* ── 回到顶部 ── */
+.back-to-top{
+  position:fixed;bottom:80px;right:28px;width:50px;height:50px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--vl-400),var(--vl-350));
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;opacity:0;transform:translateY(20px) scale(.8);
+  transition:all .45s var(--ease-spring);z-index:100;
+  box-shadow:0 8px 28px rgba(139,72,235,.55),0 0 0 1px rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.08);font-size:1.1rem;
+}
+.back-to-top.visible{opacity:1;transform:translateY(0) scale(1)}
+.back-to-top:hover{transform:translateY(-8px) scale(1.15);box-shadow:0 0 0 8px rgba(139,72,235,.15),0 14px 36px rgba(139,72,235,.65);background:linear-gradient(135deg,var(--vl-300),var(--vl-400))}
+
+/* ── 加载器 ── */
+.loader-container{
+  position:fixed;inset:0;background:rgba(6,3,20,.92);z-index:9999;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  transition:opacity .6s ease;pointer-events:none;opacity:0;
+}
+.loader-container.active{opacity:1;pointer-events:auto}
+.loader{
+  width:56px;height:56px;border:2px solid rgba(139,72,235,.1);
+  border-top-color:var(--vl-400);border-right-color:var(--accent-cyan);
+  border-radius:50%;animation:spin .75s linear infinite;
+  box-shadow:0 0 28px rgba(139,72,235,.45),0 0 56px rgba(34,211,238,.18);
+  position:relative;
+}
+.loader::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(139,72,235,.08);animation:spin 1.5s linear infinite reverse}
+.loader-text{margin-top:20px;font-weight:500;letter-spacing:4px;color:var(--text-tertiary);font-family:var(--display-font);font-size:.82rem;text-transform:uppercase;animation:pulse-text 2s ease infinite}
+
+#success-message{display:none;position:fixed;top:85px;right:20px;background:rgba(16,10,38,.88);border:1px solid rgba(139,72,235,.32);color:#fff;padding:14px 20px;border-radius:var(--r-sm);z-index:9999;font-size:.88rem;animation:fadeInUp .35s var(--ease-spring);box-shadow:0 12px 40px rgba(0,0,0,.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+/* ── About模块 ── */
+.about-module{
+  background:var(--glass-bg);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);
+  border:1px solid var(--glass-border);border-radius:var(--r-lg);
+  padding:24px 26px;margin-top:30px;font-size:.85rem;
+  color:var(--text-tertiary);line-height:1.85;
+  box-shadow:var(--shadow-2);transition:box-shadow var(--dur-normal) var(--ease-out-expo);
+}
+.about-module:hover{box-shadow:var(--shadow-3)}
+.about-module h3{font-family:var(--display-font);font-size:1.1rem;color:var(--text-primary);margin-bottom:12px;letter-spacing:.5px}
+
+/* ── 搜索按钮 ── */
+#searchToggle{
+  width:44px;height:44px;background:rgba(139,72,235,.08);
+  border:1px solid rgba(139,72,235,.18);border-radius:var(--r-sm);
+  color:var(--text-secondary);font-size:18px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;margin-right:6px;outline:none;
+  transition:all var(--dur-normal) var(--ease-out-expo);
+}
+#searchToggle:hover{background:rgba(139,72,235,.18);border-color:rgba(139,72,235,.5);color:#fff;box-shadow:var(--glow-soft);transform:scale(1.08)}
+#searchToggle:active{transform:scale(.95)}
+
+/* ── 侧边栏遮罩 ── */
+.sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:899;opacity:0;pointer-events:none;transition:opacity .4s ease;backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px)}
+.sidebar-overlay.active{opacity:1;pointer-events:auto}
+.sidebar-scrollable{display:flex;flex-direction:column;min-height:100%}
+
+/* ── 问候横幅 ── */
+#greetingBannerText{
+  flex:1;overflow:hidden;position:relative;
+  -webkit-mask-image:linear-gradient(to left,transparent 0%,#000 18%,#000 85%,transparent 100%);
+  mask-image:linear-gradient(to left,transparent 0%,#000 18%,#000 85%,transparent 100%);
+}
+#greetingBannerTextInner{white-space:nowrap;display:inline-block;color:#fff}
+
+/* ── 滚动动画 ── */
+.category-section{opacity:1}
+.animate-on-scroll{opacity:0;transform:translateY(30px);transition:opacity .6s var(--ease-out-expo),transform .6s var(--ease-out-expo)}
+.animate-on-scroll.visible{opacity:1;transform:translateY(0)}
+
+/* ═══════════════════════════════════════════ 响应式 ═══════════ */
+@media (max-width:768px){
+  .layout-body{flex-direction:column}
+  .sidebar{position:fixed;top:var(--header-height);left:0;bottom:0;transform:translateX(-100%);width:var(--sidebar-w)!important;box-shadow:12px 0 48px rgba(0,0,0,.7);z-index:950}
+  .sidebar.active{transform:translateX(0)}
+  .main-content{padding:16px 12px 100px}
+  .resource-grid{grid-template-columns:repeat(2,1fr);gap:14px}
+  .button-container{gap:6px}
+  .grid-btn{padding:7px 14px;font-size:.75rem}
+  .section-title{font-size:1.3rem}
+  .category-card{padding:18px 15px 15px}
+  .category-icon{width:38px;height:38px;font-size:1rem}
+  .category-title{font-size:1rem}
+  .website-list{grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:6px}
+  .website-item{padding:8px 7px}
+  .website-img{height:46px;font-size:.7rem}
+  .website-name{font-size:.75rem}
+  .website-desc{font-size:.65rem}
+  .top-nav{padding:0 14px!important}
+  .logo{font-size:1.3rem}
+}
+@media (max-width:480px){
+  .resource-grid{grid-template-columns:1fr;gap:12px}
+  .section-header{margin:36px 0 20px}
+  .section-title{font-size:1.15rem}
+  .website-list{grid-template-columns:repeat(auto-fill,minmax(70px,1fr));gap:5px}
+}
+
+/* ═══════════════════════════════════════════ 打印 ═══════════ */
+@media print{
+  .sidebar,.top-nav,.back-to-top,.loader-container{display:none!important}
+  .main-content{overflow:visible;height:auto}
+  body{overflow:visible;background:#fff;color:#000}
+}
+</style>
+<!-- 纯CSS背景层 - 替代原有视频/图片背景 -->
+</head>
+<body>
+<div class="bg-particle-layer"></div>
 <script>
-(function() {
-var v1 = document.getElementById('bgVideoPortrait');
-var v2 = document.getElementById('bgVideoLandscape');
-var img1 = document.querySelector('.bg-image-portrait');
-var img2 = document.querySelector('.bg-image-landscape');
-
-var videoLoadedSuccess = {
-portrait: false,
-landscape: false
-};
-
-if (img1) {
-var testImg1 = new Image();
-testImg1.onload = function() { img1.classList.add('loaded'); };
-testImg1.src = 'bjt/bjt1.jpg';
-}
-
-if (img2) {
-var testImg2 = new Image();
-testImg2.onload = function() { img2.classList.add('loaded'); };
-testImg2.src = 'bjt/zybjt2.jpg';
-}
-
-function showVideos() {
-if (v1 && videoLoadedSuccess.portrait) v1.classList.add('show-video');
-if (v2 && videoLoadedSuccess.landscape) v2.classList.add('show-video');
-}
-
-function loadVideoViaFetch(videoEl, url, type) {
-if (!videoEl || !url) return;
-
-var xhr = new XMLHttpRequest();
-xhr.open('GET', url, true);
-xhr.responseType = 'blob';
-xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-
-xhr.onload = function() {
-if (xhr.status === 200 || xhr.status === 304) {
-var blob = xhr.response;
-var blobUrl = URL.createObjectURL(blob);
-videoEl.src = blobUrl;
-videoEl.load();
-videoEl.play().catch(function() {});
-
-videoEl.addEventListener('canplaythrough', function() {
-videoLoadedSuccess[type] = true;
-setTimeout(showVideos, 500);
-}, { once: true });
-
-if (videoEl.readyState >= 3) {
-videoLoadedSuccess[type] = true;
-setTimeout(showVideos, 500);
-}
-} else {
-fallbackToDirectSrc(videoEl, url, type);
-}
-};
-
-xhr.onerror = function() {
-fallbackToDirectSrc(videoEl, url, type);
-};
-
-xhr.send();
-}
-
-function fallbackToDirectSrc(videoEl, url, type) {
-var source = document.createElement('source');
-source.src = url;
-source.type = 'video/mp4';
-videoEl.appendChild(source);
-videoEl.load();
-videoEl.play().catch(function() {});
-
-videoEl.addEventListener('canplaythrough', function() {
-videoLoadedSuccess[type] = true;
-setTimeout(showVideos, 500);
-}, { once: true });
-
-if (videoEl.readyState >= 3) {
-videoLoadedSuccess[type] = true;
-setTimeout(showVideos, 500);
-}
-}
-
-function handleVideoError(videoEl, type) {
-if (!videoEl) return;
-videoEl.addEventListener('error', function() {
-videoLoadedSuccess[type] = false;
-}, { once: true });
-
-setTimeout(function() {
-if (!videoLoadedSuccess[type]) {
-videoLoadedSuccess[type] = false;
-}
-}, 10000);
-}
-
-loadVideoViaFetch(v1, 'bj/bjsp1.mp4', 'portrait');
-loadVideoViaFetch(v2, 'bj/bjsp2.mp4', 'landscape');
-handleVideoError(v1, 'portrait');
-handleVideoError(v2, 'landscape');
-
-document.addEventListener('contextmenu', function(e) {
-if (e.target.tagName === 'VIDEO') {
-e.preventDefault();
-return false;
-}
-});
-
-document.addEventListener('keydown', function(e) {
-if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S' || e.key === 'u' || e.key === 'U')) {
-e.preventDefault();
-return false;
-}
-if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c'))) {
-e.preventDefault();
-return false;
-}
+(function(){'use strict';
+/* 安全脚本 */
+document.addEventListener('keydown',function(e){
+if((e.ctrlKey||e.metaKey)&&(e.key==='s'||e.key==='S'||e.key==='u'||e.key==='U')){e.preventDefault();return false}
+if(e.key==='F12'||(e.ctrlKey&&e.shiftKey&&(e.key==='I'||e.key==='i'||e.key==='J'||e.key==='j'||e.key==='C'||e.key==='c'))){e.preventDefault();return false}
 });
 })();
-</script>
-<div class="app-container">
+</script><div class="app-container">
 <header class="top-nav">
 <div style="display: flex; align-items: center; gap: 20px; justify-content: space-between; width: 100%;">
 <div class="menu-btn" id="menu-btn">
@@ -2998,7 +1813,19 @@ BTMet
 <div class="website-desc">
 BL磁力搜索
 </div>
-</div> </a>
+</div> </a><a href="https://www.cilisou.cn/" class="website-item" data-keywords="磁力搜" data-title="磁力搜" data-url="https://www.cilisou.cn/" data-desc="磁力链接搜索引擎" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+磁力搜
+</div>
+<div class="website-info">
+<div class="website-name">
+磁力搜
+</div>
+<div class="website-desc">
+磁力链接搜索引擎
+</div>
+</div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-1-1" data-default="true">
@@ -3043,7 +1870,19 @@ TorrentKitty
 <div class="website-desc">
 磁力下载
 </div>
-</div> </a>
+</div> </a><a href="https://www.cilisou.cn/" class="website-item" data-keywords="磁力搜" data-title="磁力搜" data-url="https://www.cilisou.cn/" data-desc="磁力链接搜索引擎" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+磁力搜
+</div>
+<div class="website-info">
+<div class="website-name">
+磁力搜
+</div>
+<div class="website-desc">
+磁力链接搜索引擎
+</div>
+</div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-1-2" data-default="true">
@@ -3088,7 +1927,19 @@ BTDig
 <div class="website-desc">
 DHT磁力搜索引擎
 </div>
-</div> </a>
+</div> </a><a href="https://www.cilibear.com/" class="website-item" data-keywords="磁力熊" data-title="磁力熊" data-url="https://www.cilibear.com/" data-desc="聚合多引擎的磁力资源搜索平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+磁力熊
+</div>
+<div class="website-info">
+<div class="website-name">
+磁力熊
+</div>
+<div class="website-desc">
+聚合多引擎的磁力资源搜索平台
+</div>
+</div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-1-3" data-default="true">
@@ -3133,7 +1984,19 @@ BT搜索
 <div class="website-desc">
 资源搜索
 </div>
+</div></a><a href="https://www.cilibear.com/" class="website-item" data-keywords="磁力熊" data-title="磁力熊" data-url="https://www.cilibear.com/" data-desc="聚合多引擎的磁力资源搜索平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+磁力熊
+</div>
+<div class="website-info">
+<div class="website-name">
+磁力熊
+</div>
+<div class="website-desc">
+聚合多引擎的磁力资源搜索平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-1-4" data-default="true">
@@ -3178,7 +2041,19 @@ Zooqle
 <div class="website-desc">
 耽美影视磁力
 </div>
+</div></a><a href="https://www.cilibear.com/" class="website-item" data-keywords="磁力熊" data-title="磁力熊" data-url="https://www.cilibear.com/" data-desc="聚合多引擎的磁力资源搜索平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+磁力熊
+</div>
+<div class="website-info">
+<div class="website-name">
+磁力熊
+</div>
+<div class="website-desc">
+聚合多引擎的磁力资源搜索平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-1-5" data-default="true">
@@ -3223,7 +2098,19 @@ TorrentProject
 <div class="website-desc">
 BL磁力搜索
 </div>
+</div></a><a href="https://www.cilisou.cn/" class="website-item" data-keywords="磁力搜" data-title="磁力搜" data-url="https://www.cilisou.cn/" data-desc="磁力链接搜索引擎" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+磁力搜
+</div>
+<div class="website-info">
+<div class="website-name">
+磁力搜
+</div>
+<div class="website-desc">
+磁力链接搜索引擎
+</div>
 </div></a>
+
 </div>
 </div>
 </div>
@@ -3282,7 +2169,19 @@ BL磁力搜索
 <div class="website-desc">
 综合资源搜索网站
 </div>
+</div></a><a href="https://www.aiwaz.com/" class="website-item" data-keywords="爱挖站" data-title="爱挖站" data-url="https://www.aiwaz.com/" data-desc="优质网站资源发现平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+爱挖站
+</div>
+<div class="website-info">
+<div class="website-name">
+爱挖站
+</div>
+<div class="website-desc">
+优质网站资源发现平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-2-1" data-default="true">
@@ -3327,7 +2226,19 @@ PSS
 <div class="website-desc">
 网盘资源搜索引擎
 </div>
+</div></a><a href="https://www.aliyundrive.com/" class="website-item" data-keywords="阿里云盘" data-title="阿里云盘" data-url="https://www.aliyundrive.com/" data-desc="大容量云存储服务" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+阿里云盘
+</div>
+<div class="website-info">
+<div class="website-name">
+阿里云盘
+</div>
+<div class="website-desc">
+大容量云存储服务
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-2-2" data-default="true">
@@ -3372,7 +2283,19 @@ BL资源网
 <div class="website-desc">
 耽美综合资源
 </div>
+</div></a><a href="https://www.lanzou.com/" class="website-item" data-keywords="蓝奏云" data-title="蓝奏云" data-url="https://www.lanzou.com/" data-desc="文件上传与分享网盘" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+蓝奏云
+</div>
+<div class="website-info">
+<div class="website-name">
+蓝奏云
+</div>
+<div class="website-desc">
+文件上传与分享网盘
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-2-3" data-default="true">
@@ -3417,7 +2340,19 @@ GayResource
 <div class="website-desc">
 同性恋资源
 </div>
+</div></a><a href="https://www.shuquge.com/" class="website-item" data-keywords="书趣阁" data-title="书趣阁" data-url="https://www.shuquge.com/" data-desc="免费小说在线阅读平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+书趣阁
+</div>
+<div class="website-info">
+<div class="website-name">
+书趣阁
+</div>
+<div class="website-desc">
+免费小说在线阅读平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-2-4" data-default="true">
@@ -3462,7 +2397,19 @@ nan2025
 <div class="website-desc">
 综合资源库
 </div>
+</div></a><a href="https://www.aiwaz.com/" class="website-item" data-keywords="爱挖站" data-title="爱挖站" data-url="https://www.aiwaz.com/" data-desc="优质网站资源发现平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+爱挖站
+</div>
+<div class="website-info">
+<div class="website-name">
+爱挖站
+</div>
+<div class="website-desc">
+优质网站资源发现平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-2-5" data-default="true">
@@ -3507,7 +2454,19 @@ boylinks
 <div class="website-desc">
 综合Yaoi资源导航站
 </div>
+</div></a><a href="https://www.cilisou.cn/" class="website-item" data-keywords="磁力搜" data-title="磁力搜" data-url="https://www.cilisou.cn/" data-desc="磁力链接搜索引擎" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+磁力搜
+</div>
+<div class="website-info">
+<div class="website-name">
+磁力搜
+</div>
+<div class="website-desc">
+磁力链接搜索引擎
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-2-6" data-default="true">
@@ -3552,7 +2511,19 @@ nyaatorrents
 <div class="website-desc">
 动漫和BL资源种子站
 </div>
+</div></a><a href="https://www.cilibear.com/" class="website-item" data-keywords="磁力熊" data-title="磁力熊" data-url="https://www.cilibear.com/" data-desc="聚合多引擎的磁力资源搜索平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+磁力熊
+</div>
+<div class="website-info">
+<div class="website-name">
+磁力熊
+</div>
+<div class="website-desc">
+聚合多引擎的磁力资源搜索平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-2-7" data-default="true">
@@ -3597,7 +2568,19 @@ gaytheater
 <div class="website-desc">
 BL资源导航站
 </div>
+</div></a><a href="https://www.cilibear.com/" class="website-item" data-keywords="磁力熊" data-title="磁力熊" data-url="https://www.cilibear.com/" data-desc="聚合多引擎的磁力资源搜索平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+磁力熊
+</div>
+<div class="website-info">
+<div class="website-name">
+磁力熊
+</div>
+<div class="website-desc">
+聚合多引擎的磁力资源搜索平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-2-8" data-default="true">
@@ -3642,7 +2625,19 @@ luscious
 <div class="website-desc">
 综合成人图像和漫画站
 </div>
+</div></a><a href="https://www.manhuadb.com/" class="website-item" data-keywords="漫画DB" data-title="漫画DB" data-url="https://www.manhuadb.com/" data-desc="漫画资源在线阅读平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+漫画DB
+</div>
+<div class="website-info">
+<div class="website-name">
+漫画DB
+</div>
+<div class="website-desc">
+漫画资源在线阅读平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-2-9" data-default="true">
@@ -3687,7 +2682,19 @@ xnxx
 <div class="website-desc">
 综合成人视频站
 </div>
+</div></a><a href="https://www.cilisou.cn/" class="website-item" data-keywords="磁力搜" data-title="磁力搜" data-url="https://www.cilisou.cn/" data-desc="磁力链接搜索引擎" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+磁力搜
+</div>
+<div class="website-info">
+<div class="website-name">
+磁力搜
+</div>
+<div class="website-desc">
+磁力链接搜索引擎
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-2-10" data-default="true">
@@ -3732,7 +2739,19 @@ porn
 <div class="website-desc">
 综合成人视频站
 </div>
+</div></a><a href="https://www.dy2018.com/" class="website-item" data-keywords="电影天堂" data-title="电影天堂" data-url="https://www.dy2018.com/" data-desc="影视资源下载分享站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+电影天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+电影天堂
+</div>
+<div class="website-desc">
+影视资源下载分享站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-2-11" data-default="true">
@@ -3777,7 +2796,19 @@ ThePornDude
 <div class="website-desc">
 成人资源导航
 </div>
+</div></a><a href="https://www.bttiantang.com/" class="website-item" data-keywords="BT天堂" data-title="BT天堂" data-url="https://www.bttiantang.com/" data-desc="高清影视BT资源下载站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+BT天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+BT天堂
+</div>
+<div class="website-desc">
+高清影视BT资源下载站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-2-12" data-default="true">
@@ -3822,7 +2853,19 @@ gayasianporn
 <div class="website-desc">
 亚洲BL视频
 </div>
+</div></a><a href="https://www.dy2018.com/" class="website-item" data-keywords="电影天堂" data-title="电影天堂" data-url="https://www.dy2018.com/" data-desc="影视资源下载分享站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+电影天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+电影天堂
+</div>
+<div class="website-desc">
+影视资源下载分享站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-2-13" data-default="true">
@@ -3867,7 +2910,19 @@ blhub
 <div class="website-desc">
 BL综合资源中心
 </div>
+</div></a><a href="https://www.dy2018.com/" class="website-item" data-keywords="电影天堂" data-title="电影天堂" data-url="https://www.dy2018.com/" data-desc="影视资源下载分享站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+电影天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+电影天堂
+</div>
+<div class="website-desc">
+影视资源下载分享站
+</div>
 </div></a>
+
 </div>
 </div>
 </div>
@@ -3926,7 +2981,19 @@ BL综合资源中心
 <div class="website-desc">
 BL漫画资源
 </div>
+</div></a><a href="https://www.dmzj.com/" class="website-item" data-keywords="动漫之家" data-title="动漫之家" data-url="https://www.dmzj.com/" data-desc="动漫漫画资源阅读平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+动漫之家
+</div>
+<div class="website-info">
+<div class="website-name">
+动漫之家
+</div>
+<div class="website-desc">
+动漫漫画资源阅读平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-3-1" data-default="true">
@@ -3971,7 +3038,19 @@ E-Hentai
 <div class="website-desc">
 男男漫画专题
 </div>
+</div></a><a href="https://www.manhuadb.com/" class="website-item" data-keywords="漫画DB" data-title="漫画DB" data-url="https://www.manhuadb.com/" data-desc="漫画资源在线阅读平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+漫画DB
+</div>
+<div class="website-info">
+<div class="website-name">
+漫画DB
+</div>
+<div class="website-desc">
+漫画资源在线阅读平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-4" data-default="true">
@@ -4016,7 +3095,19 @@ ACG漫画网
 <div class="website-desc">
 BL漫画资源
 </div>
+</div></a><a href="https://www.manhuadb.com/" class="website-item" data-keywords="漫画DB" data-title="漫画DB" data-url="https://www.manhuadb.com/" data-desc="漫画资源在线阅读平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+漫画DB
+</div>
+<div class="website-info">
+<div class="website-name">
+漫画DB
+</div>
+<div class="website-desc">
+漫画资源在线阅读平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-4-1" data-default="true">
@@ -4061,7 +3152,19 @@ YaoiHaven
 <div class="website-desc">
 Yaoi漫画库
 </div>
+</div></a><a href="https://www.dmzj.com/" class="website-item" data-keywords="动漫之家" data-title="动漫之家" data-url="https://www.dmzj.com/" data-desc="动漫漫画资源阅读平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+动漫之家
+</div>
+<div class="website-info">
+<div class="website-name">
+动漫之家
+</div>
+<div class="website-desc">
+动漫漫画资源阅读平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-4-2" data-default="true">
@@ -4106,7 +3209,19 @@ YaoiComics
 <div class="website-desc">
 Yaoi漫画网站
 </div>
+</div></a><a href="https://www.dmzj.com/" class="website-item" data-keywords="动漫之家" data-title="动漫之家" data-url="https://www.dmzj.com/" data-desc="动漫漫画资源阅读平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+动漫之家
+</div>
+<div class="website-info">
+<div class="website-name">
+动漫之家
+</div>
+<div class="website-desc">
+动漫漫画资源阅读平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-4-3" data-default="true">
@@ -4151,7 +3266,19 @@ manga.club
 <div class="website-desc">
 Yaoi漫画专区
 </div>
+</div></a><a href="https://www.manhuadb.com/" class="website-item" data-keywords="漫画DB" data-title="漫画DB" data-url="https://www.manhuadb.com/" data-desc="漫画资源在线阅读平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+漫画DB
+</div>
+<div class="website-info">
+<div class="website-name">
+漫画DB
+</div>
+<div class="website-desc">
+漫画资源在线阅读平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-4-4" data-default="true">
@@ -4196,7 +3323,19 @@ myreadingmanga
 <div class="website-desc">
 经典BL漫画站
 </div>
+</div></a><a href="https://www.dmzj.com/" class="website-item" data-keywords="动漫之家" data-title="动漫之家" data-url="https://www.dmzj.com/" data-desc="动漫漫画资源阅读平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+动漫之家
+</div>
+<div class="website-info">
+<div class="website-name">
+动漫之家
+</div>
+<div class="website-desc">
+动漫漫画资源阅读平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-4-5" data-default="true">
@@ -4241,7 +3380,19 @@ mangaplanet
 <div class="website-desc">
 综合漫画站
 </div>
+</div></a><a href="https://www.dmzj.com/" class="website-item" data-keywords="动漫之家" data-title="动漫之家" data-url="https://www.dmzj.com/" data-desc="动漫漫画资源阅读平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+动漫之家
+</div>
+<div class="website-info">
+<div class="website-name">
+动漫之家
+</div>
+<div class="website-desc">
+动漫漫画资源阅读平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-4-6" data-default="true">
@@ -4286,7 +3437,19 @@ anime-planet
 <div class="website-desc">
 Yaoi漫画推荐站
 </div>
+</div></a><a href="https://www.dmzj.com/" class="website-item" data-keywords="动漫之家" data-title="动漫之家" data-url="https://www.dmzj.com/" data-desc="动漫漫画资源阅读平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+动漫之家
+</div>
+<div class="website-info">
+<div class="website-name">
+动漫之家
+</div>
+<div class="website-desc">
+动漫漫画资源阅读平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-4-7" data-default="true">
@@ -4331,7 +3494,19 @@ hitomi
 <div class="website-desc">
 大型hentai漫画站
 </div>
+</div></a><a href="https://www.dmzj.com/" class="website-item" data-keywords="动漫之家" data-title="动漫之家" data-url="https://www.dmzj.com/" data-desc="动漫漫画资源阅读平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+动漫之家
+</div>
+<div class="website-info">
+<div class="website-name">
+动漫之家
+</div>
+<div class="website-desc">
+动漫漫画资源阅读平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-4-8" data-default="true">
@@ -4376,7 +3551,19 @@ mangakakalot
 <div class="website-desc">
 Yaoi漫画合集
 </div>
+</div></a><a href="https://www.dmzj.com/" class="website-item" data-keywords="动漫之家" data-title="动漫之家" data-url="https://www.dmzj.com/" data-desc="动漫漫画资源阅读平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+动漫之家
+</div>
+<div class="website-info">
+<div class="website-name">
+动漫之家
+</div>
+<div class="website-desc">
+动漫漫画资源阅读平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-4-9" data-default="true">
@@ -4421,7 +3608,19 @@ mangadex
 <div class="website-desc">
 社区驱动Yaoi漫画站
 </div>
+</div></a><a href="https://www.dmzj.com/" class="website-item" data-keywords="动漫之家" data-title="动漫之家" data-url="https://www.dmzj.com/" data-desc="动漫漫画资源阅读平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+动漫之家
+</div>
+<div class="website-info">
+<div class="website-name">
+动漫之家
+</div>
+<div class="website-desc">
+动漫漫画资源阅读平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-4-10" data-default="true">
@@ -4466,7 +3665,19 @@ comico
 <div class="website-desc">
 Yaoi漫画专区
 </div>
+</div></a><a href="https://www.dmzj.com/" class="website-item" data-keywords="动漫之家" data-title="动漫之家" data-url="https://www.dmzj.com/" data-desc="动漫漫画资源阅读平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+动漫之家
+</div>
+<div class="website-info">
+<div class="website-name">
+动漫之家
+</div>
+<div class="website-desc">
+动漫漫画资源阅读平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-4-11" data-default="true">
@@ -4511,7 +3722,19 @@ mangapark
 <div class="website-desc">
 Yaoi漫画网站
 </div>
+</div></a><a href="https://www.dmzj.com/" class="website-item" data-keywords="动漫之家" data-title="动漫之家" data-url="https://www.dmzj.com/" data-desc="动漫漫画资源阅读平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+动漫之家
+</div>
+<div class="website-info">
+<div class="website-name">
+动漫之家
+</div>
+<div class="website-desc">
+动漫漫画资源阅读平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-4-12" data-default="true">
@@ -4556,7 +3779,19 @@ mangahasu
 <div class="website-desc">
 Yaoi漫画合集
 </div>
+</div></a><a href="https://www.manhuadb.com/" class="website-item" data-keywords="漫画DB" data-title="漫画DB" data-url="https://www.manhuadb.com/" data-desc="漫画资源在线阅读平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+漫画DB
+</div>
+<div class="website-info">
+<div class="website-name">
+漫画DB
+</div>
+<div class="website-desc">
+漫画资源在线阅读平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-4-13" data-default="true">
@@ -4601,7 +3836,19 @@ mangago yaoi
 <div class="website-desc">
 热门Yaoi漫画聚合平台
 </div>
+</div></a><a href="https://www.manhuadb.com/" class="website-item" data-keywords="漫画DB" data-title="漫画DB" data-url="https://www.manhuadb.com/" data-desc="漫画资源在线阅读平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+漫画DB
+</div>
+<div class="website-info">
+<div class="website-name">
+漫画DB
+</div>
+<div class="website-desc">
+漫画资源在线阅读平台
+</div>
 </div></a>
+
 </div>
 </div>
 </div>
@@ -4660,7 +3907,19 @@ LINPX
 <div class="website-desc">
 耽美小说网站
 </div>
+</div></a><a href="https://www.biquge.com/" class="website-item" data-keywords="笔趣阁" data-title="笔趣阁" data-url="https://www.biquge.com/" data-desc="热门小说阅读下载平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+笔趣阁
+</div>
+<div class="website-info">
+<div class="website-name">
+笔趣阁
+</div>
+<div class="website-desc">
+热门小说阅读下载平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-5-1" data-default="true">
@@ -4705,7 +3964,19 @@ LINPX
 <div class="website-desc">
 男同题材小说网站
 </div>
+</div></a><a href="https://www.biquge.com/" class="website-item" data-keywords="笔趣阁" data-title="笔趣阁" data-url="https://www.biquge.com/" data-desc="热门小说阅读下载平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+笔趣阁
+</div>
+<div class="website-info">
+<div class="website-name">
+笔趣阁
+</div>
+<div class="website-desc">
+热门小说阅读下载平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-5-2" data-default="true">
@@ -4750,7 +4021,19 @@ B站BL小说
 <div class="website-desc">
 BL小说分享
 </div>
+</div></a><a href="https://www.shuquge.com/" class="website-item" data-keywords="书趣阁" data-title="书趣阁" data-url="https://www.shuquge.com/" data-desc="免费小说在线阅读平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+书趣阁
+</div>
+<div class="website-info">
+<div class="website-name">
+书趣阁
+</div>
+<div class="website-desc">
+免费小说在线阅读平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-5-3" data-default="true">
@@ -4795,7 +4078,19 @@ Fanfiction Yaoi
 <div class="website-desc">
 Yaoi粉丝小说
 </div>
+</div></a><a href="https://www.shuquge.com/" class="website-item" data-keywords="书趣阁" data-title="书趣阁" data-url="https://www.shuquge.com/" data-desc="免费小说在线阅读平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+书趣阁
+</div>
+<div class="website-info">
+<div class="website-name">
+书趣阁
+</div>
+<div class="website-desc">
+免费小说在线阅读平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-5-4" data-default="true">
@@ -4840,7 +4135,19 @@ alicesw
 <div class="website-desc">
 BL小说搜索站
 </div>
+</div></a><a href="https://www.biquge.com/" class="website-item" data-keywords="笔趣阁" data-title="笔趣阁" data-url="https://www.biquge.com/" data-desc="热门小说阅读下载平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+笔趣阁
+</div>
+<div class="website-info">
+<div class="website-name">
+笔趣阁
+</div>
+<div class="website-desc">
+热门小说阅读下载平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-5-5" data-default="true">
@@ -4885,7 +4192,19 @@ wattpad
 <div class="website-desc">
 社区型BL小说站
 </div>
+</div></a><a href="https://www.biquge.com/" class="website-item" data-keywords="笔趣阁" data-title="笔趣阁" data-url="https://www.biquge.com/" data-desc="热门小说阅读下载平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+笔趣阁
+</div>
+<div class="website-info">
+<div class="website-name">
+笔趣阁
+</div>
+<div class="website-desc">
+热门小说阅读下载平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-5-6" data-default="true">
@@ -4930,7 +4249,19 @@ novelcool
 <div class="website-desc">
 免费Yaoi小说站
 </div>
+</div></a><a href="https://www.shuquge.com/" class="website-item" data-keywords="书趣阁" data-title="书趣阁" data-url="https://www.shuquge.com/" data-desc="免费小说在线阅读平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+书趣阁
+</div>
+<div class="website-info">
+<div class="website-name">
+书趣阁
+</div>
+<div class="website-desc">
+免费小说在线阅读平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-5-7" data-default="true">
@@ -4975,7 +4306,19 @@ flying-lines
 <div class="website-desc">
 亚洲风格BL小说站
 </div>
+</div></a><a href="https://www.biquge.com/" class="website-item" data-keywords="笔趣阁" data-title="笔趣阁" data-url="https://www.biquge.com/" data-desc="热门小说阅读下载平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+笔趣阁
+</div>
+<div class="website-info">
+<div class="website-name">
+笔趣阁
+</div>
+<div class="website-desc">
+热门小说阅读下载平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-5-8" data-default="true">
@@ -5020,7 +4363,19 @@ scribblehub
 <div class="website-desc">
 免费Yaoi小说站
 </div>
+</div></a><a href="https://www.biquge.com/" class="website-item" data-keywords="笔趣阁" data-title="笔趣阁" data-url="https://www.biquge.com/" data-desc="热门小说阅读下载平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+笔趣阁
+</div>
+<div class="website-info">
+<div class="website-name">
+笔趣阁
+</div>
+<div class="website-desc">
+热门小说阅读下载平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-5-9" data-default="true">
@@ -5065,7 +4420,19 @@ inkitt
 <div class="website-desc">
 免费BL小说平台
 </div>
+</div></a><a href="https://www.biquge.com/" class="website-item" data-keywords="笔趣阁" data-title="笔趣阁" data-url="https://www.biquge.com/" data-desc="热门小说阅读下载平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+笔趣阁
+</div>
+<div class="website-info">
+<div class="website-name">
+笔趣阁
+</div>
+<div class="website-desc">
+热门小说阅读下载平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-5-10" data-default="true">
@@ -5110,7 +4477,19 @@ novelhall
 <div class="website-desc">
 Yaoi小说平台
 </div>
+</div></a><a href="https://www.biquge.com/" class="website-item" data-keywords="笔趣阁" data-title="笔趣阁" data-url="https://www.biquge.com/" data-desc="热门小说阅读下载平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+笔趣阁
+</div>
+<div class="website-info">
+<div class="website-name">
+笔趣阁
+</div>
+<div class="website-desc">
+热门小说阅读下载平台
+</div>
 </div></a>
+
 </div>
 </div>
 </div>
@@ -5169,7 +4548,19 @@ BL游戏网站
 <div class="website-desc">
 兽人游戏网站
 </div>
+</div></a><a href="https://www.3dmgame.com/" class="website-item" data-keywords="3DM游戏网" data-title="3DM游戏网" data-url="https://www.3dmgame.com/" data-desc="游戏资源下载与资讯站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+3DM游戏网
+</div>
+<div class="website-info">
+<div class="website-name">
+3DM游戏网
+</div>
+<div class="website-desc">
+游戏资源下载与资讯站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-6-1" data-default="true">
@@ -5214,7 +4605,19 @@ FurryGames
 <div class="website-desc">
 BL兽人游戏
 </div>
+</div></a><a href="https://www.3dmgame.com/" class="website-item" data-keywords="3DM游戏网" data-title="3DM游戏网" data-url="https://www.3dmgame.com/" data-desc="游戏资源下载与资讯站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+3DM游戏网
+</div>
+<div class="website-info">
+<div class="website-name">
+3DM游戏网
+</div>
+<div class="website-desc">
+游戏资源下载与资讯站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-6-2" data-default="true">
@@ -5259,7 +4662,19 @@ Yaoi游戏平台
 <div class="website-desc">
 小游戏平台
 </div>
+</div></a><a href="https://www.gamersky.com/" class="website-item" data-keywords="游民星空" data-title="游民星空" data-url="https://www.gamersky.com/" data-desc="游戏资讯与资源平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+游民星空
+</div>
+<div class="website-info">
+<div class="website-name">
+游民星空
+</div>
+<div class="website-desc">
+游戏资讯与资源平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-6-3" data-default="true">
@@ -5304,7 +4719,19 @@ Kongregate
 <div class="website-desc">
 免费游戏
 </div>
+</div></a><a href="https://www.gamersky.com/" class="website-item" data-keywords="游民星空" data-title="游民星空" data-url="https://www.gamersky.com/" data-desc="游戏资讯与资源平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+游民星空
+</div>
+<div class="website-info">
+<div class="website-name">
+游民星空
+</div>
+<div class="website-desc">
+游戏资讯与资源平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-6-4" data-default="true">
@@ -5349,7 +4776,19 @@ YaoiGames
 <div class="website-desc">
 Yaoi游戏网站
 </div>
+</div></a><a href="https://www.gamersky.com/" class="website-item" data-keywords="游民星空" data-title="游民星空" data-url="https://www.gamersky.com/" data-desc="游戏资讯与资源平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+游民星空
+</div>
+<div class="website-info">
+<div class="website-name">
+游民星空
+</div>
+<div class="website-desc">
+游戏资讯与资源平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-6-5" data-default="true">
@@ -5394,7 +4833,19 @@ xgamefan
 <div class="website-desc">
 华语H游戏站
 </div>
+</div></a><a href="https://www.shuquge.com/" class="website-item" data-keywords="书趣阁" data-title="书趣阁" data-url="https://www.shuquge.com/" data-desc="免费小说在线阅读平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+书趣阁
+</div>
+<div class="website-info">
+<div class="website-name">
+书趣阁
+</div>
+<div class="website-desc">
+免费小说在线阅读平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-6-6" data-default="true">
@@ -5439,7 +4890,19 @@ wankgames
 <div class="website-desc">
 免费BL游戏站
 </div>
+</div></a><a href="https://www.gamersky.com/" class="website-item" data-keywords="游民星空" data-title="游民星空" data-url="https://www.gamersky.com/" data-desc="游戏资讯与资源平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+游民星空
+</div>
+<div class="website-info">
+<div class="website-name">
+游民星空
+</div>
+<div class="website-desc">
+游戏资讯与资源平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-6-7" data-default="true">
@@ -5484,7 +4947,19 @@ itch.io
 <div class="website-desc">
 免费Yaoi游戏平台
 </div>
+</div></a><a href="https://www.3dmgame.com/" class="website-item" data-keywords="3DM游戏网" data-title="3DM游戏网" data-url="https://www.3dmgame.com/" data-desc="游戏资源下载与资讯站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+3DM游戏网
+</div>
+<div class="website-info">
+<div class="website-name">
+3DM游戏网
+</div>
+<div class="website-desc">
+游戏资源下载与资讯站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-6-8" data-default="true">
@@ -5529,7 +5004,19 @@ steam
 <div class="website-desc">
 Steam Yaoi游戏精选
 </div>
+</div></a><a href="https://www.gamersky.com/" class="website-item" data-keywords="游民星空" data-title="游民星空" data-url="https://www.gamersky.com/" data-desc="游戏资讯与资源平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+游民星空
+</div>
+<div class="website-info">
+<div class="website-name">
+游民星空
+</div>
+<div class="website-desc">
+游戏资讯与资源平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-6-9" data-default="true">
@@ -5574,7 +5061,19 @@ jastusa
 <div class="website-desc">
 官方Yaoi游戏站
 </div>
+</div></a><a href="https://www.3dmgame.com/" class="website-item" data-keywords="3DM游戏网" data-title="3DM游戏网" data-url="https://www.3dmgame.com/" data-desc="游戏资源下载与资讯站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+3DM游戏网
+</div>
+<div class="website-info">
+<div class="website-name">
+3DM游戏网
+</div>
+<div class="website-desc">
+游戏资源下载与资讯站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-6-10" data-default="true">
@@ -5619,7 +5118,19 @@ gamesofdesire
 <div class="website-desc">
 免费BL游戏站
 </div>
+</div></a><a href="https://www.manhuadb.com/" class="website-item" data-keywords="漫画DB" data-title="漫画DB" data-url="https://www.manhuadb.com/" data-desc="漫画资源在线阅读平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+漫画DB
+</div>
+<div class="website-info">
+<div class="website-name">
+漫画DB
+</div>
+<div class="website-desc">
+漫画资源在线阅读平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-6-11" data-default="true">
@@ -5664,7 +5175,19 @@ gayharem
 <div class="website-desc">
 Gay Harem游戏
 </div>
+</div></a><a href="https://www.3dmgame.com/" class="website-item" data-keywords="3DM游戏网" data-title="3DM游戏网" data-url="https://www.3dmgame.com/" data-desc="游戏资源下载与资讯站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+3DM游戏网
+</div>
+<div class="website-info">
+<div class="website-name">
+3DM游戏网
+</div>
+<div class="website-desc">
+游戏资源下载与资讯站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-6-12" data-default="true">
@@ -5709,7 +5232,19 @@ gayhentai.games
 <div class="website-desc">
 BL Hentai游戏平台
 </div>
+</div></a><a href="https://www.gamersky.com/" class="website-item" data-keywords="游民星空" data-title="游民星空" data-url="https://www.gamersky.com/" data-desc="游戏资讯与资源平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+游民星空
+</div>
+<div class="website-info">
+<div class="website-name">
+游民星空
+</div>
+<div class="website-desc">
+游戏资讯与资源平台
+</div>
 </div></a>
+
 </div>
 </div>
 </div>
@@ -5768,7 +5303,19 @@ BL动漫
 <div class="website-desc">
 国产Gay片网站需要使用加速器VPN
 </div>
+</div></a><a href="https://www.dy2018.com/" class="website-item" data-keywords="电影天堂" data-title="电影天堂" data-url="https://www.dy2018.com/" data-desc="影视资源下载分享站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+电影天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+电影天堂
+</div>
+<div class="website-desc">
+影视资源下载分享站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-1" data-default="true">
@@ -5813,7 +5360,19 @@ XGROOVY
 <div class="website-desc">
 高端Gay片网站需要使用加速器VPN
 </div>
+</div></a><a href="https://www.bttiantang.com/" class="website-item" data-keywords="BT天堂" data-title="BT天堂" data-url="https://www.bttiantang.com/" data-desc="高清影视BT资源下载站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+BT天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+BT天堂
+</div>
+<div class="website-desc">
+高清影视BT资源下载站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-2" data-default="true">
@@ -5858,7 +5417,19 @@ HOTBEAR PORN
 <div class="website-desc">
 综合Gay片网站2无需加速器可访问但广告较多
 </div>
+</div></a><a href="https://www.bttiantang.com/" class="website-item" data-keywords="BT天堂" data-title="BT天堂" data-url="https://www.bttiantang.com/" data-desc="高清影视BT资源下载站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+BT天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+BT天堂
+</div>
+<div class="website-desc">
+高清影视BT资源下载站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-3" data-default="true">
@@ -5903,7 +5474,19 @@ GAY LIME
 <div class="website-desc">
 腐剧 漫画 动漫 广播剧 电影
 </div>
+</div></a><a href="https://www.manhuadb.com/" class="website-item" data-keywords="漫画DB" data-title="漫画DB" data-url="https://www.manhuadb.com/" data-desc="漫画资源在线阅读平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+漫画DB
+</div>
+<div class="website-info">
+<div class="website-name">
+漫画DB
+</div>
+<div class="website-desc">
+漫画资源在线阅读平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-4" data-default="true">
@@ -5948,7 +5531,19 @@ GAY LIME
 <div class="website-desc">
 小蓝视频资源网站
 </div>
+</div></a><a href="https://www.dy2018.com/" class="website-item" data-keywords="电影天堂" data-title="电影天堂" data-url="https://www.dy2018.com/" data-desc="影视资源下载分享站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+电影天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+电影天堂
+</div>
+<div class="website-desc">
+影视资源下载分享站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-5" data-default="true">
@@ -5993,7 +5588,19 @@ Yaoi男同影视网站
 <div class="website-desc">
 男同影视资源网站
 </div>
+</div></a><a href="https://www.bttiantang.com/" class="website-item" data-keywords="BT天堂" data-title="BT天堂" data-url="https://www.bttiantang.com/" data-desc="高清影视BT资源下载站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+BT天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+BT天堂
+</div>
+<div class="website-desc">
+高清影视BT资源下载站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-6" data-default="true">
@@ -6038,7 +5645,19 @@ Yaoi男同影视网站
 <div class="website-desc">
 男同影视资源网站
 </div>
+</div></a><a href="https://www.dy2018.com/" class="website-item" data-keywords="电影天堂" data-title="电影天堂" data-url="https://www.dy2018.com/" data-desc="影视资源下载分享站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+电影天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+电影天堂
+</div>
+<div class="website-desc">
+影视资源下载分享站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-7" data-default="true">
@@ -6083,7 +5702,19 @@ Yaoi男同影视网站
 <div class="website-desc">
 男同影视资源网站
 </div>
+</div></a><a href="https://www.dy2018.com/" class="website-item" data-keywords="电影天堂" data-title="电影天堂" data-url="https://www.dy2018.com/" data-desc="影视资源下载分享站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+电影天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+电影天堂
+</div>
+<div class="website-desc">
+影视资源下载分享站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-8" data-default="true">
@@ -6128,7 +5759,19 @@ R☆每日大赛影视网站
 <div class="website-desc">
 同性电影资源网站
 </div>
+</div></a><a href="https://www.dy2018.com/" class="website-item" data-keywords="电影天堂" data-title="电影天堂" data-url="https://www.dy2018.com/" data-desc="影视资源下载分享站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+电影天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+电影天堂
+</div>
+<div class="website-desc">
+影视资源下载分享站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-9" data-default="true">
@@ -6173,7 +5816,19 @@ BoyfriendTV
 <div class="website-desc">
 BL影视合集
 </div>
+</div></a><a href="https://www.bttiantang.com/" class="website-item" data-keywords="BT天堂" data-title="BT天堂" data-url="https://www.bttiantang.com/" data-desc="高清影视BT资源下载站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+BT天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+BT天堂
+</div>
+<div class="website-desc">
+高清影视BT资源下载站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-10" data-default="true">
@@ -6218,7 +5873,19 @@ BLMovies
 <div class="website-desc">
 BL影视资源
 </div>
+</div></a><a href="https://www.dy2018.com/" class="website-item" data-keywords="电影天堂" data-title="电影天堂" data-url="https://www.dy2018.com/" data-desc="影视资源下载分享站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+电影天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+电影天堂
+</div>
+<div class="website-desc">
+影视资源下载分享站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-11" data-default="true">
@@ -6263,7 +5930,19 @@ GayFilms
 <div class="website-desc">
 同性恋影视
 </div>
+</div></a><a href="https://www.shuquge.com/" class="website-item" data-keywords="书趣阁" data-title="书趣阁" data-url="https://www.shuquge.com/" data-desc="免费小说在线阅读平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+书趣阁
+</div>
+<div class="website-info">
+<div class="website-name">
+书趣阁
+</div>
+<div class="website-desc">
+免费小说在线阅读平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-12" data-default="true">
@@ -6308,7 +5987,19 @@ xgaytube
 <div class="website-desc">
 BL短片和长片资源库
 </div>
+</div></a><a href="https://www.bttiantang.com/" class="website-item" data-keywords="BT天堂" data-title="BT天堂" data-url="https://www.bttiantang.com/" data-desc="高清影视BT资源下载站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+BT天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+BT天堂
+</div>
+<div class="website-desc">
+高清影视BT资源下载站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-13" data-default="true">
@@ -6353,7 +6044,19 @@ gayporn.fm
 <div class="website-desc">
 高清男同视频聚合站
 </div>
+</div></a><a href="https://www.bttiantang.com/" class="website-item" data-keywords="BT天堂" data-title="BT天堂" data-url="https://www.bttiantang.com/" data-desc="高清影视BT资源下载站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+BT天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+BT天堂
+</div>
+<div class="website-desc">
+高清影视BT资源下载站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-20" data-default="true">
@@ -6398,7 +6101,19 @@ Pornhub Gay
 <div class="website-desc">
 全球最大BL视频分区，资源最全
 </div>
+</div></a><a href="https://www.dy2018.com/" class="website-item" data-keywords="电影天堂" data-title="电影天堂" data-url="https://www.dy2018.com/" data-desc="影视资源下载分享站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+电影天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+电影天堂
+</div>
+<div class="website-desc">
+影视资源下载分享站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-21" data-default="true">
@@ -6443,7 +6158,19 @@ XVideos Gay
 <div class="website-desc">
 流量巨大BL视频站，更新极快
 </div>
+</div></a><a href="https://www.dy2018.com/" class="website-item" data-keywords="电影天堂" data-title="电影天堂" data-url="https://www.dy2018.com/" data-desc="影视资源下载分享站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+电影天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+电影天堂
+</div>
+<div class="website-desc">
+影视资源下载分享站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-22" data-default="true">
@@ -6488,7 +6215,19 @@ BarebackThatHole
 <div class="website-desc">
 专业无套硬核BL视频
 </div>
+</div></a><a href="https://www.bttiantang.com/" class="website-item" data-keywords="BT天堂" data-title="BT天堂" data-url="https://www.bttiantang.com/" data-desc="高清影视BT资源下载站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+BT天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+BT天堂
+</div>
+<div class="website-desc">
+高清影视BT资源下载站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-23" data-default="true">
@@ -6533,7 +6272,19 @@ GayPornShare
 <div class="website-desc">
 男同视频分享社区
 </div>
+</div></a><a href="https://www.bttiantang.com/" class="website-item" data-keywords="BT天堂" data-title="BT天堂" data-url="https://www.bttiantang.com/" data-desc="高清影视BT资源下载站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+BT天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+BT天堂
+</div>
+<div class="website-desc">
+高清影视BT资源下载站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-24" data-default="true">
@@ -6578,7 +6329,19 @@ EuroCreme
 <div class="website-desc">
 欧洲年轻男同视频
 </div>
+</div></a><a href="https://www.bttiantang.com/" class="website-item" data-keywords="BT天堂" data-title="BT天堂" data-url="https://www.bttiantang.com/" data-desc="高清影视BT资源下载站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+BT天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+BT天堂
+</div>
+<div class="website-desc">
+高清影视BT资源下载站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-25" data-default="true">
@@ -6623,7 +6386,19 @@ Next Door Twink
 <div class="website-desc">
 青少年男同视频
 </div>
+</div></a><a href="https://www.bttiantang.com/" class="website-item" data-keywords="BT天堂" data-title="BT天堂" data-url="https://www.bttiantang.com/" data-desc="高清影视BT资源下载站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+BT天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+BT天堂
+</div>
+<div class="website-desc">
+高清影视BT资源下载站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-26" data-default="true">
@@ -6668,7 +6443,19 @@ HotGuysFuck
 <div class="website-desc">
 热辣肌肉男同视频
 </div>
+</div></a><a href="https://www.dy2018.com/" class="website-item" data-keywords="电影天堂" data-title="电影天堂" data-url="https://www.dy2018.com/" data-desc="影视资源下载分享站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+电影天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+电影天堂
+</div>
+<div class="website-desc">
+影视资源下载分享站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-27" data-default="true">
@@ -6713,7 +6500,19 @@ GayMovies
 <div class="website-desc">
 经典男同电影合集
 </div>
+</div></a><a href="https://www.dy2018.com/" class="website-item" data-keywords="电影天堂" data-title="电影天堂" data-url="https://www.dy2018.com/" data-desc="影视资源下载分享站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+电影天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+电影天堂
+</div>
+<div class="website-desc">
+影视资源下载分享站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-28" data-default="true">
@@ -6758,7 +6557,19 @@ BigStr
 <div class="website-desc">
 捷克大尺寸男同视频
 </div>
+</div></a><a href="https://www.dy2018.com/" class="website-item" data-keywords="电影天堂" data-title="电影天堂" data-url="https://www.dy2018.com/" data-desc="影视资源下载分享站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+电影天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+电影天堂
+</div>
+<div class="website-desc">
+影视资源下载分享站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-29" data-default="true">
@@ -6803,7 +6614,19 @@ MachoFucker
 <div class="website-desc">
 硬派高端男同视频
 </div>
+</div></a><a href="https://www.bttiantang.com/" class="website-item" data-keywords="BT天堂" data-title="BT天堂" data-url="https://www.bttiantang.com/" data-desc="高清影视BT资源下载站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+BT天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+BT天堂
+</div>
+<div class="website-desc">
+高清影视BT资源下载站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-30" data-default="true">
@@ -6848,7 +6671,19 @@ NextDoorRaw
 <div class="website-desc">
 邻家无套男同视频
 </div>
+</div></a><a href="https://www.bttiantang.com/" class="website-item" data-keywords="BT天堂" data-title="BT天堂" data-url="https://www.bttiantang.com/" data-desc="高清影视BT资源下载站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+BT天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+BT天堂
+</div>
+<div class="website-desc">
+高清影视BT资源下载站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-31" data-default="true">
@@ -6893,7 +6728,19 @@ PrideStudios
 <div class="website-desc">
 骄傲男同系列视频
 </div>
+</div></a><a href="https://www.dy2018.com/" class="website-item" data-keywords="电影天堂" data-title="电影天堂" data-url="https://www.dy2018.com/" data-desc="影视资源下载分享站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+电影天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+电影天堂
+</div>
+<div class="website-desc">
+影视资源下载分享站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-32" data-default="true">
@@ -6938,7 +6785,19 @@ UKHotJocks
 <div class="website-desc">
 英国热辣男同视频
 </div>
+</div></a><a href="https://www.bttiantang.com/" class="website-item" data-keywords="BT天堂" data-title="BT天堂" data-url="https://www.bttiantang.com/" data-desc="高清影视BT资源下载站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+BT天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+BT天堂
+</div>
+<div class="website-desc">
+高清影视BT资源下载站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-33" data-default="true">
@@ -6983,7 +6842,19 @@ MachoLatinos
 <div class="website-desc">
 拉丁硬派男同视频
 </div>
+</div></a><a href="https://www.bttiantang.com/" class="website-item" data-keywords="BT天堂" data-title="BT天堂" data-url="https://www.bttiantang.com/" data-desc="高清影视BT资源下载站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+BT天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+BT天堂
+</div>
+<div class="website-desc">
+高清影视BT资源下载站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-34" data-default="true">
@@ -7028,7 +6899,19 @@ BlackBoyAddictionz
 <div class="website-desc">
 黑人年轻男同视频
 </div>
+</div></a><a href="https://www.bttiantang.com/" class="website-item" data-keywords="BT天堂" data-title="BT天堂" data-url="https://www.bttiantang.com/" data-desc="高清影视BT资源下载站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+BT天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+BT天堂
+</div>
+<div class="website-desc">
+高清影视BT资源下载站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-35" data-default="true">
@@ -7073,7 +6956,19 @@ BaitBus
 <div class="website-desc">
 男同试镜诱导视频
 </div>
+</div></a><a href="https://www.dy2018.com/" class="website-item" data-keywords="电影天堂" data-title="电影天堂" data-url="https://www.dy2018.com/" data-desc="影视资源下载分享站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+电影天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+电影天堂
+</div>
+<div class="website-desc">
+影视资源下载分享站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-7-36" data-default="true">
@@ -7118,7 +7013,19 @@ Blacked
 <div class="website-desc">
 专业黑白男同视频
 </div>
+</div></a><a href="https://www.dy2018.com/" class="website-item" data-keywords="电影天堂" data-title="电影天堂" data-url="https://www.dy2018.com/" data-desc="影视资源下载分享站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+电影天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+电影天堂
+</div>
+<div class="website-desc">
+影视资源下载分享站
+</div>
 </div></a>
+
 </div>
 </div>
 </div>
@@ -7177,7 +7084,19 @@ Blacked
 <div class="website-desc">
 百度网盘广播剧资源合集
 </div>
+</div></a><a href="https://www.shengyouji.com/" class="website-item" data-keywords="声优祭" data-title="声优祭" data-url="https://www.shengyouji.com/" data-desc="广播剧资源分享站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+声优祭
+</div>
+<div class="website-info">
+<div class="website-name">
+声优祭
+</div>
+<div class="website-desc">
+广播剧资源分享站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-8-1" data-default="true">
@@ -7222,7 +7141,19 @@ Blacked
 <div class="website-desc">
 蓝奏云网盘影视资源分享平台
 </div>
+</div></a><a href="https://www.bttiantang.com/" class="website-item" data-keywords="BT天堂" data-title="BT天堂" data-url="https://www.bttiantang.com/" data-desc="高清影视BT资源下载站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+BT天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+BT天堂
+</div>
+<div class="website-desc">
+高清影视BT资源下载站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-8-2" data-default="true">
@@ -7267,7 +7198,19 @@ ACG资源分享站
 <div class="website-desc">
 专注动漫游戏资源的分享平台
 </div>
+</div></a><a href="https://www.cilisou.cn/" class="website-item" data-keywords="磁力搜" data-title="磁力搜" data-url="https://www.cilisou.cn/" data-desc="磁力链接搜索引擎" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+磁力搜
+</div>
+<div class="website-info">
+<div class="website-name">
+磁力搜
+</div>
+<div class="website-desc">
+磁力链接搜索引擎
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-8-3" data-default="true">
@@ -7312,7 +7255,19 @@ Yaoi网盘资源
 <div class="website-desc">
 阿里云盘资源分享平台
 </div>
+</div></a><a href="https://www.lanzou.com/" class="website-item" data-keywords="蓝奏云" data-title="蓝奏云" data-url="https://www.lanzou.com/" data-desc="文件上传与分享网盘" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+蓝奏云
+</div>
+<div class="website-info">
+<div class="website-name">
+蓝奏云
+</div>
+<div class="website-desc">
+文件上传与分享网盘
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-8-4" data-default="true">
@@ -7357,7 +7312,19 @@ MediaFire资源
 <div class="website-desc">
 MediaFire网盘资源分享
 </div>
+</div></a><a href="https://www.shuquge.com/" class="website-item" data-keywords="书趣阁" data-title="书趣阁" data-url="https://www.shuquge.com/" data-desc="免费小说在线阅读平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+书趣阁
+</div>
+<div class="website-info">
+<div class="website-name">
+书趣阁
+</div>
+<div class="website-desc">
+免费小说在线阅读平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-8-5" data-default="true">
@@ -7402,7 +7369,19 @@ Yaoi盘资源
 <div class="website-desc">
 天翼云盘资源分享平台
 </div>
+</div></a><a href="https://www.aliyundrive.com/" class="website-item" data-keywords="阿里云盘" data-title="阿里云盘" data-url="https://www.aliyundrive.com/" data-desc="大容量云存储服务" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+阿里云盘
+</div>
+<div class="website-info">
+<div class="website-name">
+阿里云盘
+</div>
+<div class="website-desc">
+大容量云存储服务
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-8-6" data-default="true">
@@ -7447,7 +7426,19 @@ pCloud资源
 <div class="website-desc">
 pCloud云存储服务平台
 </div>
+</div></a><a href="https://www.biquge.com/" class="website-item" data-keywords="笔趣阁" data-title="笔趣阁" data-url="https://www.biquge.com/" data-desc="热门小说阅读下载平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+笔趣阁
+</div>
+<div class="website-info">
+<div class="website-name">
+笔趣阁
+</div>
+<div class="website-desc">
+热门小说阅读下载平台
+</div>
 </div></a>
+
 </div>
 </div>
 </div>
@@ -7506,7 +7497,19 @@ iLovePDF
 <div class="website-desc">
 全面的PDF处理工具平台
 </div>
+</div></a><a href="https://www.toolnb.com/" class="website-item" data-keywords="在线工具" data-title="在线工具" data-url="https://www.toolnb.com/" data-desc="综合在线工具集合" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+在线工具
+</div>
+<div class="website-info">
+<div class="website-name">
+在线工具
+</div>
+<div class="website-desc">
+综合在线工具集合
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-9-1" data-default="true">
@@ -7551,7 +7554,19 @@ Photopea
 <div class="website-desc">
 在线Photoshop替代工具
 </div>
+</div></a><a href="https://www.ziyuandi.com/" class="website-item" data-keywords="资源帝" data-title="资源帝" data-url="https://www.ziyuandi.com/" data-desc="综合资源分享平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+资源帝
+</div>
+<div class="website-info">
+<div class="website-name">
+资源帝
+</div>
+<div class="website-desc">
+综合资源分享平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-9-2" data-default="true">
@@ -7596,7 +7611,19 @@ Convertio
 <div class="website-desc">
 支持300+格式的文件转换工具
 </div>
+</div></a><a href="https://www.dy2018.com/" class="website-item" data-keywords="电影天堂" data-title="电影天堂" data-url="https://www.dy2018.com/" data-desc="影视资源下载分享站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+电影天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+电影天堂
+</div>
+<div class="website-desc">
+影视资源下载分享站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-9-3" data-default="true">
@@ -7641,7 +7668,19 @@ GeekUninstaller
 <div class="website-desc">
 专业的软件卸载工具
 </div>
+</div></a><a href="https://www.aiwaz.com/" class="website-item" data-keywords="爱挖站" data-title="爱挖站" data-url="https://www.aiwaz.com/" data-desc="优质网站资源发现平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+爱挖站
+</div>
+<div class="website-info">
+<div class="website-name">
+爱挖站
+</div>
+<div class="website-desc">
+优质网站资源发现平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-9-4" data-default="true">
@@ -7686,7 +7725,19 @@ Listary
 <div class="website-desc">
 快速文件搜索和启动工具
 </div>
+</div></a><a href="https://www.aiwaz.com/" class="website-item" data-keywords="爱挖站" data-title="爱挖站" data-url="https://www.aiwaz.com/" data-desc="优质网站资源发现平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+爱挖站
+</div>
+<div class="website-info">
+<div class="website-name">
+爱挖站
+</div>
+<div class="website-desc">
+优质网站资源发现平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-9-5" data-default="true">
@@ -7731,7 +7782,19 @@ Glary Utilities
 <div class="website-desc">
 多功能系统优化工具
 </div>
+</div></a><a href="https://www.aiwaz.com/" class="website-item" data-keywords="爱挖站" data-title="爱挖站" data-url="https://www.aiwaz.com/" data-desc="优质网站资源发现平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+爱挖站
+</div>
+<div class="website-info">
+<div class="website-name">
+爱挖站
+</div>
+<div class="website-desc">
+优质网站资源发现平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-9-6" data-default="true">
@@ -7776,7 +7839,19 @@ HDD Sentinel
 <div class="website-desc">
 硬盘监控和预测工具
 </div>
+</div></a><a href="https://www.ziyuandi.com/" class="website-item" data-keywords="资源帝" data-title="资源帝" data-url="https://www.ziyuandi.com/" data-desc="综合资源分享平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+资源帝
+</div>
+<div class="website-info">
+<div class="website-name">
+资源帝
+</div>
+<div class="website-desc">
+综合资源分享平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-9-7" data-default="true">
@@ -7821,7 +7896,19 @@ Shutter Encoder
 <div class="website-desc">
 视频音频编码工具
 </div>
+</div></a><a href="https://www.dy2018.com/" class="website-item" data-keywords="电影天堂" data-title="电影天堂" data-url="https://www.dy2018.com/" data-desc="影视资源下载分享站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+电影天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+电影天堂
+</div>
+<div class="website-desc">
+影视资源下载分享站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-9-8" data-default="true">
@@ -7866,7 +7953,19 @@ Foxit PDF Editor
 <div class="website-desc">
 专业PDF编辑软件
 </div>
+</div></a><a href="https://www.toolnb.com/" class="website-item" data-keywords="在线工具" data-title="在线工具" data-url="https://www.toolnb.com/" data-desc="综合在线工具集合" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+在线工具
+</div>
+<div class="website-info">
+<div class="website-name">
+在线工具
+</div>
+<div class="website-desc">
+综合在线工具集合
+</div>
 </div></a>
+
 </div>
 </div>
 </div>
@@ -7925,7 +8024,19 @@ Canva
 <div class="website-desc">
 在线平面设计工具
 </div>
+</div></a><a href="https://www.figma.com/" class="website-item" data-keywords="Figma" data-title="Figma" data-url="https://www.figma.com/" data-desc="协作式界面设计平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+Figma
+</div>
+<div class="website-info">
+<div class="website-name">
+Figma
+</div>
+<div class="website-desc">
+协作式界面设计平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-13-1" data-default="true">
@@ -7970,7 +8081,19 @@ Pinterest
 <div class="website-desc">
 视觉灵感发现工具
 </div>
+</div></a><a href="https://www.aiwaz.com/" class="website-item" data-keywords="爱挖站" data-title="爱挖站" data-url="https://www.aiwaz.com/" data-desc="优质网站资源发现平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+爱挖站
+</div>
+<div class="website-info">
+<div class="website-name">
+爱挖站
+</div>
+<div class="website-desc">
+优质网站资源发现平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-13-2" data-default="true">
@@ -8015,7 +8138,19 @@ Unsplash
 <div class="website-desc">
 高质量免费图片库
 </div>
+</div></a><a href="https://www.figma.com/" class="website-item" data-keywords="Figma" data-title="Figma" data-url="https://www.figma.com/" data-desc="协作式界面设计平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+Figma
+</div>
+<div class="website-info">
+<div class="website-name">
+Figma
+</div>
+<div class="website-desc">
+协作式界面设计平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-13-3" data-default="true">
@@ -8060,7 +8195,19 @@ Mixkit
 <div class="website-desc">
 免费视频音乐素材库
 </div>
+</div></a><a href="https://www.bttiantang.com/" class="website-item" data-keywords="BT天堂" data-title="BT天堂" data-url="https://www.bttiantang.com/" data-desc="高清影视BT资源下载站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+BT天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+BT天堂
+</div>
+<div class="website-desc">
+高清影视BT资源下载站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-13-4" data-default="true">
@@ -8105,7 +8252,19 @@ Iconfinder
 <div class="website-desc">
 中国设计师互动平台
 </div>
+</div></a><a href="https://www.figma.com/" class="website-item" data-keywords="Figma" data-title="Figma" data-url="https://www.figma.com/" data-desc="协作式界面设计平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+Figma
+</div>
+<div class="website-info">
+<div class="website-name">
+Figma
+</div>
+<div class="website-desc">
+协作式界面设计平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-13-5" data-default="true">
@@ -8150,7 +8309,19 @@ BL笔刷素材
 <div class="website-desc">
 BL设计专用笔刷素材
 </div>
+</div></a><a href="https://www.figma.com/" class="website-item" data-keywords="Figma" data-title="Figma" data-url="https://www.figma.com/" data-desc="协作式界面设计平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+Figma
+</div>
+<div class="website-info">
+<div class="website-name">
+Figma
+</div>
+<div class="website-desc">
+协作式界面设计平台
+</div>
 </div></a>
+
 </div>
 </div>
 </div>
@@ -8209,7 +8380,19 @@ Leonardo AI
 <div class="website-desc">
 AI艺术创作平台
 </div>
+</div></a><a href="https://www.bttiantang.com/" class="website-item" data-keywords="BT天堂" data-title="BT天堂" data-url="https://www.bttiantang.com/" data-desc="高清影视BT资源下载站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+BT天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+BT天堂
+</div>
+<div class="website-desc">
+高清影视BT资源下载站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-14-1" data-default="true">
@@ -8254,7 +8437,19 @@ Copy AI
 <div class="website-desc">
 AI文案创作工具
 </div>
+</div></a><a href="https://www.bttiantang.com/" class="website-item" data-keywords="BT天堂" data-title="BT天堂" data-url="https://www.bttiantang.com/" data-desc="高清影视BT资源下载站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+BT天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+BT天堂
+</div>
+<div class="website-desc">
+高清影视BT资源下载站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-14-2" data-default="true">
@@ -8299,7 +8494,19 @@ NightCafe
 <div class="website-desc">
 AI艺术生成平台
 </div>
+</div></a><a href="https://yiyan.baidu.com/" class="website-item" data-keywords="文心一言" data-title="文心一言" data-url="https://yiyan.baidu.com/" data-desc="AI对话与创作助手平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+文心一言
+</div>
+<div class="website-info">
+<div class="website-name">
+文心一言
+</div>
+<div class="website-desc">
+AI对话与创作助手平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-14-3" data-default="true">
@@ -8344,7 +8551,19 @@ ChatGPT
 <div class="website-desc">
 OpenAI对话式AI助手
 </div>
+</div></a><a href="https://www.aiwaz.com/" class="website-item" data-keywords="爱挖站" data-title="爱挖站" data-url="https://www.aiwaz.com/" data-desc="优质网站资源发现平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+爱挖站
+</div>
+<div class="website-info">
+<div class="website-name">
+爱挖站
+</div>
+<div class="website-desc">
+优质网站资源发现平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-14-4" data-default="true">
@@ -8389,7 +8608,19 @@ Claude AI
 <div class="website-desc">
 Anthropic智能AI助手
 </div>
+</div></a><a href="https://yiyan.baidu.com/" class="website-item" data-keywords="文心一言" data-title="文心一言" data-url="https://yiyan.baidu.com/" data-desc="AI对话与创作助手平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+文心一言
+</div>
+<div class="website-info">
+<div class="website-name">
+文心一言
+</div>
+<div class="website-desc">
+AI对话与创作助手平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-14-5" data-default="true">
@@ -8434,7 +8665,19 @@ Hotpot AI
 <div class="website-desc">
 AI设计工具套件
 </div>
+</div></a><a href="https://www.figma.com/" class="website-item" data-keywords="Figma" data-title="Figma" data-url="https://www.figma.com/" data-desc="协作式界面设计平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+Figma
+</div>
+<div class="website-info">
+<div class="website-name">
+Figma
+</div>
+<div class="website-desc">
+协作式界面设计平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-14-6" data-default="true">
@@ -8479,7 +8722,19 @@ Bing Image Creator
 <div class="website-desc">
 微软AI图像生成工具
 </div>
+</div></a><a href="https://yiyan.baidu.com/" class="website-item" data-keywords="文心一言" data-title="文心一言" data-url="https://yiyan.baidu.com/" data-desc="AI对话与创作助手平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+文心一言
+</div>
+<div class="website-info">
+<div class="website-name">
+文心一言
+</div>
+<div class="website-desc">
+AI对话与创作助手平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-14-7" data-default="true">
@@ -8524,7 +8779,19 @@ Notion AI
 <div class="website-desc">
 集成AI的笔记工具
 </div>
+</div></a><a href="https://www.biquge.com/" class="website-item" data-keywords="笔趣阁" data-title="笔趣阁" data-url="https://www.biquge.com/" data-desc="热门小说阅读下载平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+笔趣阁
+</div>
+<div class="website-info">
+<div class="website-name">
+笔趣阁
+</div>
+<div class="website-desc">
+热门小说阅读下载平台
+</div>
 </div></a>
+
 </div>
 </div>
 </div>
@@ -8583,7 +8850,19 @@ Yaoi Gallery
 <div class="website-desc">
 Yaoi粉丝艺术、艺术书和CG包
 </div>
+</div></a><a href="https://www.manhuadb.com/" class="website-item" data-keywords="漫画DB" data-title="漫画DB" data-url="https://www.manhuadb.com/" data-desc="漫画资源在线阅读平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+漫画DB
+</div>
+<div class="website-info">
+<div class="website-name">
+漫画DB
+</div>
+<div class="website-desc">
+漫画资源在线阅读平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-15-1" data-default="true">
@@ -8628,7 +8907,19 @@ Tumblr Yaoi
 <div class="website-desc">
 大量Yaoi粉丝艺术和插画
 </div>
+</div></a><a href="https://www.hmoegirl.com/" class="website-item" data-keywords="H萌妹" data-title="H萌妹" data-url="https://www.hmoegirl.com/" data-desc="ACG图集资源合集站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+H萌妹
+</div>
+<div class="website-info">
+<div class="website-name">
+H萌妹
+</div>
+<div class="website-desc">
+ACG图集资源合集站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-15-2" data-default="true">
@@ -8673,7 +8964,19 @@ Yaoi Haven
 <div class="website-desc">
 Boys' Love、Bara和Furry图集
 </div>
+</div></a><a href="https://www.cmnav.com/" class="website-item" data-keywords="漫画导航站" data-title="漫画导航站" data-url="https://www.cmnav.com/" data-desc="漫画资源导航合集站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+漫画导航站
+</div>
+<div class="website-info">
+<div class="website-name">
+漫画导航站
+</div>
+<div class="website-desc">
+漫画资源导航合集站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-15-3" data-default="true">
@@ -8718,7 +9021,19 @@ safebooru
 <div class="website-desc">
 安全版Yaoi动漫图集
 </div>
+</div></a><a href="https://www.hmoegirl.com/" class="website-item" data-keywords="H萌妹" data-title="H萌妹" data-url="https://www.hmoegirl.com/" data-desc="ACG图集资源合集站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+H萌妹
+</div>
+<div class="website-info">
+<div class="website-name">
+H萌妹
+</div>
+<div class="website-desc">
+ACG图集资源合集站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-15-4" data-default="true">
@@ -8763,7 +9078,19 @@ rule34 yaoi
 <div class="website-desc">
 专用Yaoi规则34图集
 </div>
+</div></a><a href="https://www.cmnav.com/" class="website-item" data-keywords="漫画导航站" data-title="漫画导航站" data-url="https://www.cmnav.com/" data-desc="漫画资源导航合集站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+漫画导航站
+</div>
+<div class="website-info">
+<div class="website-name">
+漫画导航站
+</div>
+<div class="website-desc">
+漫画资源导航合集站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-15-5" data-default="true">
@@ -8808,7 +9135,19 @@ e621
 <div class="website-desc">
 Furry风格Yaoi图集
 </div>
+</div></a><a href="https://www.cmnav.com/" class="website-item" data-keywords="漫画导航站" data-title="漫画导航站" data-url="https://www.cmnav.com/" data-desc="漫画资源导航合集站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+漫画导航站
+</div>
+<div class="website-info">
+<div class="website-name">
+漫画导航站
+</div>
+<div class="website-desc">
+漫画资源导航合集站
+</div>
 </div></a>
+
 </div>
 </div>
 </div>
@@ -8867,7 +9206,19 @@ FurAffinity
 <div class="website-desc">
 最大Furry社区和艺术站
 </div>
+</div></a><a href="https://www.figma.com/" class="website-item" data-keywords="Figma" data-title="Figma" data-url="https://www.figma.com/" data-desc="协作式界面设计平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+Figma
+</div>
+<div class="website-info">
+<div class="website-name">
+Figma
+</div>
+<div class="website-desc">
+协作式界面设计平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-16-3" data-default="true">
@@ -8912,7 +9263,19 @@ FurryNetwork
 <div class="website-desc">
 Furry艺术社交网络
 </div>
+</div></a><a href="https://www.furaffinity.net/" class="website-item" data-keywords="Fur Affinity" data-title="Fur Affinity" data-url="https://www.furaffinity.net/" data-desc="Furry艺术创作社区" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+Fur Affinity
+</div>
+<div class="website-info">
+<div class="website-name">
+Fur Affinity
+</div>
+<div class="website-desc">
+Furry艺术创作社区
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-16-4" data-default="true">
@@ -8957,7 +9320,19 @@ InkBunny
 <div class="website-desc">
 Furry艺术和故事社区
 </div>
+</div></a><a href="https://www.figma.com/" class="website-item" data-keywords="Figma" data-title="Figma" data-url="https://www.figma.com/" data-desc="协作式界面设计平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+Figma
+</div>
+<div class="website-info">
+<div class="website-name">
+Figma
+</div>
+<div class="website-desc">
+协作式界面设计平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-16-11" data-default="true">
@@ -9002,7 +9377,19 @@ Furry Boards
 <div class="website-desc">
 Furry论坛和资源交流
 </div>
+</div></a><a href="https://e621.net/" class="website-item" data-keywords="e621" data-title="e621" data-url="https://e621.net/" data-desc="Furry主题图像资源社区" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+e621
+</div>
+<div class="website-info">
+<div class="website-name">
+e621
+</div>
+<div class="website-desc">
+Furry主题图像资源社区
+</div>
 </div></a>
+
 </div>
 </div>
 </div>
@@ -9061,7 +9448,19 @@ Furry论坛和资源交流
 <div class="website-desc">
 综合电商平台，提供各类商品购物服务
 </div>
+</div></a><a href="https://amap.com/" class="website-item" data-keywords="高德地图" data-title="高德地图" data-url="https://amap.com/" data-desc="地图导航与生活服务平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+高德地图
+</div>
+<div class="website-info">
+<div class="website-name">
+高德地图
+</div>
+<div class="website-desc">
+地图导航与生活服务平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-10-1" data-default="true">
@@ -9106,7 +9505,19 @@ Furry论坛和资源交流
 <div class="website-desc">
 外卖订餐平台，提供快速配送服务
 </div>
+</div></a><a href="https://amap.com/" class="website-item" data-keywords="高德地图" data-title="高德地图" data-url="https://amap.com/" data-desc="地图导航与生活服务平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+高德地图
+</div>
+<div class="website-info">
+<div class="website-name">
+高德地图
+</div>
+<div class="website-desc">
+地图导航与生活服务平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-10-2" data-default="true">
@@ -9151,7 +9562,19 @@ Furry论坛和资源交流
 <div class="website-desc">
 品牌正品购物平台
 </div>
+</div></a><a href="https://www.dianping.com/" class="website-item" data-keywords="大众点评" data-title="大众点评" data-url="https://www.dianping.com/" data-desc="生活服务商家点评平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+大众点评
+</div>
+<div class="website-info">
+<div class="website-name">
+大众点评
+</div>
+<div class="website-desc">
+生活服务商家点评平台
+</div>
 </div></a>
+
 </div>
 </div>
 </div>
@@ -9210,7 +9633,19 @@ Udacity
 <div class="website-desc">
 科技职业技能在线学习平台
 </div>
+</div></a><a href="https://www.dy2018.com/" class="website-item" data-keywords="电影天堂" data-title="电影天堂" data-url="https://www.dy2018.com/" data-desc="影视资源下载分享站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+电影天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+电影天堂
+</div>
+<div class="website-desc">
+影视资源下载分享站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-11-1" data-default="true">
@@ -9255,7 +9690,19 @@ Memrise
 <div class="website-desc">
 记忆法学习语言和词汇
 </div>
+</div></a><a href="https://www.icourse163.org/" class="website-item" data-keywords="中国大学MOOC" data-title="中国大学MOOC" data-url="https://www.icourse163.org/" data-desc="高校课程在线学习平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+中国大学MOOC
+</div>
+<div class="website-info">
+<div class="website-name">
+中国大学MOOC
+</div>
+<div class="website-desc">
+高校课程在线学习平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-11-2" data-default="true">
@@ -9300,7 +9747,19 @@ FutureLearn
 <div class="website-desc">
 英国开放大学在线课程平台
 </div>
+</div></a><a href="https://www.dy2018.com/" class="website-item" data-keywords="电影天堂" data-title="电影天堂" data-url="https://www.dy2018.com/" data-desc="影视资源下载分享站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+电影天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+电影天堂
+</div>
+<div class="website-desc">
+影视资源下载分享站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-11-3" data-default="true">
@@ -9345,7 +9804,19 @@ CSDN
 <div class="website-desc">
 编程语言和工具教程网站
 </div>
+</div></a><a href="https://docs.qq.com/" class="website-item" data-keywords="腾讯文档" data-title="腾讯文档" data-url="https://docs.qq.com/" data-desc="在线协作文档工具平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+腾讯文档
+</div>
+<div class="website-info">
+<div class="website-name">
+腾讯文档
+</div>
+<div class="website-desc">
+在线协作文档工具平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-11-4" data-default="true">
@@ -9390,7 +9861,19 @@ Babbel
 <div class="website-desc">
 互动语言学习平台
 </div>
+</div></a><a href="https://www.coursera.org/" class="website-item" data-keywords="Coursera" data-title="Coursera" data-url="https://www.coursera.org/" data-desc="全球在线课程学习平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+Coursera
+</div>
+<div class="website-info">
+<div class="website-name">
+Coursera
+</div>
+<div class="website-desc">
+全球在线课程学习平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-11-5" data-default="true">
@@ -9435,7 +9918,19 @@ Skillshare
 <div class="website-desc">
 创意技能学习社区
 </div>
+</div></a><a href="https://www.dy2018.com/" class="website-item" data-keywords="电影天堂" data-title="电影天堂" data-url="https://www.dy2018.com/" data-desc="影视资源下载分享站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+电影天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+电影天堂
+</div>
+<div class="website-desc">
+影视资源下载分享站
+</div>
 </div></a>
+
 </div>
 </div>
 </div>
@@ -9494,7 +9989,19 @@ Skillshare
 <div class="website-desc">
 最新软件更新和工具合集
 </div>
+</div></a><a href="https://www.lanzou.com/" class="website-item" data-keywords="蓝奏云" data-title="蓝奏云" data-url="https://www.lanzou.com/" data-desc="文件上传与分享网盘" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+蓝奏云
+</div>
+<div class="website-info">
+<div class="website-name">
+蓝奏云
+</div>
+<div class="website-desc">
+文件上传与分享网盘
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-12-1" data-default="true">
@@ -9539,7 +10046,19 @@ Skillshare
 <div class="website-desc">
 最新视频资源合集
 </div>
+</div></a><a href="https://www.bttiantang.com/" class="website-item" data-keywords="BT天堂" data-title="BT天堂" data-url="https://www.bttiantang.com/" data-desc="高清影视BT资源下载站" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+BT天堂
+</div>
+<div class="website-info">
+<div class="website-name">
+BT天堂
+</div>
+<div class="website-desc">
+高清影视BT资源下载站
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-12-2" data-default="true">
@@ -9584,7 +10103,19 @@ JB鉴赏大会
 <div class="website-desc">
 随机资源每日更新
 </div>
+</div></a><a href="https://www.lanzou.com/" class="website-item" data-keywords="蓝奏云" data-title="蓝奏云" data-url="https://www.lanzou.com/" data-desc="文件上传与分享网盘" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+蓝奏云
+</div>
+<div class="website-info">
+<div class="website-name">
+蓝奏云
+</div>
+<div class="website-desc">
+文件上传与分享网盘
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-12-3" data-default="true">
@@ -9629,7 +10160,19 @@ BL新
 <div class="website-desc">
 BL最新资源
 </div>
+</div></a><a href="https://kdocs.cn/l/ziyuandaily" class="website-item" data-keywords="资源合集更新" data-title="资源合集更新" data-url="https://kdocs.cn/l/ziyuandaily" data-desc="每日资源分享与工具合集" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+资源合集更新
+</div>
+<div class="website-info">
+<div class="website-name">
+资源合集更新
+</div>
+<div class="website-desc">
+每日资源分享与工具合集
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-12-4" data-default="true">
@@ -9674,7 +10217,19 @@ Gay更新
 <div class="website-desc">
 耽美最新资源
 </div>
+</div></a><a href="https://www.shuquge.com/" class="website-item" data-keywords="书趣阁" data-title="书趣阁" data-url="https://www.shuquge.com/" data-desc="免费小说在线阅读平台" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+书趣阁
+</div>
+<div class="website-info">
+<div class="website-name">
+书趣阁
+</div>
+<div class="website-desc">
+免费小说在线阅读平台
+</div>
 </div></a>
+
 </div>
 </div>
 <div class="category-card" data-module-id="module-12-5" data-default="true">
@@ -9719,7 +10274,19 @@ Furry新
 <div class="website-desc">
 Furry最新资源
 </div>
+</div></a><a href="https://e621.net/" class="website-item" data-keywords="e621" data-title="e621" data-url="https://e621.net/" data-desc="Furry主题图像资源社区" data-features="实用资源|免费分享|每日更新|内容丰富" data-problems="">
+<div class="website-img" style="background-color: #7B4F9D;">
+e621
+</div>
+<div class="website-info">
+<div class="website-name">
+e621
+</div>
+<div class="website-desc">
+Furry主题图像资源社区
+</div>
 </div></a>
+
 </div>
 </div>
 </div>
