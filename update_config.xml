@@ -1,21 +1,12 @@
 <update>
-    <version>8.0.2</version>
-    <log>📋 巳泷资源库 v8.0.2 更新公告
+    <version>8.0.3</version>
+    <log>📋 巳泷资源库 v8.0.3 版本更新
+🚀更新内容
+1. 修复网站访问故障
+2. 朗读模式新增插件下载
+3. 资源支持同步网页版
 
-🚀 本次新增功能
-
-1. 拦截绕过优化：解决了大部分拦截情况，现已可访问更多网站
-2. 新增尝试性搜索新网站功能：当链接失效时，可通过此方法快速找到最新网址
-
-🛠️ 其他优化
-
-- 修复已知问题，整体运行稳定性提升
-- 界面细节微调，适配新增功能布局
-
-✨ 温馨提示
-
-更多细微调整及隐藏功能，请到软件内自行体验。
-
-感谢您的支持与理解！</log>
-    <url>https://github.com/Silong-ResPool/gay/releases/download/gay/Silong-ResPool_v8.0.2.apk</url>
+✨提示：侧边栏设置底部按钮可切换新版，更多功能自行体验
+感谢支持！</log>
+    <url>https://github.com/Silong-ResPool/gay/releases/download/gay/Silong-ResPool_v8.0.3.apk</url>
 </update>
