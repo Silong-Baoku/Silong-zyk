@@ -1,4 +1,7 @@
+xml  
+<?xml version="1.0" encoding="UTF-8"?>
 <update>
+    <version>8.0.4</version>
     <log>
 本站现已永久停运
 全面终止所有运营服务
@@ -6,4 +9,5 @@
 不再提供任何相关功能服务
 所有相关渠道全部失效
 所有项目全面停止维护
-    </update>
+    </log>
+</update>
