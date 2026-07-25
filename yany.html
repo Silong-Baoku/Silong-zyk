@@ -782,32 +782,34 @@
             animation: pistonThrust 3.2s ease-in-out infinite;
         }
 
-        /* Level 2：肉柱抽插 + 顶端带起白色液体
-           - 白色液体在肉柱上方（z-index:3 浮在顶端）
-           - 液体跟随肉柱上下起伏（高度变化）
-           - 速度：中速 2.0s */
-        .heartbeat-tube[data-level="2"] .heartbeat-cell {
-            animation: pistonThrust 2.0s ease-in-out infinite;
-        }
-        .heartbeat-tube[data-level="2"] .white-liquid {
-            display: block;
-            z-index: 3;                     /* 液体在肉柱上方 */
-            animation: liquidFollow2 2.0s ease-in-out infinite;
-        }
-
-        /* Level 3：白色液体充满腔体，肉柱在液体内抽插
+        /* Level 2：白色液体充满腔体，肉柱在液体内抽插
            - 白色液体在肉柱下方（z-index:1 作为背景填充）
            - 肉柱浸在白色液体中，不被遮挡
            - 液面只有轻微波动
-           - 速度：快速 1.2s */
+           - 速度：中速 1.5s */
+        .heartbeat-tube[data-level="2"] .heartbeat-cell {
+            z-index: 2;
+            animation: pistonThrust 1.5s ease-in-out infinite;
+        }
+        .heartbeat-tube[data-level="2"] .white-liquid {
+            display: block;
+            z-index: 1;
+            animation: liquidFull2 1.5s ease-in-out infinite;
+        }
+
+        /* Level 3：白色液体满溢，肉柱高速抽插
+           - 白色液体完全充满并溢出感
+           - 肉柱高速活塞运动
+           - 液面大幅度波动
+           - 速度：极速 0.7s */
         .heartbeat-tube[data-level="3"] .heartbeat-cell {
-            z-index: 2;                     /* 肉柱在液体上方 */
-            animation: pistonThrust 1.2s ease-in-out infinite;
+            z-index: 2;
+            animation: pistonThrustFast 0.7s ease-in-out infinite;
         }
         .heartbeat-tube[data-level="3"] .white-liquid {
             display: block;
-            z-index: 1;                     /* 液体在肉柱下方（填充背景） */
-            animation: liquidFull3 1.2s ease-in-out infinite;
+            z-index: 1;
+            animation: liquidFull3Fast 0.7s ease-in-out infinite;
         }
 
         /* 暂停动画（元素离开视口时暂停，节省性能） */
@@ -837,21 +839,27 @@
             100% { transform: translateY(42%); }   /* 回到最低点 */
         }
 
-        /* Level2 液体跟随肉柱起伏
-           液体高度变化与肉柱位置同步
-           22%~42% 是液体在肉柱上方的高度范围 */
-        @keyframes liquidFollow2 {
-            0%   { height: 22%; }   /* 最低点时液体高度 */
-            50%  { height: 42%; }   /* 最高点时液体高度 */
-            100% { height: 22%; }   /* 回到最低点 */
+        /* Level 3 高速抽插动画 - 幅度更大、更猛烈 */
+        @keyframes pistonThrustFast {
+            0%   { transform: translateY(48%); }   /* 更低的最低点 */
+            50%  { transform: translateY(-5%); }   /* 更高的最高点（略微顶出） */
+            100% { transform: translateY(48%); }   /* 回到最低点 */
         }
 
-        /* Level3 液体充满后的轻微波动
-           91%~96% 几乎满，只有小幅度波动效果 */
-        @keyframes liquidFull3 {
-            0%   { height: 91%; }   /* 液面最低点 */
-            50%  { height: 96%; }   /* 液面最高点 */
-            100% { height: 91%; }   /* 回到最低点 */
+        /* Level2 液体充满后的轻微波动
+           85%~90% 比较满，小幅度波动效果 */
+        @keyframes liquidFull2 {
+            0%   { height: 85%; }
+            50%  { height: 90%; }
+            100% { height: 85%; }
+        }
+
+        /* Level3 高速液体满溢波动 - 液体更多、波动更大
+           94%~100% 几乎溢出，剧烈波动 */
+        @keyframes liquidFull3Fast {
+            0%   { height: 94%; }
+            50%  { height: 100%; }
+            100% { height: 94%; }
         }
         .status-appear {
             animation: statusAppear 0.4s ease forwards;
@@ -1260,6 +1268,79 @@
             color: var(--text-primary);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
+            animation: modalSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes modalSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        @media (min-width: 601px) {
+            .modal-overlay {
+                justify-content: flex-end;
+                padding: 0;
+                background: rgba(8, 3, 18, 0.5);
+                animation: fadeIn 0.2s ease;
+            }
+            .modal-panel {
+                max-width: 480px;
+                width: 480px;
+                height: 100vh;
+                max-height: 100vh;
+                border-radius: 0;
+                border-right: none;
+                border-top: none;
+                border-bottom: none;
+                padding: 28px 22px 40px 22px;
+                animation: slideInRight 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+                box-shadow: -8px 0 32px rgba(0, 0, 0, 0.5);
+                overflow-y: auto;
+                overflow-x: hidden;
+                -webkit-overflow-scrolling: touch;
+            }
+            .modal-panel::-webkit-scrollbar {
+                width: 6px;
+            }
+            .modal-panel::-webkit-scrollbar-track {
+                background: rgba(157, 78, 221, 0.05);
+            }
+            .modal-panel::-webkit-scrollbar-thumb {
+                background: rgba(157, 78, 221, 0.3);
+                border-radius: 3px;
+            }
+            .modal-panel::-webkit-scrollbar-thumb:hover {
+                background: rgba(157, 78, 221, 0.5);
+            }
+        }
+        @media (min-width: 601px) and (max-width: 1024px) {
+            .modal-panel {
+                max-width: 380px;
+                width: 380px;
+            }
+        }
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes fadeOut {
+            to { opacity: 0; }
+        }
+        @keyframes slideOutRight {
+            to {
+                opacity: 0;
+                transform: translateX(100%);
+            }
         }
         .modal-panel h3 {
             font-size: 1.2rem;
@@ -2058,25 +2139,32 @@
         }
         /* 侧边参数设置面板 */
         .side-panel {
-            width: 340px;
+            width: 360px;
             flex-shrink: 0;
-            background: rgba(16, 8, 31, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-left: 1px solid rgba(157, 78, 221, 0.2);
+            background: rgba(16, 8, 31, 0.9);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-left: 1px solid rgba(157, 78, 221, 0.25);
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: -4px 0 24px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                        opacity 0.3s ease,
+                        box-shadow 0.3s ease,
+                        margin-right 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: -8px 0 32px rgba(0, 0, 0, 0.4);
             z-index: 5;
+            transform: translateX(0);
+            margin-right: 0;
+            height: 100vh;
+            max-height: 100vh;
         }
         .side-panel.collapsed {
-            width: 0;
-            border-left: none;
-            box-shadow: none;
+            transform: translateX(100%);
             opacity: 0;
             pointer-events: none;
+            box-shadow: none;
+            margin-right: -360px;
         }
         .side-panel-header {
             display: flex;
@@ -2117,11 +2205,14 @@
         .side-panel-content {
             flex: 1;
             overflow-y: auto;
-            padding: 14px 18px;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
+            overflow-x: hidden;
+            padding: 16px 18px 32px 18px;
             scroll-behavior: smooth;
+            min-height: 0;
+            -webkit-overflow-scrolling: touch;
+        }
+        .side-panel-content > *:last-child {
+            margin-bottom: 0;
         }
         .side-panel-content::-webkit-scrollbar {
             width: 4px;
@@ -2130,11 +2221,139 @@
             background: rgba(157, 78, 221, 0.3);
             border-radius: 4px;
         }
-        .side-section {
-            background: rgba(157, 78, 221, 0.04);
-            border: 1px solid rgba(157, 78, 221, 0.12);
+
+        .accordion-section {
+            margin-bottom: 12px;
+            border: 1px solid rgba(157, 78, 221, 0.18);
             border-radius: var(--radius-lg);
-            padding: 14px 16px;
+            background: rgba(157, 78, 221, 0.025);
+            overflow: hidden;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+        .accordion-section:hover {
+            border-color: rgba(157, 78, 221, 0.3);
+            box-shadow: 0 2px 12px rgba(157, 78, 221, 0.08);
+        }
+        .accordion-section.open {
+            border-color: rgba(157, 78, 221, 0.35);
+            box-shadow: 0 4px 20px rgba(157, 78, 221, 0.12);
+            background: rgba(157, 78, 221, 0.04);
+        }
+        .accordion-header {
+            padding: 14px 18px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 0.92rem;
+            color: var(--v-glow);
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.1) 0%, rgba(157, 78, 221, 0.05) 100%);
+            transition: background 0.2s;
+            user-select: none;
+            position: relative;
+        }
+        .accordion-header::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--v-main), var(--v-glow));
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+        .accordion-section.open .accordion-header::before {
+            opacity: 1;
+        }
+        .accordion-header:hover {
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.15) 0%, rgba(157, 78, 221, 0.08) 100%);
+        }
+        .accordion-icon {
+            font-size: 0.72rem;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            color: var(--text-muted);
+            opacity: 0.8;
+        }
+        .accordion-section.open .accordion-icon {
+            transform: rotate(180deg);
+            color: var(--v-glow);
+            opacity: 1;
+        }
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .accordion-section.open .accordion-body {
+            max-height: 8000px;
+            overflow: visible;
+        }
+        .accordion-body .side-section {
+            margin: 14px;
+            margin-top: 0;
+        }
+        .accordion-section.open > .accordion-body > .side-section:first-child {
+            margin-top: 14px;
+        }
+
+        .side-card-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 4px;
+        }
+        .side-card-item:hover {
+            background: rgba(157, 78, 221, 0.1);
+        }
+        .side-card-item.active {
+            background: rgba(157, 78, 221, 0.2);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+        }
+        .side-card-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--v-main), var(--v-glow));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .side-card-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .side-card-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .side-card-desc {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .side-section {
+            background: rgba(157, 78, 221, 0.035);
+            border: 1px solid rgba(157, 78, 221, 0.1);
+            border-radius: var(--radius-lg);
+            padding: 16px 18px;
+            transition: border-color 0.2s ease;
+        }
+        .side-section:hover {
+            border-color: rgba(157, 78, 221, 0.18);
         }
         .side-section h4 {
             font-size: 0.78rem;
@@ -2539,56 +2758,152 @@
                 </div>
             </div>
         </div>
-        <button class="side-panel-toggle" id="sidePanelToggle" title="参数设置">参 数 设 置</button>
+        <button class="side-panel-toggle" id="sidePanelToggle" title="展开/收起侧边栏">☰ 功 能 面 板</button>
         <div class="side-panel collapsed" id="sidePanel">
             <div class="side-panel-header">
-                <div class="side-panel-title">⚙️ 参数设置</div>
+                <div class="side-panel-title">🎮 功能面板</div>
                 <button class="side-panel-close" id="sidePanelClose">✕</button>
             </div>
             <div class="side-panel-content" id="sidePanelContent">
-                <div class="side-section">
-                    <h4>💬 对话操作</h4>
-                    <button class="btn primary" id="sideNewChatBtn" style="width:100%;">🆕 创建新对话</button>
+
+                <div class="accordion-section open" data-section="menu">
+                    <div class="accordion-header">
+                        <span>☰ 菜单</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="side-section">
+                            <h4>💬 对话操作</h4>
+                            <button class="btn primary" id="sideNewChatBtn" style="width:100%;">🆕 创建新对话</button>
+                        </div>
+                        <div class="side-section">
+                            <h4>⚙️ AI参数设置</h4>
+                            <div class="form-group"><label>单次最大回复量: <strong id="sideMaxTokensVal">400</strong></label>
+                                <input type="range" id="sideMaxTokensRange" min="50" max="2000" step="10" value="400">
+                                <input type="number" id="sideMaxTokensNum" min="50" max="2000" value="400">
+                                <span class="param-hint">控制AI每次回复的最大长度。推荐200-600。</span>
+                            </div>
+                            <div class="form-group"><label>温度: <strong id="sideTempVal">0.8</strong></label>
+                                <input type="range" id="sideTempRange" min="0" max="2" step="0.05" value="0.8">
+                                <input type="number" id="sideTempNum" min="0" max="2" step="0.05" value="0.8">
+                                <span class="param-hint">控制回复的随机性和创造性。推荐0.6-1.2。</span>
+                            </div>
+                            <div class="form-group"><label>TOP_P: <strong id="sideTopPVal">1</strong></label>
+                                <input type="range" id="sideTopPRange" min="0" max="1" step="0.02" value="1">
+                                <input type="number" id="sideTopPNum" min="0" max="1" step="0.02" value="1">
+                                <span class="param-hint">核采样参数，控制词汇选择范围。推荐0.8-1。</span>
+                            </div>
+                            <div class="form-group"><label>存在惩罚: <strong id="sidePresPenVal">0</strong></label>
+                                <input type="range" id="sidePresPenRange" min="-2" max="2" step="0.1" value="0">
+                                <input type="number" id="sidePresPenNum" min="-2" max="2" step="0.1" value="0">
+                                <span class="param-hint">正数鼓励AI谈论新话题。推荐0-0.6。</span>
+                            </div>
+                            <div class="form-group"><label>频率惩罚: <strong id="sideFreqPenVal">0</strong></label>
+                                <input type="range" id="sideFreqPenRange" min="-2" max="2" step="0.1" value="0">
+                                <input type="number" id="sideFreqPenNum" min="-2" max="2" step="0.1" value="0">
+                                <span class="param-hint">减少重复用词。推荐0-0.8。</span>
+                            </div>
+                        </div>
+                        <div class="side-section">
+                            <h4>🚫 屏蔽词管理</h4>
+                            <div class="form-group">
+                                <textarea id="sideBlockedWords" rows="2" placeholder="输入屏蔽词，用逗号分隔"></textarea>
+                                <span class="param-hint">AI回复会自动避开这些词，用户输入包含屏蔽词时会被阻止。</span>
+                            </div>
+                        </div>
+                        <div class="side-section">
+                            <h4>🎭 界面显示</h4>
+                            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;margin-bottom:10px;">
+                                <input type="checkbox" id="sideShowCharStatus" style="width:16px;height:16px;accent-color:var(--v-main);">
+                                <span style="font-size:0.8rem;">角色状态 &amp; 能量条</span>
+                            </label>
+                            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+                                <input type="checkbox" id="sideShowDialogOptions" style="width:16px;height:16px;accent-color:var(--v-main);">
+                                <span style="font-size:0.8rem;">对话选项</span>
+                            </label>
+                        </div>
+                        <div class="side-section">
+                            <button class="btn primary" id="sideSaveBtn" style="width:100%;">💾 保存设置</button>
+                            <button class="btn outline" id="sideResetBtn" style="width:100%;margin-top:6px;">🔄 恢复默认</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="side-section">
-                    <h4>⚙️ AI参数设置</h4>
-                    <div class="form-group"><label>单次最大回复量: <strong id="sideMaxTokensVal">400</strong></label>
-                        <input type="range" id="sideMaxTokensRange" min="50" max="2000" step="10" value="400">
-                        <input type="number" id="sideMaxTokensNum" min="50" max="2000" value="400">
-                        <span class="param-hint">控制AI每次回复的最大长度。推荐200-600。</span>
+
+                <div class="accordion-section" data-section="create">
+                    <div class="accordion-header">
+                        <span>✨ 创卡</span>
+                        <span class="accordion-icon">▼</span>
                     </div>
-                    <div class="form-group"><label>温度: <strong id="sideTempVal">0.8</strong></label>
-                        <input type="range" id="sideTempRange" min="0" max="2" step="0.05" value="0.8">
-                        <input type="number" id="sideTempNum" min="0" max="2" step="0.05" value="0.8">
-                        <span class="param-hint">控制回复的随机性和创造性。推荐0.6-1.2。</span>
-                    </div>
-                    <div class="form-group"><label>TOP_P: <strong id="sideTopPVal">1</strong></label>
-                        <input type="range" id="sideTopPRange" min="0" max="1" step="0.02" value="1">
-                        <input type="number" id="sideTopPNum" min="0" max="1" step="0.02" value="1">
-                        <span class="param-hint">核采样参数，控制词汇选择范围。推荐0.8-1。</span>
-                    </div>
-                    <div class="form-group"><label>存在惩罚: <strong id="sidePresPenVal">0</strong></label>
-                        <input type="range" id="sidePresPenRange" min="-2" max="2" step="0.1" value="0">
-                        <input type="number" id="sidePresPenNum" min="-2" max="2" step="0.1" value="0">
-                        <span class="param-hint">正数鼓励AI谈论新话题。推荐0-0.6。</span>
-                    </div>
-                    <div class="form-group"><label>频率惩罚: <strong id="sideFreqPenVal">0</strong></label>
-                        <input type="range" id="sideFreqPenRange" min="-2" max="2" step="0.1" value="0">
-                        <input type="number" id="sideFreqPenNum" min="-2" max="2" step="0.1" value="0">
-                        <span class="param-hint">减少重复用词。推荐0-0.8。</span>
+                    <div class="accordion-body">
+                        <div class="side-section">
+                            <p style="font-size:0.78rem;color:var(--text-muted);margin-bottom:10px;">创建新的角色设定卡，开启新的故事。</p>
+                            <button class="btn primary" id="sideCreateCardBtn" style="width:100%;">✨ 创建新角色卡</button>
+                            <button class="btn outline" id="sideQuickCreateBtn" style="width:100%;margin-top:6px;">⚡ 快速生成设定</button>
+                        </div>
                     </div>
                 </div>
-                <div class="side-section">
-                    <h4>🚫 屏蔽词管理</h4>
-                    <div class="form-group">
-                        <textarea id="sideBlockedWords" rows="2" placeholder="输入屏蔽词，用逗号分隔"></textarea>
-                        <span class="param-hint">AI回复会自动避开这些词，用户输入包含屏蔽词时会被阻止。</span>
+
+                <div class="accordion-section" data-section="cards">
+                    <div class="accordion-header">
+                        <span>📋 卡片</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="side-section">
+                            <div id="sideCardList" style="max-height:300px;overflow-y:auto;">
+                            </div>
+                            <button class="btn outline" id="sideManageCardsBtn" style="width:100%;margin-top:8px;">📝 管理卡片</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="side-panel-footer">
-                <button class="btn primary" id="sideSaveBtn">💾 保存</button>
-                <button class="btn outline" id="sideResetBtn">🔄 恢复默认</button>
+
+                <div class="accordion-section" data-section="settings">
+                    <div class="accordion-header">
+                        <span>⚙️ 设置</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="side-section">
+                            <h4 style="font-size:0.85rem;color:var(--v-glow);margin-bottom:10px;font-weight:600;">🎨 外观自定义</h4>
+                            <div class="form-group"><label>主题颜色</label><input type="color" id="sideThemeColorPicker" value="#8b5cf6" style="width:60px;height:40px;"></div>
+                            <div class="form-group"><label>色相偏移 (<span id="sideHueShiftVal">0</span>°)</label><input type="range" id="sideHueShiftRange" min="-180" max="180" step="5" value="0"><span class="param-hint">调整所有颜色的色相，实现全色系替换</span></div>
+                            <div class="form-group"><label>饱和度调整 (<span id="sideSaturationVal">0</span>%)</label><input type="range" id="sideSaturationRange" min="-50" max="50" step="5" value="0"><span class="param-hint">调整所有颜色的饱和度</span></div>
+                            <div class="form-group"><label>明度调整 (<span id="sideLightnessVal">0</span>%)</label><input type="range" id="sideLightnessRange" min="-30" max="30" step="2" value="0"><span class="param-hint">调整所有颜色的明亮程度</span></div>
+                            <div class="form-group"><label>对比度调整 (<span id="sideContrastVal">0</span>%)</label><input type="range" id="sideContrastRange" min="-20" max="30" step="2" value="0"><span class="param-hint">调整整体页面的对比度</span></div>
+                            <div class="form-group"><label>用户气泡不透明度 (<span id="sideBubbleUserOpacityVal">85</span>%)</label><input type="range" id="sideBubbleUserOpacityRange" min="0.1" max="1" step="0.05" value="0.85"><span class="param-hint">控制用户消息气泡的透明度</span></div>
+                            <div class="form-group"><label>AI气泡不透明度 (<span id="sideBubbleAiOpacityVal">85</span>%)</label><input type="range" id="sideBubbleAiOpacityRange" min="0.1" max="1" step="0.05" value="0.85"><span class="param-hint">控制AI消息气泡的透明度</span></div>
+                            <div class="form-group"><label>文字颜色（可选）</label><input type="color" id="sideTextColorPicker" value="#f2eaff" style="width:60px;height:40px;"><span class="param-hint">自定义聊天文字颜色，选择默认紫色可恢复</span></div>
+                            <div class="form-group"><label>聊天背景图片</label>
+                                <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+                                    <input type="file" id="sideBgImageInput" accept="image/jpeg,image/gif,image/png,image/webp" style="flex:1;min-width:180px;">
+                                    <button class="btn outline" id="sideClearBgBtn" style="white-space:nowrap;">清除背景</button>
+                                </div>
+                                <span class="param-hint">支持JPG、GIF、PNG、WebP格式</span>
+                            </div>
+                            <div class="form-group"><label>背景不透明度 (<span id="sideBgOpacityVal">60</span>%)</label><input type="range" id="sideBgOpacityRange" min="0.02" max="0.8" step="0.02" value="0.6"><span class="param-hint">聊天背景图片的显示透明度</span></div>
+                        </div>
+
+                        <div class="side-section">
+                            <h4 style="font-size:0.85rem;color:var(--v-glow);margin-bottom:10px;font-weight:600;">🔑 API 配置</h4>
+                            <div class="form-group"><label>API Key</label><input id="sideCustomApiKey" value="" placeholder="留空使用默认"></div>
+                            <div class="form-group"><label>Base URL</label><input id="sideCustomBaseUrl" value="" placeholder="留空使用默认"></div>
+                            <label style="display:flex;align-items:center;gap:9px;cursor:pointer;margin-bottom:10px;"><input type="checkbox" id="sideUseCustomApiCheck"> 使用自定义API</label>
+                            <div class="form-group"><label>模型</label><div style="display:flex;gap:8px;"><select id="sideModelSelect" style="flex:1;"></select><button class="btn outline" id="sideRefreshModelsBtn" style="white-space:nowrap;">🔄</button></div></div>
+                            <div style="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap;">
+                                <button class="btn outline" id="sideGetApiBtn" style="flex:1;">🔑 获取API</button>
+                                <button class="btn outline" id="sideResetDefaultApiBtn" style="flex:1;">恢复默认</button>
+                            </div>
+                        </div>
+
+                        <div class="side-section">
+                            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                                <button class="btn primary" id="sideSaveAllSettingsBtn" style="flex:1;">💾 保存全部设置</button>
+                                <button class="btn outline" id="sideResetAppearanceBtn" style="flex:1;">🔄 恢复默认</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -2614,7 +2929,11 @@
             const editModeBanner = document.getElementById('editModeBanner');
             const cancelEditBtn = document.getElementById('cancelEditBtn');
 
-            let settingCards = JSON.parse(localStorage.getItem('settingCards') || '[]');
+            function safeParseJSON(str, fallback) {
+                try { return JSON.parse(str); } catch (e) { return fallback; }
+            }
+
+            let settingCards = safeParseJSON(localStorage.getItem('settingCards') || '[]', []);
             let activeCardId = localStorage.getItem('activeCardId') || '';
             let modelListCache = [];
             let currentModel = localStorage.getItem('currentModel') || DEFAULT_MODEL;
@@ -2629,9 +2948,12 @@
             let customApiKey = localStorage.getItem('customApiKey') || '';
             let customBaseUrl = localStorage.getItem('customBaseUrl') || '';
             let useCustomApi = localStorage.getItem('useCustomApi') === 'true';
-            let blockedWords = JSON.parse(localStorage.getItem('blockedWords') || '[]');
-            let aiParams = JSON.parse(localStorage.getItem('aiParams') ||
-                '{"max_tokens":400,"temperature":0.8,"top_p":1,"presence_penalty":0,"frequency_penalty":0}');
+            let blockedWords = safeParseJSON(localStorage.getItem('blockedWords') || '[]', []);
+            let aiParams = safeParseJSON(localStorage.getItem('aiParams') ||
+                '{"max_tokens":400,"temperature":0.8,"top_p":1,"presence_penalty":0,"frequency_penalty":0}',
+                {"max_tokens":400,"temperature":0.8,"top_p":1,"presence_penalty":0,"frequency_penalty":0});
+            let showCharStatus = localStorage.getItem('showCharStatus') !== 'false';
+            let showDialogOptions = localStorage.getItem('showDialogOptions') !== 'false';
             let themeColor = localStorage.getItem('themeColor') || '#9d4edd';
             let hueShift = parseInt(localStorage.getItem('hueShift') || '0');
             let saturationAdjust = parseInt(localStorage.getItem('saturationAdjust') || '0');
@@ -2645,8 +2967,8 @@
             let activeModalOverlay = null;
             let activePerspective = 'all';
             let associatedChars = [];
-            let activeAbilities = JSON.parse(localStorage.getItem('activeAbilities') || '["novel","code","image_prompt"]');
-            let customAbilities = JSON.parse(localStorage.getItem('customAbilities') || '[]');
+            let activeAbilities = safeParseJSON(localStorage.getItem('activeAbilities') || '["novel","code","image_prompt"]', ["novel","code","image_prompt"]);
+            let customAbilities = safeParseJSON(localStorage.getItem('customAbilities') || '[]', []);
             let currentCharStatus = null;
             let slowResponseTimer = null;
             let slowResponseShown = false;
@@ -3073,6 +3395,12 @@ masterpiece, best quality, ultra-high resolution, semi-thick paint style, hyper-
             function updateCurrentCardDisplay() {
                 const card = getActiveCard();
                 worldBtn.title = card ? '当前卡片：' + card.name + '（点击切换）' : '点击选择卡片';
+                const sideCardList = document.getElementById('sideCardList');
+                if (sideCardList) {
+                    document.querySelectorAll('.side-card-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                }
             }
 
             function renderAllMessages() {
@@ -3203,13 +3531,13 @@ masterpiece, best quality, ultra-high resolution, semi-thick paint style, hyper-
                     div.appendChild(promptBox);
                 }
 
-                if (type === 'ai' && !isArch) {
+                if (type === 'ai' && !isArch && showCharStatus) {
                     const s = status || generateDefaultStatus(text);
                     const statusBox = createStatusBox(s);
                     div.appendChild(statusBox);
                 }
 
-                if (options.length) {
+                if (options.length && showDialogOptions) {
                     const row = document.createElement('div');
                     row.className = 'options-row';
                     options.forEach((o, i) => {
@@ -3680,7 +4008,6 @@ masterpiece, best quality, ultra-high resolution, semi-thick paint style, hyper-
                 const statusBox = document.createElement('div');
                 statusBox.className = 'status-box status-appear';
 
-                // 左侧：状态内容
                 const contentDiv = document.createElement('div');
                 contentDiv.className = 'status-content';
                 const title = document.createElement('div');
@@ -3703,26 +4030,59 @@ masterpiece, best quality, ultra-high resolution, semi-thick paint style, hyper-
                 });
                 statusBox.appendChild(contentDiv);
 
-                // 右侧：心动频率指示器
-                const mood = status.mood || '平静';
-                const level = getHeartbeatLevel(mood);
+                const level = getHeartbeatLevelFromStatus(status);
                 const tube = createHeartbeatTube(level);
                 statusBox.appendChild(tube);
 
-                // 注册到 Intersection Observer
                 registerHeartbeatObserver(tube);
 
                 return statusBox;
             }
 
-            // 情绪关键词 → 心动频率等级映射 (0:正常 1:轻度 2:激动 3:极度)
+            function getHeartbeatLevelFromStatus(status) {
+                if (!status) return 0;
+                let score = 0;
+                const mood = (status.mood || '平静').toLowerCase();
+                const action = (status.action || '站立').toLowerCase();
+                const voice = (status.voice || '平稳').toLowerCase();
+                const penis = (status.penis || '疲软').toLowerCase();
+                const anus = (status.anus || '放松').toLowerCase();
+                const semen = (status.semen || '正常').toLowerCase();
+
+                if (/极度|高潮|发情|疯狂|失控|沸腾|狂热|亢奋|燃烧|情欲|迷乱|沉沦/.test(mood)) score += 3;
+                else if (/兴奋|激动|开心|高兴|喜悦|快乐|愉悦|渴望|心动|刺激|火热|炽热|燥热|期待/.test(mood)) score += 2;
+                else if (/紧张|害羞|羞涩|惊讶|好奇|困惑|不安|焦虑|烦躁|生气|愤怒|不满|委屈|难受|尴尬|害怕|担忧/.test(mood)) score += 1;
+
+                if (/亲吻|做爱|性交|抽插|抚摸|爱抚|拥抱|依偎|缠绵|呻吟|娇喘/.test(action)) score += 3;
+                else if (/靠近|接近|牵手|拥抱|依偎|抚摸|轻触|脸红|低头/.test(action)) score += 2;
+                else if (/走动|站立|坐下|转身|抬头|低头|眨眼|微笑/.test(action)) score += 0;
+
+                if (/呻吟|娇喘|呜咽|颤抖|沙哑|魅惑|暧昧|诱人|软绵绵/.test(voice)) score += 3;
+                else if (/羞涩|害羞|轻声|小声|颤抖|紧张|激动|开心|喜悦/.test(voice)) score += 2;
+                else if (/平稳|平静|正常|冷淡|平静无波/.test(voice)) score += 0;
+
+                if (/勃起|坚硬|硬挺|涨大|充血|颤抖|跳动/.test(penis)) score += 3;
+                else if (/半勃起|微微勃起|有些硬|开始勃起/.test(penis)) score += 2;
+                else if (/疲软|松弛|柔软|正常/.test(penis)) score += 0;
+
+                if (/收缩|吮吸|夹紧|湿润|泛滥|痉挛|颤抖/.test(anus)) score += 3;
+                else if (/微微收缩|有些紧张|开始湿润/.test(anus)) score += 2;
+                else if (/放松|正常|平静/.test(anus)) score += 0;
+
+                if (/大量|喷涌|溢出|满溢|浓稠/.test(semen)) score += 3;
+                else if (/增多|变多|有些|少量/.test(semen)) score += 1;
+                else if (/正常|少量|无/.test(semen)) score += 0;
+
+                if (score >= 12) return 3;
+                if (score >= 6) return 2;
+                if (score >= 2) return 1;
+                return 0;
+            }
+
             function getHeartbeatLevel(mood) {
                 const m = mood.toLowerCase();
-                // 极度兴奋/亲密状态：高热、失控级别
                 if (/极度|高潮|发情|疯狂|失控|沸腾|狂热|亢奋|燃烧|情欲|迷乱|沉沦/.test(m)) return 3;
-                // 激动/兴奋状态：明显情绪波动
                 if (/兴奋|激动|开心|高兴|喜悦|快乐|愉悦|渴望|心动|刺激|火热|炽热|燥热|期待/.test(m)) return 2;
-                // 轻度情绪波动：紧张、不安等
                 if (/紧张|害羞|羞涩|惊讶|好奇|困惑|不安|焦虑|烦躁|生气|愤怒|不满|委屈|难受|尴尬|害怕|担忧/.test(m)) return 1;
                 return 0;
             }
@@ -3788,6 +4148,12 @@ masterpiece, best quality, ultra-high resolution, semi-thick paint style, hyper-
                         if (!modelListCache.includes(currentModel)) currentModel = modelListCache[0];
                         localStorage.setItem('currentModel', currentModel);
                         updateModelDisplay();
+                        const sideModelSelect = document.getElementById('sideModelSelect');
+                        if (sideModelSelect) {
+                            sideModelSelect.innerHTML = modelListCache.map(m =>
+                                `<option value="${escapeAttr(m)}" ${m===currentModel?'selected':''}>${escapeAttr(m)}</option>`
+                            ).join('');
+                        }
                     }
                 } catch (e) {}
             }
@@ -3799,7 +4165,17 @@ masterpiece, best quality, ultra-high resolution, semi-thick paint style, hyper-
 
             function closeActiveModal() {
                 if (activeModalOverlay) {
-                    activeModalOverlay.remove();
+                    const overlay = activeModalOverlay;
+                    const panel = overlay.querySelector('.modal-panel');
+                    if (panel && window.innerWidth > 600) {
+                        panel.style.animation = 'slideOutRight 0.3s ease forwards';
+                        overlay.style.animation = 'fadeOut 0.3s ease forwards';
+                        setTimeout(() => {
+                            if (overlay.parentNode) overlay.remove();
+                        }, 280);
+                    } else {
+                        overlay.remove();
+                    }
                     activeModalOverlay = null;
                 }
             }
@@ -4168,7 +4544,7 @@ masterpiece, best quality, ultra-high resolution, semi-thick paint style, hyper-
                         disableSlowResponseWarning = true;
                         localStorage.setItem('disableSlowResponseWarning', 'true');
                     }
-                    window.open('https://www.baidu.com', '_blank');
+                    window.open('https://platform.agnes-ai.com', '_blank');
                     closeActiveModal();
                 };
             }
@@ -4396,7 +4772,7 @@ masterpiece, best quality, ultra-high resolution, semi-thick paint style, hyper-
 
                         // ========== 第二步：生成角色状态（非流式，失败不影响主回复） ==========
                         let status = null;
-                        if (!isArchCard && activeCardId === savedCardId) {
+                        if (!isArchCard && activeCardId === savedCardId && showCharStatus) {
                             try {
                                 const statusPh = document.createElement('div');
                                 statusPh.className = 'status-indicator';
@@ -4414,7 +4790,7 @@ masterpiece, best quality, ultra-high resolution, semi-thick paint style, hyper-
 
                         // ========== 第三步：生成对话选项（非流式，失败不影响主回复） ==========
                         let opts = [];
-                        if (activeCardId === savedCardId) {
+                        if (activeCardId === savedCardId && showDialogOptions) {
                             try {
                                 const optsPh = document.createElement('div');
                                 optsPh.className = 'status-indicator';
@@ -4633,7 +5009,7 @@ masterpiece, best quality, ultra-high resolution, semi-thick paint style, hyper-
                     `<div class="modal-panel confirm-dialog"><div class="confirm-icon">🪫</div><h3 style="justify-content:center;">API 额度已用完</h3><p>请获取新的API密钥继续使用。</p><div class="btn-row" style="justify-content:center;"><button class="btn accent" id="goApiBtn">🔑 获取免费API</button><button class="btn" id="closeQuotaBtn">关闭</button></div></div>`;
                 showModal(overlay);
                 overlay.querySelector('#closeQuotaBtn').onclick = () => closeActiveModal();
-                overlay.querySelector('#goApiBtn').onclick = () => { window.open('https://www.baidu.com', '_blank'); closeActiveModal(); };
+                overlay.querySelector('#goApiBtn').onclick = () => { window.open('https://platform.agnes-ai.com', '_blank'); closeActiveModal(); };
             }
 
             sendBtn.onclick = () => sendMessage();
@@ -4757,7 +5133,7 @@ masterpiece, best quality, ultra-high resolution, semi-thick paint style, hyper-
 
                     // ========== 第二步：生成角色状态 ==========
                     let status = null;
-                    if (!isArchGreeting) {
+                    if (!isArchGreeting && showCharStatus) {
                         const statusPh = document.createElement('div');
                         statusPh.className = 'status-indicator';
                         statusPh.innerHTML = '<span class="wave-dots small"><span></span><span></span><span></span></span> 生成状态...';
@@ -4773,27 +5149,30 @@ masterpiece, best quality, ultra-high resolution, semi-thick paint style, hyper-
                     }
 
                     // ========== 第三步：生成对话选项 ==========
-                    const optsPh = document.createElement('div');
-                    optsPh.className = 'status-indicator';
-                    optsPh.innerHTML = '<span class="wave-dots small"><span></span><span></span><span></span></span> 生成选项...';
-                    ph.appendChild(optsPh);
-                    scrollBottom();
-                    if (activeCardId !== savedCardId) { ph.remove(); greetingInProgress = false; return; }
-                    const opts = await generateOptionsViaAPI(apiKey, baseUrl, clean, status, savedCardId);
-                    optsPh.remove();
+                    let opts = [];
+                    if (showDialogOptions) {
+                        const optsPh = document.createElement('div');
+                        optsPh.className = 'status-indicator';
+                        optsPh.innerHTML = '<span class="wave-dots small"><span></span><span></span><span></span></span> 生成选项...';
+                        ph.appendChild(optsPh);
+                        scrollBottom();
+                        if (activeCardId !== savedCardId) { ph.remove(); greetingInProgress = false; return; }
+                        opts = await generateOptionsViaAPI(apiKey, baseUrl, clean, status, savedCardId);
+                        optsPh.remove();
 
-                    if (opts.length) {
-                        lastOptions = opts;
-                        const row = document.createElement('div');
-                        row.className = 'options-row';
-                        opts.forEach((o, i) => {
-                            const btn = document.createElement('button');
-                            btn.className = 'option-btn';
-                            btn.innerHTML = `<span class="opt-num">${i+1}</span><span>${o}</span>`;
-                            btn.onclick = () => { msgInput.value = o; sendMessage(); };
-                            row.appendChild(btn);
-                        });
-                        ph.appendChild(row);
+                        if (opts.length) {
+                            lastOptions = opts;
+                            const row = document.createElement('div');
+                            row.className = 'options-row';
+                            opts.forEach((o, i) => {
+                                const btn = document.createElement('button');
+                                btn.className = 'option-btn';
+                                btn.innerHTML = `<span class="opt-num">${i+1}</span><span>${o}</span>`;
+                                btn.onclick = () => { msgInput.value = o; sendMessage(); };
+                                row.appendChild(btn);
+                            });
+                            ph.appendChild(row);
+                        }
                     }
 
                     const actionsRow = document.createElement('div');
@@ -5868,9 +6247,48 @@ masterpiece, best quality, ultra-high resolution, semi-thick paint style, hyper-
                 return null;
             }
 
-            createCardBtn.onclick = showCreateCardModeModal;
-            worldBtn.onclick = openCardSelector;
-            settingsBtn.onclick = () => openSettings();
+            createCardBtn.onclick = () => {
+                const isMobile = window.innerWidth <= 600;
+                if (isMobile) {
+                    showCreateCardModeModal();
+                } else {
+                    if (!sidePanelVisible) toggleSidePanel();
+                    document.querySelectorAll('.accordion-section').forEach(s => s.classList.remove('open'));
+                    const createSection = document.querySelector('.accordion-section[data-section="create"]');
+                    if (createSection) {
+                        createSection.classList.add('open');
+                        createSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            };
+            worldBtn.onclick = () => {
+                const isMobile = window.innerWidth <= 600;
+                if (isMobile) {
+                    openCardSelector();
+                } else {
+                    if (!sidePanelVisible) toggleSidePanel();
+                    document.querySelectorAll('.accordion-section').forEach(s => s.classList.remove('open'));
+                    const cardsSection = document.querySelector('.accordion-section[data-section="cards"]');
+                    if (cardsSection) {
+                        cardsSection.classList.add('open');
+                        cardsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            };
+            settingsBtn.onclick = () => {
+                const isMobile = window.innerWidth <= 600;
+                if (isMobile) {
+                    openSettings();
+                } else {
+                    if (!sidePanelVisible) toggleSidePanel();
+                    document.querySelectorAll('.accordion-section').forEach(s => s.classList.remove('open'));
+                    const settingsSection = document.querySelector('.accordion-section[data-section="settings"]');
+                    if (settingsSection) {
+                        settingsSection.classList.add('open');
+                        settingsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            };
             const clearChatBtn = document.getElementById('clearChatBtn');
             clearChatBtn.onclick = () => {
                 if (isGenerating) { showToast('请等待AI回复完成后再清空对话'); return; }
@@ -5942,7 +6360,7 @@ masterpiece, best quality, ultra-high resolution, semi-thick paint style, hyper-
         </div>`;
                 showModal(overlay);
                 overlay.querySelector('#closeSettingsBtn').onclick = () => closeActiveModal();
-                overlay.querySelector('#getApiBtn').onclick = () => window.open('https://www.baidu.com', '_blank');
+                overlay.querySelector('#getApiBtn').onclick = () => window.open('https://platform.agnes-ai.com', '_blank');
                 overlay.querySelector('#manageCardsBtn').onclick = () => {
                     closeActiveModal();
                     openCardSelector();
@@ -6104,6 +6522,21 @@ masterpiece, best quality, ultra-high resolution, semi-thick paint style, hyper-
             <textarea id="blockedWordsInput" rows="3" placeholder="输入屏蔽词，用逗号分隔，例如：词1,词2,词3">${blockedWords.join(',')}</textarea>
             <span class="param-hint">AI回复会自动避开这些词，用其他表达方式替代。用户输入包含屏蔽词时会被阻止发送。</span>
           </div>
+          <h4>🎭 界面显示</h4>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;margin-bottom:12px;padding:10px;background:rgba(157,78,221,0.06);border-radius:8px;border:1px solid rgba(157,78,221,0.15);">
+            <input type="checkbox" id="showCharStatusCheck" ${showCharStatus?'checked':''} style="width:18px;height:18px;accent-color:var(--v-main);">
+            <div style="flex:1;">
+              <strong style="font-size:0.85rem;">角色状态 & 能量条</strong>
+              <div style="font-size:0.72rem;color:var(--text-muted);margin-top:2px;">关闭后聊天气泡将不再显示角色情绪状态和浮动能量条</div>
+            </div>
+          </label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;margin-bottom:12px;padding:10px;background:rgba(157,78,221,0.06);border-radius:8px;border:1px solid rgba(157,78,221,0.15);">
+            <input type="checkbox" id="showDialogOptionsCheck" ${showDialogOptions?'checked':''} style="width:18px;height:18px;accent-color:var(--v-main);">
+            <div style="flex:1;">
+              <strong style="font-size:0.85rem;">对话选项</strong>
+              <div style="font-size:0.72rem;color:var(--text-muted);margin-top:2px;">关闭后AI回复将不再显示可选的对话选项按钮</div>
+            </div>
+          </label>
           <div style="display:flex;gap:8px;margin-top:8px;">
             <button class="btn primary" id="saveMenuSettingsBtn" style="flex:1;">💾 保存</button>
             <button class="btn outline" id="resetDefaultsBtn" style="flex:1;">🔄 恢复默认</button>
@@ -6135,6 +6568,10 @@ masterpiece, best quality, ultra-high resolution, semi-thick paint style, hyper-
                     localStorage.setItem('aiParams', JSON.stringify(aiParams));
                     blockedWords = [];
                     localStorage.setItem('blockedWords', JSON.stringify(blockedWords));
+                    showCharStatus = true;
+                    localStorage.setItem('showCharStatus', 'true');
+                    showDialogOptions = true;
+                    localStorage.setItem('showDialogOptions', 'true');
                     overlay.querySelector('#maxTokensRange').value = 400;
                     overlay.querySelector('#maxTokensNum').value = 400;
                     overlay.querySelector('#maxTokensVal').textContent = '400';
@@ -6151,8 +6588,11 @@ masterpiece, best quality, ultra-high resolution, semi-thick paint style, hyper-
                     overlay.querySelector('#freqPenNum').value = 0;
                     overlay.querySelector('#freqPenVal').textContent = '0';
                     overlay.querySelector('#blockedWordsInput').value = '';
+                    overlay.querySelector('#showCharStatusCheck').checked = true;
+                    overlay.querySelector('#showDialogOptionsCheck').checked = true;
                     cachedCardHash = '';
                     cachedSystemPrompt = '';
+                    renderAllMessages();
                     showToast('🔄 已恢复默认设置');
                 };
                 overlay.querySelector('#menuNewChatBtn').onclick = () => {
@@ -6188,8 +6628,13 @@ masterpiece, best quality, ultra-high resolution, semi-thick paint style, hyper-
                     const bwInput = overlay.querySelector('#blockedWordsInput').value.trim();
                     blockedWords = bwInput ? bwInput.split(',').map(w => w.trim()).filter(w => w) : [];
                     localStorage.setItem('blockedWords', JSON.stringify(blockedWords));
+                    showCharStatus = overlay.querySelector('#showCharStatusCheck').checked;
+                    localStorage.setItem('showCharStatus', showCharStatus ? 'true' : 'false');
+                    showDialogOptions = overlay.querySelector('#showDialogOptionsCheck').checked;
+                    localStorage.setItem('showDialogOptions', showDialogOptions ? 'true' : 'false');
                     cachedCardHash = '';
                     cachedSystemPrompt = '';
+                    renderAllMessages();
                     closeActiveModal();
                     showToast('💾 菜单设置已保存');
                 };
@@ -6200,7 +6645,13 @@ masterpiece, best quality, ultra-high resolution, semi-thick paint style, hyper-
                 if (isMobile) {
                     openMenuModal();
                 } else {
-                    toggleSidePanel();
+                    if (!sidePanelVisible) toggleSidePanel();
+                    document.querySelectorAll('.accordion-section').forEach(s => s.classList.remove('open'));
+                    const menuSection = document.querySelector('.accordion-section[data-section="menu"]');
+                    if (menuSection) {
+                        menuSection.classList.add('open');
+                        menuSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
                 }
             };
             const stopBtnEl = document.getElementById('stopBtn');
@@ -6218,22 +6669,16 @@ masterpiece, best quality, ultra-high resolution, semi-thick paint style, hyper-
             };
 
             let navCollapsed = localStorage.getItem('navCollapsed') === 'true';
-            function toggleNav() {
-                navCollapsed = !navCollapsed;
-                localStorage.setItem('navCollapsed', navCollapsed);
-                if (navCollapsed) {
-                    navbar.classList.add('collapsed');
-                    toggleNavBtn.textContent = '🎭';
-                } else {
-                    navbar.classList.remove('collapsed');
-                    toggleNavBtn.textContent = '演绎';
-                }
-            }
+            toggleNavBtn.title = '点击刷新页面';
+            toggleNavBtn.onclick = () => {
+                window.location.reload();
+            };
             if (navCollapsed) {
                 navbar.classList.add('collapsed');
                 toggleNavBtn.textContent = '🎭';
+            } else {
+                toggleNavBtn.textContent = '演绎';
             }
-            toggleNavBtn.onclick = toggleNav;
 
             // ===== 侧边栏面板逻辑 =====
             let sidePanelVisible = false;
@@ -6270,6 +6715,10 @@ masterpiece, best quality, ultra-high resolution, semi-thick paint style, hyper-
                 document.getElementById('sideFreqPenNum').value = aiParams.frequency_penalty || 0;
                 document.getElementById('sideFreqPenVal').textContent = aiParams.frequency_penalty || 0;
                 document.getElementById('sideBlockedWords').value = blockedWords.join(',');
+                const sideShowCharStatusEl = document.getElementById('sideShowCharStatus');
+                if (sideShowCharStatusEl) sideShowCharStatusEl.checked = showCharStatus;
+                const sideShowDialogOptionsEl = document.getElementById('sideShowDialogOptions');
+                if (sideShowDialogOptionsEl) sideShowDialogOptionsEl.checked = showDialogOptions;
             }
 
             function initSidePanel() {
@@ -6297,8 +6746,19 @@ masterpiece, best quality, ultra-high resolution, semi-thick paint style, hyper-
                     const bwInput = document.getElementById('sideBlockedWords').value.trim();
                     blockedWords = bwInput ? bwInput.split(',').map(w => w.trim()).filter(w => w) : [];
                     localStorage.setItem('blockedWords', JSON.stringify(blockedWords));
+                    const sideShowCharStatusEl = document.getElementById('sideShowCharStatus');
+                    if (sideShowCharStatusEl) {
+                        showCharStatus = sideShowCharStatusEl.checked;
+                        localStorage.setItem('showCharStatus', showCharStatus ? 'true' : 'false');
+                    }
+                    const sideShowDialogOptionsEl = document.getElementById('sideShowDialogOptions');
+                    if (sideShowDialogOptionsEl) {
+                        showDialogOptions = sideShowDialogOptionsEl.checked;
+                        localStorage.setItem('showDialogOptions', showDialogOptions ? 'true' : 'false');
+                    }
                     cachedCardHash = '';
                     cachedSystemPrompt = '';
+                    renderAllMessages();
                     showToast('💾 参数设置已保存');
                 };
 
@@ -6308,9 +6768,14 @@ masterpiece, best quality, ultra-high resolution, semi-thick paint style, hyper-
                     localStorage.setItem('aiParams', JSON.stringify(aiParams));
                     blockedWords = [];
                     localStorage.setItem('blockedWords', JSON.stringify(blockedWords));
+                    showCharStatus = true;
+                    localStorage.setItem('showCharStatus', 'true');
+                    showDialogOptions = true;
+                    localStorage.setItem('showDialogOptions', 'true');
                     cachedCardHash = '';
                     cachedSystemPrompt = '';
                     syncSidePanelValues();
+                    renderAllMessages();
                     showToast('🔄 已恢复默认设置');
                 };
 
@@ -6332,7 +6797,373 @@ masterpiece, best quality, ultra-high resolution, semi-thick paint style, hyper-
                     sidePanelToggle.classList.remove('show');
                 };
 
+                if (window.innerWidth > 600) {
+                    sidePanelVisible = true;
+                    sidePanel.classList.remove('collapsed');
+                    sidePanelToggle.classList.add('show');
+                    syncSidePanelValues();
+                }
+
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth <= 600) {
+                        if (sidePanelVisible) {
+                            sidePanelVisible = false;
+                            sidePanel.classList.add('collapsed');
+                            sidePanelToggle.classList.remove('show');
+                        }
+                    }
+                });
+
+                document.querySelectorAll('.accordion-header').forEach(header => {
+                    header.onclick = () => {
+                        const section = header.parentElement;
+                        section.classList.toggle('open');
+                    };
+                });
+
+                function renderSideCardList() {
+                    const listEl = document.getElementById('sideCardList');
+                    if (!listEl) return;
+                    listEl.innerHTML = '';
+                    settingCards.forEach(card => {
+                        const item = document.createElement('div');
+                        item.className = 'side-card-item' + (card.id === activeCardId ? ' active' : '');
+                        const firstChar = card.characters?.[0];
+                        const avatar = firstChar?.emoji || firstChar?.avatar || '🎭';
+                        const name = card.name || (firstChar?.name || '未命名');
+                        const desc = card.mode === 'simple' ? '简单模式' : '完整模式';
+                        item.innerHTML = `
+                            <div class="side-card-avatar">${avatar}</div>
+                            <div class="side-card-info">
+                                <div class="side-card-name">${escapeAttr(name)}</div>
+                                <div class="side-card-desc">${desc}</div>
+                            </div>
+                        `;
+                        item.onclick = () => {
+                            activeCardId = card.id;
+                            localStorage.setItem('activeCardId', activeCardId);
+                            chatHistory = loadChatHistory(activeCardId);
+                            resetAllSessionState();
+                            updateCurrentCardDisplay();
+                            renderAllMessages();
+                            renderSideCardList();
+                            cachedCardHash = '';
+                            cachedSystemPrompt = '';
+                            if (chatHistory.length === 0) setTimeout(generateGreeting, 300);
+                            showToast(`📋 已切换到「${name}」`);
+                        };
+                        listEl.appendChild(item);
+                    });
+                }
+
+                const sideCreateCardBtn = document.getElementById('sideCreateCardBtn');
+                if (sideCreateCardBtn) {
+                    sideCreateCardBtn.onclick = () => {
+                        showCreateCardModeModal();
+                    };
+                }
+
+                const sideQuickCreateBtn = document.getElementById('sideQuickCreateBtn');
+                if (sideQuickCreateBtn) {
+                    sideQuickCreateBtn.onclick = () => {
+                        showToast('⚡ 快速生成功能开发中...');
+                    };
+                }
+
+                const sideManageCardsBtn = document.getElementById('sideManageCardsBtn');
+                if (sideManageCardsBtn) {
+                    sideManageCardsBtn.onclick = () => {
+                        openCardSelector();
+                    };
+                }
+
+                const sideFullSettingsBtn = document.getElementById('sideFullSettingsBtn');
+                if (sideFullSettingsBtn) {
+                    sideFullSettingsBtn.onclick = () => {
+                        openSettings();
+                    };
+                }
+
+                function syncSideSettingsValues() {
+                    const hueShiftRange = document.getElementById('sideHueShiftRange');
+                    const hueShiftVal = document.getElementById('sideHueShiftVal');
+                    if (hueShiftRange && hueShiftVal) {
+                        hueShiftRange.value = hueShift;
+                        hueShiftVal.textContent = hueShift;
+                    }
+                    const saturationRange = document.getElementById('sideSaturationRange');
+                    const saturationVal = document.getElementById('sideSaturationVal');
+                    if (saturationRange && saturationVal) {
+                        saturationRange.value = saturationAdjust;
+                        saturationVal.textContent = (saturationAdjust > 0 ? '+' : '') + saturationAdjust;
+                    }
+                    const lightnessRange = document.getElementById('sideLightnessRange');
+                    const lightnessVal = document.getElementById('sideLightnessVal');
+                    if (lightnessRange && lightnessVal) {
+                        lightnessRange.value = lightnessAdjust;
+                        lightnessVal.textContent = (lightnessAdjust > 0 ? '+' : '') + lightnessAdjust;
+                    }
+                    const contrastRange = document.getElementById('sideContrastRange');
+                    const contrastVal = document.getElementById('sideContrastVal');
+                    if (contrastRange && contrastVal) {
+                        contrastRange.value = contrastAdjust;
+                        contrastVal.textContent = (contrastAdjust > 0 ? '+' : '') + contrastAdjust;
+                    }
+                    const bubbleUserRange = document.getElementById('sideBubbleUserOpacityRange');
+                    const bubbleUserVal = document.getElementById('sideBubbleUserOpacityVal');
+                    if (bubbleUserRange && bubbleUserVal) {
+                        bubbleUserRange.value = bubbleUserOpacity;
+                        bubbleUserVal.textContent = Math.round(bubbleUserOpacity * 100);
+                    }
+                    const bubbleAiRange = document.getElementById('sideBubbleAiOpacityRange');
+                    const bubbleAiVal = document.getElementById('sideBubbleAiOpacityVal');
+                    if (bubbleAiRange && bubbleAiVal) {
+                        bubbleAiRange.value = bubbleAiOpacity;
+                        bubbleAiVal.textContent = Math.round(bubbleAiOpacity * 100);
+                    }
+                    const bgOpacityRange = document.getElementById('sideBgOpacityRange');
+                    const bgOpacityVal = document.getElementById('sideBgOpacityVal');
+                    if (bgOpacityRange && bgOpacityVal) {
+                        bgOpacityRange.value = chatBgOpacity;
+                        bgOpacityVal.textContent = Math.round(chatBgOpacity * 100);
+                    }
+                    const themeColorPicker = document.getElementById('sideThemeColorPicker');
+                    if (themeColorPicker) themeColorPicker.value = themeColor;
+                    const textColorPicker = document.getElementById('sideTextColorPicker');
+                    if (textColorPicker) textColorPicker.value = textColorCustom || '#f2eaff';
+                    const customApiKeyInput = document.getElementById('sideCustomApiKey');
+                    if (customApiKeyInput) customApiKeyInput.value = customApiKey;
+                    const customBaseUrlInput = document.getElementById('sideCustomBaseUrl');
+                    if (customBaseUrlInput) customBaseUrlInput.value = customBaseUrl;
+                    const useCustomApiCheck = document.getElementById('sideUseCustomApiCheck');
+                    if (useCustomApiCheck) useCustomApiCheck.checked = useCustomApi;
+                    const modelSelect = document.getElementById('sideModelSelect');
+                    if (modelSelect) {
+                        const models = modelListCache.length ? modelListCache : [currentModel];
+                        modelSelect.innerHTML = models.map(m =>
+                            `<option value="${escapeAttr(m)}" ${m===currentModel?'selected':''}>${escapeAttr(m)}</option>`
+                        ).join('');
+                    }
+                }
+
+                const sideHueShiftRange = document.getElementById('sideHueShiftRange');
+                const sideHueShiftVal = document.getElementById('sideHueShiftVal');
+                if (sideHueShiftRange && sideHueShiftVal) {
+                    sideHueShiftRange.oninput = () => {
+                        sideHueShiftVal.textContent = sideHueShiftRange.value;
+                        hueShift = parseInt(sideHueShiftRange.value);
+                        applyAllTheme();
+                    };
+                }
+
+                const sideSaturationRange = document.getElementById('sideSaturationRange');
+                const sideSaturationVal = document.getElementById('sideSaturationVal');
+                if (sideSaturationRange && sideSaturationVal) {
+                    sideSaturationRange.oninput = () => {
+                        const val = parseInt(sideSaturationRange.value);
+                        sideSaturationVal.textContent = (val > 0 ? '+' : '') + val;
+                        saturationAdjust = val;
+                        applyAllTheme();
+                    };
+                }
+
+                const sideLightnessRange = document.getElementById('sideLightnessRange');
+                const sideLightnessVal = document.getElementById('sideLightnessVal');
+                if (sideLightnessRange && sideLightnessVal) {
+                    sideLightnessRange.oninput = () => {
+                        const val = parseInt(sideLightnessRange.value);
+                        sideLightnessVal.textContent = (val > 0 ? '+' : '') + val;
+                        lightnessAdjust = val;
+                        applyAllTheme();
+                    };
+                }
+
+                const sideContrastRange = document.getElementById('sideContrastRange');
+                const sideContrastVal = document.getElementById('sideContrastVal');
+                if (sideContrastRange && sideContrastVal) {
+                    sideContrastRange.oninput = () => {
+                        const val = parseInt(sideContrastRange.value);
+                        sideContrastVal.textContent = (val > 0 ? '+' : '') + val;
+                        contrastAdjust = val;
+                        applyAllTheme();
+                    };
+                }
+
+                const sideBubbleUserOpacityRange = document.getElementById('sideBubbleUserOpacityRange');
+                const sideBubbleUserOpacityVal = document.getElementById('sideBubbleUserOpacityVal');
+                if (sideBubbleUserOpacityRange && sideBubbleUserOpacityVal) {
+                    sideBubbleUserOpacityRange.oninput = () => {
+                        const val = parseFloat(sideBubbleUserOpacityRange.value);
+                        sideBubbleUserOpacityVal.textContent = Math.round(val * 100);
+                        bubbleUserOpacity = val;
+                        applyAllTheme();
+                    };
+                }
+
+                const sideBubbleAiOpacityRange = document.getElementById('sideBubbleAiOpacityRange');
+                const sideBubbleAiOpacityVal = document.getElementById('sideBubbleAiOpacityVal');
+                if (sideBubbleAiOpacityRange && sideBubbleAiOpacityVal) {
+                    sideBubbleAiOpacityRange.oninput = () => {
+                        const val = parseFloat(sideBubbleAiOpacityRange.value);
+                        sideBubbleAiOpacityVal.textContent = Math.round(val * 100);
+                        bubbleAiOpacity = val;
+                        applyAllTheme();
+                    };
+                }
+
+                const sideBgOpacityRange = document.getElementById('sideBgOpacityRange');
+                const sideBgOpacityVal = document.getElementById('sideBgOpacityVal');
+                if (sideBgOpacityRange && sideBgOpacityVal) {
+                    sideBgOpacityRange.oninput = () => {
+                        const val = parseFloat(sideBgOpacityRange.value);
+                        sideBgOpacityVal.textContent = Math.round(val * 100);
+                        chatBgOpacity = val;
+                        applyAllTheme();
+                    };
+                }
+
+                const sideThemeColorPicker = document.getElementById('sideThemeColorPicker');
+                if (sideThemeColorPicker) {
+                    sideThemeColorPicker.oninput = () => {
+                        themeColor = sideThemeColorPicker.value;
+                        applyAllTheme();
+                    };
+                }
+
+                const sideTextColorPicker = document.getElementById('sideTextColorPicker');
+                if (sideTextColorPicker) {
+                    sideTextColorPicker.oninput = () => {
+                        textColorCustom = sideTextColorPicker.value;
+                        if (textColorCustom === '#f2eaff') textColorCustom = '';
+                        applyAllTheme();
+                    };
+                }
+
+                const sideBgImageInput = document.getElementById('sideBgImageInput');
+                if (sideBgImageInput) {
+                    sideBgImageInput.onchange = (e) => {
+                        const file = e.target.files[0];
+                        if (!file) return;
+                        if (file.size > 2 * 1024 * 1024) { showToast('图片大小不能超过2MB'); return; }
+                        const reader = new FileReader();
+                        reader.onload = (ev) => {
+                            chatBgImage = ev.target.result;
+                            localStorage.setItem('chatBgImage', chatBgImage);
+                            applyAllTheme();
+                            showToast('🖼️ 聊天背景已更新');
+                        };
+                        reader.readAsDataURL(file);
+                    };
+                }
+
+                const sideClearBgBtn = document.getElementById('sideClearBgBtn');
+                if (sideClearBgBtn) {
+                    sideClearBgBtn.onclick = () => {
+                        chatBgImage = '';
+                        localStorage.setItem('chatBgImage', '');
+                        applyAllTheme();
+                        showToast('背景已清除');
+                    };
+                }
+
+                const sideGetApiBtn = document.getElementById('sideGetApiBtn');
+                if (sideGetApiBtn) {
+                    sideGetApiBtn.onclick = () => window.open('https://platform.agnes-ai.com', '_blank');
+                }
+
+                const sideResetDefaultApiBtn = document.getElementById('sideResetDefaultApiBtn');
+                if (sideResetDefaultApiBtn) {
+                    sideResetDefaultApiBtn.onclick = () => {
+                        customApiKey = '';
+                        customBaseUrl = '';
+                        useCustomApi = false;
+                        localStorage.setItem('customApiKey', '');
+                        localStorage.setItem('customBaseUrl', '');
+                        localStorage.setItem('useCustomApi', 'false');
+                        const apiKeyInput = document.getElementById('sideCustomApiKey');
+                        const baseUrlInput = document.getElementById('sideCustomBaseUrl');
+                        const useCustomCheck = document.getElementById('sideUseCustomApiCheck');
+                        if (apiKeyInput) apiKeyInput.value = '';
+                        if (baseUrlInput) baseUrlInput.value = '';
+                        if (useCustomCheck) useCustomCheck.checked = false;
+                        loadModels(DEFAULT_API_KEY, DEFAULT_BASE_URL);
+                        syncSideSettingsValues();
+                        showToast('已恢复默认API');
+                    };
+                }
+
+                const sideRefreshModelsBtn = document.getElementById('sideRefreshModelsBtn');
+                if (sideRefreshModelsBtn) {
+                    sideRefreshModelsBtn.onclick = async () => {
+                        const k = document.getElementById('sideCustomApiKey')?.value.trim() || '';
+                        const u = document.getElementById('sideCustomBaseUrl')?.value.trim() || '';
+                        const c = document.getElementById('sideUseCustomApiCheck')?.checked || false;
+                        if (c && k && u) await loadModels(k, u);
+                        else await loadModels(DEFAULT_API_KEY, DEFAULT_BASE_URL);
+                        syncSideSettingsValues();
+                        showToast('模型列表已刷新');
+                    };
+                }
+
+                const sideResetAppearanceBtn = document.getElementById('sideResetAppearanceBtn');
+                if (sideResetAppearanceBtn) {
+                    sideResetAppearanceBtn.onclick = () => {
+                        if (!confirm('确定要恢复所有外观设置为默认值吗？')) return;
+                        themeColor = '#8b5cf6';
+                        hueShift = 0;
+                        saturationAdjust = 0;
+                        lightnessAdjust = 0;
+                        contrastAdjust = 0;
+                        bubbleUserOpacity = 0.85;
+                        bubbleAiOpacity = 0.85;
+                        textColorCustom = '';
+                        chatBgOpacity = 0.6;
+                        chatBgImage = '';
+                        localStorage.removeItem('themeColor');
+                        localStorage.removeItem('hueShift');
+                        localStorage.removeItem('saturationAdjust');
+                        localStorage.removeItem('lightnessAdjust');
+                        localStorage.removeItem('contrastAdjust');
+                        localStorage.removeItem('bubbleUserOpacity');
+                        localStorage.removeItem('bubbleAiOpacity');
+                        localStorage.removeItem('textColorCustom');
+                        localStorage.removeItem('chatBgOpacity');
+                        localStorage.removeItem('chatBgImage');
+                        applyAllTheme();
+                        syncSideSettingsValues();
+                        showToast('🔄 已恢复默认外观');
+                    };
+                }
+
+                const sideSaveAllSettingsBtn = document.getElementById('sideSaveAllSettingsBtn');
+                if (sideSaveAllSettingsBtn) {
+                    sideSaveAllSettingsBtn.onclick = () => {
+                        customApiKey = document.getElementById('sideCustomApiKey')?.value.trim() || '';
+                        customBaseUrl = document.getElementById('sideCustomBaseUrl')?.value.trim() || '';
+                        useCustomApi = document.getElementById('sideUseCustomApiCheck')?.checked || false;
+                        localStorage.setItem('customApiKey', customApiKey);
+                        localStorage.setItem('customBaseUrl', customBaseUrl);
+                        localStorage.setItem('useCustomApi', useCustomApi ? 'true' : 'false');
+                        currentModel = document.getElementById('sideModelSelect')?.value || currentModel;
+                        localStorage.setItem('currentModel', currentModel);
+                        localStorage.setItem('themeColor', themeColor);
+                        localStorage.setItem('hueShift', hueShift);
+                        localStorage.setItem('saturationAdjust', saturationAdjust);
+                        localStorage.setItem('lightnessAdjust', lightnessAdjust);
+                        localStorage.setItem('contrastAdjust', contrastAdjust);
+                        localStorage.setItem('bubbleUserOpacity', bubbleUserOpacity);
+                        localStorage.setItem('bubbleAiOpacity', bubbleAiOpacity);
+                        localStorage.setItem('textColorCustom', textColorCustom);
+                        localStorage.setItem('chatBgOpacity', chatBgOpacity);
+                        updateModelDisplay();
+                        loadModels(getApiConfig().apiKey, getApiConfig().baseUrl);
+                        showToast('💾 全部设置已保存');
+                    };
+                }
+
+                renderSideCardList();
                 syncSidePanelValues();
+                syncSideSettingsValues();
             }
 
             function init() {
