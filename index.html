@@ -1837,6 +1837,9 @@ startAutoPlay();
 </div>
 <div id="recent-update-loading" style="grid-column:1/-1;padding:20px;text-align:center;color:#aaa;">正在拉取最新资源猛料...</div>
 </section>
+</div>
+
+<script>
 (function() {
 fetch('https://silong-respool.github.io/gay/zjgx.html')
 .then(res => res.text())
@@ -1846,35 +1849,36 @@ const doc = parser.parseFromString(html, 'text/html');
 const items = Array.from(doc.querySelectorAll('a.website-item'));
 const section = document.getElementById('recent-update-container-section');
 const loadingEl = document.getElementById('recent-update-loading');
+
+// 移除旧的动态卡片
 section.querySelectorAll('.category-card[data-dynamic="1"]').forEach(c => c.remove());
+
 if (items.length === 0) {
 if (loadingEl) loadingEl.innerHTML = '<div style="grid-column:1/-1;padding:20px;text-align:center;color:#f66;">仓库里暂时没新资源</div>';
 return;
 }
+
 if (loadingEl) loadingEl.remove();
+
+// 每4个一组创建卡片
 const totalCards = Math.ceil(items.length / 4);
 for (let i = 0; i < totalCards; i++) {
-let group = items.slice(i * 4, i * 4 + 4);
-if (group.length < 4) {
-let idx = 0;
-while (group.length < 4) {
-if (items[idx]) group.push(items[idx]);
-idx++;
-}
-}
-const cardIndex = i;
+const group = items.slice(i * 4, i * 4 + 4);
+
 const card = document.createElement('div');
 card.className = 'category-card';
-card.dataset.moduleId = 'module-recent-update-' + cardIndex;
+card.dataset.moduleId = 'module-recent-update-' + i;
 card.dataset.default = 'true';
 card.dataset.dynamic = '1';
+
 card.innerHTML = `
-<button class="favorite-btn" data-module="module-recent-update-${cardIndex}"> <i class="far fa-star"></i> </button>
+<button class="favorite-btn" data-module="module-recent-update-${i}"> <i class="far fa-star"></i> </button>
 <div class="category-header">
 <div class="category-icon"><i class="fas fa-history"></i></div>
 <h3 class="category-title">最近更新</h3>
 </div>
 <div class="website-list"></div>`;
+
 const list = card.querySelector('.website-list');
 group.forEach(item => {
 const clone = item.cloneNode(true);
@@ -1884,6 +1888,7 @@ imgDiv.innerHTML = '<i class="fas fa-history"></i><span style="position:absolute
 }
 list.appendChild(clone);
 });
+
 section.appendChild(card);
 }
 })
