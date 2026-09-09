@@ -1899,25 +1899,6 @@ if (loadingEl) loadingEl.innerHTML = '<div style="grid-column:1/-1;padding:20px;
 });
 })();
 </script>
-<script>
-function handleWebsiteItemClick(e) {
-const card = e.target.closest('.website-item');
-if (!card) return;
-if (card.closest('.sidebar') || card.closest('#searchDrawer')) {
-return;
-}
-e.preventDefault();
-e.stopPropagation();
-const url = card.dataset.url || '';
-const title = card.dataset.title || card.querySelector('.website-name')?.textContent || '未知网站';
-const desc = card.dataset.desc || '暂无描述';
-const features = card.dataset.features || '暂无特点';
-const color = card.querySelector('.website-img')?.style.backgroundColor || '#7B4F9D';
-const password = card.dataset.password || '';
-window.openDetailModal(title, url, desc, features, color, password);
-}
-document.addEventListener('click', handleWebsiteItemClick);
-</script>
 </section>
 
 <section class="category-section active" data-default="true" id="search-section">
