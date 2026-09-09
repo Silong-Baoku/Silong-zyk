@@ -1,397 +1,2009 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-  <meta content="巳泷资源库 - 提供各类优质网络资源导航" name="description"/>
-  <title>巳泷资源库</title>
-  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-  <meta content="nosniff" http-equiv="X-Content-Type-Options"/>
-  <meta content="1; mode=block" http-equiv="X-XSS-Protection"/>
-  <meta content="strict-origin-when-cross-origin" http-equiv="Referrer-Policy"/>
-  <meta content="no-cache" http-equiv="Pragma"/>
-  <link crossorigin="" href="https://cdnjs.cloudflare.com" rel="preconnect"/>
-  <link crossorigin="" href="https://fonts.googleapis.com" rel="preconnect"/>
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link href="https://cdnjs.cloudflare.com" rel="dns-prefetch"/>
-  <link href="https://fonts.googleapis.com" rel="dns-prefetch"/>
-  <link href="https://fonts.gstatic.com" rel="dns-prefetch"/>
-  <link as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="preload"/>
-  <link as="style" fetchpriority="high" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="preload"/>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="all" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <style>
-    :root {
-      --vl-950:#1a0a2e; --vl-900:#1e0d35; --vl-800:#261345; --vl-700:#301a55;
-      --vl-600:#3d2268; --vl-500:#4c2a7e; --vl-400:#6d32b8; --vl-350:#8338d4;
-      --vl-300:#9b4de8; --vl-250:#b06cf0; --vl-200:#c490f8; --vl-150:#d4b4fc;
-      --vl-100:#e0ccfe; --vl-50:#f0e6ff;
-      --accent-cyan:#22d3ee; --accent-rose:#f472b6; --accent-amber:#fbbf24;
-      --accent-mint:#34d399; --accent-coral:#fb7185;
-      --bg-root:#0a0418; --bg-layer1:#0e0720; --bg-layer2:#120b28;
-      --bg-layer3:#160e30; --bg-card:#1c1135; --bg-card-hover:#231542;
-      --text-primary:#f2edff; --text-secondary:#d4c8f5; --text-tertiary:#a898d8; --text-dim:#7b6aaa;
-      --glass-bg:rgba(22,12,45,0.58); --glass-bg-hover:rgba(30,18,55,0.72);
-      --glass-border:rgba(139,72,235,0.28); --glass-border-hover:rgba(155,95,245,0.55); --glass-blur:blur(16px);
-      --glow-soft:0 0 20px rgba(139,72,235,0.25),0 0 40px rgba(139,72,235,0.08);
-      --glow-medium:0 0 28px rgba(139,72,235,0.45),0 0 60px rgba(139,72,235,0.15);
-      --glow-cyan:0 0 18px rgba(34,211,238,0.35),0 0 40px rgba(34,211,238,0.12);
-      --r-xs:8px; --r-sm:12px; --r-md:16px; --r-lg:22px; --r-xl:28px; --r-pill:9999px;
-      --ease-out-expo:cubic-bezier(.16,1,.3,1); --ease-out-back:cubic-bezier(.34,1.56,.64,1);
-      --dur-fast:0.18s; --dur-normal:0.35s; --dur-slow:0.55s;
-      --header-h:64px; --sidebar-w:140px;
-      --shadow-1:0 1px 3px rgba(0,0,0,.3),0 1px 2px rgba(0,0,0,.2);
-      --shadow-2:0 4px 16px rgba(0,0,0,.35),0 1px 3px rgba(139,72,235,.08);
-      --shadow-3:0 8px 32px rgba(0,0,0,.45),0 0 0 1px rgba(139,72,235,.1);
-      --font-text:'DM Sans','Inter','Segoe UI',system-ui,sans-serif;
-      --font-display:'Rajdhani','Inter','Segoe UI',sans-serif;
-    }
-    *{margin:0;padding:0;box-sizing:border-box}
-    html,body{height:100%;overflow:hidden;font-family:var(--font-text);background:var(--bg-root);color:var(--text-primary)}
-    body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:linear-gradient(170deg,#0a0418,#0d0622 15%,#110b2a 30%,#130d2e 45%,#100928 60%,#0c0620 80%,#0a0418),radial-gradient(ellipse 80% 50% at 50% -15%,rgba(139,72,235,.13),transparent 60%),radial-gradient(ellipse 45% 35% at 82% 18%,rgba(34,211,238,.06),transparent 55%)}
-    .app-container{display:flex;flex-direction:column;height:100vh;position:relative;z-index:1}
-    .top-nav{position:fixed;top:0;left:0;width:100%;z-index:99;height:var(--header-h);display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:rgba(10,5,25,.62);backdrop-filter:blur(20px);border-bottom:1px solid rgba(139,72,235,.12);box-shadow:0 8px 32px rgba(0,0,0,.4)}
-    .logo{font-family:var(--font-display);font-size:1.6rem;font-weight:700;background:linear-gradient(135deg,#fff,#e0ccfe 30%,#c490f8 50%,#22d3ee);-webkit-background-clip:text;background-clip:text;color:transparent;cursor:pointer;letter-spacing:2px;filter:drop-shadow(0 0 14px rgba(139,72,235,.5))}
-    .menu-btn{cursor:pointer;padding:10px;display:flex;flex-direction:column;gap:5px;z-index:100}
-    .menu-btn span{display:block;width:22px;height:2px;background:rgba(255,255,255,.85);border-radius:2px;transition:all .4s}
-    .menu-btn span:nth-child(2){width:16px}.menu-btn span:nth-child(3){width:20px}
-    .layout-body{display:flex;flex:1;overflow:hidden;width:100%;margin-top:var(--header-h);height:calc(100vh - var(--header-h))}
-    .sidebar{width:var(--sidebar-w);background:rgba(16,9,35,.45);backdrop-filter:blur(18px);border-right:1px solid rgba(139,72,235,.15);padding:8px 0;overflow-y:auto;display:flex;flex-direction:column;flex-shrink:0;z-index:900}
-    .sidebar-title{font-family:var(--font-display);font-size:.62rem;text-transform:uppercase;letter-spacing:2.5px;color:var(--accent-cyan);margin:10px 0 6px;padding:6px 8px;opacity:.7;display:flex;justify-content:center;gap:6px}
-    .sidebar-menu{display:flex;flex-direction:column}
-    .menu-main{display:flex;align-items:center;justify-content:center;padding:10px;color:var(--text-tertiary);text-decoration:none;transition:all .35s;font-weight:500;font-size:.78rem;gap:8px;border-left:3px solid transparent;border-radius:0 12px 12px 0}
-    .menu-main:hover{color:#fff;border-left-color:rgba(139,72,235,.7);background:rgba(139,72,235,.06);transform:translateX(4px)}
-    .main-content{flex:1;overflow-y:auto;padding:24px 22px 100px;position:relative}
-    .quick-links-glass{background:var(--glass-bg);backdrop-filter:var(--glass-blur);border:1px solid var(--glass-border);border-radius:22px;padding:18px 20px;margin-bottom:28px;box-shadow:var(--shadow-2)}
-    .button-container{display:flex;gap:10px;flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px}
-    .grid-btn{font-size:.82rem;padding:9px 20px;background:rgba(139,72,235,.08);border:1px solid rgba(139,72,235,.16);border-radius:9999px;color:var(--text-secondary);text-decoration:none;white-space:nowrap;flex-shrink:0;transition:all .35s;display:inline-flex;align-items:center;gap:6px}
-    .grid-btn:hover{border-color:var(--accent-cyan);background:rgba(34,211,238,.1);color:var(--accent-cyan);transform:translateY(-3px)}
-    .section-header{display:flex;align-items:center;margin:52px 0 28px;border-bottom:1px solid rgba(139,72,235,.1);padding-bottom:18px}
-    .section-title{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:#fff;padding-left:22px;position:relative;background:linear-gradient(135deg,#fff,#e0ccfe 60%,#c490f8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-    .section-title::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:4px;height:30px;border-radius:3px;background:linear-gradient(180deg,#c490f8,#8338d4,#4c2a7e)}
-    .category-section{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-    .category-card{background:var(--glass-bg);backdrop-filter:var(--glass-blur);border:1px solid var(--glass-border);border-radius:22px;padding:20px 18px;transition:all .35s;position:relative;box-shadow:var(--shadow-2)}
-    .category-card:hover{border-color:var(--glass-border-hover);transform:translateY(-6px);box-shadow:0 20px 56px rgba(0,0,0,.5)}
-    .category-header{display:flex;align-items:center;margin-bottom:12px}
-    .category-icon{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,rgba(139,72,235,.35),rgba(100,50,220,.18));border:1px solid rgba(139,72,235,.35);display:flex;align-items:center;justify-content:center;margin-right:10px;color:#c490f8}
-    .category-title{font-family:var(--font-display);font-weight:600;letter-spacing:.8px}
-    .website-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-    .website-item{display:block;text-decoration:none;color:var(--text-primary);background:rgba(22,14,45,.5);border-radius:8px;padding:10px 8px;border:1px solid rgba(139,72,235,.15);transition:all .35s;position:relative}
-    .website-item:hover{background:rgba(139,72,235,.14);border-color:rgba(139,72,235,.45);transform:translateY(-3px)}
-    .website-img{width:100%;height:46px;border-radius:8px;background:rgba(22,15,42,.8);display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:#fff;margin-bottom:6px}
-    .website-name{font-size:.78rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text-secondary)}
-    .website-desc{font-size:.65rem;color:var(--text-dim);line-height:1.35}
-    .toast-container{position:fixed;top:90px;right:24px;z-index:9998;display:flex;flex-direction:column;gap:10px;pointer-events:none}
-    .toast{background:rgba(16,10,35,.88);backdrop-filter:blur(12px);border:1px solid rgba(139,72,235,.3);border-radius:12px;padding:14px 22px;color:#fff;font-size:.88rem;display:flex;align-items:center;gap:12px;box-shadow:0 14px 48px rgba(0,0,0,.6);animation:toastIn .45s}
-    @keyframes toastIn{from{opacity:0;transform:translateX(50px)}to{opacity:1;transform:translateX(0)}}
-    .back-to-top{position:fixed;bottom:80px;right:28px;width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,#6d32b8,#8338d4);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transform:translateY(20px);transition:all .45s;z-index:100}
-    .back-to-top.visible{opacity:1;transform:translateY(0)}
-    #searchDrawer{position:fixed;top:var(--header-h);left:0;right:0;width:100vw;background:var(--bg-card);border-bottom:1px solid rgba(147,51,234,.3);padding:18px;z-index:1001;color:#fff;box-shadow:0 10px 40px rgba(0,0,0,.45);display:none;opacity:0;transform:translateY(-10px);transition:opacity .25s,transform .25s}
-    #searchDrawer.open{display:block;opacity:1;transform:translateY(0)}
-    .search-type-tab{padding:7px 14px;border-radius:20px;border:1px solid rgba(147,51,234,.6);background:rgba(147,51,234,.2);color:#fff;font-size:13px;cursor:pointer;transition:all .3s}
-    .search-type-tab.active{background:rgba(147,51,234,.45);border-color:#9b4de8}
-    @media (max-width:768px){
-      .sidebar{position:fixed;top:var(--header-h);left:0;bottom:0;transform:translateX(-100%);transition:transform .4s;z-index:950;width:180px}
-      .sidebar.active{transform:translateX(0)}
-      .category-section{grid-template-columns:1fr}
-      .main-content{padding:16px 12px}
-    }
-  </style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<meta content="巳泷资源库 - 提供各类优质网络资源导航" name="description"/>
+<title>巳泷资源库</title>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="nosniff" http-equiv="X-Content-Type-Options"/>
+<meta content="1; mode=block" http-equiv="X-XSS-Protection"/>
+<meta content="strict-origin-when-cross-origin" http-equiv="Referrer-Policy"/>
+<meta content="max-age=2592000, public" http-equiv="Cache-Control"/>
+<meta content="no-cache" http-equiv="Pragma"/>
+<link crossorigin="" href="https://cdnjs.cloudflare.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://cdnjs.cloudflare.com" rel="dns-prefetch"/>
+<link href="https://fonts.googleapis.com" rel="dns-prefetch"/>
+<link href="https://fonts.gstatic.com" rel="dns-prefetch"/>
+<link as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="preload"/>
+<link as="style" fetchpriority="high" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="preload"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="all" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════════════════════════════════════════════
+   巳泷资源库 · 紫罗兰高级视觉体系 Premium Violet Design System v2.0
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── CSS架构变量 ── */
+:root {
+  --vl-950:#1a0a2e; --vl-900:#1e0d35; --vl-800:#261345; --vl-700:#301a55;
+  --vl-600:#3d2268; --vl-500:#4c2a7e; --vl-400:#6d32b8; --vl-350:#8338d4;
+  --vl-300:#9b4de8; --vl-250:#b06cf0; --vl-200:#c490f8; --vl-150:#d4b4fc;
+  --vl-100:#e0ccfe; --vl-50:#f0e6ff;
+  --accent-cyan:#22d3ee; --accent-rose:#f472b6; --accent-amber:#fbbf24;
+  --accent-mint:#34d399; --accent-coral:#fb7185;
+  --bg-root:#0a0418; --bg-layer1:#0e0720; --bg-layer2:#120b28;
+  --bg-layer3:#160e30; --bg-card:#1c1135; --bg-card-hover:#231542;
+  --text-primary:#f2edff; --text-secondary:#d4c8f5; --text-tertiary:#a898d8; --text-dim:#7b6aaa;
+  --glass-bg:rgba(22,12,45,0.58); --glass-bg-hover:rgba(30,18,55,0.72);
+  --glass-border:rgba(139,72,235,0.28); --glass-border-hover:rgba(155,95,245,0.55); --glass-blur:blur(16px);
+  --glow-soft:0 0 20px rgba(139,72,235,0.25),0 0 40px rgba(139,72,235,0.08);
+  --glow-medium:0 0 28px rgba(139,72,235,0.45),0 0 60px rgba(139,72,235,0.15);
+  --glow-strong:0 0 36px rgba(139,72,235,0.6),0 0 80px rgba(100,50,220,0.22);
+  --glow-cyan:0 0 18px rgba(34,211,238,0.35),0 0 40px rgba(34,211,238,0.12);
+  --r-xs:8px; --r-sm:12px; --r-md:16px; --r-lg:22px; --r-xl:28px; --r-2xl:36px; --r-pill:9999px;
+  --ease-out-expo:cubic-bezier(.16,1,.3,1); --ease-out-back:cubic-bezier(.34,1.56,.64,1);
+  --ease-in-out:cubic-bezier(.65,0,.35,1); --ease-spring:cubic-bezier(.22,1.2,.36,1);
+  --dur-fast:0.18s; --dur-normal:0.35s; --dur-slow:0.55s; --dur-glacial:0.8s;
+  --header-h:64px; --sidebar-w:140px; --content-pad:28px;
+  --shadow-1:0 1px 3px rgba(0,0,0,.3),0 1px 2px rgba(0,0,0,.2);
+  --shadow-2:0 4px 16px rgba(0,0,0,.35),0 1px 3px rgba(139,72,235,.08);
+  --shadow-3:0 8px 32px rgba(0,0,0,.45),0 0 0 1px rgba(139,72,235,.1);
+  --shadow-4:0 16px 48px rgba(0,0,0,.55),0 0 0 1px rgba(139,72,235,.16);
+  --primary-deep:var(--vl-900); --primary-color:var(--vl-400); --primary-bright:var(--vl-300);
+  --primary-glow:var(--vl-200); --primary-light:var(--vl-150);
+  --primary-wash:rgba(139,72,235,.08); --secondary-color:var(--vl-350); --secondary-deep:var(--vl-700);
+  --accent-color:var(--accent-cyan); --accent-deep:#0891b2;
+  --accent-warm:var(--accent-rose); --accent-gold:var(--accent-amber);
+  --success-color:var(--accent-mint); --warning-color:var(--accent-amber); --error-color:var(--accent-coral);
+  --bg-deepest:var(--bg-root); --bg-deep:var(--bg-layer1); --bg-mid:var(--bg-layer2); --bg-surface:var(--bg-layer3);
+  --bg-card-purple:var(--bg-card);
+  --violet-900:var(--vl-900); --violet-800:var(--vl-800); --violet-700:var(--vl-700);
+  --violet-600:var(--vl-600); --violet-500:var(--vl-500); --violet-400:var(--vl-400);
+  --violet-300:var(--vl-300); --violet-200:var(--vl-200); --violet-100:var(--vl-100); --violet-50:var(--vl-50);
+  --text-color:var(--text-primary); --text-bright:#fff;
+  --text-muted:rgba(212,200,245,.55); --text-dim:rgba(168,152,216,.4);
+  --text-font:'DM Sans','Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+  --display-font:'Rajdhani','Inter','Segoe UI',system-ui,sans-serif;
+  --header-height:var(--header-h); --sidebar-width:var(--sidebar-w);
+  --transition-fast:var(--dur-fast) var(--ease-out-expo);
+  --transition-speed:var(--dur-normal) var(--ease-out-expo);
+  --transition-bounce:.45s var(--ease-out-back);
+  --transition-smooth:var(--dur-slow) var(--ease-in-out);
+  --transition-out:.3s cubic-bezier(.55,0,1,.45);
+  --radius-2xl:var(--r-2xl); --radius-xl:var(--r-xl); --radius-lg:var(--r-lg);
+  --radius-md:var(--r-md); --radius-sm:var(--r-sm); --radius-xs:var(--r-xs);
+  --hue-rotate:0deg; --global-opacity:1;
+  --card-shine:linear-gradient(135deg,rgba(255,255,255,.04) 0%,transparent 40%,rgba(139,72,235,.06) 70%,transparent 100%);
+  --card-shine-hover:linear-gradient(135deg,rgba(255,255,255,.07) 0%,transparent 35%,rgba(155,95,245,.13) 65%,transparent 100%);
+  --glass-bg:var(--glass-bg); --glass-bg-hover:var(--glass-bg-hover);
+  --glass-border:var(--glass-border); --glass-border-hover:var(--glass-border-hover);
+  --glass-shadow:0 8px 40px rgba(0,0,0,.25); --blur-amount:0px;
+  --violet-glow:var(--glow-soft); --violet-glow-strong:var(--glow-medium);
+  --neon-glow:0 0 16px rgba(139,72,235,.5),0 0 36px rgba(139,72,235,.2);
+  --neon-glow-accent:var(--glow-cyan); --text-glow:0 0 10px rgba(139,72,235,.4);
+  --depth-shadow-sm:var(--shadow-2); --depth-shadow-md:var(--shadow-3); --depth-shadow-lg:var(--shadow-4);
+}
+
+/* ── 全局重置 ── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;outline:none;}
+html{height:100%;overflow:hidden;scroll-behavior:smooth;}
+body{
+  font-family:var(--text-font);background:var(--bg-root);color:var(--text-primary);
+  width:100vw;font-size:15px;filter:hue-rotate(var(--hue-rotate));opacity:var(--global-opacity);
+  touch-action:pan-y;height:100%;overflow:hidden;position:relative;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;
+}
+
+/* ── 纯CSS高级背景系统 ── */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    linear-gradient(170deg,#0a0418 0%,#0d0622 15%,#110b2a 30%,#130d2e 45%,#100928 60%,#0c0620 80%,#0a0418 100%),
+    radial-gradient(ellipse 80% 50% at 50% -15%,rgba(139,72,235,.13) 0%,transparent 60%),
+    radial-gradient(ellipse 45% 35% at 82% 18%,rgba(34,211,238,.06) 0%,transparent 55%),
+    radial-gradient(ellipse 40% 30% at 18% 78%,rgba(244,114,182,.05) 0%,transparent 55%),
+    radial-gradient(ellipse 35% 40% at 55% 45%,rgba(120,50,220,.04) 0%,transparent 70%);
+  animation:bgBreathe 12s ease-in-out infinite;
+}
+@keyframes bgBreathe{0%,100%{opacity:.92}50%{opacity:1}}
+
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.03;
+  background-image:
+    linear-gradient(rgba(139,72,235,.25) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(139,72,235,.25) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(ellipse 60% 50% at 50% 40%,#000 30%,transparent 70%);
+  -webkit-mask-image:radial-gradient(ellipse 60% 50% at 50% 40%,#000 30%,transparent 70%);
+}
+
+.bg-particle-layer{
+  position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(2px 2px at 15% 25%,rgba(139,72,235,.25) 0%,transparent 100%),
+    radial-gradient(1px 1px at 72% 18%,rgba(34,211,238,.2) 0%,transparent 100%),
+    radial-gradient(2px 2px at 35% 70%,rgba(139,72,235,.18) 0%,transparent 100%),
+    radial-gradient(1px 1px at 85% 65%,rgba(244,114,182,.15) 0%,transparent 100%),
+    radial-gradient(1.5px 1.5px at 55% 35%,rgba(139,72,235,.2) 0%,transparent 100%),
+    radial-gradient(1px 1px at 25% 55%,rgba(34,211,238,.12) 0%,transparent 100%);
+  animation:particleFloat 16s ease-in-out infinite;
+}
+@keyframes particleFloat{0%,100%{opacity:.5;transform:translateY(0)}33%{opacity:.8;transform:translateY(-4px)}66%{opacity:.4;transform:translateY(2px)}}
+
+/* ── 滚动条 ── */
+::-webkit-scrollbar{width:6px;height:6px;}
+::-webkit-scrollbar-track{background:rgba(18,11,40,.7);border-radius:10px;}
+::-webkit-scrollbar-thumb{
+  background:linear-gradient(180deg,var(--vl-500),var(--vl-350),var(--vl-300));
+  border-radius:10px;transition:background .3s ease;
+}
+::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,var(--vl-400),var(--vl-300),var(--vl-250));}
+
+::selection{background:rgba(139,72,235,.45);color:#fff;}
+
+/* ═══════════════════════════════════════════ 动画关键帧 ═══════ */
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse-text{0%,100%{opacity:.7}50%{opacity:1}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 12px rgba(139,72,235,.35),0 0 24px rgba(139,72,235,.1)}50%{box-shadow:0 0 28px rgba(139,72,235,.7),0 0 56px rgba(139,72,235,.25)}}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes ripple-out{0%{transform:scale(0);opacity:.4}100%{transform:scale(4);opacity:0}}
+@keyframes subtle-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes toast-in{from{opacity:0;transform:translateX(50px) scale(.9)}to{opacity:1;transform:translateX(0) scale(1)}}
+@keyframes toast-out{from{opacity:1;transform:translateX(0) scale(1)}to{opacity:0;transform:translateX(50px) scale(.9)}}
+@keyframes card-in{0%{opacity:0;transform:translateY(32px) scale(.9)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes card-in-spring{0%{opacity:0;transform:translateY(28px) scale(.88)}60%{opacity:.9;transform:translateY(-3px) scale(1.02)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes dot-pulse{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.5);opacity:1}}
+@keyframes border-glow{0%,100%{border-color:rgba(139,72,235,.3)}50%{border-color:rgba(139,72,235,.7)}}
+@keyframes gradient-shift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes section-reveal{from{opacity:0;transform:translateY(40px);filter:blur(4px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+@keyframes glow-pulse{0%,100%{box-shadow:0 0 8px rgba(139,72,235,.25),0 0 24px rgba(139,72,235,.08)}50%{box-shadow:0 0 18px rgba(139,72,235,.55),0 0 44px rgba(139,72,235,.2)}}
+@keyframes breathe{0%,100%{opacity:.5}50%{opacity:.9}}
+@keyframes textScrollOnce{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+@keyframes toastFadeIn{from{opacity:0}to{opacity:1}}
+@keyframes toastScaleIn{from{opacity:0;transform:scale(.85) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+@keyframes giscusSpin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+
+/* ═══════════════════════════════════════════ 布局 ═══════════════ */
+.app-container{display:flex;flex-direction:column;height:100vh;overflow:hidden;position:relative;z-index:1;}
+
+/* ── 顶部导航 ── */
+.top-nav{
+  position:fixed!important;top:0!important;left:0!important;width:100%!important;
+  z-index:99!important;height:var(--header-height)!important;
+  display:flex!important;align-items:center!important;justify-content:space-between!important;
+  padding:0 24px!important;margin:0!important;
+  background:rgba(10,5,25,.62)!important;
+  backdrop-filter:blur(20px)!important;-webkit-backdrop-filter:blur(20px)!important;
+  border-bottom:1px solid rgba(139,72,235,.12)!important;
+  box-shadow:0 1px 0 rgba(139,72,235,.06),0 8px 32px rgba(0,0,0,.4)!important;
+  box-sizing:border-box!important;
+  transition:background .5s ease,box-shadow .5s ease!important;
+}
+.top-nav::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(139,72,235,.45),rgba(34,211,238,.3),transparent);
+}
+
+.logo{
+  font-family:var(--display-font);font-size:1.6rem;font-weight:700;
+  background:linear-gradient(135deg,#fff 0%,#e0ccfe 30%,#c490f8 50%,#22d3ee 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  cursor:pointer;letter-spacing:2px;
+  filter:drop-shadow(0 0 14px rgba(139,72,235,.5));
+  transition:filter var(--dur-normal) var(--ease-out-expo),transform var(--dur-normal) var(--ease-out-expo);
+}
+.logo:hover{filter:drop-shadow(0 0 24px rgba(139,72,235,.8));transform:scale(1.04);}
+
+.menu-btn{
+  cursor:pointer;padding:10px;position:relative;z-index:100;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+}
+.menu-btn span{
+  display:block;width:22px;height:2px;background:rgba(255,255,255,.85);
+  border-radius:2px;transition:all .4s var(--ease-out-back);
+}
+.menu-btn span:nth-child(2){width:16px}
+.menu-btn span:nth-child(3){width:20px}
+.menu-btn:hover span{background:var(--vl-300);width:22px!important}
+.menu-btn.active span:nth-child(1){transform:translateY(7px) rotate(45deg);width:22px}
+.menu-btn.active span:nth-child(2){opacity:0;transform:scaleX(0)}
+.menu-btn.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);width:22px}
+
+.layout-body{display:flex;flex:1;overflow:hidden;width:100%;margin-top:var(--header-height);height:calc(100vh - var(--header-height));position:relative;min-height:0;}
+
+/* ── 侧边栏 ── */
+.sidebar{
+  width:var(--sidebar-w)!important;
+  background:rgba(16,9,35,.45);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border-right:1px solid rgba(139,72,235,.15);
+  padding:8px 0;overflow-y:scroll;overflow-x:hidden;
+  transition:transform .4s var(--ease-out-expo),box-shadow .4s ease;
+  display:flex;flex-direction:column;flex-shrink:0;z-index:900;
+  touch-action:pan-y;height:100%;position:relative;
+  scrollbar-width:thin;scrollbar-color:rgba(139,72,235,.55) rgba(139,72,235,.1);
+  -webkit-overflow-scrolling:touch;
+}
+.sidebar::-webkit-scrollbar{width:6px;background:transparent}
+.sidebar::-webkit-scrollbar-thumb{
+  background:rgba(139,72,235,.55);border-radius:3px;
+  box-shadow:inset 0 0 0 1px rgba(139,72,235,.2);
+}
+.sidebar::-webkit-scrollbar-thumb:hover{background:rgba(139,72,235,.75)}
+.sidebar::-webkit-scrollbar-track{background:rgba(139,72,235,.08);border-radius:3px}
+.sidebar::after{
+  content:'';position:absolute;top:0;right:0;width:1px;height:100%;
+  background:linear-gradient(to bottom,transparent,rgba(139,72,235,.35),rgba(34,211,238,.15),transparent);
+  pointer-events:none;
+}
+.sidebar-title{
+  font-family:var(--display-font);font-size:.62rem;text-transform:uppercase;
+  letter-spacing:2.5px;color:var(--accent-cyan);margin:10px 0 6px;
+  padding:6px 8px;opacity:.7;display:flex;align-items:center;justify-content:center;
+  gap:6px;white-space:nowrap;
+}
+.sidebar-menu{display:flex;flex-direction:column}
+.menu-group{position:relative;margin-bottom:2px}
+.menu-main{
+  display:flex;align-items:center;justify-content:center;
+  padding:10px 10px;color:var(--text-tertiary);text-decoration:none;
+  transition:all .35s var(--ease-out-back);font-weight:500;font-size:.78rem;
+  white-space:nowrap;overflow:hidden;cursor:pointer;position:relative;
+  border-left:3px solid transparent;width:100%;box-sizing:border-box;gap:8px;
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+}
+.menu-main::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(139,72,235,.12),transparent);
+  opacity:0;transition:opacity .35s ease;pointer-events:none;
+}
+.menu-main:hover{color:#fff;border-left-color:rgba(139,72,235,.7);background:rgba(139,72,235,.06);transform:translateX(4px)}
+.menu-main:hover::before{opacity:1}
+.menu-main.active{color:#fff;border-left-color:var(--vl-400);background:rgba(139,72,235,.15);text-shadow:0 0 12px rgba(139,72,235,.6);box-shadow:0 2px 12px rgba(139,72,235,.12)}
+.menu-main.active i{color:var(--vl-300)}
+.menu-main>i,.menu-main .menu-text>i{font-size:.85rem;width:18px;text-align:center;flex-shrink:0;opacity:.7;transition:all .35s ease;color:inherit}
+.menu-main:hover>i,.menu-main:hover .menu-text>i{opacity:1;color:var(--vl-300);transform:scale(1.15)}
+.menu-text{display:flex;align-items:center;gap:8px}
+.open-btn{
+  padding:4px 8px;border:1px solid rgba(139,72,235,.45);border-radius:6px;
+  background:transparent;color:rgba(139,72,235,.8);cursor:pointer;font-size:.7rem;
+  transition:all var(--dur-normal) var(--ease-out-expo);
+}
+.open-btn:hover{background:rgba(139,72,235,.2);color:#fff;border-color:var(--vl-400);box-shadow:var(--glow-soft)}
+
+/* ── 主内容区 ── */
+.main-content{
+  flex:1;overflow-y:auto;overflow-x:hidden;position:relative;height:100%;
+  padding:24px 22px 100px;z-index:1;box-sizing:border-box;scroll-behavior:smooth;
+}
+
+/* ── 快捷按钮区 ── */
+.quick-links-glass{
+  background:var(--glass-bg);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);
+  border:1px solid var(--glass-border);border-radius:var(--r-lg);
+  padding:18px 20px;margin-bottom:28px;
+  transition:border-color var(--dur-normal) var(--ease-out-expo),box-shadow var(--dur-normal) var(--ease-out-expo),transform var(--dur-normal) var(--ease-out-expo);
+  box-shadow:var(--shadow-2);position:relative;overflow:hidden;
+}
+.quick-links-glass::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(139,72,235,.5),rgba(34,211,238,.3),transparent);
+  opacity:.6;
+}
+.quick-links-glass:hover{border-color:var(--glass-border-hover);box-shadow:var(--shadow-3);transform:translateY(-1px)}
+
+/* ── 评论区容器 ── */
+.comment-section-container{
+  background:var(--glass-bg);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);
+  border:1px solid var(--glass-border);border-radius:var(--r-lg);
+  padding:18px 20px;margin-bottom:24px;
+  transition:border-color var(--dur-normal) var(--ease-out-expo),box-shadow var(--dur-normal) var(--ease-out-expo);
+  box-shadow:var(--shadow-2);position:relative;overflow:hidden;
+}
+.comment-section-container::before{
+  content:'';position:absolute;top:0;left:0;width:100%;height:3px;
+  background:linear-gradient(90deg,rgba(139,72,235,.1),rgba(139,72,235,.4),rgba(139,72,235,.1));
+  pointer-events:none;z-index:1;
+}
+.comment-section-container:hover{border-color:var(--glass-border-hover);box-shadow:var(--shadow-3)}
+.comment-section-title{font-size:.85rem;color:var(--text-tertiary);margin-bottom:12px;text-align:center;display:flex;align-items:center;justify-content:center;gap:8px}
+.comment-section-title i{opacity:.7}
+
+/* ── 评论区展开 ── */
+.giscus-details{margin-top:8px}
+.giscus-details>.giscus-summary{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px 22px;background:var(--glass-bg);border:1px solid var(--glass-border);
+  border-radius:var(--r-sm);color:var(--text-secondary);font-size:.82rem;
+  font-family:var(--text-font);cursor:pointer;transition:all var(--dur-normal) var(--ease-out-expo);
+  list-style:none;user-select:none;box-shadow:0 2px 12px rgba(139,72,235,.1);
+}
+.giscus-details[open]>.giscus-summary{border-radius:var(--r-sm) var(--r-sm) 0 0;border-bottom:none}
+.giscus-details>.giscus-summary::-webkit-details-marker{display:none}
+.giscus-details>.giscus-summary::marker{display:none;content:''}
+.giscus-details>.giscus-summary:hover{background:var(--glass-bg-hover);border-color:var(--glass-border-hover);color:#fff;box-shadow:var(--glow-soft)}
+.giscus-details>.giscus-summary i{font-size:.7rem;transition:transform var(--dur-normal) var(--ease-out-expo)}
+.giscus-details[open]>.giscus-summary i{transform:rotate(180deg)}
+.giscus-summary .expand-text{display:inline}
+.giscus-summary .collapse-text{display:none}
+.giscus-details[open] .giscus-summary .expand-text{display:none}
+.giscus-details[open] .giscus-summary .collapse-text{display:inline}
+.giscus-details .giscus{
+  margin-top:0;border-radius:0 0 var(--r-sm) var(--r-sm);min-height:400px;
+  overflow:hidden;background:rgba(18,11,40,.4);
+  border:1px solid rgba(139,72,235,.2);border-top:none;
+  box-shadow:inset 0 0 30px rgba(139,72,235,.04),0 4px 20px rgba(139,72,235,.08);
+}
+.giscus{
+  margin-top:8px;min-height:100px;border-radius:var(--r-sm);overflow:hidden;
+  position:relative;background:rgba(18,11,40,.35);
+  border:1px solid rgba(139,72,235,.18);
+  box-shadow:inset 0 0 20px rgba(139,72,235,.03);
+}
+.giscus-loading{display:flex;align-items:center;justify-content:center;min-height:200px}
+.giscus-error{text-align:center;padding:40px 20px;background:rgba(255,65,108,.08);border-radius:var(--r-sm);border:1px solid rgba(255,65,108,.2);margin:8px}
+.giscus-spinner{
+  display:inline-block;width:40px;height:40px;
+  border:3px solid rgba(139,72,235,.12);border-top-color:var(--vl-300);
+  border-radius:50%;animation:giscusSpin .8s linear infinite;
+  margin-bottom:15px;box-shadow:0 0 12px rgba(139,72,235,.25);
+}
+
+/* ── 按钮网格 ── */
+.button-container{display:flex;gap:10px;flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin;scrollbar-color:var(--vl-500) rgba(0,0,0,.1)}
+.button-container::-webkit-scrollbar{height:3px}
+.button-container::-webkit-scrollbar-track{background:rgba(0,0,0,.1);border-radius:2px}
+.button-container::-webkit-scrollbar-thumb{background:var(--vl-500);border-radius:2px}
+.grid-btn{
+  font-size:.82rem;padding:9px 20px;
+  background:rgba(139,72,235,.08);border:1px solid rgba(139,72,235,.16);
+  border-radius:var(--r-pill);color:var(--text-secondary);text-decoration:none;
+  transition:all var(--dur-normal) var(--ease-spring);white-space:nowrap;
+  flex-shrink:0;position:relative;overflow:hidden;cursor:pointer;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.grid-btn::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);
+  transform:translateX(-100%);transition:transform .6s ease;
+}
+.grid-btn:hover{
+  border-color:var(--accent-cyan);background:rgba(34,211,238,.1);
+  color:var(--accent-cyan);transform:translateY(-3px);
+  box-shadow:0 6px 24px rgba(34,211,238,.25),0 0 0 1px rgba(34,211,238,.12);
+}
+.grid-btn:hover::after{transform:translateX(100%)}
+.grid-btn:active{transform:translateY(-1px) scale(.97)}
+
+/* ── 分类区块标题 ── */
+.section-header{
+  display:flex;align-items:center;margin:52px 0 28px;
+  border-bottom:1px solid rgba(139,72,235,.1);padding-bottom:18px;
+  animation:section-reveal .7s var(--ease-out-expo) forwards;
+}
+.section-title{
+  font-family:var(--display-font);font-size:1.6rem;font-weight:700;
+  color:#fff;position:relative;padding-left:22px;letter-spacing:2px;
+  background:linear-gradient(135deg,#fff 0%,#e0ccfe 60%,#c490f8 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.section-title::before{
+  content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:4px;height:30px;border-radius:3px;
+  background:linear-gradient(180deg,var(--vl-250),var(--vl-350),var(--vl-500));
+  box-shadow:0 0 18px rgba(139,72,235,.7),0 0 36px rgba(139,72,235,.25);
+}
+
+/* ── 资源卡片网格 ── */
+.category-section{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;opacity:1}
+.category-section>.section-header{grid-column:1/-1}
+.category-section>script{display:none}
+.category-section>.comment-section-container{grid-column:1/-1}
+
+/* 分类卡片 */
+.category-card{
+  background:var(--glass-bg);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);
+  border:1px solid var(--glass-border);
+  border-radius:var(--r-lg);padding:20px 18px 18px;
+  transition:transform var(--dur-normal) var(--ease-spring),border-color var(--dur-normal) var(--ease-out-expo),box-shadow var(--dur-normal) var(--ease-out-expo),background var(--dur-normal) var(--ease-out-expo);
+  position:relative;overflow:hidden;
+  animation:card-in-spring .65s var(--ease-spring) forwards;
+  opacity:0;transform-origin:center top;
+  box-shadow:var(--shadow-2);
+}
+.category-card::before{
+  content:'';position:absolute;top:0;left:0;width:100%;height:100%;
+  background:var(--card-shine);pointer-events:none;z-index:0;
+  transition:opacity var(--dur-normal) var(--ease-out-expo);
+}
+.category-card::after{
+  content:'';position:absolute;top:0;left:20px;right:20px;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(139,72,235,.55),rgba(155,95,245,.25),transparent);
+  opacity:0;transition:opacity var(--dur-normal) var(--ease-out-expo);z-index:3;border-radius:2px;
+}
+.category-card:hover{
+  transform:translateY(-6px) scale(1.012);
+  border-color:var(--glass-border-hover);
+  box-shadow:0 20px 56px rgba(0,0,0,.5),0 0 0 1px rgba(139,72,235,.22),0 0 50px rgba(139,72,235,.06);
+  background:var(--glass-bg-hover);
+}
+.category-card:hover::before{opacity:.8}
+.category-card:hover::after{opacity:1}
+
+/* 卡片入场延迟 */
+.category-card:nth-child(1){animation-delay:.04s}
+.category-card:nth-child(2){animation-delay:.08s}
+.category-card:nth-child(3){animation-delay:.12s}
+.category-card:nth-child(4){animation-delay:.16s}
+.category-card:nth-child(5){animation-delay:.2s}
+.category-card:nth-child(6){animation-delay:.24s}
+.category-card:nth-child(7){animation-delay:.28s}
+.category-card:nth-child(8){animation-delay:.32s}
+.category-card:nth-child(n+9){animation-delay:.36s}
+
+/* 卡片头部 */
+.category-header{display:flex;align-items:center;margin-bottom:12px;position:relative;z-index:2;}
+.category-icon{
+  width:38px;height:38px;border-radius:var(--r-sm);
+  background:linear-gradient(135deg,rgba(139,72,235,.35),rgba(100,50,220,.18));
+  border:1px solid rgba(139,72,235,.35);
+  display:flex;align-items:center;justify-content:center;
+  margin-right:10px;font-size:1rem;color:var(--vl-250);
+  box-shadow:0 4px 20px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.06);
+  flex-shrink:0;transition:all var(--dur-normal) var(--ease-spring);
+  position:relative;z-index:2;
+}
+.category-icon::after{
+  content:'';position:absolute;inset:-3px;border-radius:calc(var(--r-sm) + 2px);
+  background:transparent;border:1px solid transparent;transition:all var(--dur-normal) ease;z-index:-1;
+}
+.category-card:hover .category-icon{
+  background:linear-gradient(135deg,rgba(139,72,235,.55),rgba(120,60,235,.3));
+  box-shadow:0 8px 28px rgba(139,72,235,.5),0 0 0 3px rgba(139,72,235,.22),inset 0 1px 0 rgba(255,255,255,.1);
+  transform:scale(1.08);
+}
+.category-card:hover .category-icon::after{border-color:rgba(139,72,235,.4);box-shadow:0 0 18px rgba(139,72,235,.25)}
+.category-title{
+  font-family:var(--display-font);color:var(--text-primary);
+  font-weight:600;letter-spacing:.8px;font-size:1.05rem;text-shadow:0 0 20px rgba(139,72,235,.12);
+}
+
+/* 收藏按钮 - 已移至详情页 */
+.favorite-btn{display:none!important}
+#detailFavoriteBtn.favorited{background:linear-gradient(105deg, #7c3aed 0%, #a855f7 100%)!important;border-color:rgba(168,85,247,0.55)!important;color:#fff!important;box-shadow:0 3px 10px rgba(124, 58, 237, 0.3)!important;}
+
+/* 网站列表 */
+.website-info{padding-bottom:4px;position:relative;z-index:2;}
+.website-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.website-item{
+  display:block;text-decoration:none;color:var(--text-primary);
+  background:rgba(22,14,45,.5);border-radius:var(--r-xs);
+  padding:10px 8px;border:1px solid rgba(139,72,235,.15);
+  transition:transform var(--dur-normal) var(--ease-spring),border-color var(--dur-normal) var(--ease-out-expo),box-shadow var(--dur-normal) var(--ease-out-expo),background var(--dur-normal) var(--ease-out-expo);
+  position:relative;overflow:hidden;cursor:pointer;
+}
+.website-item::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(139,72,235,.06) 0%,transparent 50%,rgba(100,50,220,.03) 100%);
+  opacity:0;transition:opacity .4s ease;pointer-events:none;z-index:0;
+}
+.website-item:hover{
+  background:rgba(139,72,235,.14);border-color:rgba(139,72,235,.45);
+  transform:translateY(-3px) scale(1.02);
+  box-shadow:0 8px 24px rgba(0,0,0,.4),0 0 0 1px rgba(139,72,235,.2),0 0 12px rgba(139,72,235,.06);
+}
+.website-item:hover::before{opacity:1}
+.website-item:active{transform:translateY(-2px) scale(.98)}
+.website-item.highlight{border-color:var(--accent-cyan)!important;box-shadow:0 0 0 3px rgba(34,211,238,.45),0 0 28px rgba(34,211,238,.25)!important;animation:pulse-glow 1.5s ease infinite,border-glow 1.5s ease infinite}
+
+.website-img{
+  width:100%;height:46px;border-radius:var(--r-xs);
+  background:rgba(22,15,42,.8);display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;color:rgba(255,255,255,.88);margin-bottom:6px;
+  position:relative;overflow:hidden;font-weight:500;
+  letter-spacing:.5px;
+  transition:all var(--dur-normal) var(--ease-out-expo);
+}
+.website-img::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.08) 0%,transparent 60%);
+  pointer-events:none;
+}
+.website-item:hover .website-img{box-shadow:0 6px 18px rgba(0,0,0,.4);transform:scale(1.02)}
+.vpn-label{
+  position:absolute;top:0;right:0;
+  background:linear-gradient(135deg,var(--vl-400),var(--vl-300));
+  font-size:.58rem;padding:3px 8px;border-bottom-left-radius:8px;
+  color:#fff;letter-spacing:.5px;font-weight:700;z-index:1;
+}
+.website-name{
+  font-size:.78rem;font-weight:600;white-space:nowrap;overflow:hidden;
+  text-overflow:ellipsis;margin-bottom:3px;
+  color:var(--text-secondary);transition:color .3s ease,text-shadow .3s ease;
+  position:relative;z-index:1;
+}
+.website-item:hover .website-name{color:#fff;text-shadow:0 0 12px rgba(210,195,255,.4)}
+.website-desc{
+  font-size:.65rem;color:var(--text-dim);line-height:1.35;
+  height:2.7em;overflow:hidden;display:-webkit-box;
+  -webkit-line-clamp:2;-webkit-box-orient:vertical;
+  position:relative;z-index:1;
+}
+
+/* 波纹效果 */
+.ripple-effect{
+  position:absolute;border-radius:50%;background:rgba(139,72,235,.25);
+  width:100px;height:100px;margin-left:-50px;margin-top:-50px;
+  animation:ripple-out .7s ease forwards;pointer-events:none;z-index:0;
+}
+
+/* 提示 */
+.website-item .item-tooltip{
+  position:absolute;bottom:calc(100% + 10px);left:50%;
+  transform:translateX(-50%) translateY(8px);
+  background:rgba(14,11,35,.92);border:1px solid rgba(139,72,235,.35);
+  border-radius:var(--r-sm);padding:8px 14px;font-size:.72rem;
+  color:var(--text-secondary);white-space:nowrap;
+  opacity:0;pointer-events:none;
+  transition:all .25s var(--ease-spring);z-index:50;
+  box-shadow:0 6px 20px rgba(0,0,0,.5);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+}
+.website-item:hover .item-tooltip{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* NEW徽章 */
+.new-badge{
+  position:absolute;top:5px;right:5px;
+  background:linear-gradient(135deg,var(--accent-rose),var(--accent-coral));
+  color:#fff;font-size:9px;font-weight:700;padding:3px 8px;
+  border-radius:var(--r-pill);letter-spacing:.5px;line-height:1.4;
+  box-shadow:0 2px 10px rgba(244,114,182,.45);
+  animation:dot-pulse 2s ease infinite;z-index:1;
+}
+
+/* ═══════════════════════════════════════════ Toast系统 ═══════ */
+.toast-container{position:fixed;top:90px;right:24px;z-index:9998;display:flex;flex-direction:column;gap:10px;pointer-events:none}
+.toast{
+  background:rgba(16,10,35,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(139,72,235,.3);border-radius:var(--r-sm);
+  padding:14px 22px;color:#fff;font-size:.88rem;min-width:200px;
+  display:flex;align-items:center;gap:12px;
+  box-shadow:0 14px 48px rgba(0,0,0,.6),0 0 0 1px rgba(139,72,235,.06);
+  animation:toast-in .45s var(--ease-spring) forwards;
+}
+.toast.hiding{animation:toast-out .3s ease forwards}
+.toast.success .toast-icon{color:var(--accent-mint)}
+.toast.error .toast-icon{color:var(--accent-coral)}
+.toast.info .toast-icon{color:var(--accent-cyan)}
+
+/* ═══════════════════════════════════════════ 自定义弹窗 ═══════ */
+.silong-toast-overlay{
+  position:fixed;top:0;left:0;width:100vw;height:100vh;
+  background:rgba(6,3,20,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  z-index:99999;display:flex;align-items:center;justify-content:center;
+  animation:fadeIn .25s ease;
+}
+.silong-toast-box{
+  background:linear-gradient(160deg,rgba(25,12,48,.98) 0%,rgba(16,10,38,.98) 100%);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(139,72,235,.45);border-radius:var(--r-xl);
+  padding:30px 26px 24px;width:90%;max-width:380px;
+  text-align:center;color:#fff;
+  box-shadow:0 24px 64px rgba(0,0,0,.55),0 0 40px rgba(139,72,235,.18),inset 0 1px 0 rgba(255,255,255,.04);
+  animation:toastScaleIn .35s var(--ease-spring);
+  position:relative;
+}
+.silong-toast-box::before{
+  content:'';position:absolute;top:0;left:20px;right:20px;height:3px;
+  background:linear-gradient(90deg,var(--vl-200),var(--vl-300),var(--vl-400),var(--vl-300),var(--vl-200));
+  border-radius:0 0 3px 3px;
+}
+.silong-toast-icon{
+  width:56px;height:56px;border-radius:50%;
+  background:linear-gradient(135deg,rgba(139,72,235,.3),rgba(100,50,220,.2));
+  border:2px solid rgba(139,72,235,.45);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 18px;font-size:24px;color:var(--vl-200);
+  box-shadow:0 0 20px rgba(139,72,235,.3);
+}
+.silong-toast-title{font-family:var(--display-font);font-size:18px;font-weight:700;color:var(--vl-100);margin-bottom:8px;letter-spacing:.5px}
+.silong-toast-message{font-size:14px;color:var(--text-tertiary);line-height:1.6;margin-bottom:20px}
+.silong-toast-btn{
+  display:inline-block;padding:11px 34px;
+  background:linear-gradient(105deg,var(--vl-400) 0%,var(--vl-300) 100%);
+  color:#fff;border:none;border-radius:var(--r-pill);
+  font-size:14px;font-weight:600;cursor:pointer;
+  box-shadow:0 4px 16px rgba(120,50,220,.45);
+  transition:all var(--dur-normal) var(--ease-out-expo);
+  letter-spacing:.3px;
+}
+.silong-toast-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(130,60,230,.6);background:linear-gradient(105deg,var(--vl-350) 0%,var(--vl-200) 100%)}
+.silong-toast-btn:active{transform:scale(.96)}
+
+/* ═══════════════════════════════════════════ Modal弹窗 ═══════ */
+.modal{display:none;position:fixed;inset:0;background:rgba(6,3,16,.7);z-index:2000;animation:fadeIn .35s ease;align-items:center;justify-content:center;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.modal.flex{display:flex}
+.modal-content{
+  background:rgba(16,10,38,.9);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(139,72,235,.25);
+  box-shadow:0 32px 96px rgba(0,0,0,.72),0 0 0 1px rgba(255,255,255,.02) inset;
+  width:90%;max-width:520px;margin:10vh auto;padding:34px;
+  border-radius:var(--r-xl);animation:slideDown .4s var(--ease-spring);
+  color:#fff;max-height:80vh;overflow-y:auto;
+}
+.modal-title{
+  display:flex;align-items:center;gap:12px;color:var(--accent-cyan);
+  margin-bottom:28px;border-bottom:1px solid rgba(139,72,235,.12);
+  padding-bottom:14px;font-family:var(--display-font);
+  font-size:1.15rem;letter-spacing:1px;
+}
+.close{float:right;font-size:1.5rem;cursor:pointer;color:var(--text-dim);transition:all var(--dur-normal) var(--ease-spring);line-height:1}
+.close:hover{color:#fff;transform:rotate(90deg) scale(1.2)}
+.form-control,select.form-control{
+  width:100%;padding:13px 16px;margin-bottom:16px;
+  background:rgba(0,0,0,.25);border:1px solid rgba(139,72,235,.18);
+  border-radius:var(--r-sm);color:#fff;font-family:var(--text-font);
+  transition:all var(--dur-normal) var(--ease-out-expo);
+}
+.form-control:focus{border-color:var(--accent-cyan);box-shadow:0 0 0 4px rgba(34,211,238,.1);background:rgba(0,0,0,.45)}
+.btn{
+  width:100%;margin-top:12px;padding:14px;border:none;border-radius:var(--r-sm);
+  background:linear-gradient(135deg,var(--vl-400),var(--vl-350));
+  color:#fff;font-weight:600;cursor:pointer;
+  transition:all var(--dur-normal) var(--ease-out-expo);
+  font-family:var(--display-font);font-size:1rem;letter-spacing:.5px;
+  position:relative;overflow:hidden;
+}
+.btn::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.12),transparent);opacity:0;transition:opacity .35s ease}
+.btn:hover{filter:brightness(1.15);transform:translateY(-3px);box-shadow:0 10px 28px rgba(139,72,235,.5),0 0 0 2px rgba(139,72,235,.18)}
+.btn:hover::after{opacity:1}
+.btn:active{transform:translateY(-1px) scale(.98)}
+.btn-secondary{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
+.btn-secondary:hover{background:rgba(255,255,255,.1);box-shadow:0 4px 16px rgba(0,0,0,.35)}
+
+/* ── 回到顶部 ── */
+.back-to-top{
+  position:fixed;bottom:80px;right:28px;width:50px;height:50px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--vl-400),var(--vl-350));
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;opacity:0;transform:translateY(20px) scale(.8);
+  transition:all .45s var(--ease-spring);z-index:100;
+  box-shadow:0 8px 28px rgba(139,72,235,.55),0 0 0 1px rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.08);font-size:1.1rem;
+}
+.back-to-top.visible{opacity:1;transform:translateY(0) scale(1)}
+.back-to-top:hover{transform:translateY(-8px) scale(1.15);box-shadow:0 0 0 8px rgba(139,72,235,.15),0 14px 36px rgba(139,72,235,.65);background:linear-gradient(135deg,var(--vl-300),var(--vl-400))}
+
+/* ── 加载器 ── */
+.loader-container{
+  position:fixed;inset:0;background:rgba(6,3,20,.92);z-index:9999;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  transition:opacity .6s ease;pointer-events:none;opacity:0;
+}
+.loader-container.active{opacity:1;pointer-events:auto}
+.loader{
+  width:56px;height:56px;border:2px solid rgba(139,72,235,.1);
+  border-top-color:var(--vl-400);border-right-color:var(--accent-cyan);
+  border-radius:50%;animation:spin .75s linear infinite;
+  box-shadow:0 0 28px rgba(139,72,235,.45),0 0 56px rgba(34,211,238,.18);
+  position:relative;
+}
+.loader::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(139,72,235,.08);animation:spin 1.5s linear infinite reverse}
+.loader-text{margin-top:20px;font-weight:500;letter-spacing:4px;color:var(--text-tertiary);font-family:var(--display-font);font-size:.82rem;text-transform:uppercase;animation:pulse-text 2s ease infinite}
+
+#success-message{display:none;position:fixed;top:85px;right:20px;background:rgba(16,10,38,.88);border:1px solid rgba(139,72,235,.32);color:#fff;padding:14px 20px;border-radius:var(--r-sm);z-index:9999;font-size:.88rem;animation:fadeInUp .35s var(--ease-spring);box-shadow:0 12px 40px rgba(0,0,0,.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+/* ── About模块 ── */
+.about-module{
+  background:var(--glass-bg);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);
+  border:1px solid var(--glass-border);border-radius:var(--r-lg);
+  padding:24px 26px;margin-top:30px;font-size:.85rem;
+  color:var(--text-tertiary);line-height:1.85;
+  box-shadow:var(--shadow-2);transition:box-shadow var(--dur-normal) var(--ease-out-expo);
+}
+.about-module:hover{box-shadow:var(--shadow-3)}
+.about-module h3{font-family:var(--display-font);font-size:1.1rem;color:var(--text-primary);margin-bottom:12px;letter-spacing:.5px}
+
+/* ── 搜索按钮 ── */
+#searchToggle{
+  width:44px;height:44px;background:rgba(139,72,235,.08);
+  border:1px solid rgba(139,72,235,.18);border-radius:var(--r-sm);
+  color:var(--text-secondary);font-size:18px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;margin-right:6px;outline:none;
+  transition:all var(--dur-normal) var(--ease-out-expo);
+}
+#searchToggle:hover{background:rgba(139,72,235,.18);border-color:rgba(139,72,235,.5);color:#fff;box-shadow:var(--glow-soft);transform:scale(1.08)}
+#searchToggle:active{transform:scale(.95)}
+
+/* ── 侧边栏遮罩 ── */
+.sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:899;opacity:0;pointer-events:none;transition:opacity .4s ease;backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px)}
+.sidebar-overlay.active{opacity:1;pointer-events:auto}
+.sidebar-scrollable{display:flex;flex-direction:column;min-height:100%}
+
+/* ── 问候横幅 ── */
+#greetingBannerText{
+  flex:1;overflow:hidden;position:relative;
+  -webkit-mask-image:linear-gradient(to left,transparent 0%,#000 18%,#000 85%,transparent 100%);
+  mask-image:linear-gradient(to left,transparent 0%,#000 18%,#000 85%,transparent 100%);
+}
+#greetingBannerTextInner{white-space:nowrap;display:inline-block;color:#fff}
+
+/* ── 滚动动画 ── */
+.animate-on-scroll{opacity:0;transform:translateY(30px);transition:opacity .6s var(--ease-out-expo),transform .6s var(--ease-out-expo)}
+.animate-on-scroll.visible{opacity:1;transform:translateY(0)}
+
+/* ═══════════════════════════════════════════ 响应式 ═══════════ */
+@media (max-width:768px){
+  .layout-body{flex-direction:column}
+  .sidebar{position:fixed;top:var(--header-height);left:0;bottom:0;transform:translateX(-100%);width:var(--sidebar-w)!important;box-shadow:12px 0 48px rgba(0,0,0,.7);z-index:950}
+  .sidebar.active{transform:translateX(0)}
+  .main-content{padding:16px 12px 100px}
+  .category-section{grid-template-columns:1fr;gap:20px}
+  .button-container{gap:6px}
+  .grid-btn{padding:7px 14px;font-size:.75rem}
+  .section-title{font-size:1.3rem}
+  .category-card{padding:18px 15px 15px}
+  .category-icon{width:38px;height:38px;font-size:1rem}
+  .category-title{font-size:1rem}
+  .website-list{grid-template-columns:repeat(4,1fr);gap:12px}
+  .website-item{padding:8px 7px}
+  .website-img{height:46px;font-size:.7rem}
+  .website-name{font-size:.75rem}
+  .website-desc{font-size:.65rem}
+  .top-nav{padding:0 14px!important}
+  .logo{font-size:1.3rem}
+}
+/* ═══════════════════════════════════════════ 打印 ═══════════════ */
+@media print{
+  .sidebar,.top-nav,.back-to-top,.loader-container{display:none!important}
+  .main-content{overflow:visible;height:auto}
+  body{overflow:visible;background:#fff;color:#000}
+}
+</style>
 </head>
 <body>
-  <div class="bg-particle-layer" style="position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(2px 2px at 15% 25%,rgba(139,72,235,.25),transparent),radial-gradient(1px 1px at 72% 18%,rgba(34,211,238,.2),transparent)"></div>
-  <div id="ageVerifyPopup" style="display:none;"></div>
-  <div class="app-container">
-    <header class="top-nav">
-      <div style="display:flex;align-items:center;gap:20px;width:100%;justify-content:space-between;">
-        <div class="menu-btn" id="menu-btn"><span></span><span></span><span></span></div>
-        <div class="logo" onclick="location.reload()">巳泷资源库</div>
-        <button id="searchToggle" style="background:transparent;border:none;color:#fff;font-size:20px;cursor:pointer;"><i class="fas fa-search"></i></button>
-      </div>
-    </header>
-    <div class="layout-body">
-      <aside class="sidebar" id="sidebar">
-        <div style="padding:10px;">
-          <div class="sidebar-title"><i class="fas fa-wrench"></i> 分类导航</div>
-          <nav class="sidebar-menu">
-            <a class="menu-main" href="#comprehensive-section"><i class="fas fa-globe"></i> 综合网站</a>
-            <a class="menu-main" href="#comics-section"><i class="fas fa-palette"></i> 漫画网站</a>
-            <a class="menu-main" href="#novels-section"><i class="fas fa-book"></i> 小说网站</a>
-            <a class="menu-main" href="#games-section"><i class="fas fa-gamepad"></i> 游戏网站</a>
-            <a class="menu-main" href="#videos-section"><i class="fas fa-film"></i> 影视网站</a>
-            <a class="menu-main" href="#cloud-section"><i class="fas fa-cloud"></i> 网盘资源</a>
-            <a class="menu-main" href="#tools-section"><i class="fas fa-tools"></i> 实用工具</a>
-            <a class="menu-main" href="#ai-tools-section"><i class="fas fa-robot"></i> AI工具</a>
-            <a class="menu-main" href="#images-section"><i class="fas fa-images"></i> 图集资源</a>
-            <a class="menu-main" href="#furry-section"><i class="fas fa-paw"></i> 福瑞资源</a>
-            <a class="menu-main" href="#life-section"><i class="fas fa-home"></i> 生活服务</a>
-            <a class="menu-main" href="#learning-section"><i class="fas fa-graduation-cap"></i> 学习资源</a>
-          </nav>
-          <div class="sidebar-title" style="margin-top:15px;"><i class="fas fa-cog"></i> 功能</div>
-          <nav class="sidebar-menu">
-            <a class="menu-main" href="#" id="favorites-btn"><i class="fas fa-star"></i> 我的收藏</a>
-            <a class="menu-main" href="#" id="history-btn"><i class="fas fa-history"></i> 浏览历史</a>
-            <a class="menu-main" href="https://silong-respool.github.io/gay/yidu.html" target="_blank"><i class="fas fa-image"></i> 图像处理</a>
-          </nav>
+
+<style>
+@keyframes agePopupFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes agePopupCardUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+</style>
+
+<script>
+// 页面加载优先判断，已确认成年则直接不渲染弹窗，彻底解决闪烁问题
+if(localStorage.getItem('isAdult') !== 'yes'){
+document.write(`
+<div id="ageVerifyPopup" style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(12, 1, 26, 0.9);
+    backdrop-filter: blur(8px) saturate(120%);
+    -webkit-backdrop-filter: blur(8px) saturate(120%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    font-family: 'Microsoft YaHei', sans-serif;
+    animation: agePopupFadeIn 0.35s ease-out;
+">
+    <div style="
+        background: #2d054d;
+        width: min(90%, 420px);
+        padding: 40px 32px;
+        border-radius: 16px;
+        text-align: center;
+        border: 1px solid rgba(255,255,255,0.12);
+        box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+        animation: agePopupCardUp 0.4s ease-out forwards;
+    ">
+        <div style="
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 24px;
+            border-radius: 50%;
+            background: #520e86;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        ">
+            <span style="color:#fff;font-size:26px;font-weight:bold;">18+</span>
         </div>
-      </aside>
-      <main class="main-content" id="main-content">
-        <div id="searchDrawer">
-          <div style="display:flex;gap:10px;margin-bottom:12px;">
-            <input id="kw" placeholder="输入关键词搜索全站资源..." style="flex:1;padding:12px 18px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);background:rgba(0,0,0,0.25);color:#fff;outline:none;" type="text"/>
-            <button id="doSearchBtn" style="width:46px;height:46px;border-radius:8px;border:none;background:#b026ff;color:#fff;cursor:pointer;"><i class="fas fa-search"></i></button>
-          </div>
-          <div style="display:flex;gap:8px;margin-bottom:15px;flex-wrap:wrap;">
-            <button class="search-type-tab active" data-type="site"><i class="fas fa-home"></i> 本站</button>
-            <button class="search-type-tab" data-type="yandex-web"><i class="fas fa-globe"></i> 网页</button>
-            <button class="search-type-tab" data-type="yandex-img"><i class="fas fa-image"></i> 图像</button>
-            <button class="search-type-tab" data-type="yandex-video"><i class="fas fa-video"></i> 视频</button>
-            <button class="search-type-tab" data-type="image-upload" id="imageUploadTab" style="background:rgba(34,211,238,0.15);border-color:rgba(34,211,238,0.5);"><i class="fas fa-upload"></i> 图片搜索</button>
-          </div>
-          <div id="imageUploadArea" style="display:none;margin-bottom:15px;">
-            <input type="file" id="imageFileInput" accept="image/*" style="color:#fff;background:rgba(255,255,255,0.1);border-radius:8px;padding:8px;"/>
-            <button id="imageSearchBtn" style="margin-left:10px;padding:8px 18px;background:#22d3ee;border:none;border-radius:8px;cursor:pointer;">搜索图片</button>
-            <p style="font-size:12px;color:rgba(255,255,255,0.6);margin-top:6px;">上传图片后点击搜索，跳转至俄罗斯Yandex图片搜索</p>
-          </div>
-          <div id="recentList" style="display:flex;gap:8px;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,0.7);"></div>
+
+        <h2 style="
+            color: #ffffff;
+            margin: 0 0 20px;
+            font-size: 22px;
+            font-weight: 500;
+        ">年龄访问权限提示</h2>
+
+        <div style="
+            color: #ffffff;
+            font-size: 14px;
+            line-height: 1.75;
+            margin-bottom: 32px;
+            text-align: left;
+        ">
+            <p style="margin:0;">本站内容仅面向年满十八周岁成年人浏览，根据互联网相关管理规定，未成年人禁止进入本站，若您尚未达到法定年龄请主动离开，点击确认按钮即代表您确认自身已满十八周岁</p>
         </div>
-        <div style="height:180px;margin:12px 0;border-radius:14px;overflow:hidden;position:relative;background:linear-gradient(135deg,#6A0DAD,#8A2BE2);">
-          <div id="carouselBox" style="display:flex;width:1200%;height:100%;transition:transform .5s;will-change:transform;">
-            <div style="width:8.33%;height:100%;"><a href="https://huangguoai.com/topics/tiancai-nantong/" target="_blank"><img class="carousel-img" src="lbt/lbt1.jpg" style="width:100%;height:100%;object-fit:cover;"/></a></div>
-            <div style="width:8.33%;height:100%;"><a href="https://poipiku.com/12082901/" target="_blank"><img class="carousel-img" src="lbt/lbt2.jpg" style="width:100%;height:100%;object-fit:cover;"/></a></div>
-            <div style="width:8.33%;height:100%;"><a href="https://91nt43.com/" target="_blank"><img class="carousel-img" src="lbt/lbt3.jpg" style="width:100%;height:100%;object-fit:cover;"/></a></div>
-            <div style="width:8.33%;height:100%;"><a href="https://silong-respool.github.io/gay/yxj.html"><img class="carousel-img" src="lbt/lbt4.jpg" style="width:100%;height:100%;object-fit:cover;"/></a></div>
-            <div style="width:8.33%;height:100%;"><a href="https://acquainte.xyz/zh/explore/apps?ranking=daily_rank&display=simple&keywords=%E5%B7%B3%E6%B3%B7" target="_blank"><img class="carousel-img" src="lbt/lbt5.jpg" style="width:100%;height:100%;object-fit:cover;"/></a></div>
-            <div style="width:8.33%;height:100%;"><a href="https://jm18c-oec.cc/search/photos?search_query=yaoi&search-type=photos&main_tag=0" target="_blank"><img class="carousel-img" src="lbt/lbt6.jpg" style="width:100%;height:100%;object-fit:cover;"/></a></div>
-            <div style="width:8.33%;height:100%;"><a href="#"><img class="carousel-img" src="lbt/lbt7.jpg" style="width:100%;height:100%;object-fit:cover;"/></a></div>
-            <div style="width:8.33%;height:100%;"><a href="#"><img class="carousel-img" src="lbt/lbt8.jpg" style="width:100%;height:100%;object-fit:cover;"/></a></div>
-            <div style="width:8.33%;height:100%;"><a href="#"><img class="carousel-img" src="lbt/lbt9.jpg" style="width:100%;height:100%;object-fit:cover;"/></a></div>
-            <div style="width:8.33%;height:100%;"><a href="#"><img class="carousel-img" src="lbt/lbt10.jpg" style="width:100%;height:100%;object-fit:cover;"/></a></div>
-            <div style="width:8.33%;height:100%;"><a href="#"><img class="carousel-img" src="lbt/lbt11.jpg" style="width:100%;height:100%;object-fit:cover;"/></a></div>
-            <div style="width:8.33%;height:100%;"><a href="#"><img class="carousel-img" src="lbt/lbt12.jpg" style="width:100%;height:100%;object-fit:cover;"/></a></div>
-          </div>
-          <div style="position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:6px;"></div>
+
+        <div style="display: flex; gap: 16px; justify-content: center;">
+            <button onclick="confirmAdult()" style="
+                width: 140px;
+                padding: 12px 0;
+                background: #520e86;
+                color: #fff;
+                border: none;
+                border-radius: 10px;
+                font-size: 15px;
+                cursor: pointer;
+                transition: 0.2s;
+            " onmouseover="this.style.background='#6313a0'" onmouseout="this.style.background='#520e86'">
+                已满 18 岁
+            </button>
+            <button onclick="exitPage()" style="
+                width: 140px;
+                padding: 12px 0;
+                background: transparent;
+                color: #fff;
+                border: 1px solid #fff;
+                border-radius: 10px;
+                font-size: 15px;
+                cursor: pointer;
+                transition: 0.2s;
+            " onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">
+                未满 18 岁
+            </button>
         </div>
-        <div class="quick-links-glass">
-          <div class="button-container">
-            <button class="grid-btn" onclick="scrollToCategory('comprehensive-section')">综合网站</button>
-            <button class="grid-btn" onclick="scrollToCategory('comics-section')">漫画网站</button>
-            <button class="grid-btn" onclick="scrollToCategory('novels-section')">小说网站</button>
-            <button class="grid-btn" onclick="scrollToCategory('games-section')">游戏网站</button>
-            <button class="grid-btn" onclick="scrollToCategory('videos-section')">影视网站</button>
-            <button class="grid-btn" onclick="scrollToCategory('cloud-section')">网盘资源</button>
-            <button class="grid-btn" onclick="scrollToCategory('tools-section')">实用工具</button>
-            <button class="grid-btn" onclick="scrollToCategory('ai-tools-section')">AI工具</button>
-          </div>
-        </div>
-        <section class="category-section" id="comprehensive-section">
-          <div class="category-card"><div class="category-header"><div class="category-icon"><i class="fas fa-globe"></i></div><div class="category-title">综合网站</div></div><div class="website-list"><a class="website-item" href="https://example.com" target="_blank"><div class="website-img">🌐</div><div class="website-name">示例网站</div><div class="website-desc">综合资源导航</div></a></div></div>
-        </section>
-        <section class="category-section" id="comics-section">
-          <div class="category-card"><div class="category-header"><div class="category-icon"><i class="fas fa-palette"></i></div><div class="category-title">漫画网站</div></div><div class="website-list"><a class="website-item" href="https://example.com" target="_blank"><div class="website-img">📚</div><div class="website-name">漫画示例</div><div class="website-desc">在线漫画阅读</div></a></div></div>
-        </section>
-        <section class="category-section" id="novels-section">
-          <div class="category-card"><div class="category-header"><div class="category-icon"><i class="fas fa-book"></i></div><div class="category-title">小说网站</div></div><div class="website-list"><a class="website-item" href="https://example.com" target="_blank"><div class="website-img">📖</div><div class="website-name">小说示例</div><div class="website-desc">热门小说阅读</div></a></div></div>
-        </section>
-        <section class="category-section" id="games-section">
-          <div class="category-card"><div class="category-header"><div class="category-icon"><i class="fas fa-gamepad"></i></div><div class="category-title">游戏网站</div></div><div class="website-list"><a class="website-item" href="https://example.com" target="_blank"><div class="website-img">🎮</div><div class="website-name">游戏示例</div><div class="website-desc">在线游戏平台</div></a></div></div>
-        </section>
-        <section class="category-section" id="videos-section">
-          <div class="category-card"><div class="category-header"><div class="category-icon"><i class="fas fa-film"></i></div><div class="category-title">影视网站</div></div><div class="website-list"><a class="website-item" href="https://example.com" target="_blank"><div class="website-img">🎬</div><div class="website-name">影视示例</div><div class="website-desc">高清影视在线</div></a></div></div>
-        </section>
-        <section class="category-section" id="cloud-section">
-          <div class="category-card"><div class="category-header"><div class="category-icon"><i class="fas fa-cloud"></i></div><div class="category-title">网盘资源</div></div><div class="website-list"><a class="website-item" href="https://example.com" target="_blank"><div class="website-img">☁️</div><div class="website-name">网盘示例</div><div class="website-desc">资源存储分享</div></a></div></div>
-        </section>
-        <section class="category-section" id="tools-section">
-          <div class="category-card"><div class="category-header"><div class="category-icon"><i class="fas fa-tools"></i></div><div class="category-title">实用工具</div></div><div class="website-list"><a class="website-item" href="https://example.com" target="_blank"><div class="website-img">🛠️</div><div class="website-name">工具示例</div><div class="website-desc">在线实用工具</div></a></div></div>
-        </section>
-        <section class="category-section" id="ai-tools-section">
-          <div class="category-card"><div class="category-header"><div class="category-icon"><i class="fas fa-robot"></i></div><div class="category-title">AI工具</div></div><div class="website-list"><a class="website-item" href="https://example.com" target="_blank"><div class="website-img">🤖</div><div class="website-name">AI示例</div><div class="website-desc">人工智能应用</div></a></div></div>
-        </section>
-      </main>
     </div>
-  </div>
-  <div class="toast-container" id="toastContainer"></div>
-  <button class="back-to-top" id="backToTopBtn"><i class="fas fa-arrow-up"></i></button>
+</div>
+`);
+}
 
-  <script>
-    (function(){
-      document.title = '巳泷资源库';
-      
-      if(localStorage.getItem('isAdult') !== 'yes'){
-        const popup = document.createElement('div');
-        popup.id = 'ageVerifyPopup';
-        popup.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(12,1,26,0.95);display:flex;align-items:center;justify-content:center;z-index:99999;';
-        popup.innerHTML = `
-          <div style="background:#2d054d;width:min(90%,420px);padding:40px;border-radius:16px;text-align:center;border:1px solid rgba(255,255,255,0.2);">
-            <div style="font-size:48px;margin-bottom:20px;">🔞</div>
-            <h2 style="color:#fff;margin-bottom:16px;">年龄访问权限提示</h2>
-            <p style="color:#ddd;font-size:14px;line-height:1.7;margin-bottom:28px;">本站内容仅面向年满十八周岁成年人浏览。点击确认即代表您已满18周岁。</p>
-            <button onclick="confirmAdult()" style="background:#520e86;color:#fff;border:none;padding:12px 30px;border-radius:8px;cursor:pointer;font-size:16px;">已满18岁</button>
-            <button onclick="exitPage()" style="background:transparent;border:1px solid #fff;color:#fff;padding:12px 30px;border-radius:8px;cursor:pointer;font-size:16px;margin-left:10px;">未满18岁</button>
-          </div>`;
-        document.body.appendChild(popup);
-      }
-      window.confirmAdult = function(){ localStorage.setItem('isAdult','yes'); const p=document.getElementById('ageVerifyPopup'); if(p)p.remove(); };
-      window.exitPage = function(){ window.location.href='https://cartoongames.io/zh'; };
+// 已满18：存入本地标记，隐藏弹窗、关闭毛玻璃遮罩
+function confirmAdult() {
+    localStorage.setItem('isAdult','yes');
+    document.getElementById('ageVerifyPopup').style.display = 'none';
+}
 
-      const menuBtn = document.getElementById('menu-btn');
-      const sidebar = document.getElementById('sidebar');
-      if(menuBtn && sidebar){
-        menuBtn.addEventListener('click', function(){
-          if(window.innerWidth <= 768){
-            sidebar.classList.toggle('active');
-          }
-        });
-      }
-      document.addEventListener('click', function(e){
-        if(window.innerWidth <= 768 && sidebar.classList.contains('active') && !sidebar.contains(e.target) && e.target !== menuBtn && !menuBtn.contains(e.target)){
-          sidebar.classList.remove('active');
-        }
-      });
+// 未满18：跳转儿童乐园
+function exitPage() {
+    window.location.href = 'https://cartoongames.io/zh'
+}
+</script>
 
-      const searchToggle = document.getElementById('searchToggle');
-      const searchDrawer = document.getElementById('searchDrawer');
-      const kwInput = document.getElementById('kw');
-      const doSearchBtn = document.getElementById('doSearchBtn');
-      const recentListEl = document.getElementById('recentList');
-      const searchTypeTabs = document.querySelectorAll('.search-type-tab');
-      let currentSearchType = 'site';
 
-      function toggleDrawer(open){
-        if(open){
-          searchDrawer.classList.add('open');
-          searchDrawer.style.display='block';
-        } else {
-          searchDrawer.classList.remove('open');
-          setTimeout(()=>{ if(!searchDrawer.classList.contains('open')) searchDrawer.style.display='none'; }, 200);
-        }
-      }
-      if(searchToggle) searchToggle.addEventListener('click',()=>{
-        const isOpen = searchDrawer.classList.contains('open');
-        toggleDrawer(!isOpen);
-      });
+<div class="bg-particle-layer"></div>
+<script>
+(function(){'use strict';
+/* 安全脚本 */
+document.addEventListener('keydown',function(e){
+if((e.ctrlKey||e.metaKey)&&(e.key==='s'||e.key==='S'||e.key==='u'||e.key==='U')){e.preventDefault();return false}
+if(e.key==='F12'||(e.ctrlKey&&e.shiftKey&&(e.key==='I'||e.key==='i'||e.key==='J'||e.key==='j'||e.key==='C'||e.key==='c'))){e.preventDefault();return false}
+});
+})();
+</script>
+<div class="app-container">
+<header class="top-nav">
+<div style="display: flex; align-items: center; gap: 20px; justify-content: space-between; width: 100%;">
+<div class="menu-btn" id="menu-btn">
+<span></span> <span></span> <span></span>
+</div>
+<div class="logo" onclick="location.reload()" style="cursor: pointer;">
+<img alt="" src="logo.png" style="width: 120px; transform: translate(10px, 5px);"/>
+</div> <button id="searchToggle" style="width: 44px; height: 44px; background: transparent; border: none; color: #fff; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; margin-right: 10px; outline: none;"> <i class="fas fa-search"></i> </button>
+</div>
+</header>
+<div id="greetingBanner" style="position: fixed; top: var(--header-height); left: 0; right: 0; z-index: 9999; display: none; align-items: center; background: linear-gradient(90deg, rgba(124,58,237,0.18), rgba(176,38,255,0.18), rgba(0,210,255,0.18)); border-bottom: 1px solid rgba(176,38,255,0.25); padding: 8px 20px; transition: opacity 0.6s ease;">
+<div style="display: flex; align-items: center; gap: 12px; max-width: 1200px; width: 100%;">
+<span id="greetingBannerIcon" style="font-size: 22px;"></span> <span id="greetingBannerTime" style="font-family: 'Rajdhani',sans-serif; font-size: 0.82rem; font-weight: 700; padding: 3px 10px; background: linear-gradient(135deg,rgba(176,38,255,0.3),rgba(0,210,255,0.2)); border: 1px solid rgba(176,38,255,0.35); border-radius: 20px; color: rgba(230,220,255,0.95); white-space: nowrap;">00:00</span>
+<div id="greetingBannerText" style="font-size: 0.92rem; color: rgba(240,230,255,0.95); font-weight: 500; flex: 1; min-width: 0; overflow: hidden; position: relative;"></div> <span style="font-size: 0.8rem; color: rgba(200,180,255,0.5); white-space: nowrap;">温馨提示</span>
+</div>
+</div>
+<div class="layout-body">
+<aside class="sidebar" id="sidebar">
+<div class="sidebar-scrollable">
+<h2 class="sidebar-title" style="margin-top: 5px; font-size: 1rem; padding: 10px 15px; color: var(--text-color); opacity: 0.9; font-weight: 500; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; padding-left: 5px;"><i class="fas fa-wrench" style="margin-right: 8px; opacity: 0.9;"></i> <span style="white-space: nowrap;">分类导航</span></h2>
+<nav class="sidebar-menu">
+<div class="menu-group">
+<a class="menu-main" href="javascript:document.getElementById('recent-update-section').scrollIntoView({ behavior: 'smooth', block: 'start' })" style="display: flex; align-items: center; padding: 12px 15px; color: var(--text-color); text-decoration: none; transition: all 0.3s ease; width: 100%; box-sizing: border-box; border-left: 3px solid transparent; font-size: 0.95rem; gap: 12px; opacity: 0.7;"> <i class="fas fa-history" style="width: 20px; text-align: center; font-size: 1rem; color: inherit; opacity: 0.7;"></i> 最近更新 </a>
+</div>
+<div class="menu-group">
+<a class="menu-main" href="#search-section" style="display: flex; align-items: center; padding: 12px 15px; color: var(--text-color); text-decoration: none; transition: all 0.3s ease; width: 100%; box-sizing: border-box; border-left: 3px solid transparent; font-size: 0.95rem; gap: 12px; opacity: 0.7;"> <i class="fas fa-search" style="width: 20px; text-align: center; font-size: 1rem; color: inherit; opacity: 0.7;"></i> 磁力搜索 </a>
+</div>
+<div class="menu-group">
+<a class="menu-main" href="#comprehensive-section" style="display: flex; align-items: center; padding: 12px 15px; color: var(--text-color); text-decoration: none; transition: all 0.3s ease; width: 100%; box-sizing: border-box; border-left: 3px solid transparent; font-size: 0.95rem; gap: 12px; opacity: 0.7;"> <i class="fas fa-folder" style="width: 20px; text-align: center; font-size: 1rem; color: inherit; opacity: 0.7;"></i> 综合网站 </a>
+</div>
+<div class="menu-group">
+<a class="menu-main" href="#comics-section" style="display: flex; align-items: center; padding: 12px 15px; color: var(--text-color); text-decoration: none; transition: all 0.3s ease; width: 100%; box-sizing: border-box; border-left: 3px solid transparent; font-size: 0.95rem; gap: 12px; opacity: 0.7;"> <i class="fas fa-palette" style="width: 20px; text-align: center; font-size: 1rem; color: inherit; opacity: 0.7;"></i> 漫画网站 </a>
+</div>
+<div class="menu-group">
+<a class="menu-main" href="#novels-section" style="display: flex; align-items: center; padding: 12px 15px; color: var(--text-color); text-decoration: none; transition: all 0.3s ease; width: 100%; box-sizing: border-box; border-left: 3px solid transparent; font-size: 0.95rem; gap: 12px; opacity: 0.7;"> <i class="fas fa-book" style="width: 20px; text-align: center; font-size: 1rem; color: inherit; opacity: 0.7;"></i> 小说网站 </a>
+</div>
+<div class="menu-group">
+<a class="menu-main" href="#games-section" style="display: flex; align-items: center; padding: 12px 15px; color: var(--text-color); text-decoration: none; transition: all 0.3s ease; width: 100%; box-sizing: border-box; border-left: 3px solid transparent; font-size: 0.95rem; gap: 12px; opacity: 0.7;"> <i class="fas fa-gamepad" style="width: 20px; text-align: center; font-size: 1rem; color: inherit; opacity: 0.7;"></i> 游戏网站 </a>
+</div>
+<div class="menu-group">
+<a class="menu-main" href="#videos-section" style="display: flex; align-items: center; padding: 12px 15px; color: var(--text-color); text-decoration: none; transition: all 0.3s ease; width: 100%; box-sizing: border-box; border-left: 3px solid transparent; font-size: 0.95rem; gap: 12px; opacity: 0.7;"> <i class="fas fa-film" style="width: 20px; text-align: center; font-size: 1rem; color: inherit; opacity: 0.7;"></i> 影视网站 </a>
+</div>
+<div class="menu-group">
+<a class="menu-main" href="#cloud-section" style="display: flex; align-items: center; padding: 12px 15px; color: var(--text-color); text-decoration: none; transition: all 0.3s ease; width: 100%; box-sizing: border-box; border-left: 3px solid transparent; font-size: 0.95rem; gap: 12px; opacity: 0.7;"> <i class="fas fa-cloud-download" style="width: 20px; text-align: center; font-size: 1rem; color: inherit; opacity: 0.7;"></i> 网盘资源 </a>
+</div>
+<div class="menu-group">
+<a class="menu-main" href="#tools-section" style="display: flex; align-items: center; padding: 12px 15px; color: var(--text-color); text-decoration: none; transition: all 0.3s ease; width: 100%; box-sizing: border-box; border-left: 3px solid transparent; font-size: 0.95rem; gap: 12px; opacity: 0.7;"> <i class="fas fa-wrench" style="width: 20px; text-align: center; font-size: 1rem; color: inherit; opacity: 0.7;"></i> 实用工具 </a>
+</div>
+<div class="menu-group">
+<a class="menu-main" href="#design-resources-section" style="display: flex; align-items: center; padding: 12px 15px; color: var(--text-color); text-decoration: none; transition: all 0.3s ease; width: 100%; box-sizing: border-box; border-left: 3px solid transparent; font-size: 0.95rem; gap: 12px; opacity: 0.7;"> <i class="fas fa-palette" style="width: 20px; text-align: center; font-size: 1rem; color: inherit; opacity: 0.7;"></i> 设计资源 </a>
+</div>
+<div class="menu-group">
+<a class="menu-main" href="#ai-tools-section" style="display: flex; align-items: center; padding: 12px 15px; color: var(--text-color); text-decoration: none; transition: all 0.3s ease; width: 100%; box-sizing: border-box; border-left: 3px solid transparent; font-size: 0.95rem; gap: 12px; opacity: 0.7;"> <i class="fas fa-robot" style="width: 20px; text-align: center; font-size: 1rem; color: inherit; opacity: 0.7;"></i> AI工具 </a>
+</div>
+<div class="menu-group">
+<a class="menu-main" href="#images-section" style="display: flex; align-items: center; padding: 12px 15px; color: var(--text-color); text-decoration: none; transition: all 0.3s ease; width: 100%; box-sizing: border-box; border-left: 3px solid transparent; font-size: 0.95rem; gap: 12px; opacity: 0.7;"> <i class="fas fa-images" style="width: 20px; text-align: center; font-size: 1rem; color: inherit; opacity: 0.7;"></i> 图集资源 </a>
+</div>
+<div class="menu-group">
+<a class="menu-main" href="#furry-section" style="display: flex; align-items: center; padding: 12px 15px; color: var(--text-color); text-decoration: none; transition: all 0.3s ease; width: 100%; box-sizing: border-box; border-left: 3px solid transparent; font-size: 0.95rem; gap: 12px; opacity: 0.7;"> <i class="fas fa-paw" style="width: 20px; text-align: center; font-size: 1rem; color: inherit; opacity: 0.7;"></i> 福瑞资源 </a>
+</div>
+<div class="menu-group">
+<a class="menu-main" href="#life-section" style="display: flex; align-items: center; padding: 12px 15px; color: var(--text-color); text-decoration: none; transition: all 0.3s ease; width: 100%; box-sizing: border-box; border-left: 3px solid transparent; font-size: 0.95rem; gap: 12px; opacity: 0.7;"> <i class="fas fa-home" style="width: 20px; text-align: center; font-size: 1rem; color: inherit; opacity: 0.7;"></i> 生活服务 </a>
+</div>
+<div class="menu-group">
+<a class="menu-main" href="#learning-section" style="display: flex; align-items: center; padding: 12px 15px; color: var(--text-color); text-decoration: none; transition: all 0.3s ease; width: 100%; box-sizing: border-box; border-left: 3px solid transparent; font-size: 0.95rem; gap: 12px; opacity: 0.7;"> <i class="fas fa-graduation-cap" style="width: 20px; text-align: center; font-size: 1rem; color: inherit; opacity: 0.7;"></i> 学习资源 </a>
+</div>
+<div class="menu-group">
+<a class="menu-main" href="#regular-update-section" style="display: flex; align-items: center; padding: 12px 15px; color: var(--text-color); text-decoration: none; transition: all 0.3s ease; width: 100%; box-sizing: border-box; border-left: 3px solid transparent; font-size: 0.95rem; gap: 12px; opacity: 0.7;"> <i class="fas fa-sync-alt" style="width: 20px; text-align: center; font-size: 1rem; color: inherit; opacity: 0.7;"></i> 近期更新 </a>
+</div>
+</nav>
+<h2 class="sidebar-title" style="margin-top: 5px; font-size: 1rem; padding: 10px 15px; color: var(--text-color); opacity: 0.9; font-weight: 500; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; padding-left: 5px;"><i class="fas fa-wrench" style="margin-right: 8px; opacity: 0.9;"></i> <span style="white-space: nowrap;">功能设置</span></h2>
+<nav class="sidebar-menu">
+<div class="menu-group">
+<a class="menu-main" href="#" id="favorites-btn" style="display: flex; align-items: center; padding: 12px 15px; color: var(--text-color); text-decoration: none; transition: all 0.3s ease; width: 100%; box-sizing: border-box; border-left: 3px solid transparent; font-size: 0.95rem; gap: 12px; opacity: 0.7;"> <i class="fas fa-star" style="width: 20px; text-align: center; font-size: 1rem; color: inherit; opacity: 0.7;"></i> <span class="menu-text" style="flex: 1; color: inherit;">我的收藏</span> </a>
+</div>
+<div class="menu-group">
+<a class="menu-main" href="#" id="history-btn" style="display: flex; align-items: center; padding: 12px 15px; color: var(--text-color); text-decoration: none; transition: all 0.3s ease; width: 100%; box-sizing: border-box; border-left: 3px solid transparent; font-size: 0.95rem; gap: 12px; opacity: 0.7;"> <i class="fas fa-history" style="width: 20px; text-align: center; font-size: 1rem; color: inherit; opacity: 0.7;"></i> <span class="menu-text" style="flex: 1; color: inherit;">浏览历史</span> </a>
+</div>
+<div class="menu-group">
+<a class="menu-main" href="https://silong-respool.github.io/gay/yidu.html" style="display: flex; align-items: center; padding: 12px 15px; color: var(--text-color); text-decoration: none; transition: all 0.3s ease; width: 100%; box-sizing: border-box; border-left: 3px solid transparent; font-size: 0.95rem; gap: 12px; opacity: 0.7;" target="_blank"> <i class="fas fa-image" style="width: 20px; text-align: center; font-size: 1rem; color: inherit; opacity: 0.7;"></i> <span class="menu-text" style="flex: 1; color: inherit;">图像处理</span> </a>
+</div>
+<div class="menu-group music-box-group">
+<a class="menu-main" href="https://silong-respool.github.io/gay/yilu.html" style="display: flex; align-items: center; padding: 12px 15px; color: var(--text-color); text-decoration: none; transition: all 0.3s ease; width: 100%; box-sizing: border-box; border-left: 3px solid transparent; font-size: 0.95rem; gap: 12px; opacity: 0.7;"> <i class="fas fa-music" style="width: 20px; text-align: center; font-size: 1rem; color: inherit; opacity: 0.7;"></i> <span class="menu-text" style="flex: 1; color: inherit;">媒体音乐</span> </a>
+</div>
+<div class="menu-group">
+<a class="menu-main" href="https://silong-respool.github.io/gay/yxj.html" style="display: flex; align-items: center; padding: 12px 15px; color: var(--text-color); text-decoration: none; transition: all 0.3s ease; width: 100%; box-sizing: border-box; border-left: 3px solid transparent; font-size: 0.95rem; gap: 12px; opacity: 0.7;"> <i class="fas fa-gamepad" style="width: 20px; text-align: center; font-size: 1rem; color: inherit; opacity: 0.7;"></i> <span class="menu-text" style="flex: 1; color: inherit;">游戏娱乐</span> </a>
+</div>
+<div class="menu-group">
+<a class="menu-main" href="https://qun.qq.com/universal-share/share?ac=1&amp;authKey=iENTELuV2f%2F3WV3CV7vJ3S%2BJIMlokXDMzK6%2F8t1ntejqn5B8x9Oi3Db5MorqUrt9&amp;busi_data=eyJncm91cENvZGUiOiIxMDkxODE2MzM5IiwidG9rZW4iOiIwdVZDRjV3WDBtc3RaL1pJdi8wSVRUUm50S3VacU5xaDFBc2tqQzEzSGZheTMrKytIV3IyNFJXV1VFc01sLzk5IiwidWluIjoiMzIxMzgyNDEyNiJ9&amp;data=4CCUz1RZ3zYO6pHm8V001W6A6jUK8MOfa5IHQdA0NU4O5ZUUO3f1jnCVBF4fAF2psNwljrB0KVFrppD0cDrM2g&amp;svctype=4&amp;tempid=h5_group_info" style="display: flex; align-items: center; padding: 12px 15px; color: var(--text-color); text-decoration: none; transition: all 0.3s ease; width: 100%; box-sizing: border-box; border-left: 3px solid transparent; font-size: 0.95rem; gap: 12px; opacity: 0.7;" target="_blank"> <i class="fas fa-envelope" style="width: 20px; text-align: center; font-size: 1rem; color: inherit; opacity: 0.7;"></i> <span class="menu-text" style="flex: 1; color: inherit;">加入Q群</span> </a>
+</div>
+<!-- 新增“体验新版”菜单项 -->
+<div class="menu-group">
+<a class="menu-main" href="https://silong-respool.github.io/gay/" style="display: flex; align-items: center; padding: 12px 15px; color: var(--text-color); text-decoration: none; transition: all 0.3s ease; width: 100%; box-sizing: border-box; border-left: 3px solid transparent; font-size: 0.95rem; gap: 12px; opacity: 0.7;"> <i class="fas fa-sync-alt" style="width: 20px; text-align: center; font-size: 1rem; color: inherit; opacity: 0.7;"></i> <span class="menu-text" style="flex: 1; color: inherit;">体验新版</span> </a>
+</div>
+</nav>
+</div>
+</aside>
+<main class="main-content" id="main-content">
+<link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/> <!-- 右上角搜索下拉弹窗 - 可自定义位置和样式 -->
+<div id="searchDrawer" style="
+position: fixed;
+top: var(--header-height);
+left: 0;
+right: 0;
+width: 100vw;
+background: var(--bg-card-purple);
+border: none;
+border-bottom: 1px solid rgba(147, 51, 234, 0.15);
+border-radius: 0;
+padding: 18px;
+padding-top: 15px;
+padding-bottom: 14px;
+box-shadow: 0 10px 40px rgba(0,0,0,0.45);
+display: none;
+z-index: 1001;
+color: #fff;
+font-family: 'Segoe UI', system-ui, sans-serif;
+box-sizing: border-box;
+transition: opacity 0.25s ease, transform 0.25s ease;
+opacity: 0;
+transform: translateY(-8px);
+">
+<div style="display: flex; gap: 10px; margin-bottom: 12px;">
+<input id="kw" placeholder="输入关键词搜索全站资源..." style="flex: 1; padding: 12px 18px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.25); color: #fff; outline: none; font-size: 15px; box-sizing: border-box; transition: border-color 0.3s;" type="text"/> <button id="doSearchBtn" style="width: 46px; height: 46px; border-radius: 8px; border: none; background: #b026ff; color: #fff; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.3s, transform 0.15s;"> <i class="fas fa-search"></i> </button>
+</div>
+<div style="margin-bottom: 14px;">
+<div style="font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 8px;">搜索类型</div>
+<div style="display: flex; gap: 6px; flex-wrap: wrap;">
+<button class="search-type-tab active" data-type="site" style="padding: 7px 14px; border-radius: 20px; border: 1px solid rgba(147, 51, 234, 0.6); background: rgba(147, 51, 234, 0.35); color: #fff; font-size: 13px; cursor: pointer; transition: all 0.3s; white-space: nowrap;"> <i class="fas fa-home"></i> 本站 </button> <button class="search-type-tab" data-type="yandex-web" style="padding: 7px 14px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); font-size: 13px; cursor: pointer; transition: all 0.3s; white-space: nowrap;"> <i class="fas fa-globe"></i> 网页 </button> <button class="search-type-tab" data-type="yandex-img" style="padding: 7px 14px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); font-size: 13px; cursor: pointer; transition: all 0.3s; white-space: nowrap;"> <i class="fas fa-image"></i> 图像 </button> <button class="search-type-tab" data-type="yandex-video" style="padding: 7px 14px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); font-size: 13px; cursor: pointer; transition: all 0.3s; white-space: nowrap;"> <i class="fas fa-video"></i> 视频 </button>
+</div>
+</div>
+<!-- 图片上传区域（仅当选择“图像”类型时显示） -->
+<div id="imageUploadRow" style="display:none; margin-bottom: 14px;">
+    <div style="font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 8px;">以图搜图（上传图片后点击搜索）</div>
+    <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+        <label for="imageUploadInput" style="cursor: pointer; padding: 10px 16px; border-radius: 20px; border: 1px solid rgba(147,51,234,0.5); background: rgba(147,51,234,0.2); color: #fff; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; transition: all 0.3s;">
+            <i class="fas fa-upload"></i> 上传图片
+        </label>
+        <input type="file" id="imageUploadInput" accept="image/*" style="display: none;">
+        <div id="imagePreviewContainer" style="display: none; align-items: center; gap: 8px;">
+            <img id="imagePreview" src="" alt="预览" style="width: 36px; height: 36px; border-radius: 8px; object-fit: cover; border: 1px solid rgba(147,51,234,0.4);">
+            <span id="imageFileName" style="font-size: 12px; color: rgba(255,255,255,0.7);"></span>
+            <button id="removeImageBtn" style="background: none; border: none; color: #ff6b6b; cursor: pointer; font-size: 14px;"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+</div>
+<div id="searchCategoryRow" style="margin-bottom: 14px;">
+<div style="font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 8px;">分类筛选</div>
+<div style="position: relative;">
+<button id="searchCategoryBtn" style="width: 100%; padding: 10px 14px; border-radius: 20px; border: 1px solid rgba(147, 51, 234, 0.45); background: linear-gradient(135deg, rgba(147, 51, 234, 0.18), rgba(120, 40, 200, 0.10)); color: #e0d0ff; font-size: 13px; cursor: pointer; text-align: left; display: flex; align-items: center; justify-content: space-between; gap: 8px; transition: all 0.3s; box-shadow: 0 0 12px rgba(147,51,234,0.08);" type="button">
+<span id="searchCategoryLabel" style="display: flex; align-items: center; gap: 6px;"><i class="fas fa-layer-group" style="opacity:0.7;font-size:11px;"></i> 全部分类</span>
+<i class="fas fa-chevron-down" id="searchCategoryArrow" style="font-size: 11px; transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1); opacity: 0.7;"></i>
+</button>
+<div id="searchCategoryDropdown" style="position: fixed; background: linear-gradient(170deg, rgba(30, 18, 55, 0.995) 0%, rgba(18, 10, 42, 0.995) 100%); border: 1px solid rgba(147, 51, 234, 0.55); border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 40px rgba(147,51,234,0.3), inset 0 1px 0 rgba(255,255,255,0.04); z-index: 100000; overflow: hidden; display: none; max-height: 300px; overflow-y: auto; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
+<div style="padding: 4px;">
+<div class="silong-category-option" data-icon="fa-layer-group" data-label="全部分类" data-value="all" style="padding: 10px 14px; cursor: pointer; color: #e0d0ff; transition: all 0.2s; border-radius: 8px; margin: 2px 0; display: flex; align-items: center; gap: 8px; font-size: 13px; background: rgba(147,51,234,0.25); border: 1px solid rgba(147,51,234,0.3);"><i class="fas fa-layer-group" style="width: 16px; text-align: center; opacity: 0.7;"></i> 全部分类</div>
+<div class="silong-category-option" data-icon="fa-magnet" data-label="磁力搜索" data-value="search-section" style="padding: 10px 14px; cursor: pointer; color: #e0d0ff; transition: all 0.2s; border-radius: 8px; margin: 2px 0; display: flex; align-items: center; gap: 8px; font-size: 13px;"><i class="fas fa-magnet" style="width: 16px; text-align: center; opacity: 0.7;"></i> 磁力搜索</div>
+<div class="silong-category-option" data-icon="fa-globe" data-label="综合网站" data-value="comprehensive-section" style="padding: 10px 14px; cursor: pointer; color: #e0d0ff; transition: all 0.2s; border-radius: 8px; margin: 2px 0; display: flex; align-items: center; gap: 8px; font-size: 13px;"><i class="fas fa-globe" style="width: 16px; text-align: center; opacity: 0.7;"></i> 综合网站</div>
+<div class="silong-category-option" data-icon="fa-book-open" data-label="漫画网站" data-value="comics-section" style="padding: 10px 14px; cursor: pointer; color: #e0d0ff; transition: all 0.2s; border-radius: 8px; margin: 2px 0; display: flex; align-items: center; gap: 8px; font-size: 13px;"><i class="fas fa-book-open" style="width: 16px; text-align: center; opacity: 0.7;"></i> 漫画网站</div>
+<div class="silong-category-option" data-icon="fa-book" data-label="小说网站" data-value="novels-section" style="padding: 10px 14px; cursor: pointer; color: #e0d0ff; transition: all 0.2s; border-radius: 8px; margin: 2px 0; display: flex; align-items: center; gap: 8px; font-size: 13px;"><i class="fas fa-book" style="width: 16px; text-align: center; opacity: 0.7;"></i> 小说网站</div>
+<div class="silong-category-option" data-icon="fa-gamepad" data-label="游戏网站" data-value="games-section" style="padding: 10px 14px; cursor: pointer; color: #e0d0ff; transition: all 0.2s; border-radius: 8px; margin: 2px 0; display: flex; align-items: center; gap: 8px; font-size: 13px;"><i class="fas fa-gamepad" style="width: 16px; text-align: center; opacity: 0.7;"></i> 游戏网站</div>
+<div class="silong-category-option" data-icon="fa-film" data-label="影视网站" data-value="videos-section" style="padding: 10px 14px; cursor: pointer; color: #e0d0ff; transition: all 0.2s; border-radius: 8px; margin: 2px 0; display: flex; align-items: center; gap: 8px; font-size: 13px;"><i class="fas fa-film" style="width: 16px; text-align: center; opacity: 0.7;"></i> 影视网站</div>
+<div class="silong-category-option" data-icon="fa-cloud" data-label="网盘资源" data-value="cloud-section" style="padding: 10px 14px; cursor: pointer; color: #e0d0ff; transition: all 0.2s; border-radius: 8px; margin: 2px 0; display: flex; align-items: center; gap: 8px; font-size: 13px;"><i class="fas fa-cloud" style="width: 16px; text-align: center; opacity: 0.7;"></i> 网盘资源</div>
+<div class="silong-category-option" data-icon="fa-tools" data-label="实用工具" data-value="tools-section" style="padding: 10px 14px; cursor: pointer; color: #e0d0ff; transition: all 0.2s; border-radius: 8px; margin: 2px 0; display: flex; align-items: center; gap: 8px; font-size: 13px;"><i class="fas fa-tools" style="width: 16px; text-align: center; opacity: 0.7;"></i> 实用工具</div>
+<div class="silong-category-option" data-icon="fa-palette" data-label="设计资源" data-value="design-resources-section" style="padding: 10px 14px; cursor: pointer; color: #e0d0ff; transition: all 0.2s; border-radius: 8px; margin: 2px 0; display: flex; align-items: center; gap: 8px; font-size: 13px;"><i class="fas fa-palette" style="width: 16px; text-align: center; opacity: 0.7;"></i> 设计资源</div>
+<div class="silong-category-option" data-icon="fa-robot" data-label="AI工具" data-value="ai-tools-section" style="padding: 10px 14px; cursor: pointer; color: #e0d0ff; transition: all 0.2s; border-radius: 8px; margin: 2px 0; display: flex; align-items: center; gap: 8px; font-size: 13px;"><i class="fas fa-robot" style="width: 16px; text-align: center; opacity: 0.7;"></i> AI工具</div>
+<div class="silong-category-option" data-icon="fa-images" data-label="图集资源" data-value="images-section" style="padding: 10px 14px; cursor: pointer; color: #e0d0ff; transition: all 0.2s; border-radius: 8px; margin: 2px 0; display: flex; align-items: center; gap: 8px; font-size: 13px;"><i class="fas fa-images" style="width: 16px; text-align: center; opacity: 0.7;"></i> 图集资源</div>
+<div class="silong-category-option" data-icon="fa-paw" data-label="福瑞资源" data-value="furry-section" style="padding: 10px 14px; cursor: pointer; color: #e0d0ff; transition: all 0.2s; border-radius: 8px; margin: 2px 0; display: flex; align-items: center; gap: 8px; font-size: 13px;"><i class="fas fa-paw" style="width: 16px; text-align: center; opacity: 0.7;"></i> 福瑞资源</div>
+<div class="silong-category-option" data-icon="fa-home" data-label="生活服务" data-value="life-section" style="padding: 10px 14px; cursor: pointer; color: #e0d0ff; transition: all 0.2s; border-radius: 8px; margin: 2px 0; display: flex; align-items: center; gap: 8px; font-size: 13px;"><i class="fas fa-home" style="width: 16px; text-align: center; opacity: 0.7;"></i> 生活服务</div>
+<div class="silong-category-option" data-icon="fa-graduation-cap" data-label="学习资源" data-value="learning-section" style="padding: 10px 14px; cursor: pointer; color: #e0d0ff; transition: all 0.2s; border-radius: 8px; margin: 2px 0; display: flex; align-items: center; gap: 8px; font-size: 13px;"><i class="fas fa-graduation-cap" style="width: 16px; text-align: center; opacity: 0.7;"></i> 学习资源</div>
+<div class="silong-category-option" data-icon="fa-clock" data-label="近期更新" data-value="regular-update-section" style="padding: 10px 14px; cursor: pointer; color: #e0d0ff; transition: all 0.2s; border-radius: 8px; margin: 2px 0; display: flex; align-items: center; gap: 8px; font-size: 13px;"><i class="fas fa-clock" style="width: 16px; text-align: center; opacity: 0.7;"></i> 近期更新</div>
+</div>
+</div>
+</div>
+</div>
+<div style="margin-bottom: 10px;">
+<div style="font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+最近搜索 <span id="clearRecent" style="font-size: 12px; color: rgba(255,255,255,0.6); cursor: pointer; transition: color 0.2s;">清空</span>
+</div>
+<div id="recentList" style="display: flex; flex-wrap: nowrap; gap: 8px; overflow-x: auto; padding-bottom: 4px; width: 100%; white-space: nowrap;">
+<div style="color: rgba(255,255,255,0.6); font-size: 13px;">
+暂无搜索记录
+</div>
+</div>
+</div>
+<div id="openAdvancedSearch" style="padding: 10px 14px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; text-align: center; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.3s;">
+<i class="fas fa-sliders-h"></i> <span>高级搜索</span>
+</div>
+</div>
+<script>
+function showSilongToast(title, message, icon, onConfirm) {
+var overlay = document.createElement('div');
+overlay.className = 'silong-toast-overlay';
+overlay.innerHTML = '<div class="silong-toast-box">' +
+'<div class="silong-toast-icon"><i class="fas fa-' + (icon || 'exclamation-circle') + '"></i></div>' +
+'<div class="silong-toast-title">' + title + '</div>' +
+'<div class="silong-toast-message">' + message + '</div>' +
+'<button class="silong-toast-btn" id="silongToastConfirmBtn">确定</button>' +
+'</div>';
+document.body.appendChild(overlay);
+document.body.style.overflow = 'hidden';
+var btn = overlay.querySelector('#silongToastConfirmBtn');
+btn.addEventListener('click', function() {
+overlay.remove();
+document.body.style.overflow = '';
+if (typeof onConfirm === 'function') onConfirm();
+});
+overlay.addEventListener('click', function(e) {
+if (e.target === overlay) {
+overlay.remove();
+document.body.style.overflow = '';
+if (typeof onConfirm === 'function') onConfirm();
+}
+});
+}
 
-      searchTypeTabs.forEach(tab=>{
-        tab.addEventListener('click',function(){
-          searchTypeTabs.forEach(t=>t.classList.remove('active'));
-          this.classList.add('active');
-          currentSearchType = this.dataset.type;
-          const uploadArea = document.getElementById('imageUploadArea');
-          if(currentSearchType === 'image-upload'){
-            uploadArea.style.display = 'block';
-          } else {
-            uploadArea.style.display = 'none';
-          }
-        });
-      });
+function showSilongConfirm(title, message, icon, onConfirm, onCancel) {
+var overlay = document.createElement('div');
+overlay.className = 'silong-toast-overlay';
+overlay.innerHTML = '<div class="silong-toast-box">' +
+'<div class="silong-toast-icon"><i class="fas fa-' + (icon || 'question-circle') + '"></i></div>' +
+'<div class="silong-toast-title">' + title + '</div>' +
+'<div class="silong-toast-message">' + message + '</div>' +
+'<div style="display:flex;gap:12px;justify-content:center;">' +
+'<button class="silong-toast-btn" id="silongConfirmCancelBtn" style="background:rgba(255,255,255,0.12);box-shadow:none;">取消</button>' +
+'<button class="silong-toast-btn" id="silongConfirmOkBtn">确定</button>' +
+'</div></div>';
+document.body.appendChild(overlay);
+document.body.style.overflow = 'hidden';
+overlay.querySelector('#silongConfirmOkBtn').addEventListener('click', function() {
+overlay.remove();
+document.body.style.overflow = '';
+if (typeof onConfirm === 'function') onConfirm();
+});
+overlay.querySelector('#silongConfirmCancelBtn').addEventListener('click', function() {
+overlay.remove();
+document.body.style.overflow = '';
+if (typeof onCancel === 'function') onCancel();
+});
+overlay.addEventListener('click', function(e) {
+if (e.target === overlay) {
+overlay.remove();
+document.body.style.overflow = '';
+if (typeof onCancel === 'function') onCancel();
+}
+});
+}
 
-      const imageFileInput = document.getElementById('imageFileInput');
-      const imageSearchBtn = document.getElementById('imageSearchBtn');
-      if(imageSearchBtn){
-        imageSearchBtn.addEventListener('click',function(){
-          const file = imageFileInput.files[0];
-          if(!file){ showToast('请先选择图片文件','warning'); return; }
-          const imgName = file.name || 'image';
-          const url = 'https://yandex.com/images/search/?text=' + encodeURIComponent(imgName);
-          window.open(url, '_blank');
-        });
-      }
+var MAX_RECENT = 10;
+var currentSearchType = localStorage.getItem('silong_search_type') || 'site';
+var searchStartTime = 0;
+var selectedImageDataURL = null;
 
-      function executeSearch(keyword, type){
-        if(!keyword.trim()){ showToast('请输入关键词','warning'); return; }
-        if(type === 'site'){
-          const lower = keyword.toLowerCase();
-          const items = document.querySelectorAll('.website-item');
-          let found = 0;
-          items.forEach(item=>{
-            const name = (item.querySelector('.website-name')?.textContent||'').toLowerCase();
-            const desc = (item.querySelector('.website-desc')?.textContent||'').toLowerCase();
-            if(name.includes(lower) || desc.includes(lower)) {
-              item.style.border = '2px solid #22d3ee';
-              found++;
-            } else {
-              item.style.border = '1px solid rgba(139,72,235,.15)';
-            }
-          });
-          showToast(found>0 ? `找到 ${found} 个相关结果` : '未找到相关内容','info');
-          saveRecent(keyword, type);
-          renderRecent();
-          toggleDrawer(false);
-        } else if(type === 'image-upload'){
-        } else {
-          const urlMap = {
-            'yandex-web': 'https://yandex.com/search/?text=',
-            'yandex-img': 'https://yandex.com/images/search/?text=',
-            'yandex-video': 'https://yandex.com/video/search/?text='
-          };
-          window.open(urlMap[type] + encodeURIComponent(keyword), '_blank');
-          saveRecent(keyword, type);
-          renderRecent();
-          toggleDrawer(false);
-        }
-      }
-      doSearchBtn.addEventListener('click',()=>executeSearch(kwInput.value, currentSearchType));
-      kwInput.addEventListener('keypress',e=>{ if(e.key==='Enter') executeSearch(kwInput.value, currentSearchType); });
+var searchToggle = document.getElementById("searchToggle");
+var searchDrawer = document.getElementById("searchDrawer");
+var kwInput = document.getElementById("kw");
+var doSearchBtn = document.getElementById("doSearchBtn");
+var recentListEl = document.getElementById("recentList");
+var clearRecentBtn = document.getElementById("clearRecent");
+var searchTypeTabs = document.querySelectorAll(".search-type-tab");
+var openAdvancedSearchBtn = document.getElementById("openAdvancedSearch");
+var imageUploadRow = document.getElementById('imageUploadRow');
+var imageUploadInput = document.getElementById('imageUploadInput');
+var imagePreviewContainer = document.getElementById('imagePreviewContainer');
+var imagePreview = document.getElementById('imagePreview');
+var imageFileName = document.getElementById('imageFileName');
+var removeImageBtn = document.getElementById('removeImageBtn');
+var _closeDrawerTimer = null;
 
-      function saveRecent(word,type){
-        let arr = JSON.parse(localStorage.getItem('silong_recent')||'[]');
-        arr = arr.filter(item=>item.word!==word);
-        arr.unshift({word,type,time:Date.now()});
-        if(arr.length>8) arr.pop();
-        localStorage.setItem('silong_recent', JSON.stringify(arr));
-      }
-      function renderRecent(){
-        const arr = JSON.parse(localStorage.getItem('silong_recent')||'[]');
-        recentListEl.innerHTML = arr.length ? arr.map(item=>`<span style="padding:5px 12px;background:rgba(255,255,255,0.1);border-radius:16px;cursor:pointer;" onclick="kw.value='${item.word}'; executeSearch('${item.word}','${item.type}')">${item.word}</span>`).join('') : '暂无搜索记录';
-      }
-      renderRecent();
+// ── 抽屉打开/关闭动画 ──
+function openSearchDrawer() {
+if (_closeDrawerTimer) {
+clearTimeout(_closeDrawerTimer);
+_closeDrawerTimer = null;
+}
+var main = document.getElementById("main-content") || document.querySelector(".main-content");
+if (main) {
+main.scrollTo({ top: 0, behavior: 'smooth' });
+} else {
+window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+searchDrawer.style.display = 'block';
+void searchDrawer.offsetHeight;
+searchDrawer.style.opacity = '1';
+searchDrawer.style.transform = 'translateY(0)';
+renderRecent();
+document.body.style.overflow = 'hidden';
+setTimeout(function() { if (kwInput) kwInput.focus(); }, 150);
+}
+function closeSearchDrawer() {
+searchDrawer.style.opacity = '0';
+searchDrawer.style.transform = 'translateY(-8px)';
+_closeDrawerTimer = setTimeout(function() {
+_closeDrawerTimer = null;
+searchDrawer.style.display = 'none';
+document.body.style.overflow = '';
+}, 250);
+}
 
-      function showToast(msg,type='info'){
-        const container = document.getElementById('toastContainer');
-        const toast = document.createElement('div');
-        toast.className = 'toast';
-        toast.innerHTML = `<i class="fas ${type==='warning'?'fa-exclamation-triangle':type==='error'?'fa-times-circle':'fa-info-circle'}"></i> ${msg}`;
-        container.appendChild(toast);
-        setTimeout(()=>toast.remove(),2500);
-      }
-      window.showToast = showToast;
+function getExternalSearchUrl(keyword, type) {
+switch (type) {
+case 'yandex-web':
+return 'https://yandex.com/search/?text=' + encodeURIComponent(keyword);
+case 'yandex-img':
+return 'https://yandex.com/images/search/?text=' + encodeURIComponent(keyword);
+case 'yandex-video':
+return 'https://yandex.com/video/search/?text=' + encodeURIComponent(keyword);
+default:
+return 'https://yandex.com/search/?text=' + encodeURIComponent(keyword);
+}
+}
 
-      function initCarousel(){
-        const box = document.getElementById('carouselBox');
-        if(!box) return;
-        const slides = Array.from(box.children);
-        const hour = new Date().getHours();
-        let targetIndex = (hour % 12) || 12;
-        targetIndex = targetIndex - 1;
-        if(targetIndex < 0) targetIndex = 0;
-        const reordered = [];
-        for(let i=targetIndex; i<slides.length; i++) reordered.push(slides[i]);
-        for(let i=0; i<targetIndex; i++) reordered.push(slides[i]);
-        box.innerHTML = '';
-        reordered.forEach(s=>box.appendChild(s));
-        let current = 0;
-        function nextSlide(){
-          current = (current+1) % reordered.length;
-          box.style.transform = `translateX(-${current * (100/12)}%)`;
-        }
-        setInterval(nextSlide, 3000);
-        box.style.transform = 'translateX(0)';
-      }
-      initCarousel();
+var isSearchActive = false;
+var currentSearchKey = '';
 
-      const backBtn = document.getElementById('backToTopBtn');
-      window.addEventListener('scroll',()=>{
-        if(window.scrollY > 300) backBtn.classList.add('visible');
-        else backBtn.classList.remove('visible');
-      });
-      backBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+function siteSearch(query, categorySectionId) {
+var results = [];
+var allItems = document.querySelectorAll('.website-item');
+var items;
+if (categorySectionId && categorySectionId !== 'all') {
+var section = document.getElementById(categorySectionId);
+if (section) {
+items = section.querySelectorAll('.website-item');
+} else {
+items = allItems;
+}
+} else {
+items = allItems;
+}
+for (var i = 0; i < items.length; i++) {
+var item = items[i];
+var name = (item.dataset.searchName || item.dataset.title || '').toLowerCase();
+var desc = (item.dataset.searchDesc || item.dataset.desc || '').toLowerCase();
+var keywords = (item.dataset.keywords || '').toLowerCase();
+if (name.indexOf(query) !== -1 || desc.indexOf(query) !== -1 || keywords.indexOf(query) !== -1) {
+results.push(item);
+}
+}
+return results;
+}
 
-      window.scrollToCategory = function(id){
-        document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
-      };
-    })();
-  </script>
+function highlightResults(results) {
+var highlighted = document.querySelectorAll('.highlight');
+for (var i = 0; i < highlighted.length; i++) {
+highlighted[i].classList.remove('highlight');
+}
+for (var j = 0; j < results.length; j++) {
+results[j].classList.add('highlight');
+setTimeout((function(el) {
+return function() { el.classList.remove('highlight'); };
+})(results[j]), 2500);
+}
+}
+
+function getRecent() {
+var d = localStorage.getItem("silong_recent_search_v2");
+return d ? JSON.parse(d) : [];
+}
+
+function saveRecent(word, type) {
+if (!word || !word.trim()) return;
+word = word.trim();
+var arr = getRecent();
+arr = arr.filter(function(item) { return item.word !== word; });
+arr.unshift({ word: word, type: type || 'site', time: Date.now() });
+if (arr.length > MAX_RECENT) arr = arr.slice(0, MAX_RECENT);
+localStorage.setItem("silong_recent_search_v2", JSON.stringify(arr));
+}
+
+function renderRecent() {
+var list = getRecent();
+recentListEl.innerHTML = "";
+if (list.length === 0) {
+recentListEl.innerHTML = '<div style="color:rgba(255,255,255,0.6);font-size:13px;">暂无搜索记录</div>';
+return;
+}
+for (var i = 0; i < list.length; i++) {
+(function(item) {
+var div = document.createElement("div");
+var typeLabel = item.type === 'site' ? '本站' : (item.type === 'yandex-img' ? '图像' : (item.type === 'yandex-video' ? '视频' : '网页'));
+div.style.cssText = 'padding:6px 12px;background:rgba(255,255,255,0.08);border-radius:16px;font-size:13px;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all 0.2s;border:1px solid rgba(255,255,255,0.1);';
+div.innerHTML = '<span style="font-size:10px;color:rgba(255,255,255,0.45);margin-right:4px;">' + typeLabel + '</span>' + item.word;
+div.onmouseenter = function() {
+div.style.background = 'rgba(147,51,234,0.25)';
+div.style.borderColor = 'rgba(147,51,234,0.5)';
+};
+div.onmouseleave = function() {
+div.style.background = 'rgba(255,255,255,0.08)';
+div.style.borderColor = 'rgba(255,255,255,0.1)';
+};
+div.onclick = function(e) {
+e.stopPropagation();
+kwInput.value = item.word;
+setSearchTypeTab(item.type);
+executeSearch(item.word, item.type);
+};
+recentListEl.appendChild(div);
+})(list[i]);
+}
+}
+
+function setSearchTypeTab(type) {
+currentSearchType = type;
+localStorage.setItem('silong_search_type', type);
+for (var i = 0; i < searchTypeTabs.length; i++) {
+var tab = searchTypeTabs[i];
+if (tab.dataset.type === type) {
+tab.classList.add('active');
+tab.style.background = 'rgba(147, 51, 234, 0.35)';
+tab.style.borderColor = 'rgba(147, 51, 234, 0.6)';
+tab.style.color = '#fff';
+} else {
+tab.classList.remove('active');
+tab.style.background = 'rgba(255,255,255,0.08)';
+tab.style.borderColor = 'rgba(255,255,255,0.15)';
+tab.style.color = 'rgba(255,255,255,0.7)';
+}
+}
+var catRow = document.getElementById('searchCategoryRow');
+if (catRow) {
+catRow.style.display = (type === 'site') ? '' : 'none';
+}
+// 显示/隐藏图片上传区域
+if (imageUploadRow) {
+imageUploadRow.style.display = (type === 'yandex-img') ? '' : 'none';
+}
+if (kwInput) {
+kwInput.placeholder = (type === 'site')
+? '回车搜索本站资源'
+: (type === 'yandex-img' ? '输入关键词或上传图片后搜索' : '输入任意关键词 · 回车后跳转高级搜索');
+}
+}
+
+setSearchTypeTab(currentSearchType);
+
+function executeSearch(keyword, type) {
+if (!keyword && type !== 'yandex-img') return;
+if (type === 'yandex-img' && selectedImageDataURL) {
+// 以图搜图：打开 Yandex 图片搜索
+var url = 'https://yandex.com/images/search?rpt=imageview&url=' + encodeURIComponent(selectedImageDataURL);
+window.open(url, '_blank', 'noopener,noreferrer');
+closeSearchDrawer();
+return;
+}
+if (!keyword || !keyword.trim()) return;
+keyword = keyword.trim();
+searchStartTime = Date.now();
+
+if (type === 'site') {
+var query = keyword.toLowerCase();
+var catSelect = document.getElementById('searchCategoryBtn');
+var catValue = catSelect ? (catSelect.getAttribute('data-value') || 'all') : 'all';
+var results = siteSearch(query, catValue);
+var elapsed = Date.now() - searchStartTime;
+if (results.length > 0) {
+isSearchActive = true;
+currentSearchKey = keyword;
+showSearchResults(keyword, results, catValue);
+highlightResults(results);
+saveRecent(keyword, type);
+renderRecent();
+closeSearchDrawer();
+} else {
+isSearchActive = false;
+currentSearchKey = '';
+saveRecent(keyword, type);
+renderRecent();
+closeSearchDrawer();
+showSilongToast(
+'未找到结果',
+'本站未搜索到相关内容。<br>请尝试其他关键词，或选择其他搜索类型（网页/图像/视频）进行搜索。',
+'search',
+function() {
+openSearchDrawer();
+setTimeout(function() { kwInput.focus(); }, 100);
+}
+);
+}
+} else {
+saveRecent(keyword, type);
+renderRecent();
+var url = getExternalSearchUrl(keyword, type);
+window.open(url, '_blank', 'noopener,noreferrer');
+closeSearchDrawer();
+}
+}
+
+function showSearchResults(keyword, results, catValue) {
+var allSections = document.querySelectorAll('.category-section');
+var allCards = document.querySelectorAll('.category-card');
+
+allCards.forEach(function(card) { card.style.display = 'none'; });
+allSections.forEach(function(sec) { sec.style.display = 'none'; });
+
+var resultIds = [];
+results.forEach(function(r) {
+var card = r.closest('.category-card');
+if (card) {
+card.style.display = '';
+var section = card.closest('.category-section');
+if (section) section.style.display = '';
+}
+});
+
+var searchResultSection = document.getElementById('search-result-section');
+if (!searchResultSection) {
+searchResultSection = document.createElement('section');
+searchResultSection.id = 'search-result-section';
+searchResultSection.className = 'category-section';
+searchResultSection.innerHTML = '<div class="section-header"><h2 class="section-title" id="searchResultTitle">搜索到的相关内容</h2><button id="cancelSearchBtn" style="margin-left:16px;padding:6px 16px;border-radius:20px;border:1px solid rgba(147,51,234,0.4);background:rgba(147,51,234,0.12);color:rgba(255,255,255,0.8);cursor:pointer;font-size:13px;transition:all 0.3s;" onmouseenter="this.style.background=\'rgba(147,51,234,0.25)\'" onmouseleave="this.style.background=\'rgba(147,51,234,0.12)\'"><i class="fas fa-times"></i> 取消搜索</button></div><div id="search-result-list" style="padding:16px;color:rgba(255,255,255,0.7);font-size:14px;"></div>';
+var resourcesContainer = document.getElementById('resources-container') || document.querySelector('.main-content');
+if (resourcesContainer) {
+var firstSection = resourcesContainer.querySelector('.category-section') || resourcesContainer.querySelector('.quick-links-glass');
+if (firstSection && firstSection.nextSibling) {
+resourcesContainer.insertBefore(searchResultSection, firstSection.nextSibling);
+} else if (firstSection) {
+firstSection.parentNode.insertBefore(searchResultSection, firstSection);
+} else {
+resourcesContainer.appendChild(searchResultSection);
+}
+}
+var cancelBtn = document.getElementById('cancelSearchBtn');
+cancelBtn.addEventListener('click', clearSearch);
+cancelBtn.addEventListener('mouseenter', function() { this.style.background = 'rgba(147,51,234,0.25)'; });
+cancelBtn.addEventListener('mouseleave', function() { this.style.background = 'rgba(147,51,234,0.12)'; });
+} else {
+searchResultSection.style.display = '';
+var cancelBtn = document.getElementById('cancelSearchBtn');
+if (cancelBtn) {
+cancelBtn.onclick = clearSearch;
+}
+}
+
+var resultList = document.getElementById('search-result-list');
+if (resultList) {
+resultList.innerHTML = '找到 <b>' + results.length + '</b> 条与 "<b>' + keyword + '</b>" 相关的内容';
+}
+
+var titleEl = document.getElementById('searchResultTitle');
+if (titleEl) titleEl.textContent = '搜索到的相关内容';
+
+if (catValue && catValue !== 'all') {
+var targetSection = document.getElementById(catValue);
+if (targetSection) {
+setTimeout(function() {
+targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}, 400);
+}
+} else {
+setTimeout(function() {
+if (results.length > 0) {
+var firstCard = results[0].closest('.category-card') || results[0];
+firstCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+}, 400);
+}
+}
+
+function clearSearch() {
+isSearchActive = false;
+currentSearchKey = '';
+var allSections = document.querySelectorAll('.category-section');
+var allCards = document.querySelectorAll('.category-card');
+allCards.forEach(function(card) { card.style.display = ''; });
+allSections.forEach(function(sec) { sec.style.display = ''; });
+var searchResultSection = document.getElementById('search-result-section');
+if (searchResultSection) searchResultSection.style.display = 'none';
+var highlighted = document.querySelectorAll('.highlight');
+for (var i = 0; i < highlighted.length; i++) {
+highlighted[i].classList.remove('highlight');
+}
+}
+
+if (searchToggle) {
+searchToggle.addEventListener("click", function() {
+if (searchDrawer.style.display === "block") {
+closeSearchDrawer();
+} else {
+if (_closeDrawerTimer) {
+clearTimeout(_closeDrawerTimer);
+_closeDrawerTimer = null;
+}
+openSearchDrawer();
+}
+});
+}
+
+for (var i = 0; i < searchTypeTabs.length; i++) {
+(function(tab) {
+tab.addEventListener("click", function() {
+setSearchTypeTab(tab.dataset.type);
+});
+})(searchTypeTabs[i]);
+}
+
+doSearchBtn.addEventListener("click", function() {
+var keyword = kwInput.value.trim();
+if (!keyword && currentSearchType === 'yandex-img' && selectedImageDataURL) {
+executeSearch('', 'yandex-img');
+return;
+}
+if (!keyword) {
+showSilongToast('提示', '请输入搜索关键词或上传图片后再进行搜索。', 'exclamation-circle');
+return;
+}
+if (currentSearchType === 'site') {
+executeSearch(keyword, 'site');
+} else {
+executeSearch(keyword, currentSearchType);
+}
+});
+
+kwInput.addEventListener("keypress", function(e) {
+if (e.key === "Enter") {
+var keyword = kwInput.value.trim();
+if (!keyword && currentSearchType === 'yandex-img' && selectedImageDataURL) {
+executeSearch('', 'yandex-img');
+return;
+}
+if (!keyword) {
+showSilongToast('提示', '请输入搜索关键词或上传图片后再进行搜索。', 'exclamation-circle');
+return;
+}
+if (currentSearchType === 'site') {
+executeSearch(keyword, 'site');
+} else {
+executeSearch(keyword, currentSearchType);
+}
+}
+});
+
+// 图片上传处理
+if (imageUploadInput) {
+imageUploadInput.addEventListener('change', function(e) {
+var file = e.target.files[0];
+if (!file) return;
+var reader = new FileReader();
+reader.onload = function(ev) {
+selectedImageDataURL = ev.target.result;
+imagePreview.src = selectedImageDataURL;
+imagePreviewContainer.style.display = 'flex';
+imageFileName.textContent = file.name;
+};
+reader.readAsDataURL(file);
+});
+}
+if (removeImageBtn) {
+removeImageBtn.addEventListener('click', function(e) {
+e.stopPropagation();
+selectedImageDataURL = null;
+imagePreview.src = '';
+imagePreviewContainer.style.display = 'none';
+imageFileName.textContent = '';
+imageUploadInput.value = '';
+});
+}
+
+clearRecentBtn.addEventListener("click", function(e) {
+e.stopPropagation();
+localStorage.removeItem("silong_recent_search_v2");
+renderRecent();
+});
+
+openAdvancedSearchBtn.addEventListener("click", function() {
+window.openAdvancedSearch(kwInput.value.trim());
+});
+
+openAdvancedSearchBtn.addEventListener("mouseenter", function() {
+openAdvancedSearchBtn.style.background = 'rgba(147,51,234,0.2)';
+openAdvancedSearchBtn.style.borderColor = 'rgba(147,51,234,0.4)';
+});
+openAdvancedSearchBtn.addEventListener("mouseleave", function() {
+openAdvancedSearchBtn.style.background = 'rgba(255,255,255,0.06)';
+openAdvancedSearchBtn.style.borderColor = 'rgba(255,255,255,0.1)';
+});
+
+(function initCategoryDropdown() {
+var categoryBtn = document.getElementById('searchCategoryBtn');
+var categoryDropdown = document.getElementById('searchCategoryDropdown');
+var categoryLabel = document.getElementById('searchCategoryLabel');
+var categoryArrow = document.getElementById('searchCategoryArrow');
+var categoryOptions = document.querySelectorAll('.silong-category-option');
+var selectedValue = 'all';
+var selectedLabel = '全部分类';
+var selectedIcon = '<i class="fas fa-layer-group" style="opacity:0.7;font-size:11px;"></i>';
+
+function openDropdown() {
+var btnRect = categoryBtn.getBoundingClientRect();
+categoryDropdown.style.top = (btnRect.bottom + 6) + 'px';
+categoryDropdown.style.left = btnRect.left + 'px';
+categoryDropdown.style.width = btnRect.width + 'px';
+categoryDropdown.style.display = 'block';
+categoryArrow.style.transform = 'rotate(180deg)';
+categoryBtn.style.borderColor = 'rgba(147, 51, 234, 0.7)';
+categoryBtn.style.boxShadow = '0 0 20px rgba(147,51,234,0.2)';
+}
+
+function closeDropdown() {
+categoryDropdown.style.display = 'none';
+categoryArrow.style.transform = 'rotate(0deg)';
+categoryBtn.style.borderColor = 'rgba(147, 51, 234, 0.45)';
+categoryBtn.style.boxShadow = '0 0 12px rgba(147,51,234,0.08)';
+}
+
+function setActiveOption(el) {
+categoryOptions.forEach(function(o) {
+o.style.background = '';
+o.style.border = '';
+});
+el.style.background = 'rgba(147,51,234,0.25)';
+el.style.border = '1px solid rgba(147,51,234,0.3)';
+}
+
+categoryBtn.addEventListener('click', function(e) {
+e.stopPropagation();
+if (categoryDropdown.style.display === 'block') {
+closeDropdown();
+} else {
+openDropdown();
+}
+});
+
+categoryOptions.forEach(function(option) {
+option.addEventListener('mouseenter', function() {
+if (option.getAttribute('data-value') !== selectedValue) {
+option.style.background = 'rgba(147,51,234,0.15)';
+}
+});
+option.addEventListener('mouseleave', function() {
+if (option.getAttribute('data-value') !== selectedValue) {
+option.style.background = '';
+}
+});
+option.addEventListener('click', function(e) {
+e.stopPropagation();
+selectedValue = this.getAttribute('data-value');
+selectedLabel = this.getAttribute('data-label');
+var iconClass = this.getAttribute('data-icon') || 'fa-layer-group';
+selectedIcon = '<i class="fas ' + iconClass + '" style="opacity:0.7;font-size:11px;"></i>';
+categoryLabel.innerHTML = selectedIcon + ' ' + selectedLabel;
+categoryBtn.setAttribute('data-value', selectedValue);
+setActiveOption(this);
+closeDropdown();
+});
+});
+
+document.addEventListener('click', function(e) {
+if (!categoryBtn.contains(e.target) && !categoryDropdown.contains(e.target)) {
+closeDropdown();
+}
+});
+})();
+
+document.addEventListener("click", function(e) {
+if (e.target === searchDrawer && searchDrawer.style.display === "block") {
+closeSearchDrawer();
+}
+});
+
+searchDrawer.addEventListener("click", function(e) { e.stopPropagation(); });
+
+document.addEventListener('keydown', function(e) {
+if (e.key === 'Escape' && searchDrawer.style.display === 'block') {
+closeSearchDrawer();
+}
+});
+</script>
+<div style="width: 100%; height: 180px; margin: 12px 0; border-radius: 14px; overflow: hidden; position: relative; background: linear-gradient(135deg, #6A0DAD, #8A2BE2);">
+<div id="carouselImageLoader" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(106,13,173,0.85); z-index: 99; display: flex; align-items: center; justify-content: center; flex-direction: column; border-radius: 14px;">
+<style>
+.carousel-spinner{
+width: 36px;
+height: 36px;
+border: 3px solid rgba(255,255,255,0.2);
+border-top: 3px solid #D8BFD8;
+border-radius: 50%;
+animation: carousel-spin 0.8s linear infinite;
+}
+.carousel-loader-text{
+margin-top: 10px;
+color: #D8BFD8;
+font-size: 13px;
+}
+@keyframes carousel-spin{
+0%{transform: rotate(0deg);}
+100%{transform: rotate(360deg);}
+}
+</style>
+<div class="carousel-spinner"></div>
+<div class="carousel-loader-text">
+图片加载中...
+</div>
+</div>
+<div id="carouselClickLoader" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(106,13,173,0.85); z-index: 100; align-items: center; justify-content: center; flex-direction: column; border-radius: 14px;">
+<div class="carousel-spinner"></div>
+<div class="carousel-loader-text">
+跳转加载中...
+</div>
+</div>
+<div id="carouselWrapper" style="position: relative; width: 100%; height: 100%; overflow: hidden; touch-action: pan-y; aspect-ratio: 16 / 9;">
+<div id="carouselBox" style="display: flex; width: 1200%; height: 100%; transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); will-change: transform;">
+<div style="width: 8.33%; height: 100%;">
+<a class="carousel-link" href="https://huangguoai.com/topics/tiancai-nantong/" style="display: block; width: 100%; height: 100%;" target="_blank"> <img class="carousel-img" src="lbt/lbt1.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; will-change: opacity;"/> </a>
+</div>
+<div style="width: 8.33%; height: 100%;">
+<a class="carousel-link" href="https://poipiku.com/12082901/" style="display: block; width: 100%; height: 100%;" target="_blank"> <img class="carousel-img" src="lbt/lbt2.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; will-change: opacity;"/> </a>
+</div>
+<div style="width: 8.33%; height: 100%;">
+<a class="carousel-link" href="https://91nt43.com/" style="display: block; width: 100%; height: 100%;" target="_blank"> <img class="carousel-img" src="lbt/lbt3.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; will-change: opacity;"/> </a>
+</div>
+<div style="width: 8.33%; height: 100%;">
+<a class="carousel-link" href="https://silong-respool.github.io/gay/yxj.html" style="display: block; width: 100%; height: 100%;"> <img class="carousel-img" src="lbt/lbt4.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; will-change: opacity;"/> </a>
+</div>
+<div style="width: 8.33%; height: 100%;">
+<a class="carousel-link" href="https://acquainte.xyz/zh/explore/apps?ranking=daily_rank&amp;display=simple&amp;keywords=%E5%B7%B3%E6%B3%B7" style="display: block; width: 100%; height: 100%;" target="_blank"> <img class="carousel-img" src="lbt/lbt5.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; will-change: opacity;"/> </a>
+</div>
+<div style="width: 8.33%; height: 100%;">
+<a class="carousel-link" href="https://jm18c-oec.cc/search/photos?search_query=yaoi&amp;search-type=photos&amp;main_tag=0" style="display: block; width: 100%; height: 100%;" target="_blank"> <img class="carousel-img" src="lbt/lbt6.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; will-change: opacity;"/> </a>
+</div>
+<div style="width: 8.33%; height: 100%;">
+<a class="carousel-link" href="#" style="display: block; width: 100%; height: 100%;" target="_blank"> <img class="carousel-img" src="lbt/lbt7.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; will-change: opacity;"/> </a>
+</div>
+<div style="width: 8.33%; height: 100%;">
+<a class="carousel-link" href="#" style="display: block; width: 100%; height: 100%;" target="_blank"> <img class="carousel-img" src="lbt/lbt8.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; will-change: opacity;"/> </a>
+</div>
+<div style="width: 8.33%; height: 100%;">
+<a class="carousel-link" href="#" style="display: block; width: 100%; height: 100%;" target="_blank"> <img class="carousel-img" src="lbt/lbt9.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; will-change: opacity;"/> </a>
+</div>
+<div style="width: 8.33%; height: 100%;">
+<a class="carousel-link" href="#" style="display: block; width: 100%; height: 100%;" target="_blank"> <img class="carousel-img" src="lbt/lbt10.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; will-change: opacity;"/> </a>
+</div>
+<div style="width: 8.33%; height: 100%;">
+<a class="carousel-link" href="#" style="display: block; width: 100%; height: 100%;" target="_blank"> <img class="carousel-img" src="lbt/lbt11.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; will-change: opacity;"/> </a>
+</div>
+<div style="width: 8.33%; height: 100%;">
+<a class="carousel-link" href="#" style="display: block; width: 100%; height: 100%;" target="_blank"> <img class="carousel-img" src="lbt/lbt12.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; will-change: opacity;"/> </a>
+</div>
+</div>
+</div>
+<div style="position: absolute; bottom: 10px; left: 0; right: 0; display: flex; justify-content: center; gap: 8px; z-index: 10; flex-wrap: wrap;">
+<span class="dot" style="width: 6px; height: 6px; border-radius: 50%; background: #D8BFD8; opacity: 0.5; transition: all 0.3s ease;"></span>
+<span class="dot" style="width: 6px; height: 6px; border-radius: 50%; background: #D8BFD8; opacity: 0.5; transition: all 0.3s ease;"></span>
+<span class="dot" style="width: 6px; height: 6px; border-radius: 50%; background: #D8BFD8; opacity: 0.5; transition: all 0.3s ease;"></span>
+<span class="dot" style="width: 6px; height: 6px; border-radius: 50%; background: #D8BFD8; opacity: 0.5; transition: all 0.3s ease;"></span>
+<span class="dot" style="width: 6px; height: 6px; border-radius: 50%; background: #D8BFD8; opacity: 0.5; transition: all 0.3s ease;"></span>
+<span class="dot" style="width: 6px; height: 6px; border-radius: 50%; background: #D8BFD8; opacity: 0.5; transition: all 0.3s ease;"></span>
+<span class="dot" style="width: 6px; height: 6px; border-radius: 50%; background: #D8BFD8; opacity: 0.5; transition: all 0.3s ease;"></span>
+<span class="dot" style="width: 6px; height: 6px; border-radius: 50%; background: #D8BFD8; opacity: 0.5; transition: all 0.3s ease;"></span>
+<span class="dot" style="width: 6px; height: 6px; border-radius: 50%; background: #D8BFD8; opacity: 0.5; transition: all 0.3s ease;"></span>
+<span class="dot" style="width: 6px; height: 6px; border-radius: 50%; background: #D8BFD8; opacity: 0.5; transition: all 0.3s ease;"></span>
+<span class="dot" style="width: 6px; height: 6px; border-radius: 50%; background: #D8BFD8; opacity: 0.5; transition: all 0.3s ease;"></span>
+<span class="dot" style="width: 6px; height: 6px; border-radius: 50%; background: #D8BFD8; opacity: 0.5; transition: all 0.3s ease;"></span>
+</div>
+<script>
+(function() {
+const imgs = document.querySelectorAll('.carousel-img');
+const carouselWrapper = document.getElementById('carouselWrapper');
+const carouselBox = document.getElementById('carouselBox');
+const dots = document.querySelectorAll('.dot');
+const imageLoader = document.getElementById('carouselImageLoader');
+const clickLoader = document.getElementById('carouselClickLoader');
+
+let loadedCount = 0;
+let currentIndex = 0;
+const totalSlides = 12;
+let interval = null;
+let orderInterval = null;
+const STORAGE_KEY = 'carousel_order';
+
+// 获取当前小时（12小时制）
+function getCurrentHour() {
+const now = new Date();
+let hour = now.getHours();
+// 转换为12小时制：0=>12, 13=>1, 21=>9
+hour = hour % 12;
+if (hour === 0) hour = 12;
+return hour;
+}
+
+// 计算目标起始索引（0~11对应1~12点）
+function getTargetIndex() {
+const hour = getCurrentHour();
+// 1点->0, 2点->1, ..., 12点->11
+return hour - 1;
+}
+
+// 保存当前顺序到 localStorage
+function saveOrder() {
+const items = carouselBox.children;
+const order = [];
+for (let item of items) {
+const link = item.querySelector('a');
+const img = item.querySelector('img');
+order.push({
+href: link ? link.href : '',
+src: img ? img.src : ''
+});
+}
+localStorage.setItem(STORAGE_KEY, JSON.stringify(order));
+}
+
+function restoreOrder() {
+const stored = localStorage.getItem(STORAGE_KEY);
+if (!stored) return;
+try {
+const order = JSON.parse(stored);
+if (!Array.isArray(order) || order.length !== totalSlides) return;
+const items = carouselBox.children;
+const fragment = document.createDocumentFragment();
+for (let data of order) {
+for (let item of items) {
+const link = item.querySelector('a');
+const img = item.querySelector('img');
+if (link && img && link.href === data.href && img.src === data.src) {
+fragment.appendChild(item);
+break;
+}
+}
+}
+if (fragment.children.length === totalSlides) {
+carouselBox.innerHTML = '';
+carouselBox.appendChild(fragment);
+}
+} catch(e) {}
+}
+
+function rotateToHour() {
+const items = carouselBox.children;
+if (items.length < 2) return;
+const targetIndex = getTargetIndex();
+const fragment = document.createDocumentFragment();
+for (let i = targetIndex; i < items.length; i++) {
+fragment.appendChild(items[i]);
+}
+for (let i = 0; i < targetIndex; i++) {
+fragment.appendChild(items[i]);
+}
+carouselBox.innerHTML = '';
+carouselBox.appendChild(fragment);
+saveOrder();
+currentIndex = 0;
+setPositionByIndex();
+updateDots();
+}
+
+function startOrderRotation() {
+if (orderInterval) clearInterval(orderInterval);
+rotateToHour();
+orderInterval = setInterval(rotateToHour, 3600000);
+}
+
+imgs.forEach(img => {
+img.style.opacity = '0';
+if (img.complete) {
+onImageLoaded.call(img);
+} else {
+img.onload = onImageLoaded;
+img.onerror = onImageLoaded;
+}
+});
+
+function onImageLoaded() {
+this.style.opacity = '1';
+loadedCount++;
+if (imageLoader.style.display !== 'none') {
+imageLoader.style.display = 'none';
+restoreOrder();
+rotateToHour();
+startAutoPlay();
+startOrderRotation();
+}
+}
+
+// ---- 翻页式滑动逻辑 ----
+let startX = 0;
+let isDragging = false;
+let dragOffset = 0;
+
+carouselWrapper.addEventListener('touchstart', touchStart, { passive: true });
+carouselWrapper.addEventListener('touchmove', touchMove, { passive: true });
+carouselWrapper.addEventListener('touchend', touchEnd);
+carouselWrapper.addEventListener('mousedown', touchStart);
+carouselWrapper.addEventListener('mousemove', touchMove);
+carouselWrapper.addEventListener('mouseup', touchEnd);
+carouselWrapper.addEventListener('mouseleave', touchEnd);
+
+function touchStart(e) {
+startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+isDragging = true;
+dragOffset = 0;
+carouselBox.style.transition = 'none';
+stopAutoPlay();
+}
+
+function touchMove(e) {
+if (!isDragging) return;
+const currentX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+dragOffset = currentX - startX;
+const wrapperWidth = carouselWrapper.clientWidth;
+const percent = (dragOffset / wrapperWidth) * 100;
+const baseOffset = -currentIndex * 100;
+carouselBox.style.transform = `translateX(${baseOffset + percent}%)`;
+}
+
+function touchEnd() {
+isDragging = false;
+const wrapperWidth = carouselWrapper.clientWidth;
+const percentMoved = (dragOffset / wrapperWidth) * 100;
+
+if (percentMoved < -15) {
+currentIndex = Math.min(currentIndex + 1, totalSlides - 1);
+} else if (percentMoved > 15) {
+currentIndex = Math.max(currentIndex - 1, 0);
+}
+
+if (currentIndex >= totalSlides) currentIndex = 0;
+if (currentIndex < 0) currentIndex = totalSlides - 1;
+
+setPositionByIndex();
+carouselBox.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1)';
+startAutoPlay();
+}
+
+function setPositionByIndex() {
+const translateX = currentIndex * -100;
+carouselBox.style.transform = `translateX(${translateX}%)`;
+updateDots();
+}
+
+function updateDots() {
+dots.forEach((dot, i) => {
+if (i === currentIndex) {
+dot.style.transform = 'scale(1.3)';
+dot.style.opacity = '1';
+dot.style.background = '#9370DB';
+} else {
+dot.style.transform = 'scale(1)';
+dot.style.opacity = '0.5';
+dot.style.background = '#D8BFD8';
+}
+});
+}
+
+function nextSlide() {
+currentIndex = (currentIndex + 1) % totalSlides;
+setPositionByIndex();
+}
+
+function startAutoPlay() {
+if (interval) clearInterval(interval);
+interval = setInterval(nextSlide, 3000);
+}
+
+function stopAutoPlay() {
+if (interval) clearInterval(interval);
+interval = null;
+}
+
+function showClickLoader() {
+clickLoader.style.display = 'flex';
+}
+
+function hideClickLoader() {
+clickLoader.style.display = 'none';
+}
+
+document.querySelectorAll('.carousel-link').forEach(link => {
+link.addEventListener('click', function() {
+showClickLoader();
+const hideLoader = () => hideClickLoader();
+window.addEventListener('beforeunload', hideLoader);
+setTimeout(hideLoader, 5000);
+});
+});
+
+document.addEventListener('visibilitychange', () => {
+if (document.hidden) {
+stopAutoPlay();
+} else {
+startAutoPlay();
+}
+});
+
+window.addEventListener('resize', () => {
+setPositionByIndex();
+});
+
+setPositionByIndex();
+updateDots();
+
+if (loadedCount === totalSlides) {
+restoreOrder();
+rotateToHour();
+startAutoPlay();
+startOrderRotation();
+}
+})();
+</script>
 </div>
 <div class="quick-links-glass">
 <div class="button-container">
