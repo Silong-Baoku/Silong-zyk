@@ -1707,16 +1707,20 @@ let interval = null;
 let orderInterval = null;
 const STORAGE_KEY = 'carousel_order';
 
+// 获取当前小时（24小时制）
 function getCurrentHour() {
 const now = new Date();
 return now.getHours();
 }
 
+// 计算目标起始索引（0~11对应1~12点）
 function getTargetIndex() {
 const hour = getCurrentHour();
-return hour % totalSlides;
+// 1点->0, 2点->1, ..., 12点->11
+return (hour - 1 + 12) % 12;
 }
 
+// 保存当前顺序到 localStorage
 function saveOrder() {
 const items = carouselBox.children;
 const order = [];
@@ -1731,6 +1735,7 @@ src: img ? img.src : ''
 localStorage.setItem(STORAGE_KEY, JSON.stringify(order));
 }
 
+// 恢复上次保存的顺序
 function restoreOrder() {
 const stored = localStorage.getItem(STORAGE_KEY);
 if (!stored) return;
@@ -1756,6 +1761,7 @@ carouselBox.appendChild(fragment);
 } catch(e) {}
 }
 
+// 根据当前整点重新排序（目标图片排第一）
 function rotateToHour() {
 const items = carouselBox.children;
 if (items.length < 2) return;
@@ -1777,10 +1783,11 @@ updateDots();
 
 function startOrderRotation() {
 if (orderInterval) clearInterval(orderInterval);
-rotateToHour();
-orderInterval = setInterval(rotateToHour, 3600000);
+rotateToHour(); // 立即执行一次
+orderInterval = setInterval(rotateToHour, 3600000); // 每小时执行
 }
 
+// 图片加载
 imgs.forEach(img => {
 img.style.opacity = '0';
 if (img.complete) {
@@ -1803,8 +1810,9 @@ startOrderRotation();
 }
 }
 
+// ---- 触摸/拖拽逻辑（使用 px 单位） ----
 let startX = 0;
-let currentTranslate = 0;
+let currentTranslate = 0; // 单位 px
 let prevTranslate = 0;
 let isDragging = false;
 
@@ -1826,27 +1834,33 @@ stopAutoPlay();
 function touchMove(e) {
 if (!isDragging) return;
 const currentX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-const diff = (currentX - startX) / carouselWrapper.clientWidth * 100;
+const diff = currentX - startX;
 currentTranslate = prevTranslate + diff;
-carouselBox.style.transform = `translateX(${currentTranslate}%)`;
+carouselBox.style.transform = `translateX(${currentTranslate}px)`;
 }
 
 function touchEnd() {
 isDragging = false;
 const moveBy = currentTranslate - prevTranslate;
-if (moveBy < -10) currentIndex++;
-else if (moveBy > 10) currentIndex--;
+const slideWidth = carouselWrapper.clientWidth / totalSlides; // 每张图片宽度（px）
+// 如果滑动超过半张图片宽度则切换
+if (moveBy < -slideWidth / 2) currentIndex++;
+else if (moveBy > slideWidth / 2) currentIndex--;
+
+// 边界处理
 if (currentIndex >= totalSlides) currentIndex = 0;
 if (currentIndex < 0) currentIndex = totalSlides - 1;
+
 setPositionByIndex();
 carouselBox.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1)';
 startAutoPlay();
 }
 
 function setPositionByIndex() {
-currentTranslate = currentIndex * -100 / totalSlides * totalSlides;
+const slideWidth = carouselWrapper.clientWidth / totalSlides;
+currentTranslate = currentIndex * -slideWidth;
 prevTranslate = currentTranslate;
-carouselBox.style.transform = `translateX(${currentTranslate}%)`;
+carouselBox.style.transform = `translateX(${currentTranslate}px)`;
 updateDots();
 }
 
@@ -1864,6 +1878,7 @@ dot.style.background = '#D8BFD8';
 });
 }
 
+// 自动播放
 function nextSlide() {
 currentIndex = (currentIndex + 1) % totalSlides;
 setPositionByIndex();
@@ -1879,10 +1894,10 @@ if (interval) clearInterval(interval);
 interval = null;
 }
 
+// 点击加载遮罩
 function showClickLoader() {
 clickLoader.style.display = 'flex';
 }
-
 function hideClickLoader() {
 clickLoader.style.display = 'none';
 }
@@ -1896,6 +1911,7 @@ setTimeout(hideLoader, 5000);
 });
 });
 
+// 页面可见性变化
 document.addEventListener('visibilitychange', () => {
 if (document.hidden) {
 stopAutoPlay();
@@ -1903,6 +1919,23 @@ stopAutoPlay();
 startAutoPlay();
 }
 });
+
+// 窗口尺寸变化时重新定位
+window.addEventListener('resize', () => {
+setPositionByIndex();
+});
+
+// 初始化位置
+setPositionByIndex();
+updateDots();
+
+// 如果图片已经全部加载（缓存），则直接启动
+if (loadedCount === totalSlides) {
+restoreOrder();
+rotateToHour();
+startAutoPlay();
+startOrderRotation();
+}
 })();
 </script>
 </div>
