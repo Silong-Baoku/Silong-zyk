@@ -1805,8 +1805,9 @@ startAutoPlay();
 <a class="grid-btn" href="https://yandex.com/search/touch/?text=%E7%94%B7%E5%90%8C+gay+Porn&lr=20734" target="_blank">更多网站♂</a>
 <a class="grid-btn" href="https://mygaysites.com/" target="_blank">全球男同网</a>
 <a class="grid-btn" href="#" id="album-btn">相册集</a>
+<a class="grid-btn" href="https://xiaolan1.com/" target="_blank">小蓝视频</a>
 <a class="grid-btn" href="https://lskiwzcw.cc/" target="_blank">搜同网</a>
-<a class="grid-btn" href="https://xlgv47.com/" target="_blank">小蓝网</a>
+<a class="grid-btn" href="https://xlgv47.com/" target="_blank">每日黑料</a>
 <a class="grid-btn" href="https://91nt43.com/" target="_blank">男同网</a>
 <a class="grid-btn" href="https://twitterviewer.net/BoysWithEarsAI" target="_blank">匿名访问X</a>
 <button class="grid-btn" id="quick-expand-btn" style="cursor: pointer; background: linear-gradient(135deg, rgba(147,51,234,0.3), rgba(176,38,255,0.2)); border-color: rgba(147,51,234,0.5);"> <i class="fas fa-chevron-down"></i> 展开 </button>
@@ -1850,7 +1851,6 @@ const items = Array.from(doc.querySelectorAll('a.website-item'));
 const section = document.getElementById('recent-update-container-section');
 const loadingEl = document.getElementById('recent-update-loading');
 
-// 移除旧的动态卡片
 section.querySelectorAll('.category-card[data-dynamic="1"]').forEach(c => c.remove());
 
 if (items.length === 0) {
@@ -1860,7 +1860,6 @@ return;
 
 if (loadingEl) loadingEl.remove();
 
-// 每4个一组创建卡片
 const totalCards = Math.ceil(items.length / 4);
 for (let i = 0; i < totalCards; i++) {
 const group = items.slice(i * 4, i * 4 + 4);
