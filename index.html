@@ -1733,9 +1733,112 @@ src: img ? img.src : ''
 });
 }
 localStorage.setItem(STORAGE_KEY, JSON.stringify(order));
+</style>
+<div class="carousel-spinner"></div>
+<div class="carousel-loader-text">
+图片加载中...
+</div>
+</div>
+<div id="carouselClickLoader" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(106,13,173,0.85); z-index: 100; align-items: center; justify-content: center; flex-direction: column; border-radius: 14px;">
+<div class="carousel-spinner"></div>
+<div class="carousel-loader-text">
+跳转加载中...
+</div>
+</div>
+<div id="carouselWrapper" style="position: relative; width: 100%; height: 100%; overflow: hidden; touch-action: pan-y; aspect-ratio: 16 / 9;">
+<div id="carouselBox" style="display: flex; width: 1200%; height: 100%; transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); will-change: transform;">
+<div style="width: 8.33%; height: 100%;">
+<a class="carousel-link" href="https://huangguoai.com/topics/tiancai-nantong/" style="display: block; width: 100%; height: 100%;" target="_blank"> <img class="carousel-img" src="lbt/lbt1.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; will-change: opacity;"/> </a>
+</div>
+<div style="width: 8.33%; height: 100%;">
+<a class="carousel-link" href="https://poipiku.com/12082901/" style="display: block; width: 100%; height: 100%;" target="_blank"> <img class="carousel-img" src="lbt/lbt2.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; will-change: opacity;"/> </a>
+</div>
+<div style="width: 8.33%; height: 100%;">
+<a class="carousel-link" href="https://91nt43.com/" style="display: block; width: 100%; height: 100%;" target="_blank"> <img class="carousel-img" src="lbt/lbt3.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; will-change: opacity;"/> </a>
+</div>
+<div style="width: 8.33%; height: 100%;">
+<a class="carousel-link" href="https://silong-respool.github.io/gay/yxj.html" style="display: block; width: 100%; height: 100%;"> <img class="carousel-img" src="lbt/lbt4.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; will-change: opacity;"/> </a>
+</div>
+<div style="width: 8.33%; height: 100%;">
+<a class="carousel-link" href="https://acquainte.xyz/zh/explore/apps?ranking=daily_rank&amp;display=simple&amp;keywords=%E5%B7%B3%E6%B3%B7" style="display: block; width: 100%; height: 100%;" target="_blank"> <img class="carousel-img" src="lbt/lbt5.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; will-change: opacity;"/> </a>
+</div>
+<div style="width: 8.33%; height: 100%;">
+<a class="carousel-link" href="https://jm18c-oec.cc/search/photos?search_query=yaoi&amp;search-type=photos&amp;main_tag=0" style="display: block; width: 100%; height: 100%;" target="_blank"> <img class="carousel-img" src="lbt/lbt6.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; will-change: opacity;"/> </a>
+</div>
+<div style="width: 8.33%; height: 100%;">
+<a class="carousel-link" href="#" style="display: block; width: 100%; height: 100%;" target="_blank"> <img class="carousel-img" src="lbt/lbt7.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; will-change: opacity;"/> </a>
+</div>
+<div style="width: 8.33%; height: 100%;">
+<a class="carousel-link" href="#" style="display: block; width: 100%; height: 100%;" target="_blank"> <img class="carousel-img" src="lbt/lbt8.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; will-change: opacity;"/> </a>
+</div>
+<div style="width: 8.33%; height: 100%;">
+<a class="carousel-link" href="#" style="display: block; width: 100%; height: 100%;" target="_blank"> <img class="carousel-img" src="lbt/lbt9.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; will-change: opacity;"/> </a>
+</div>
+<div style="width: 8.33%; height: 100%;">
+<a class="carousel-link" href="#" style="display: block; width: 100%; height: 100%;" target="_blank"> <img class="carousel-img" src="lbt/lbt10.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; will-change: opacity;"/> </a>
+</div>
+<div style="width: 8.33%; height: 100%;">
+<a class="carousel-link" href="#" style="display: block; width: 100%; height: 100%;" target="_blank"> <img class="carousel-img" src="lbt/lbt11.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; will-change: opacity;"/> </a>
+</div>
+<div style="width: 8.33%; height: 100%;">
+<a class="carousel-link" href="#" style="display: block; width: 100%; height: 100%;" target="_blank"> <img class="carousel-img" src="lbt/lbt12.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; will-change: opacity;"/> </a>
+</div>
+</div>
+</div>
+<div style="position: absolute; bottom: 10px; left: 0; right: 0; display: flex; justify-content: center; gap: 8px; z-index: 10; flex-wrap: wrap;">
+<span class="dot" style="width: 6px; height: 6px; border-radius: 50%; background: #D8BFD8; opacity: 0.5; transition: all 0.3s ease;"></span>
+<span class="dot" style="width: 6px; height: 6px; border-radius: 50%; background: #D8BFD8; opacity: 0.5; transition: all 0.3s ease;"></span>
+<span class="dot" style="width: 6px; height: 6px; border-radius: 50%; background: #D8BFD8; opacity: 0.5; transition: all 0.3s ease;"></span>
+<span class="dot" style="width: 6px; height: 6px; border-radius: 50%; background: #D8BFD8; opacity: 0.5; transition: all 0.3s ease;"></span>
+<span class="dot" style="width: 6px; height: 6px; border-radius: 50%; background: #D8BFD8; opacity: 0.5; transition: all 0.3s ease;"></span>
+<span class="dot" style="width: 6px; height: 6px; border-radius: 50%; background: #D8BFD8; opacity: 0.5; transition: all 0.3s ease;"></span>
+<span class="dot" style="width: 6px; height: 6px; border-radius: 50%; background: #D8BFD8; opacity: 0.5; transition: all 0.3s ease;"></span>
+<span class="dot" style="width: 6px; height: 6px; border-radius: 50%; background: #D8BFD8; opacity: 0.5; transition: all 0.3s ease;"></span>
+<span class="dot" style="width: 6px; height: 6px; border-radius: 50%; background: #D8BFD8; opacity: 0.5; transition: all 0.3s ease;"></span>
+<span class="dot" style="width: 6px; height: 6px; border-radius: 50%; background: #D8BFD8; opacity: 0.5; transition: all 0.3s ease;"></span>
+<span class="dot" style="width: 6px; height: 6px; border-radius: 50%; background: #D8BFD8; opacity: 0.5; transition: all 0.3s ease;"></span>
+<span class="dot" style="width: 6px; height: 6px; border-radius: 50%; background: #D8BFD8; opacity: 0.5; transition: all 0.3s ease;"></span>
+</div>
+<script>
+(function() {
+const imgs = document.querySelectorAll('.carousel-img');
+const carouselWrapper = document.getElementById('carouselWrapper');
+const carouselBox = document.getElementById('carouselBox');
+const dots = document.querySelectorAll('.dot');
+const imageLoader = document.getElementById('carouselImageLoader');
+const clickLoader = document.getElementById('carouselClickLoader');
+
+let loadedCount = 0;
+let currentIndex = 0;
+const totalSlides = 12;
+let interval = null;
+let orderInterval = null;
+const STORAGE_KEY = 'carousel_order';
+
+function getCurrentHour() {
+const now = new Date();
+return now.getHours();
 }
 
-// 恢复上次保存的顺序
+function getTargetIndex() {
+const hour = getCurrentHour();
+return (hour - 1 + 12) % 12;
+}
+
+function saveOrder() {
+const items = carouselBox.children;
+const order = [];
+for (let item of items) {
+const link = item.querySelector('a');
+const img = item.querySelector('img');
+order.push({
+href: link ? link.href : '',
+src: img ? img.src : ''
+});
+}
+localStorage.setItem(STORAGE_KEY, JSON.stringify(order));
+}
+
 function restoreOrder() {
 const stored = localStorage.getItem(STORAGE_KEY);
 if (!stored) return;
@@ -1761,7 +1864,6 @@ carouselBox.appendChild(fragment);
 } catch(e) {}
 }
 
-// 根据当前整点重新排序（目标图片排第一）
 function rotateToHour() {
 const items = carouselBox.children;
 if (items.length < 2) return;
@@ -1783,11 +1885,10 @@ updateDots();
 
 function startOrderRotation() {
 if (orderInterval) clearInterval(orderInterval);
-rotateToHour(); // 立即执行一次
-orderInterval = setInterval(rotateToHour, 3600000); // 每小时执行
+rotateToHour();
+orderInterval = setInterval(rotateToHour, 3600000);
 }
 
-// 图片加载
 imgs.forEach(img => {
 img.style.opacity = '0';
 if (img.complete) {
@@ -1810,11 +1911,10 @@ startOrderRotation();
 }
 }
 
-// ---- 触摸/拖拽逻辑（使用 px 单位） ----
+// ---- 翻页式滑动逻辑 ----
 let startX = 0;
-let currentTranslate = 0; // 单位 px
-let prevTranslate = 0;
 let isDragging = false;
+let dragOffset = 0;
 
 carouselWrapper.addEventListener('touchstart', touchStart, { passive: true });
 carouselWrapper.addEventListener('touchmove', touchMove, { passive: true });
@@ -1827,6 +1927,7 @@ carouselWrapper.addEventListener('mouseleave', touchEnd);
 function touchStart(e) {
 startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
 isDragging = true;
+dragOffset = 0;
 carouselBox.style.transition = 'none';
 stopAutoPlay();
 }
@@ -1834,20 +1935,26 @@ stopAutoPlay();
 function touchMove(e) {
 if (!isDragging) return;
 const currentX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-const diff = currentX - startX;
-currentTranslate = prevTranslate + diff;
-carouselBox.style.transform = `translateX(${currentTranslate}px)`;
+dragOffset = currentX - startX;
+const wrapperWidth = carouselWrapper.clientWidth;
+const percent = (dragOffset / wrapperWidth) * 100;
+const baseOffset = -currentIndex * 100;
+carouselBox.style.transform = `translateX(${baseOffset + percent}%)`;
 }
 
 function touchEnd() {
 isDragging = false;
-const moveBy = currentTranslate - prevTranslate;
-const slideWidth = carouselWrapper.clientWidth / totalSlides; // 每张图片宽度（px）
-// 如果滑动超过半张图片宽度则切换
-if (moveBy < -slideWidth / 2) currentIndex++;
-else if (moveBy > slideWidth / 2) currentIndex--;
+const wrapperWidth = carouselWrapper.clientWidth;
+const percentMoved = (dragOffset / wrapperWidth) * 100;
 
-// 边界处理
+// 翻页阈值：滑动超过15%就翻页
+if (percentMoved < -15) {
+currentIndex = Math.min(currentIndex + 1, totalSlides - 1);
+} else if (percentMoved > 15) {
+currentIndex = Math.max(currentIndex - 1, 0);
+}
+
+// 边界循环
 if (currentIndex >= totalSlides) currentIndex = 0;
 if (currentIndex < 0) currentIndex = totalSlides - 1;
 
@@ -1857,10 +1964,8 @@ startAutoPlay();
 }
 
 function setPositionByIndex() {
-const slideWidth = carouselWrapper.clientWidth / totalSlides;
-currentTranslate = currentIndex * -slideWidth;
-prevTranslate = currentTranslate;
-carouselBox.style.transform = `translateX(${currentTranslate}px)`;
+const translateX = currentIndex * -100;
+carouselBox.style.transform = `translateX(${translateX}%)`;
 updateDots();
 }
 
@@ -1878,7 +1983,6 @@ dot.style.background = '#D8BFD8';
 });
 }
 
-// 自动播放
 function nextSlide() {
 currentIndex = (currentIndex + 1) % totalSlides;
 setPositionByIndex();
@@ -1894,10 +1998,10 @@ if (interval) clearInterval(interval);
 interval = null;
 }
 
-// 点击加载遮罩
 function showClickLoader() {
 clickLoader.style.display = 'flex';
 }
+
 function hideClickLoader() {
 clickLoader.style.display = 'none';
 }
@@ -1911,7 +2015,6 @@ setTimeout(hideLoader, 5000);
 });
 });
 
-// 页面可见性变化
 document.addEventListener('visibilitychange', () => {
 if (document.hidden) {
 stopAutoPlay();
@@ -1920,16 +2023,13 @@ startAutoPlay();
 }
 });
 
-// 窗口尺寸变化时重新定位
 window.addEventListener('resize', () => {
 setPositionByIndex();
 });
 
-// 初始化位置
 setPositionByIndex();
 updateDots();
 
-// 如果图片已经全部加载（缓存），则直接启动
 if (loadedCount === totalSlides) {
 restoreOrder();
 rotateToHour();
