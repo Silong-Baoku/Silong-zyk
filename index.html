@@ -1826,16 +1826,16 @@ stopAutoPlay();
 function touchMove(e) {
 if (!isDragging) return;
 const currentX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-const diff = currentX - startX;
+const diff = (currentX - startX) / carouselWrapper.clientWidth * 100;
 currentTranslate = prevTranslate + diff;
-carouselBox.style.transform = `translateX(${currentTranslate}px)`;
+carouselBox.style.transform = `translateX(${currentTranslate}%)`;
 }
 
 function touchEnd() {
 isDragging = false;
 const moveBy = currentTranslate - prevTranslate;
-if (moveBy < -60) currentIndex++;
-else if (moveBy > 60) currentIndex--;
+if (moveBy < -10) currentIndex++;
+else if (moveBy > 10) currentIndex--;
 if (currentIndex >= totalSlides) currentIndex = 0;
 if (currentIndex < 0) currentIndex = totalSlides - 1;
 setPositionByIndex();
@@ -1844,10 +1844,9 @@ startAutoPlay();
 }
 
 function setPositionByIndex() {
-const width = carouselWrapper.clientWidth;
-currentTranslate = currentIndex * -width;
+currentTranslate = currentIndex * -100 / totalSlides * totalSlides;
 prevTranslate = currentTranslate;
-carouselBox.style.transform = `translateX(${currentTranslate}px)`;
+carouselBox.style.transform = `translateX(${currentTranslate}%)`;
 updateDots();
 }
 
